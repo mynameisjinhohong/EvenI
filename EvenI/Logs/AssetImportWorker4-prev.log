@@ -1,0 +1,957 @@
+Using pre-set license
+Built from '2021.3/staging' branch; Version is '2021.3.15f1 (e8e88683f834) revision 15263878'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 10  (10.0.19045) 64bit Core' Language: 'ko' Physical Memory: 16336 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+D:\Program Files (x86)\Unity\2021.3.15f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker4
+-projectPath
+D:/Program Files (x86)/GitHub/EvenI/EvenI
+-logFile
+Logs/AssetImportWorker4.log
+-srvPort
+62759
+Successfully changed project path to: D:/Program Files (x86)/GitHub/EvenI/EvenI
+D:/Program Files (x86)/GitHub/EvenI/EvenI
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [19928] Host "[IP] 121.145.18.89 [Port] 0 [Flags] 2 [Guid] 2448653314 [EditorId] 2448653314 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-IS8DQUP) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+
+Player connection [19928] Host "[IP] 121.145.18.89 [Port] 0 [Flags] 2 [Guid] 2448653314 [EditorId] 2448653314 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-IS8DQUP) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+
+Refreshing native plugins compatible for Editor in 251.92 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2021.3.15f1 (e8e88683f834)
+[Subsystems] Discovering subsystems at path D:/Program Files (x86)/Unity/2021.3.15f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path D:/Program Files (x86)/GitHub/EvenI/EvenI/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1060 6GB (ID=0x1c03)
+    Vendor:   NVIDIA
+    VRAM:     6043 MB
+    Driver:   31.0.15.3141
+Initialize mono
+Mono path[0] = 'D:/Program Files (x86)/Unity/2021.3.15f1/Editor/Data/Managed'
+Mono path[1] = 'D:/Program Files (x86)/Unity/2021.3.15f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'D:/Program Files (x86)/Unity/2021.3.15f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56084
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: D:/Program Files (x86)/Unity/2021.3.15f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+Register platform support module: D:/Program Files (x86)/Unity/2021.3.15f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.060995 seconds.
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Refreshing native plugins compatible for Editor in 173.79 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.213 seconds
+Domain Reload Profiling:
+	ReloadAssembly (2214ms)
+		BeginReloadAssembly (540ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (3ms)
+		EndReloadAssembly (1186ms)
+			LoadAssemblies (505ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (262ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (44ms)
+			SetupLoadedEditorAssemblies (721ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (134ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (174ms)
+				BeforeProcessingInitializeOnLoad (1ms)
+				ProcessInitializeOnLoadAttributes (302ms)
+				ProcessInitializeOnLoadMethodAttributes (109ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.032423 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image D:\Program Files (x86)\GitHub\EvenI\EvenI\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image D:\Program Files (x86)\GitHub\EvenI\EvenI\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Refreshing native plugins compatible for Editor in 326.86 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  5.774 seconds
+Domain Reload Profiling:
+	ReloadAssembly (5777ms)
+		BeginReloadAssembly (1354ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (30ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (468ms)
+		EndReloadAssembly (4069ms)
+			LoadAssemblies (776ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (1511ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (233ms)
+			SetupLoadedEditorAssemblies (1773ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (45ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (327ms)
+				BeforeProcessingInitializeOnLoad (307ms)
+				ProcessInitializeOnLoadAttributes (831ms)
+				ProcessInitializeOnLoadMethodAttributes (181ms)
+				AfterProcessingInitializeOnLoad (81ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (12ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.30 seconds
+Refreshing native plugins compatible for Editor in 0.81 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4047 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 44 unused Assets / (228.9 KB). Loaded Objects now: 4500.
+Memory consumption went from 155.5 MB to 155.3 MB.
+Total: 9.179900 ms (FindLiveObjects: 0.361300 ms CreateObjectMapping: 0.630300 ms MarkObjects: 7.922200 ms  DeleteObjects: 0.264900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: e54d7ab0439102e2317fc1e4b246158d -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 339487.141687 seconds.
+  path: Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/d_stevejobsbuhoshechristmas.png
+  artifactKey: Guid(f008857e434b98b4eaabda1fd6af3059) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/d_stevejobsbuhoshechristmas.png using Guid(f008857e434b98b4eaabda1fd6af3059) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6778e7de40ea3bcd3157f8154f9eaaaa') in 1.339047 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Weight_Brush@3x.png
+  artifactKey: Guid(3279d541bf75c624cbdd7179eb5559a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Weight_Brush@3x.png using Guid(3279d541bf75c624cbdd7179eb5559a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f39847d1a65c619865e018e91eb0ee78') in 0.247622 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Dark/d_Edit_Geometry.png
+  artifactKey: Guid(a855026b258150c418b14e56540f642a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Dark/d_Edit_Geometry.png using Guid(a855026b258150c418b14e56540f642a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2e204de021c69bdefac8a30e0a37830f') in 0.173525 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.058617 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/Edit_Geometry@2x.png
+  artifactKey: Guid(c706f86f6fd02084f9a14727d08b844d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/Edit_Geometry@2x.png using Guid(c706f86f6fd02084f9a14727d08b844d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f6cfa08b85e4416a93727a7c26d406c9') in 0.259460 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.178891 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/Edit_Joints@3x.png
+  artifactKey: Guid(0b0f60aa75b9d024480f9aaad450723b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/Edit_Joints@3x.png using Guid(0b0f60aa75b9d024480f9aaad450723b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd00b35a81af7333f5be04915a5bc7a52') in 0.284403 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.012006 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Generate_Weights.png
+  artifactKey: Guid(007c4dbed3f8be9429c39de72ee3c2d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Generate_Weights.png using Guid(007c4dbed3f8be9429c39de72ee3c2d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '29fa15bd7c9c50c1ccdbd2defb3ffbd0') in 0.187282 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.066435 seconds.
+  path: Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/xlink.png
+  artifactKey: Guid(556a2f3b046024d4c9621c1b4be5f0c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/xlink.png using Guid(556a2f3b046024d4c9621c1b4be5f0c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '96db520038f3250376e8a58f83603cd2') in 0.144349 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000295 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Generate_Geometry.png
+  artifactKey: Guid(cbef2434b36ff174a98995b13ef80390) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Generate_Geometry.png using Guid(cbef2434b36ff174a98995b13ef80390) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '74aae669c6cc732cc2d948d6e3ce6899') in 0.044621 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.010613 seconds.
+  path: Packages/com.unity.2d.psdimporter/Editor/Assets/Icons/Dark/Layers Collapsed@2x.png
+  artifactKey: Guid(360cfd7debcd44adfbb69d1911de502d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.psdimporter/Editor/Assets/Icons/Dark/Layers Collapsed@2x.png using Guid(360cfd7debcd44adfbb69d1911de502d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ba0421b2ab91d357a16f11c29849ba70') in 0.072381 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000488 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/d_Mesh@3x.png
+  artifactKey: Guid(e79a9e9d6396eba438900afb0357e808) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/d_Mesh@3x.png using Guid(e79a9e9d6396eba438900afb0357e808) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f84129aeec07eb9eaea5306c7d94aea4') in 0.102271 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/Weight_Brush@4x.png
+  artifactKey: Guid(48464cd53bb3c604f999e7d3f15e8d09) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/Weight_Brush@4x.png using Guid(48464cd53bb3c604f999e7d3f15e8d09) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fa4a849b8dffd328a602c7ebf15c33da') in 0.251860 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000209 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/Create_Edge@3x.png
+  artifactKey: Guid(374643871a39dd44880f1c0eff14f46c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/Create_Edge@3x.png using Guid(374643871a39dd44880f1c0eff14f46c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd6ed6f2503bb152d981787c7b406b7dd') in 0.070911 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/iconplasticviewnotify@2x.png
+  artifactKey: Guid(0a4da12ff51bd83498216f698c7f20fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/iconplasticviewnotify@2x.png using Guid(0a4da12ff51bd83498216f698c7f20fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6333bae093bffcce7382e979678f64a4') in 0.085164 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Dark/d_Parent_Bone@2x.png
+  artifactKey: Guid(1038032ed9d668e438d3f97dd8014cbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Dark/d_Parent_Bone@2x.png using Guid(1038032ed9d668e438d3f97dd8014cbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '25dab908e74d338fd0da30b53764fa31') in 0.069731 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.016383 seconds.
+  path: Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/d_step3@2x.png
+  artifactKey: Guid(c9ed6d6ea2f9657409bfa068d4846139) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/d_step3@2x.png using Guid(c9ed6d6ea2f9657409bfa068d4846139) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5f5cd881527b2b657091376fe018e0c4') in 0.069030 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Weight_Brush@2x.png
+  artifactKey: Guid(17d3bf7425a0748489ce3633e38652db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Weight_Brush@2x.png using Guid(17d3bf7425a0748489ce3633e38652db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e9c5c366fee0ce607c37d47805aec847') in 0.095315 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.001023 seconds.
+  path: Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/buttonssosigninemail.png
+  artifactKey: Guid(d24e7e0b75e1a244bb9687d6fd4315ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/buttonssosigninemail.png using Guid(d24e7e0b75e1a244bb9687d6fd4315ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '17715c982d88679788133d6f6aba5fb2') in 0.073331 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Dark/d_Sprite_Mode@3x.png
+  artifactKey: Guid(6027031a7453da24f95d0af9a2308c52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Dark/d_Sprite_Mode@3x.png using Guid(6027031a7453da24f95d0af9a2308c52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '248886ba197ff2698cc6604bceb5111e') in 0.061534 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/ignoredoverlay@2x.png
+  artifactKey: Guid(999d04c0ea94ccc41b3d80788160695b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/ignoredoverlay@2x.png using Guid(999d04c0ea94ccc41b3d80788160695b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f95ed42ddc6e3fe60b22f6491950dab9') in 0.064167 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/Weight_Brush@3x.png
+  artifactKey: Guid(3e6e6fbbd946d0541923f45f4eaa2cf1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/Weight_Brush@3x.png using Guid(3e6e6fbbd946d0541923f45f4eaa2cf1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ba3f0b21468b120183a84b0d7f47c221') in 0.074975 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/Bone_Influence@4x.png
+  artifactKey: Guid(daf2ab606d4db0d4f9ecf4c02137d2a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/Bone_Influence@4x.png using Guid(daf2ab606d4db0d4f9ecf4c02137d2a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '885f6c483b9e5141673bc381cf191fa2') in 0.162705 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Weight_Slider@4x.png
+  artifactKey: Guid(4e494ad3b858ecf4fab63aae9075d43d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Weight_Slider@4x.png using Guid(4e494ad3b858ecf4fab63aae9075d43d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3e1ecbf205ddcaafe73446698934e251') in 0.104217 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.004067 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Dark/d_Visibility_Tool 1.png
+  artifactKey: Guid(8ce57331a725cc74d84af900f8f3c641) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Dark/d_Visibility_Tool 1.png using Guid(8ce57331a725cc74d84af900f8f3c641) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1f6efb224c33456c8ccaf1c867005fa1') in 0.162498 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Bone.png
+  artifactKey: Guid(62ce01ddca719d34ea9648c586a7cc94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Bone.png using Guid(62ce01ddca719d34ea9648c586a7cc94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '947340cc73ea1c229024f707a4f18d7e') in 0.115800 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000068 seconds.
+  path: Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/d_iconcheckedoutlocaloverlay.png
+  artifactKey: Guid(bb1928aff4fd4cf44af1f629dc14ef9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/d_iconcheckedoutlocaloverlay.png using Guid(bb1928aff4fd4cf44af1f629dc14ef9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e26e1a017f7a0e0afde1241f1ea1950b') in 0.087900 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000877 seconds.
+  path: Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/d_expertbuho.png
+  artifactKey: Guid(13e7e6fe43a8aa049bcd610bbc1f5ff8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/d_expertbuho.png using Guid(13e7e6fe43a8aa049bcd610bbc1f5ff8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '05b95982d8c7e5f546f750759a3afcb6') in 0.093003 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000634 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Dark/d_Weight_Brush@4x.png
+  artifactKey: Guid(f68f6cf24545d2f41b27323ca2b06a52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Dark/d_Weight_Brush@4x.png using Guid(f68f6cf24545d2f41b27323ca2b06a52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a504226da13eefdb0c471494b5ce1959') in 0.064627 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.001933 seconds.
+  path: Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/d_loading@2x.png
+  artifactKey: Guid(7ee48c5fba4919649a8a6094cbead669) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/d_loading@2x.png using Guid(7ee48c5fba4919649a8a6094cbead669) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0b2f30fa657cb8afe773a5cfecd6a6a3') in 0.125838 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Dark/d_Edit_Joints@3x.png
+  artifactKey: Guid(e76bc39dceb8b72439432f8679056c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Dark/d_Edit_Joints@3x.png using Guid(e76bc39dceb8b72439432f8679056c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd9b85f1abb48c5437ec2588c945eea84') in 0.157892 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Dark/d_Paste@2x.png
+  artifactKey: Guid(6de1e8bb25ebf5c44b02b794de99154c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Dark/d_Paste@2x.png using Guid(6de1e8bb25ebf5c44b02b794de99154c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '08546403c0183d02a18ec7e7a0c6cc4c') in 0.120954 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/d_Mesh@4x.png
+  artifactKey: Guid(2b4752bce841cc74bb73820ce5212d34) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/d_Mesh@4x.png using Guid(2b4752bce841cc74bb73820ce5212d34) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0e80ba0de09f02d0996dd9d2d57badef') in 0.043191 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.006825 seconds.
+  path: Packages/com.unity.2d.psdimporter/Editor/Assets/Icons/Dark/Layers Collapsed@8x.png
+  artifactKey: Guid(8649c1c76eb014a4d9e24547717f1619) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.psdimporter/Editor/Assets/Icons/Dark/Layers Collapsed@8x.png using Guid(8649c1c76eb014a4d9e24547717f1619) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6840e60ca20c380ee7eb83ef8e4a2fde') in 0.081907 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Packages/com.unity.2d.psdimporter/Editor/Assets/Icons/Selected/Layers Collapsed@4x.png
+  artifactKey: Guid(88a01be2082444885aa54d39afb85dd8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.psdimporter/Editor/Assets/Icons/Selected/Layers Collapsed@4x.png using Guid(88a01be2082444885aa54d39afb85dd8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b396b37569e98a48f23ad43ccf937bdd') in 0.049470 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.004281 seconds.
+  path: Packages/com.unity.2d.path/Editor/Handles/TangentLinear.png
+  artifactKey: Guid(a728d9332cba5f448a36350199dc573b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.path/Editor/Handles/TangentLinear.png using Guid(a728d9332cba5f448a36350199dc573b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1e1a33c46cfc9a44aebfa28097bd77a1') in 0.084637 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.002477 seconds.
+  path: Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/buttonssosigningoogle.png
+  artifactKey: Guid(f09eae8c0ea04254b90c5386a034a225) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/buttonssosigningoogle.png using Guid(f09eae8c0ea04254b90c5386a034a225) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '971d2dbe034db0350e1bb0f5c18b3391') in 0.071487 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000214 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Dark/d_Copy@3x.png
+  artifactKey: Guid(3b5ad4dfc78124a489bb5c48a4b57195) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Dark/d_Copy@3x.png using Guid(3b5ad4dfc78124a489bb5c48a4b57195) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '622cbd63aa42e23e5961c2e602837881') in 0.095783 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.002662 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/Sprite_Influence.png
+  artifactKey: Guid(a2db0b51e2c0e418b8d5f85cee0d4876) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/Sprite_Influence.png using Guid(a2db0b51e2c0e418b8d5f85cee0d4876) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4aa139cef88ea2153c98c2074f358110') in 0.072916 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.041350 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/Copy.png
+  artifactKey: Guid(678095381d851334fb550c5032ba1a81) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/Copy.png using Guid(678095381d851334fb550c5032ba1a81) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a9fda21d7140915741040363da32d184') in 0.201336 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Weight_Slider.png
+  artifactKey: Guid(aa91af43c72989f44bf937fd28243bc7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Weight_Slider.png using Guid(aa91af43c72989f44bf937fd28243bc7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '967724e53c64586e94c1f6f8bba2d1da') in 0.149595 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.005818 seconds.
+  path: Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/iconplasticnotifyincoming.png
+  artifactKey: Guid(1e6c9635b80f973488d8335a081c905f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/iconplasticnotifyincoming.png using Guid(1e6c9635b80f973488d8335a081c905f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '729a4daa91dfbb9c947f99af243c5666') in 0.054352 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Visibility_Tool@2x.png
+  artifactKey: Guid(45c995b76b893fd4b9e8d3e0f9f6463b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Visibility_Tool@2x.png using Guid(45c995b76b893fd4b9e8d3e0f9f6463b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '19c145901afbd2099aea53b9fa48cc85') in 0.155939 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.044902 seconds.
+  path: Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/refresh@2x.png
+  artifactKey: Guid(59571f82a0dc1a14da606dc0df6f8ea7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/refresh@2x.png using Guid(59571f82a0dc1a14da606dc0df6f8ea7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3106b00e2b47594ff9d8b3366d435e11') in 0.120117 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Dark/d_Sprite_Influence.png
+  artifactKey: Guid(eca47b8e551b04a0e8adc931893c60f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Dark/d_Sprite_Influence.png using Guid(eca47b8e551b04a0e8adc931893c60f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fee1c9bb2e1b1a713a28a8d230dda204') in 0.172198 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.091821 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Generate_Weights@2x.png
+  artifactKey: Guid(ef3672bed7321e34da872e8c2e205209) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Generate_Weights@2x.png using Guid(ef3672bed7321e34da872e8c2e205209) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7e097dd4dcc75e75e9aa5b0476aaf8c1') in 0.170887 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.084129 seconds.
+  path: Packages/com.unity.2d.psdimporter/Editor/Assets/Icons/Selected/Layers Mixed@8x.png
+  artifactKey: Guid(3492e9eb6292141eb942d0c9beface29) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.psdimporter/Editor/Assets/Icons/Selected/Layers Mixed@8x.png using Guid(3492e9eb6292141eb942d0c9beface29) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '730cdadff68176c9c31a286654fd9b09') in 0.047189 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.031139 seconds.
+  path: Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/d_iconaddedlocal@2x.png
+  artifactKey: Guid(02800fb9cff14da47a04572790384d8b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/d_iconaddedlocal@2x.png using Guid(02800fb9cff14da47a04572790384d8b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '841b5d1e110ba7cc8803cc0a7b87cde0') in 0.124655 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/Parent_Bone@3x.png
+  artifactKey: Guid(6f4409ce938bf9447a36e531f7755ca7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/Parent_Bone@3x.png using Guid(6f4409ce938bf9447a36e531f7755ca7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a752b9e46d3e15318a82999696926a01') in 0.085689 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/d_buttonssosigninemail.png
+  artifactKey: Guid(3086d66a563317b40a20a20da2c64ac0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/d_buttonssosigninemail.png using Guid(3086d66a563317b40a20a20da2c64ac0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '898296e24572274bcf6ec9b2fe527a38') in 0.074590 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.021862 seconds.
+  path: Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/d_secondarytabclosehover@2x.png
+  artifactKey: Guid(9aa4348290784b2468144a97eb15d8d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/d_secondarytabclosehover@2x.png using Guid(9aa4348290784b2468144a97eb15d8d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '82ce0c1475442ab265d2c60f0f2ed6d3') in 0.086327 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000399 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Dark/d_Parent_Bone.png
+  artifactKey: Guid(8b8fa969cc0cac04b97330905b3dd95b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Dark/d_Parent_Bone.png using Guid(8b8fa969cc0cac04b97330905b3dd95b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e6d6281daa0fd1f26062437d262a7e6e') in 0.171850 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.012728 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Split Bones.png
+  artifactKey: Guid(59bc7a7ca0683ac439e255a533670885) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Split Bones.png using Guid(59bc7a7ca0683ac439e255a533670885) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bfbcfec67f244a5f0ff16ab8e73603b6') in 0.128129 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.004830 seconds.
+  path: Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/d_iconplasticnotifyincoming@2x.png
+  artifactKey: Guid(c5fc116b3271b5947808130b2212cd60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/d_iconplasticnotifyincoming@2x.png using Guid(c5fc116b3271b5947808130b2212cd60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '76dd79ab208d3de68c7c983e32e428a4') in 0.066236 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000045 seconds.
+  path: Packages/com.unity.2d.psdimporter/Editor/Assets/Icons/Selected/Layers Collapsed@1x.png
+  artifactKey: Guid(2870bda067c0e4d58911767e41709dd2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.psdimporter/Editor/Assets/Icons/Selected/Layers Collapsed@1x.png using Guid(2870bda067c0e4d58911767e41709dd2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6b49bcb68c5734aa97798834950c4934') in 0.045644 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000057 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Dark/d_character_Mode@4x.png
+  artifactKey: Guid(395f6b9556f14704790df6035be6ee3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Dark/d_character_Mode@4x.png using Guid(395f6b9556f14704790df6035be6ee3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7623c84d1c22d2d3c701fc40213ea270') in 0.051713 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.091090 seconds.
+  path: Packages/com.unity.2d.psdimporter/Editor/Assets/Icons/Dark/Layers Separated@2x.png
+  artifactKey: Guid(e269a78d88d514e4c9bde97d573d7e45) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.psdimporter/Editor/Assets/Icons/Dark/Layers Separated@2x.png using Guid(e269a78d88d514e4c9bde97d573d7e45) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0733a80a9fc03f9b1d44cf7bbe941f98') in 0.067613 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000574 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/Weight_Slider@2x.png
+  artifactKey: Guid(7f64a6e091143c0458506b559165cf72) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/Weight_Slider@2x.png using Guid(7f64a6e091143c0458506b559165cf72) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'abacfa27bcd7b217dc44b48b207fc746') in 0.051973 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/d_iconplasticnotifyconflict.png
+  artifactKey: Guid(51582ae5ea51fa14996791a550f89473) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/d_iconplasticnotifyconflict.png using Guid(51582ae5ea51fa14996791a550f89473) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '539ea18860a8545e13f31e2c5a836279') in 0.050069 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.001677 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Dark/d_Generate_Weights@2x.png
+  artifactKey: Guid(f7e651b449fe96f42badf0e18b738c78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Dark/d_Generate_Weights@2x.png using Guid(f7e651b449fe96f42badf0e18b738c78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1a77c673981d985f9da4bc1d472a7322') in 0.061444 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000040 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Generate_Weights@4x.png
+  artifactKey: Guid(a56b84f780e8aef439e9a83d60ca7420) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Generate_Weights@4x.png using Guid(a56b84f780e8aef439e9a83d60ca7420) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '16ef421ba64b2c937165fc6664d0894e') in 0.206105 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Packages/com.unity.2d.psdimporter/Editor/Assets/Icons/Selected/Layers Separated@2x.png
+  artifactKey: Guid(91897a07e69db49ff88db92f445ba845) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.psdimporter/Editor/Assets/Icons/Selected/Layers Separated@2x.png using Guid(91897a07e69db49ff88db92f445ba845) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'acff3fd2dca1e0741f0975cd887d5a9a') in 0.068616 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000810 seconds.
+  path: Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/step2@2x.png
+  artifactKey: Guid(0029170d14ce6c04c9f45c22cdae5559) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/step2@2x.png using Guid(0029170d14ce6c04c9f45c22cdae5559) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cf0f591ea15ee643eef9dc789db5cab0') in 0.088165 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.001390 seconds.
+  path: Packages/com.unity.2d.psdimporter/Editor/Assets/Icons/Dark/Layers Collapsed@4x.png
+  artifactKey: Guid(ea5547bcdee4e4a8cb4705499aabe76d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.psdimporter/Editor/Assets/Icons/Dark/Layers Collapsed@4x.png using Guid(ea5547bcdee4e4a8cb4705499aabe76d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cd95b89ae08bb2ee2d3a087b9eacfb52') in 0.052160 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.003544 seconds.
+  path: Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/d_step1.png
+  artifactKey: Guid(38236a82ff44aaa4b972248479d5f970) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/d_step1.png using Guid(38236a82ff44aaa4b972248479d5f970) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fd978c38f395684b93b1005b20fe137b') in 0.081102 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Dark/d_Mesh.png
+  artifactKey: Guid(f4e90b0a1e5a5bc46897cdcf5a142111) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Dark/d_Mesh.png using Guid(f4e90b0a1e5a5bc46897cdcf5a142111) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0e9c674259a8b8935bd48a614e09ad52') in 0.044623 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.001928 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Dark/d_Bone_Influence.png
+  artifactKey: Guid(c037c4c58e8d8c34ca9bf121abb7ee49) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Dark/d_Bone_Influence.png using Guid(c037c4c58e8d8c34ca9bf121abb7ee49) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e8b2092bbb9d5d3c44008e6fce815757') in 0.136013 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Parent_Bone@3x.png
+  artifactKey: Guid(a316f87205656c949a135f4c7ae8d5f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Parent_Bone@3x.png using Guid(a316f87205656c949a135f4c7ae8d5f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b2ec13e005596b4026376aa9c5b2ed45') in 0.066417 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.019217 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/Bone_Influence@2x.png
+  artifactKey: Guid(0779ad3feec52124e97114bcbb12ef13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/Bone_Influence@2x.png using Guid(0779ad3feec52124e97114bcbb12ef13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f188230757d7ea74a7d7660137336cce') in 0.163762 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.043222 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Dark/d_Copy.png
+  artifactKey: Guid(69fdfe6d8e206134a83223383472ff48) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Dark/d_Copy.png using Guid(69fdfe6d8e206134a83223383472ff48) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '72534b401c2f6f4b0c920bf305bc4b34') in 0.149159 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/d_step2@2x.png
+  artifactKey: Guid(cdb88fdb0cf46b244a667edaff21c7df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/d_step2@2x.png using Guid(cdb88fdb0cf46b244a667edaff21c7df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '47aac4f44ccc3eee0b564e4d4138bf59') in 0.064397 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.012820 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/Split Bones.png
+  artifactKey: Guid(f723a6284838af1429bbb544ecf4015d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/Split Bones.png using Guid(f723a6284838af1429bbb544ecf4015d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '12f726e7c65fae350e8fa24487fac93d') in 0.053867 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.010946 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/Create_Edge@4x.png
+  artifactKey: Guid(3458c119c69e9bc4f9647599c2901dee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/Create_Edge@4x.png using Guid(3458c119c69e9bc4f9647599c2901dee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '39cbe95fe9d50762084a1c008c768086') in 0.067908 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.004997 seconds.
+  path: Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/d_stevejobsbuhochristmas.png
+  artifactKey: Guid(08c91a7677e66844281a99aaf6ea36f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/d_stevejobsbuhochristmas.png using Guid(08c91a7677e66844281a99aaf6ea36f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '098ed4e6e1469eae77f0be417d9fb796') in 0.084806 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.055331 seconds.
+  path: Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/iconrepository.png
+  artifactKey: Guid(ed64f3a17f2ede646be21ed6edc9161a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/iconrepository.png using Guid(ed64f3a17f2ede646be21ed6edc9161a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9afc34364055ff130c1dfd54ce9d17a5') in 0.057758 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/Edit_Pose@2x.png
+  artifactKey: Guid(1da4b8d35afa8314198e7b69dc383431) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/Edit_Pose@2x.png using Guid(1da4b8d35afa8314198e7b69dc383431) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4f074d522298949d5ed94b8ee7730cfc') in 0.037033 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.079017 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Create Bones@3x.png
+  artifactKey: Guid(803b0b9bfc1fd824aae8423bfbab83b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Create Bones@3x.png using Guid(803b0b9bfc1fd824aae8423bfbab83b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5d133b052785fb06b3737044fd535dc0') in 0.078572 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000782 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Create_Vertex@2x.png
+  artifactKey: Guid(a0c33b3a6e0728343b29883d739f1322) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Create_Vertex@2x.png using Guid(a0c33b3a6e0728343b29883d739f1322) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ab003da6b84c939e5523c743370acafd') in 0.045634 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.058413 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Dark/d_Edit_Joints@4x.png
+  artifactKey: Guid(15d3c315af8faf2498573371308b9d3e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Dark/d_Edit_Joints@4x.png using Guid(15d3c315af8faf2498573371308b9d3e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8d2dce73aff7eb14ff4cf0b1adbd1c55') in 0.103562 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000518 seconds.
+  path: Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/iconconflicted@2x.png
+  artifactKey: Guid(f95f697d66d238446b1ab717def09945) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/iconconflicted@2x.png using Guid(f95f697d66d238446b1ab717def09945) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ee5c52b9888502b97fe8cb54af1c41e6') in 0.129295 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Edit_Geometry.png
+  artifactKey: Guid(5242f1eff2245a741a7cec5ada97f9f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Edit_Geometry.png using Guid(5242f1eff2245a741a7cec5ada97f9f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fb934db6099ff6e496ad8083ddbe153a') in 0.133236 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000040 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Split_Edge@3x.png
+  artifactKey: Guid(4d2d8fb4fc2041441980b4ec253532b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Split_Edge@3x.png using Guid(4d2d8fb4fc2041441980b4ec253532b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e34e3bbe2154d6014bbe9b49c50f3484') in 0.088584 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Packages/com.unity.2d.psdimporter/Editor/Assets/Icons/Dark/Layers Separated@1x.png
+  artifactKey: Guid(9c68e002c59804ee7973df039508cc37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.psdimporter/Editor/Assets/Icons/Dark/Layers Separated@1x.png using Guid(9c68e002c59804ee7973df039508cc37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c5e6b51a2fe490997dfca644450570e8') in 0.115920 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000080 seconds.
+  path: Packages/com.unity.2d.psdimporter/Editor/Assets/Icons/Light/Layers Separated@2x.png
+  artifactKey: Guid(9804e134a7b174b679f94a53e992ea60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.psdimporter/Editor/Assets/Icons/Light/Layers Separated@2x.png using Guid(9804e134a7b174b679f94a53e992ea60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f5f07d72d6b9bb3e6307a4e37fc68d67') in 0.052953 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Create_Vertex@3x.png
+  artifactKey: Guid(66fa19194577350438c952106f661c2f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Create_Vertex@3x.png using Guid(66fa19194577350438c952106f661c2f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e4443847343e35722fa2c3789ecf36fd') in 0.056359 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.044726 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/Copy@2x.png
+  artifactKey: Guid(6cc5103edc9f0dd4f80e8274c73dfeac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/Copy@2x.png using Guid(6cc5103edc9f0dd4f80e8274c73dfeac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '634c7f252e205d20ba0fb5bb59841664') in 0.103916 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.013610 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Dark/d_Paste@3x.png
+  artifactKey: Guid(a130d12452aa0484da530281c362fc8b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Dark/d_Paste@3x.png using Guid(a130d12452aa0484da530281c362fc8b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c91712103ecd3b52904bc4862db68ed3') in 0.045495 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.001776 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Dark/d_Edit_Pose@2x.png
+  artifactKey: Guid(5df5eccb22181f040836da1ea19743e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Dark/d_Edit_Pose@2x.png using Guid(5df5eccb22181f040836da1ea19743e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '01120bb37d1287d2ab017e18dae8cd1f') in 0.049282 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000551 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/Create Bones@3x.png
+  artifactKey: Guid(7835bec40f86c2c4fb3f91a6eb3b7034) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/Create Bones@3x.png using Guid(7835bec40f86c2c4fb3f91a6eb3b7034) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '47e45631fa07d3be1abdcfcdb069e5e7') in 0.288295 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000310 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Weight_Brush.png
+  artifactKey: Guid(9d026c034cfd40746a436496efe2dd7f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Weight_Brush.png using Guid(9d026c034cfd40746a436496efe2dd7f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4c9abc3b314dfd560e74fd757a48301a') in 0.251380 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.001605 seconds.
+  path: Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/iconundo@2x.png
+  artifactKey: Guid(0dfbb2b6ddcdd254da80e3418498b3a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/iconundo@2x.png using Guid(0dfbb2b6ddcdd254da80e3418498b3a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9f084815b158914cc9fb0d5a8a988f21') in 0.217223 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.152963 seconds.
+  path: Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/d_genericbuhoshe1.png
+  artifactKey: Guid(f2901efd8bb16bc408ad37f017fbf9bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/d_genericbuhoshe1.png using Guid(f2901efd8bb16bc408ad37f017fbf9bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6aa77780a065cbb8e1bf623b3cd1b54a') in 0.115158 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000439 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Bone_Influence@4x.png
+  artifactKey: Guid(c7aa62ae78ffca0498c89e5f45f94c0e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Bone_Influence@4x.png using Guid(c7aa62ae78ffca0498c89e5f45f94c0e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '93d5b67f0f134cd3fd0997f1abd40e35') in 0.094505 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.009500 seconds.
+  path: Packages/com.unity.2d.psdimporter/Editor/Assets/Icons/Light/Layers Mixed@8x.png
+  artifactKey: Guid(0e6407347fc834e6a8b46f9528bcf7b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.psdimporter/Editor/Assets/Icons/Light/Layers Mixed@8x.png using Guid(0e6407347fc834e6a8b46f9528bcf7b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7b24ac615534f34c5dfd7d62acf276ad') in 0.053106 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.003701 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/Create_Vertex@2x.png
+  artifactKey: Guid(8afb57fea8c4eea4a8085e91c810380b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/Create_Vertex@2x.png using Guid(8afb57fea8c4eea4a8085e91c810380b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8d41c4e840bbf1d0fcca17ba1cbb5531') in 0.057609 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000526 seconds.
+  path: Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/step2.png
+  artifactKey: Guid(cd0b17b71a5c498428ee91dee8a78a88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/step2.png using Guid(cd0b17b71a5c498428ee91dee8a78a88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5bad9825eda2719e551d1b4226a9d16e') in 0.065122 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Create_Edge@2x.png
+  artifactKey: Guid(3b4e88f5705085042a95960cdcef2561) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Create_Edge@2x.png using Guid(3b4e88f5705085042a95960cdcef2561) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5beb9008c4fb47725ad87d6639261e1d') in 0.059874 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Dark/d_Bone.png
+  artifactKey: Guid(fc2eaf4b0441b7645960252182c27446) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Dark/d_Bone.png using Guid(fc2eaf4b0441b7645960252182c27446) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '30ea2e63a43547f0c32a7e140a91ac7f') in 0.043158 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/d_iconemptygravatar.png
+  artifactKey: Guid(9aebd705574f9e642aef1e5f59b3e4d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/d_iconemptygravatar.png using Guid(9aebd705574f9e642aef1e5f59b3e4d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2c1a107584d349a9de3ae561c210f57d') in 0.058473 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/iconoutofsync@2x.png
+  artifactKey: Guid(d7094718bdac022428dd29244922d06b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/iconoutofsync@2x.png using Guid(d7094718bdac022428dd29244922d06b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2053f5404ea4086f7cbb805635beeb2b') in 0.059254 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000262 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Split_Edge@4x.png
+  artifactKey: Guid(21d43e7114c758c49886cb9fc604dd66) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Split_Edge@4x.png using Guid(21d43e7114c758c49886cb9fc604dd66) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c9adac9f8412fa0288f0297f335460ec') in 0.102826 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000270 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Dark/d_Edit_Joints.png
+  artifactKey: Guid(8c3235661573d7b44bd864536f83d0ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Dark/d_Edit_Joints.png using Guid(8c3235661573d7b44bd864536f83d0ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd8e918780f0153de050975cf244ce410') in 0.052718 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Packages/com.unity.2d.psdimporter/Editor/Assets/Icons/Dark/Layers Mixed@2x.png
+  artifactKey: Guid(f12ec30f9a76d4738bacb26b0c22165d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.psdimporter/Editor/Assets/Icons/Dark/Layers Mixed@2x.png using Guid(f12ec30f9a76d4738bacb26b0c22165d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd0884eb12251fc70ffe0296a17ece6f2') in 0.129157 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Packages/com.unity.2d.path/Editor/Handles/TangentBrokenPro.png
+  artifactKey: Guid(3f0215e89d05b544d907d3a7d34fab63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.path/Editor/Handles/TangentBrokenPro.png using Guid(3f0215e89d05b544d907d3a7d34fab63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd90fc525ea72851bf1285fc41dc20cf3') in 0.058025 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/buttonssosigninunity.png
+  artifactKey: Guid(f9161c6c9e06dc445ada3ee16d991f90) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/buttonssosigninunity.png using Guid(f9161c6c9e06dc445ada3ee16d991f90) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '309ffc3d38836294c257bb9ae4d19797') in 0.053088 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000223 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Mesh.png
+  artifactKey: Guid(24f90d3fa2df5c84abbf1455cfda472e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Mesh.png using Guid(24f90d3fa2df5c84abbf1455cfda472e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a59f5bf65cf4a632fb77715a8ce236e4') in 0.060673 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Dark/d_Weight_Brush@3x.png
+  artifactKey: Guid(ba394dd6c02ba3b448659c8a346bf685) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Dark/d_Weight_Brush@3x.png using Guid(ba394dd6c02ba3b448659c8a346bf685) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ddcd2929d090fe0ebb777ef4d06e0d3d') in 0.061085 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/Edit_Joints@4x.png
+  artifactKey: Guid(d7b47eae8bab6b94798f1c25eabe65c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/Edit_Joints@4x.png using Guid(d7b47eae8bab6b94798f1c25eabe65c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '321c262e0825259b56523acc2d2d9bd6') in 0.061686 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.002802 seconds.
+  path: Packages/com.unity.2d.psdimporter/Editor/Assets/Icons/Selected/Layers Collapsed@2x.png
+  artifactKey: Guid(68f9e990182e8491b9c0f3dc88cd0158) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.psdimporter/Editor/Assets/Icons/Selected/Layers Collapsed@2x.png using Guid(68f9e990182e8491b9c0f3dc88cd0158) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '28e27e0face56610c19649e10a35f52e') in 0.051758 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000338 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/d_Visibility_Hidded@2x.png
+  artifactKey: Guid(1a2673cb12e2ed1459bc6ab5dad05aae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/d_Visibility_Hidded@2x.png using Guid(1a2673cb12e2ed1459bc6ab5dad05aae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7f9cf7c23d83e986a18e02fa9a9f9458') in 0.076059 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.008462 seconds.
+  path: Packages/com.unity.2d.path/Editor/Handles/ShapeTool.png
+  artifactKey: Guid(0601759dc49769849996e4dae10a2204) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.path/Editor/Handles/ShapeTool.png using Guid(0601759dc49769849996e4dae10a2204) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c1f2c9e1873e529cc2b06cabaa336be7') in 0.079505 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000325 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Dark/d_Visibility_Hidded.png
+  artifactKey: Guid(331d72d503bf74243aa04430504cee09) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Dark/d_Visibility_Hidded.png using Guid(331d72d503bf74243aa04430504cee09) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1fe1fb3c362d6e6e5078d316dc91e8fb') in 0.054300 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.011718 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/Visibility_Tool.png
+  artifactKey: Guid(7342ee656932e31489ea62e64e012645) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/Visibility_Tool.png using Guid(7342ee656932e31489ea62e64e012645) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dfd3281e1ba14c66299cd8cf276f632d') in 0.055677 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Create_Vertex@4x.png
+  artifactKey: Guid(e6a6624ab013b8e44beddfa2668afb65) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Create_Vertex@4x.png using Guid(e6a6624ab013b8e44beddfa2668afb65) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6d3d647680e43086699c67879e20f400') in 0.075269 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.004151 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/Edit_Pose@3x.png
+  artifactKey: Guid(558997ec9158c584a9ba9ee3eddbe8b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/Edit_Pose@3x.png using Guid(558997ec9158c584a9ba9ee3eddbe8b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'db568f5da96e5199f45540348c527b3e') in 0.046922 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Dark/d_Sprite_Influence@2x.png
+  artifactKey: Guid(0f26b0f71c3344e8b8838eb64eb7d9e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Dark/d_Sprite_Influence@2x.png using Guid(0f26b0f71c3344e8b8838eb64eb7d9e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2517b022651f60ebbbc88f63e9e06652') in 0.061243 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/Split Bones@3x.png
+  artifactKey: Guid(29f90cd6202745c448e74a1398b1c731) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/Split Bones@3x.png using Guid(29f90cd6202745c448e74a1398b1c731) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '428d441bc21e0488f3d7c4532f78abc1') in 0.062798 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/d_genericbuhoshe2.png
+  artifactKey: Guid(17035c204825f6340a252046ab6476fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/d_genericbuhoshe2.png using Guid(17035c204825f6340a252046ab6476fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd1971455f9c5695e7e75572cc766db39') in 0.084322 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.014695 seconds.
+  path: Packages/com.unity.2d.psdimporter/Editor/Assets/Icons/Light/Layers Mixed@2x.png
+  artifactKey: Guid(bd2c5ec8522954323aba72f213024f60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.psdimporter/Editor/Assets/Icons/Light/Layers Mixed@2x.png using Guid(bd2c5ec8522954323aba72f213024f60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4626470da309fe89aec73739a637b91e') in 0.069103 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.012800 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Copy@3x.png
+  artifactKey: Guid(55ad4b6109677be42b239f450ce98c29) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Copy@3x.png using Guid(55ad4b6109677be42b239f450ce98c29) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7710207a02f783cfe787a7f10db0fdc5') in 0.081436 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.001336 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/Visibility_Tool@3x.png
+  artifactKey: Guid(8004118ba4145a74e823fedaa37acf3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/Visibility_Tool@3x.png using Guid(8004118ba4145a74e823fedaa37acf3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '886d449687dc27b303b1bfdf9bb95320') in 0.059260 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.007155 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Sprite_Mode@4x.png
+  artifactKey: Guid(554a30a45860f494ca38586c54b7e5d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Sprite_Mode@4x.png using Guid(554a30a45860f494ca38586c54b7e5d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2d178af2c05eaf4f489fe0e8bc38472d') in 0.063425 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000877 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Edit_Pose.png
+  artifactKey: Guid(9369d4108c727134a8f5a9618cfbbf18) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Edit_Pose.png using Guid(9369d4108c727134a8f5a9618cfbbf18) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '07ec01f6aa5de39e7a867b45b1711fee') in 0.106298 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000289 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Edit_Geometry@4x.png
+  artifactKey: Guid(088ce4ab56060504083daeb4556a09c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Edit_Geometry@4x.png using Guid(088ce4ab56060504083daeb4556a09c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd0eceeec6db0aac2dff8773ae9187435') in 0.052031 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/d_stepok@2x.png
+  artifactKey: Guid(3494dc956dfd7174abc07060940a2848) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/d_stepok@2x.png using Guid(3494dc956dfd7174abc07060940a2848) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bda85c85e17d269ca7016b7d7e649b60') in 0.076414 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Parent_Bone@2x.png
+  artifactKey: Guid(fc9e5a25e0610a347b46fd10daa3f0cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Parent_Bone@2x.png using Guid(fc9e5a25e0610a347b46fd10daa3f0cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1fa26cb3006bf0599a598b865cd0ea25') in 0.041071 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.011104 seconds.
+  path: Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/d_stevejobsbuhoshe.png
+  artifactKey: Guid(56e456ab0f7f79a4dbabcc9079c49a94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/d_stevejobsbuhoshe.png using Guid(56e456ab0f7f79a4dbabcc9079c49a94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '04740466c0c21338e7cdf53c3134071f') in 0.079762 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.036781 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Create_Edge.png
+  artifactKey: Guid(1af9d2e44ecf3a2468601c9071df581f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/Create_Edge.png using Guid(1af9d2e44ecf3a2468601c9071df581f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eba40fea563065b07d9071edaca0007a') in 0.210193 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.077690 seconds.
+  path: Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/d_iconoutofsyncoverlay.png
+  artifactKey: Guid(dc633de6e6e7415448c7568418239a9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/d_iconoutofsyncoverlay.png using Guid(dc633de6e6e7415448c7568418239a9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9f8257160c6b79a67c3dc7d388fd93a6') in 0.089331 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.002518 seconds.
+  path: Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/iconplasticnotifyconflict.png
+  artifactKey: Guid(a916ed6819efd014588f58e3cfc48196) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/iconplasticnotifyconflict.png using Guid(a916ed6819efd014588f58e3cfc48196) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c85066307949483ddf61a7e06f34cee2') in 0.087754 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.019794 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/d_Visibility_Hidded@4x.png
+  artifactKey: Guid(8008767850e870a4e8baaf5a6fc8b35c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/d_Visibility_Hidded@4x.png using Guid(8008767850e870a4e8baaf5a6fc8b35c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f47cfff588e093606d1ee5a55163e0e9') in 0.286990 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000357 seconds.
+  path: Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/stepok.png
+  artifactKey: Guid(d4780dc1205c7c7478c970d8c61d24e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/stepok.png using Guid(d4780dc1205c7c7478c970d8c61d24e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6cd9657123aa72b3d191de7a8a9e4bd8') in 0.178115 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/character_Mode@4x.png
+  artifactKey: Guid(748ae8b33df036b46a86e0387f1602cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Light/character_Mode@4x.png using Guid(748ae8b33df036b46a86e0387f1602cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1a19938bfa4b836aab3180f54a98b417') in 0.056765 seconds 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
