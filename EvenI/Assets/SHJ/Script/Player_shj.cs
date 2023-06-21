@@ -7,7 +7,7 @@ public class Player_shj : MonoBehaviour
     Rigidbody2D rigid;
     [Range(0.0f,10.0f)]
     public float jump_power;
-
+    public Animator palyerAnimator;
     public GameObject Hp_list;
     int hp = 9;
 
@@ -20,6 +20,7 @@ public class Player_shj : MonoBehaviour
 
     public void Jump()
     {
+        palyerAnimator.SetTrigger("Jump");
         if(jump_cnt != 2)
         {
             jump_cnt++;
@@ -34,8 +35,10 @@ public class Player_shj : MonoBehaviour
             jump_cnt = 0;
         else if(collision.gameObject.name == "Rock")
         {
+            collision.gameObject.GetComponent<Rock_HJH>().RockTouch();
+            collision.gameObject.GetComponent<BoxCollider2D>().enabled = false;
             Hp_list.transform.GetChild(hp).gameObject.SetActive(false);
-            collision.gameObject.SetActive(false);
+            //collision.gameObject.SetActive(false);
             hp--;
         }
     }

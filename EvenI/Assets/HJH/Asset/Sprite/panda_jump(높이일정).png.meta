@@ -1,0 +1,557 @@
+fileFormatVersion: 2
+guid: dbab3d3d44dc067458f24ffd3301729c
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 150
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "panda_jump(\uB192\uC774\uC77C\uC815)_0"
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 17
+        width: 227
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98664e6a0c7912f4fa7287cace6ff3b6
+      internalID: -980938134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "panda_jump(\uB192\uC774\uC77C\uC815)_1"
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 17
+        width: 220
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3618967684178cb4dbc280cb8d8cf0fe
+      internalID: 696086142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "panda_jump(\uB192\uC774\uC77C\uC815)_2"
+      rect:
+        serializedVersion: 2
+        x: 706
+        y: 17
+        width: 229
+        height: 297
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc02dd11e599da54b90c1783f8acddd5
+      internalID: 590493087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "panda_jump(\uB192\uC774\uC77C\uC815)_3"
+      rect:
+        serializedVersion: 2
+        x: 1027
+        y: 17
+        width: 236
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 885f3b1ec9b327846a068ccfee75fc4d
+      internalID: 721306292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "panda_jump(\uB192\uC774\uC77C\uC815)_4"
+      rect:
+        serializedVersion: 2
+        x: 1367
+        y: 17
+        width: 227
+        height: 297
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fb9a0122ea269446981c71fd251910f
+      internalID: 231488341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "panda_jump(\uB192\uC774\uC77C\uC815)_5"
+      rect:
+        serializedVersion: 2
+        x: 1695
+        y: 17
+        width: 220
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 011af7a71642b914abf1556a43aff68e
+      internalID: 723152559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "panda_jump(\uB192\uC774\uC77C\uC815)_6"
+      rect:
+        serializedVersion: 2
+        x: 2025
+        y: 17
+        width: 230
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b88190c400a40d44a9a4ebf06c3dec35
+      internalID: 5561795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "panda_jump(\uB192\uC774\uC77C\uC815)_7"
+      rect:
+        serializedVersion: 2
+        x: 2356
+        y: 17
+        width: 217
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 464a2d4c32acb2147af7778694b8a226
+      internalID: -53565003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "panda_jump(\uB192\uC774\uC77C\uC815)_8"
+      rect:
+        serializedVersion: 2
+        x: 2687
+        y: 17
+        width: 226
+        height: 297
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ced59f5f24e4634090348b4aa10c4e6
+      internalID: -1248542747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "panda_jump(\uB192\uC774\uC77C\uC815)_9"
+      rect:
+        serializedVersion: 2
+        x: 3005
+        y: 17
+        width: 239
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a3cba54e4aa5d1469046bbb63c91f97
+      internalID: 1158102664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "panda_jump(\uB192\uC774\uC77C\uC815)_10"
+      rect:
+        serializedVersion: 2
+        x: 3336
+        y: 17
+        width: 238
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1546335edd2aa2e4db68927765c56b5a
+      internalID: 1281886223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "panda_jump(\uB192\uC774\uC77C\uC815)_11"
+      rect:
+        serializedVersion: 2
+        x: 3645
+        y: 17
+        width: 288
+        height: 304
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41645bfd81fa2cb46a6ec22135cd2af2
+      internalID: 1024646161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "panda_jump(\uB192\uC774\uC77C\uC815)_14"
+      rect:
+        serializedVersion: 2
+        x: 3974
+        y: 17
+        width: 300
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4b5bfee5019a064487dc1f8e08b8c37
+      internalID: -57742954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "panda_jump(\uB192\uC774\uC77C\uC815)_16"
+      rect:
+        serializedVersion: 2
+        x: 4306
+        y: 17
+        width: 288
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a284a04276e284244a8caff4123cf65d
+      internalID: 600815296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "panda_jump(\uB192\uC774\uC77C\uC815)_18"
+      rect:
+        serializedVersion: 2
+        x: 4655
+        y: 17
+        width: 239
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb3664b1e9c23ee4cbae43ece6c434c3
+      internalID: 1489119347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "panda_jump(\uB192\uC774\uC77C\uC815)_19"
+      rect:
+        serializedVersion: 2
+        x: 4986
+        y: 17
+        width: 238
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25ca8e3fbccbf8c49bf44af25315a3a1
+      internalID: 313084785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "panda_jump(\uB192\uC774\uC77C\uC815)_20"
+      rect:
+        serializedVersion: 2
+        x: 5326
+        y: 17
+        width: 229
+        height: 297
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7953ac60b2c0e747802b1addf746cd1
+      internalID: 1091110578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "panda_jump(\uB192\uC774\uC77C\uC815)_21"
+      rect:
+        serializedVersion: 2
+        x: 5656
+        y: 17
+        width: 218
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2322238e0b175149be17e2533a85272
+      internalID: -994702210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "panda_jump(\uB192\uC774\uC77C\uC815)_22"
+      rect:
+        serializedVersion: 2
+        x: 5987
+        y: 17
+        width: 226
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39eafd348bce5b24a8b8df2598f1ee25
+      internalID: 1085592188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      "panda_jump(\uB192\uC774\uC77C\uC815)_2": 590493087
+      "panda_jump(\uB192\uC774\uC77C\uC815)_0": -980938134
+      "panda_jump(\uB192\uC774\uC77C\uC815)_8": -1248542747
+      "panda_jump(\uB192\uC774\uC77C\uC815)_12": -419216871
+      "panda_jump(\uB192\uC774\uC77C\uC815)_17": 1897688083
+      "panda_jump(\uB192\uC774\uC77C\uC815)_21": -994702210
+      "panda_jump(\uB192\uC774\uC77C\uC815)_18": 1489119347
+      "panda_jump(\uB192\uC774\uC77C\uC815)_1": 696086142
+      "panda_jump(\uB192\uC774\uC77C\uC815)_20": 1091110578
+      "panda_jump(\uB192\uC774\uC77C\uC815)_7": -53565003
+      "panda_jump(\uB192\uC774\uC77C\uC815)_14": -57742954
+      "panda_jump(\uB192\uC774\uC77C\uC815)_3": 721306292
+      "panda_jump(\uB192\uC774\uC77C\uC815)_10": 1281886223
+      "panda_jump(\uB192\uC774\uC77C\uC815)_5": 723152559
+      "panda_jump(\uB192\uC774\uC77C\uC815)_16": 600815296
+      "panda_jump(\uB192\uC774\uC77C\uC815)_11": 1024646161
+      "panda_jump(\uB192\uC774\uC77C\uC815)_6": 5561795
+      "panda_jump(\uB192\uC774\uC77C\uC815)_4": 231488341
+      "panda_jump(\uB192\uC774\uC77C\uC815)_22": 1085592188
+      "panda_jump(\uB192\uC774\uC77C\uC815)_19": 313084785
+      "panda_jump(\uB192\uC774\uC77C\uC815)_9": 1158102664
+      "panda_jump(\uB192\uC774\uC77C\uC815)_13": -341880262
+      "panda_jump(\uB192\uC774\uC77C\uC815)_15": 1986764112
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
