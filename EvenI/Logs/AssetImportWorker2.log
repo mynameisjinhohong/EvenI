@@ -1,0 +1,561 @@
+Using pre-set license
+Built from '2021.3/staging' branch; Version is '2021.3.15f1 (e8e88683f834) revision 15263878'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 10  (10.0.19045) 64bit Core' Language: 'ko' Physical Memory: 16336 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+D:\Program Files (x86)\Unity\2021.3.15f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker2
+-projectPath
+D:/Program Files (x86)/GitHub/EvenI/EvenI
+-logFile
+Logs/AssetImportWorker2.log
+-srvPort
+59475
+Successfully changed project path to: D:/Program Files (x86)/GitHub/EvenI/EvenI
+D:/Program Files (x86)/GitHub/EvenI/EvenI
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [21280] Host "[IP] 112.185.117.122 [Port] 0 [Flags] 2 [Guid] 3359536835 [EditorId] 3359536835 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-IS8DQUP) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+
+Player connection [21280] Host "[IP] 112.185.117.122 [Port] 0 [Flags] 2 [Guid] 3359536835 [EditorId] 3359536835 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-IS8DQUP) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+
+Refreshing native plugins compatible for Editor in 212.74 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2021.3.15f1 (e8e88683f834)
+[Subsystems] Discovering subsystems at path D:/Program Files (x86)/Unity/2021.3.15f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path D:/Program Files (x86)/GitHub/EvenI/EvenI/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1060 6GB (ID=0x1c03)
+    Vendor:   NVIDIA
+    VRAM:     6043 MB
+    Driver:   31.0.15.3141
+Initialize mono
+Mono path[0] = 'D:/Program Files (x86)/Unity/2021.3.15f1/Editor/Data/Managed'
+Mono path[1] = 'D:/Program Files (x86)/Unity/2021.3.15f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'D:/Program Files (x86)/Unity/2021.3.15f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56152
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: D:/Program Files (x86)/Unity/2021.3.15f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+Register platform support module: D:/Program Files (x86)/Unity/2021.3.15f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.064934 seconds.
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Refreshing native plugins compatible for Editor in 197.81 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.539 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1539ms)
+		BeginReloadAssembly (215ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (1063ms)
+			LoadAssemblies (206ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (218ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (48ms)
+			SetupLoadedEditorAssemblies (672ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (174ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (198ms)
+				BeforeProcessingInitializeOnLoad (1ms)
+				ProcessInitializeOnLoadAttributes (158ms)
+				ProcessInitializeOnLoadMethodAttributes (141ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.118957 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image D:\Program Files (x86)\GitHub\EvenI\EvenI\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image D:\Program Files (x86)\GitHub\EvenI\EvenI\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Refreshing native plugins compatible for Editor in 156.99 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.225 seconds
+Domain Reload Profiling:
+	ReloadAssembly (2226ms)
+		BeginReloadAssembly (369ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (137ms)
+		EndReloadAssembly (1574ms)
+			LoadAssemblies (275ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (411ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (83ms)
+			SetupLoadedEditorAssemblies (823ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (36ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (157ms)
+				BeforeProcessingInitializeOnLoad (219ms)
+				ProcessInitializeOnLoadAttributes (321ms)
+				ProcessInitializeOnLoadMethodAttributes (56ms)
+				AfterProcessingInitializeOnLoad (34ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (8ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.09 seconds
+Refreshing native plugins compatible for Editor in 1.41 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4213 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 57 unused Assets / (299.6 KB). Loaded Objects now: 4668.
+Memory consumption went from 162.8 MB to 162.5 MB.
+Total: 3.711100 ms (FindLiveObjects: 0.329300 ms CreateObjectMapping: 0.261900 ms MarkObjects: 2.935100 ms  DeleteObjects: 0.183600 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: e54d7ab0439102e2317fc1e4b246158d -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 19556.427187 seconds.
+  path: Assets/SHJ/Asset
+  artifactKey: Guid(46b64b6401e7b324cb6aff87ac78d22e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset using Guid(46b64b6401e7b324cb6aff87ac78d22e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b4cbc0a6fc8a0394be778bfc26c91247') in 0.012688 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.041396 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image D:\Program Files (x86)\GitHub\EvenI\EvenI\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image D:\Program Files (x86)\GitHub\EvenI\EvenI\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Refreshing native plugins compatible for Editor in 1.37 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.089 seconds
+Domain Reload Profiling:
+	ReloadAssembly (2090ms)
+		BeginReloadAssembly (297ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (7ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (44ms)
+		EndReloadAssembly (1531ms)
+			LoadAssemblies (283ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (359ms)
+			ReleaseScriptCaches (5ms)
+			RebuildScriptCaches (56ms)
+			SetupLoadedEditorAssemblies (762ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (77ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (243ms)
+				ProcessInitializeOnLoadAttributes (340ms)
+				ProcessInitializeOnLoadMethodAttributes (60ms)
+				AfterProcessingInitializeOnLoad (40ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (11ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 5.59 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4205 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 32 unused Assets / (266.1 KB). Loaded Objects now: 4683.
+Memory consumption went from 162.4 MB to 162.1 MB.
+Total: 3.471500 ms (FindLiveObjects: 0.305200 ms CreateObjectMapping: 0.245800 ms MarkObjects: 2.759300 ms  DeleteObjects: 0.160200 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: e54d7ab0439102e2317fc1e4b246158d -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 26.178070 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Preview/_Component_1.png
+  artifactKey: Guid(3ed727598cd0547a7b3bdc48b44c435f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Preview/_Component_1.png using Guid(3ed727598cd0547a7b3bdc48b44c435f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '60d389c7d1749a929652240127f00a13') in 0.420798 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/PSD
+  artifactKey: Guid(0308b29b37d134f9fae786bfe557ef83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/PSD using Guid(0308b29b37d134f9fae786bfe557ef83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '24871b9fb72e3133596ebf82feb149c3') in 0.015416 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Preview/Equipment_Popup_Detail2.png
+  artifactKey: Guid(32dd225a024574be2af50adae514a9e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Preview/Equipment_Popup_Detail2.png using Guid(32dd225a024574be2af50adae514a9e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a18f6ed9fbb8754ed0426764ec41e1e3') in 0.161549 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Preview/Clan.png
+  artifactKey: Guid(e88bad29599824d1a8406aa8ac017d00) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Preview/Clan.png using Guid(e88bad29599824d1a8406aa8ac017d00) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '92f62c38c729d1938037d4bfac1b282c') in 0.211538 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000089 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Preview/Play_BattleVS.png
+  artifactKey: Guid(cd251112fc32f4cc1b0be58ff8089ca3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Preview/Play_BattleVS.png using Guid(cd251112fc32f4cc1b0be58ff8089ca3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '06227930f18a0d75b701e1a46760dcda') in 0.168406 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000128 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Preview/Play_Type1.png
+  artifactKey: Guid(d007c39c8a197412c9bf401452614ebf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Preview/Play_Type1.png using Guid(d007c39c8a197412c9bf401452614ebf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6420f768ad5ac2bda511a881b1a8f7ae') in 0.288853 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000216 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Preview/_Component_3.png
+  artifactKey: Guid(531af8be9d79a4bd3bdccba8ab2f33e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Preview/_Component_3.png using Guid(531af8be9d79a4bd3bdccba8ab2f33e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a61647ee47fda6a18b3f807a4d73ada0') in 0.217443 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Preview/Character_List.png
+  artifactKey: Guid(13799a688fe4045de8ba22f0f9157aec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Preview/Character_List.png using Guid(13799a688fe4045de8ba22f0f9157aec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cda865f45fe1c551f0aad3565e28d8ec') in 0.190466 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/+Document README+
+  artifactKey: Guid(176a5822acbb04535ac09d08806e5813) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/+Document README+ using Guid(176a5822acbb04535ac09d08806e5813) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bd8691df58f482ff2a68582f9d1caa0f') in 0.010872 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000044 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Preview/_Component_5.png
+  artifactKey: Guid(1ebc44d63fdce43bc8c3f67864ee5ba6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Preview/_Component_5.png using Guid(1ebc44d63fdce43bc8c3f67864ee5ba6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4732741c305c319fa128207c6a26301f') in 0.274758 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs
+  artifactKey: Guid(4ff1d119943604fbfa4aefa1c41c6625) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs using Guid(4ff1d119943604fbfa4aefa1c41c6625) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '90c62bdfbf698229234d591a1e44ee2a') in 0.011139 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Preview/Equipment.png
+  artifactKey: Guid(246a6f98d1a8640c9b3aa64528182d24) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Preview/Equipment.png using Guid(246a6f98d1a8640c9b3aa64528182d24) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c31cd744ad669944f92eb019a2d914ee') in 0.184607 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000054 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/ResourcesData
+  artifactKey: Guid(739fc32eaa44d4369b84cd42e423839b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/ResourcesData using Guid(739fc32eaa44d4369b84cd42e423839b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cb3375103003751adb829a25075927d4') in 0.009198 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.847024 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Frames
+  artifactKey: Guid(420f751129d2442a9b2ce18f8ba0281a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Frames using Guid(420f751129d2442a9b2ce18f8ba0281a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3712a250890b973021f77b5c4befb3b3') in 0.010477 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.133576 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Frames/_PrefabsPanel_BarFrames.prefab
+  artifactKey: Guid(6a9b17f983e2843c4bb24ab89ec3f9e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Frames/_PrefabsPanel_BarFrames.prefab using Guid(6a9b17f983e2843c4bb24ab89ec3f9e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b226ee13e9882bd562518f6b173bd8ab') in 0.028520 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Frames/Frame_BarFrame_Top01_Navy.prefab
+  artifactKey: Guid(4abb4acbab7c44b13a1249a3737ec29c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Frames/Frame_BarFrame_Top01_Navy.prefab using Guid(4abb4acbab7c44b13a1249a3737ec29c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0d056da11761dea7e14f6a8428f78771') in 0.012271 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Frames/Frame_ItemFrame02-Group-.prefab
+  artifactKey: Guid(93253bfc9a72c43068e96e79a4ae2b7f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Frames/Frame_ItemFrame02-Group-.prefab using Guid(93253bfc9a72c43068e96e79a4ae2b7f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'efa4b2a982bba9dcae334fa4ca33c2e8') in 0.018424 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Frames/Frame_BasicFrame_Square07.prefab
+  artifactKey: Guid(51b1270fbdf4e41ad9469e3c1dcb8b53) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Frames/Frame_BasicFrame_Square07.prefab using Guid(51b1270fbdf4e41ad9469e3c1dcb8b53) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1415477c4e1f22eac699388f473c92a2') in 0.070151 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Frames/Frame_ListFrame01-Group.prefab
+  artifactKey: Guid(ebe05b3961d9d4bc6aa877f873c532b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Frames/Frame_ListFrame01-Group.prefab using Guid(ebe05b3961d9d4bc6aa877f873c532b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0d3209f732a4e613c72ae2931f522345') in 0.047097 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Frames/Frame_ItemFrame03-Group-.prefab
+  artifactKey: Guid(1077aa3e225bc4ee1a11738fa96f538d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Frames/Frame_ItemFrame03-Group-.prefab using Guid(1077aa3e225bc4ee1a11738fa96f538d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b49947ea738cffd394b67e7b7259fe99') in 0.029676 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Frames/Frame_ItemFrame06-Group-.prefab
+  artifactKey: Guid(dc48262074cf641eb8d612c235a85eac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Frames/Frame_ItemFrame06-Group-.prefab using Guid(dc48262074cf641eb8d612c235a85eac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '501fe7931a3917f17273c4b53ecaacf7') in 0.045307 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.018386 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Frames/Frame_BarFrame_Bottom01_Navy.prefab
+  artifactKey: Guid(56e374e04c1854116bf947f242dc5487) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Frames/Frame_BarFrame_Bottom01_Navy.prefab using Guid(56e374e04c1854116bf947f242dc5487) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0fd57f80c252b01d796df42f1c31ff44') in 0.026058 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Frames/Frame_CardFrame04-Group-.prefab
+  artifactKey: Guid(26bbf832391254e1984ee0a4f534b8f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Frames/Frame_CardFrame04-Group-.prefab using Guid(26bbf832391254e1984ee0a4f534b8f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2238d966691ca5f3ab232e37083138b8') in 0.096494 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.014364 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Frames/Frame_CardFrame01-Group-.prefab
+  artifactKey: Guid(7c05db4a6dd2c451b8ac31477733eda8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Frames/Frame_CardFrame01-Group-.prefab using Guid(7c05db4a6dd2c451b8ac31477733eda8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00453188b3c7a9da8a6f169c1854b8a2') in 0.034752 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Frames/Frame ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓.prefab
+  artifactKey: Guid(8f2d22345336642529f9f2a1315912c6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Frames/Frame ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓.prefab using Guid(8f2d22345336642529f9f2a1315912c6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7f609d8cf1e90a7d8580b24281418131') in 0.016999 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Frames/Frame_BasicFrame_Square04.prefab
+  artifactKey: Guid(8abd19e847713468da33bc7010061fe8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Frames/Frame_BasicFrame_Square04.prefab using Guid(8abd19e847713468da33bc7010061fe8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '63f3742423f82461060ec61748067914') in 0.014506 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Frames/Frame_CardFrame03-Group-.prefab
+  artifactKey: Guid(afba9df98da364e54b1e50ab401e6f48) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Frames/Frame_CardFrame03-Group-.prefab using Guid(afba9df98da364e54b1e50ab401e6f48) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a258801fedb27cbbc8c0cd7f9bf98125') in 0.068451 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Frames/Frame_BasicFrame_Square01.prefab
+  artifactKey: Guid(d51c75cad271d4f95b84c5d1145a653d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Frames/Frame_BasicFrame_Square01.prefab using Guid(d51c75cad271d4f95b84c5d1145a653d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a1727272577f1b47437500ba95d5ea6d') in 0.088839 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.992076 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Label
+  artifactKey: Guid(2e6c1267b24184fadb8e0c049ca6380c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Label using Guid(2e6c1267b24184fadb8e0c049ca6380c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6b3e1f6b05156431c474581a83e633e2') in 0.011230 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.043846 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Label/_PrefabsPanel_Label.prefab
+  artifactKey: Guid(4d028b829fe794a4bb02cb35600edbf3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Label/_PrefabsPanel_Label.prefab using Guid(4d028b829fe794a4bb02cb35600edbf3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bed81e35f1f699d4b96f4184d8633040') in 0.231548 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Label/Label_TitleFlag02_Orange.prefab
+  artifactKey: Guid(f04178569db8448979f6a9027663d498) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Label/Label_TitleFlag02_Orange.prefab using Guid(f04178569db8448979f6a9027663d498) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c278457cbf18dce8519e4dce2679cd2e') in 0.027806 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000061 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Label/Label_TitleFlag02_Purple.prefab
+  artifactKey: Guid(3d95ca6aa7f7f4a369a9f0dbe135a75c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Label/Label_TitleFlag02_Purple.prefab using Guid(3d95ca6aa7f7f4a369a9f0dbe135a75c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0c8974276f99af7722359f3da5be712b') in 0.031637 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Label/Label_TitleRibbon-Group-.prefab
+  artifactKey: Guid(2fdd329314d464f3f8a33031d5bf5219) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Label/Label_TitleRibbon-Group-.prefab using Guid(2fdd329314d464f3f8a33031d5bf5219) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f091511fbac58fcbb2a325fb542b4baf') in 0.053552 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.003601 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Label/Label_TitleFlag01_Orange.prefab
+  artifactKey: Guid(90732b2cd92a64c23aff0fe159949afa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Label/Label_TitleFlag01_Orange.prefab using Guid(90732b2cd92a64c23aff0fe159949afa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0f8623f4ff422570ddceb00f175acd9e') in 0.049252 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Label/Label_TitleRibbon_Orange.prefab
+  artifactKey: Guid(642c7baabff554d75a2a3e1a1a0c891e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Label/Label_TitleRibbon_Orange.prefab using Guid(642c7baabff554d75a2a3e1a1a0c891e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1bae42f8141365a347448a5da4740df9') in 0.045952 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.308110 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_DemoScene_Particle
+  artifactKey: Guid(94b6f0e33d6cd413e987ac5b0833e2b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_DemoScene_Particle using Guid(94b6f0e33d6cd413e987ac5b0833e2b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3c11927c8055d04faa3db737ed74e975') in 0.010360 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.052695 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_DemoScene_Particle/Fx_Rotate_Light01.prefab
+  artifactKey: Guid(086535fe746a24b5a9e8e6936063074c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_DemoScene_Particle/Fx_Rotate_Light01.prefab using Guid(086535fe746a24b5a9e8e6936063074c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5c12c87106ca3cd5a17c74c2474c566f') in 0.236865 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_DemoScene_Particle/Fx_Sparkle_LongStar02_BlurryBlue.prefab
+  artifactKey: Guid(af857985d16164ce08addf366f1a0ee1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_DemoScene_Particle/Fx_Sparkle_LongStar02_BlurryBlue.prefab using Guid(af857985d16164ce08addf366f1a0ee1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '018453621578f7b9c4664e4950c2a181') in 0.040481 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000511 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_DemoScene_Particle/Fx_Sparkle_Star02_ClearPurple.prefab
+  artifactKey: Guid(c4fa1bbfaf01b4b95b9fb9d369d0e2a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_DemoScene_Particle/Fx_Sparkle_Star02_ClearPurple.prefab using Guid(c4fa1bbfaf01b4b95b9fb9d369d0e2a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f5a9ef23c250ec74b6cc47c8e0d643a2') in 0.039757 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_DemoScene_Particle/Fx_Sparkle_LongStar01_ClearRed.prefab
+  artifactKey: Guid(c61e7c8151aef4aee958f7d11b01863a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_DemoScene_Particle/Fx_Sparkle_LongStar01_ClearRed.prefab using Guid(c61e7c8151aef4aee958f7d11b01863a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7de862a27ed90513c5fd29e735568528') in 0.044880 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.001209 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_DemoScene_Particle/Fx_Sparkle_Star02_ClearYellow.prefab
+  artifactKey: Guid(352c768b09ea84c7eb782321892ed7a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_DemoScene_Particle/Fx_Sparkle_Star02_ClearYellow.prefab using Guid(352c768b09ea84c7eb782321892ed7a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '975857ad81f722eff51990a511730b65') in 0.050769 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_DemoScene_Particle/Fx_Sparkle_Star01_CustomColor_Yellow.prefab
+  artifactKey: Guid(b767da134f1d6419caf90850d2b1454d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_DemoScene_Particle/Fx_Sparkle_Star01_CustomColor_Yellow.prefab using Guid(b767da134f1d6419caf90850d2b1454d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '134d708ec49a065701cdb8c13f079637') in 0.095483 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.026117 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_DemoScene_Particle/Fx_Sparkle_Star01_CustomColor_Green.prefab
+  artifactKey: Guid(cc85d80a7d0904dd4831aed1e49c1eb9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_DemoScene_Particle/Fx_Sparkle_Star01_CustomColor_Green.prefab using Guid(cc85d80a7d0904dd4831aed1e49c1eb9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7260b2909705264824203b4a82099dff') in 0.059860 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 15.996507 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_DemoScene_Particle/Fx_Sparkle_XStar01_BlurryPurple.prefab
+  artifactKey: Guid(1e5ba30d40ef14197a99be62f5f43e96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_DemoScene_Particle/Fx_Sparkle_XStar01_BlurryPurple.prefab using Guid(1e5ba30d40ef14197a99be62f5f43e96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9f9547c774c5bdac543ae7ce5116507e') in 0.049479 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.001107 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_DemoScene_Particle/Fx_Sparkle_XStar02_ClearPurple.prefab
+  artifactKey: Guid(b3f1ba70e7e4049a2a712dd0d0ebade2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_DemoScene_Particle/Fx_Sparkle_XStar02_ClearPurple.prefab using Guid(b3f1ba70e7e4049a2a712dd0d0ebade2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3b4a7f16a6a0ee468c6677cb2da2499f') in 0.042467 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.003412 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_DemoScene_Particle/Fx_Spread_Circle02.prefab
+  artifactKey: Guid(586fbfa5d7aae4d90b9d987fa94eee52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_DemoScene_Particle/Fx_Spread_Circle02.prefab using Guid(586fbfa5d7aae4d90b9d987fa94eee52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b2f3be5b6b4bc1d97eef8e9cc2abc0cc') in 0.051169 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000494 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_DemoScene_Particle/Fx_Sparkle_XStar02_ClearRed.prefab
+  artifactKey: Guid(52d1380e7746c4784bb838b057a1586f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_DemoScene_Particle/Fx_Sparkle_XStar02_ClearRed.prefab using Guid(52d1380e7746c4784bb838b057a1586f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a9bf9eff00b88e4b694f5cb6c77608b1') in 0.043485 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.837734 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Buttons
+  artifactKey: Guid(c553fe1981d6842b6aca294d60f02a8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Buttons using Guid(c553fe1981d6842b6aca294d60f02a8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '31fae1b7b80065cc487942abd47b0151') in 0.011688 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.929166 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Buttons/_PrefabsPanel_Buttons.prefab
+  artifactKey: Guid(fa4a72350af3c40aaaab67c974c5c466) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Buttons/_PrefabsPanel_Buttons.prefab using Guid(fa4a72350af3c40aaaab67c974c5c466) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4c19c07255dd74ca977bdc6fb46c9d4a') in 0.171917 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000223 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Buttons/Btn_OtherButton_Square02.prefab
+  artifactKey: Guid(7ff6613f1b6c54467a8faf21ff261247) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Buttons/Btn_OtherButton_Square02.prefab using Guid(7ff6613f1b6c54467a8faf21ff261247) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8fb59c307add41428982eba6d8ea7190') in 0.024856 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Buttons/Btn_MainButton_BlueGray.prefab
+  artifactKey: Guid(f112556180188462e8d21b748d8da130) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Buttons/Btn_MainButton_BlueGray.prefab using Guid(f112556180188462e8d21b748d8da130) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '314db16c92bcabe83d2b8ad83a9929d3') in 0.057720 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Buttons/Btn_OtherButton_Square04.prefab
+  artifactKey: Guid(5b97edb2477e44ce3a3186c6ec1e1f3d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Buttons/Btn_OtherButton_Square04.prefab using Guid(5b97edb2477e44ce3a3186c6ec1e1f3d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fe6172c56babcc871307571661243a18') in 0.019803 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Buttons/Btn_OtherButton_Square01_Blue.prefab
+  artifactKey: Guid(dd8be203362534465bb76e3090c1564f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Buttons/Btn_OtherButton_Square01_Blue.prefab using Guid(dd8be203362534465bb76e3090c1564f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '56f6b516d6afa5f326e292bfd1d454e4') in 0.083613 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Buttons/Btn_OtherButton_Square08.prefab
+  artifactKey: Guid(b7b74df048b214bc18025b5f7193ff6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Buttons/Btn_OtherButton_Square08.prefab using Guid(b7b74df048b214bc18025b5f7193ff6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd75fe9c078b783b127101582cc786bdd') in 0.058229 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.001670 seconds.
+  path: Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Buttons/Btn_OtherButton_Hexagon01_Blue.prefab
+  artifactKey: Guid(766697219b1f9467e802797f5c91eeb6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SHJ/Asset/GUI PRO Kit - Casual Game/Prefabs/Prefabs_Component_Buttons/Btn_OtherButton_Hexagon01_Blue.prefab using Guid(766697219b1f9467e802797f5c91eeb6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a39af471187d58456d111d1da67227df') in 0.019099 seconds 
