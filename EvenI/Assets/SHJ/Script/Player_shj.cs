@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 
@@ -15,7 +12,7 @@ public class Player_shj : MonoBehaviour
     [Range(0.0f, 15.0f)]
     public float speed; //속도
 
-    [Range(0.0f,15.0f)]
+    [Range(0.0f, 15.0f)]
     public float jump_up_power; //위로 점프력
 
     [Range(0.0f, 15.0f)]
@@ -31,7 +28,7 @@ public class Player_shj : MonoBehaviour
 
     public Animator playerAnimator;
     public GameObject hp_List;
-    int hp = 9;
+    public int hp = 9;
 
     [Range(0.0f, 10.0f)]
     public float cameraSpeed;//카메라 스피드
@@ -47,18 +44,22 @@ public class Player_shj : MonoBehaviour
 
     private void Update()
     {
-        RaycastHit2D hit = Physics2D.Raycast(this.gameObject.transform.position, Vector2.down, 1f,LayerMask.GetMask("ground")); //바닥 검사 해서 떨어질 수 있게
-        if(hit.collider != null)
+        RaycastHit2D hit = Physics2D.Raycast(this.gameObject.transform.position, Vector2.down, 5f, LayerMask.GetMask("ground")); //바닥 검사 해서 떨어질 수 있게
+        if (hit.collider != null)
         {
             Debug.Log(hit.collider.name);
             if (!jumping)
             {
                 rigid.velocity = Vector2.right * speed; //점프중이지 않을 때는 속도 일정하게
-                predictLine.positionCount = 0; // 달릴 때는 예측 선 안그려지게
+                if (!Input.GetMouseButton(0))
+                {
+                    Debug.Log("ss");
+                    predictLine.positionCount = 0; // 달릴 때는 예측 선 안그려지게
+                }
             }
         }
 
-        Camera.main.transform.position = new Vector3((transform.position+new Vector3(5.5f,0,0)).x,2,-10);
+        Camera.main.transform.position = new Vector3((transform.position + new Vector3(5.5f, 0, 0)).x, 2, -10);
 
 
 #if UNITY_EDITOR
@@ -116,7 +117,7 @@ public class Player_shj : MonoBehaviour
     {
         if (collision.gameObject.layer == 8)
             jumping = false;
-            //jump_cnt = 0; //2단점프 초기화
+        //jump_cnt = 0; //2단점프 초기화
         else if (collision.gameObject.name == "Rock")
         {
             collision.gameObject.GetComponent<Rock_HJH>().RockTouch();
@@ -129,7 +130,6 @@ public class Player_shj : MonoBehaviour
 
     void PredictLine(Vector2 startPos, Vector2 vel)  //포물선 예측
     {
-
         int step = 120;
         float deltaTime = Time.fixedDeltaTime;
         Vector2 gravity = Physics.gravity;
@@ -137,15 +137,17 @@ public class Player_shj : MonoBehaviour
         Vector2 position = startPos;
         Vector2 velocity = vel;
 
+        Debug.Log("??");
         predictLine.positionCount = 120;
         for (int i = 0; i < step; i++)
         {
             position += velocity * deltaTime + 0.5f * gravity * deltaTime * deltaTime;
             velocity += gravity * deltaTime;
             predictLine.SetPosition(i, position);
-            Collider2D colls = Physics2D.OverlapCircle(position, 1.0f);
-            if(colls != null && colls.transform.name != "Player")
-            { 
+            Collider2D colls = Physics2D.OverlapCircle(position, 0.5f);
+            if (colls != null && colls.transform.name != "Player")
+            {
+                Debug.Log(i + " " + colls.name);
                 predictLine.positionCount = i; //포물선이 다른 물체와 충돌시 더이상 그리지 않게
                 break;
             }
