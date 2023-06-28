@@ -7,8 +7,6 @@ using UnityEngine.EventSystems;
 
 public class UI_Setting_shj : MonoBehaviour
 {
-    public UI_Setting_shj uI_Setting;
-
 
     public void UI_On_Off()
     {
@@ -24,5 +22,15 @@ public class UI_Setting_shj : MonoBehaviour
 #else
         Application.Quit();
 #endif 
+    }
+
+    public void Next_Scene()
+    {
+        GameManager_shj.Getinstance.Change_Next_Scene(true);
+    }
+
+    public void Return_Lobby()
+    {
+        GameManager_shj.Getinstance.Change_Next_Scene(false);
     }
 }

@@ -184,6 +184,10 @@ public class Map_Editor_shj : EditorWindow
             GameObject c_obj = Instantiate((GameObject)obj[choice_num]);
             c_obj.transform.parent = map.transform;
             c_obj.transform.position = editor_guide.transform.position;
+
+            if (obj[choice_num].name == "Rock")
+                c_obj.transform.position = new Vector3(c_obj.transform.position.x, -2.2f, c_obj.transform.position.z);
+
             created_obj.Push(c_obj);
             created_pos.Add(c_obj.transform.position);
         }
