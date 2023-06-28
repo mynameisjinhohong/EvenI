@@ -6,7 +6,7 @@ public class Bat_HJH : MonoBehaviour
 {
     bool startMove;
     Camera cam;
-    [Range(0.0f, 0.1f)]
+    [Range(0.0f, 1f)]
     public float speed;
     // Start is called before the first frame update
     void Start()
@@ -39,7 +39,7 @@ public class Bat_HJH : MonoBehaviour
             {
                 transform.position += Vector3.left * speed * Time.deltaTime;
             }
-            yield return null;
+            yield return new WaitForSeconds(0.01f);
         }
         
     }
