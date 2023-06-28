@@ -1879,7 +1879,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2043820479947333128, guid: da00e558404e21e4496bc6660619f64a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.952418
+      value: 12.87
       objectReference: {fileID: 0}
     - target: {fileID: 2043820479947333128, guid: da00e558404e21e4496bc6660619f64a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4363,9 +4363,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bat
       objectReference: {fileID: 0}
+    - target: {fileID: 2043820479947333135, guid: da00e558404e21e4496bc6660619f64a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5732082273140926154, guid: da00e558404e21e4496bc6660619f64a, type: 3}
       propertyPath: speed
-      value: 0.0102
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da00e558404e21e4496bc6660619f64a, type: 3}
