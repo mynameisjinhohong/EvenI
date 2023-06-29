@@ -10,6 +10,10 @@ public class Player_shj : MonoBehaviour
 
     public LineRenderer predictLine;
 
+    [Range(0.0f, 1.0f)]
+    public float timeSlowSpeed;
+    public bool timeSlowOnOff;
+
     [Range(0.0f, 15.0f)]
     public float speed; //속도
 
@@ -73,7 +77,10 @@ public class Player_shj : MonoBehaviour
             charge_img.enabled = true; //ui활성화
             jump_charge = jump_charge <= 1.0f ? jump_charge + Time.deltaTime * charge_speed : 1.0f; //차징하면 게이지가 차오릅니다
             charge_img.fillAmount = jump_charge;
-            Time.timeScale = 0.5f;
+            if (timeSlowOnOff)
+            {
+                Time.timeScale = timeSlowSpeed;
+            }
             PredictLine(transform.position, (Vector2.right * jump_right_power + Vector2.up * jump_up_power) * jump_charge);
         }
         else if (!jumping && Input.GetMouseButtonUp(0))
