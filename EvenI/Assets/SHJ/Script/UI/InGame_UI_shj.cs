@@ -2,17 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InGame_UI_shj : MonoBehaviour
+public class InGame_UI_shj : UI_Setting_shj
 {
-    // Start is called before the first frame update
-    void Start()
+    public void Game_Stop() //게임 정지 버튼
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Time.timeScale = 0.0f; //게임 일시정지
+        UI_On_Off();
     }
 }
