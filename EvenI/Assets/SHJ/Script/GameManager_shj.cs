@@ -16,7 +16,6 @@ public class GameManager_shj : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
-
     public void Change_Next_Scene(bool next)
     {
         if(next)
