@@ -11,11 +11,12 @@ public class UI_Setting_shj : MonoBehaviour ,IPointerClickHandler
     public void UI_On_Off() //버튼의 첫번째 자식 켜고 끄기
     {
         GameObject G_obj = EventSystem.current.currentSelectedGameObject.transform.GetChild(0).gameObject;
-        bool on_off = G_obj.activeSelf == true ? false : true; ;
 
-        if (on_off) root_UI = G_obj;
-
-        G_obj.SetActive(on_off);
+        if (!G_obj.activeSelf)
+        {
+            G_obj.SetActive(true);
+            root_UI = G_obj;
+        }
     }
 
     public void Game_Exit() //게임종료
