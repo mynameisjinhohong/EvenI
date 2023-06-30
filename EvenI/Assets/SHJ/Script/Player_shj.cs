@@ -108,15 +108,15 @@ public class Player_shj : MonoBehaviour
         {
             jump_charge = jump_charge <= maxJumpPower ? jump_charge + Time.deltaTime * charge_speed : maxJumpPower; //차징하면 게이지가 차오릅니다
             charge_img.enabled = true; //ui활성화
-            charge_img.fillAmount = jump_charge;
+            charge_img.fillAmount += Time.deltaTime/*jump_charge*/;
             if (timeSlowOnOff)
             {
                 Time.timeScale = timeSlowSpeed;
             }
-            //if(jump_charge < minJumpPower) 
-            //{
-            //    jump_charge = minJumpPower;
-            //}
+            if (jump_charge < minJumpPower)
+            {
+                jump_charge = minJumpPower;
+            }
 
         }
         else if (!jumping && Input.GetMouseButtonUp(0))
