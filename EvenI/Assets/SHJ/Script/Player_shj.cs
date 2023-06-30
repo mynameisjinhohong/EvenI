@@ -113,10 +113,10 @@ public class Player_shj : MonoBehaviour
             {
                 Time.timeScale = timeSlowSpeed;
             }
-            if(jump_charge < minJumpPower) 
-            {
-                jump_charge = minJumpPower;
-            }
+            //if(jump_charge < minJumpPower) 
+            //{
+            //    jump_charge = minJumpPower;
+            //}
 
         }
         else if (!jumping && Input.GetMouseButtonUp(0))
