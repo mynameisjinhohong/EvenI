@@ -11,6 +11,9 @@ public class Player_shj : MonoBehaviour
 
     public LineRenderer predictLine;
 
+    [Range(0.0f, 10.0f)]
+    public float camera_distance;
+
     [Range(0.0f, 1.0f)]
     public float timeSlowSpeed;
     public bool timeSlowOnOff;
@@ -89,7 +92,7 @@ public class Player_shj : MonoBehaviour
             }
         }
 
-        Camera.main.transform.position = new Vector3((transform.position + new Vector3(5.5f, 0, 0)).x, 2, -10);//플레이어한테 맞춰서 카메라 배치
+        Camera.main.transform.position = new Vector3((transform.position + new Vector3(camera_distance, 0, 0)).x, 2, -10);//플레이어한테 맞춰서 카메라 배치
 
 
 #if UNITY_EDITOR
