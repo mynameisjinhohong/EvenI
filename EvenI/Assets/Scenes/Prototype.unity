@@ -2797,13 +2797,16 @@ MonoBehaviour:
   timeSlowSpeed: 0
   timeSlowOnOff: 0
   speed: 7
-  jump_up_power: 10
-  jump_right_power: 6
-  charge_speed: 2
+  jump_up_power: 5
+  jump_right_power: 3
+  maxJumpPower: 2
+  minJumpPower: 1
+  charge_speed: 1
   jumping: 0
   charge_img: {fileID: 201541819}
   playerAnimator: {fileID: 1143851860}
   hp_List: {fileID: 824284868}
+  maxHP: 9
   hp: 9
   cameraSpeed: 5
 --- !u!61 &1143851858
