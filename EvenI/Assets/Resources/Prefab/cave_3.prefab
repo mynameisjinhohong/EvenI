@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6068753591702515604}
   - component: {fileID: 6068753591702515605}
   - component: {fileID: 6068753591702515594}
+  - component: {fileID: -6603710918323894527}
   m_Layer: 0
   m_Name: cave_3
   m_TagString: Untagged
@@ -159,3 +160,15 @@ PolygonCollider2D:
       - {x: -0.77, y: -1.9799999}
       - {x: -0.72999996, y: -1.4599999}
       - {x: -0.53, y: -0.65999997}
+--- !u!114 &-6603710918323894527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6068753591702515595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 261c76b538c77f941a53992ec2aefe3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
