@@ -154,6 +154,8 @@ public class Player_shj : MonoBehaviour
             //collision.gameObject.SetActive(false);
             hp--;
         }
+        else if(collision.gameObject.layer == 10)
+            collision.gameObject.SetActive(false);
     }
 
     void PredictLine(Vector2 startPos, Vector2 vel)  //포물선 예측
