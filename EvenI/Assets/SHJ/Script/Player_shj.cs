@@ -236,7 +236,7 @@ public class Player_shj : MonoBehaviour
         predictLine.positionCount = 120;
         for (int i = 0; i < step; i++)
         {
-            position += velocity * deltaTime + 0.5f * gravity * deltaTime * deltaTime;
+            position += velocity * deltaTime + 1f * gravity * deltaTime * deltaTime;
             velocity += gravity * deltaTime;
             predictLine.SetPosition(i, position);
             Collider2D colls = Physics2D.OverlapCircle(position, 0.5f);
