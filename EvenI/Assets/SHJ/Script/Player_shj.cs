@@ -23,8 +23,8 @@ public class Player_shj : MonoBehaviour
     [Range(0.0f, 15.0f)]
     public float jump_up_power; //위로 점프력
 
-    [Range(0.0f, 15.0f)]
-    public float jump_right_power; //오른쪽으로 점프력
+    //[Range(0.0f, 15.0f)]
+    //public float jump_right_power; //오른쪽으로 점프력
 
     [Range(0.0f, 2.0f)]
     public float maxJumpPower; //점프 게이지 차오르는 속도
@@ -38,11 +38,8 @@ public class Player_shj : MonoBehaviour
     [Range(0.0f, 10.0f)]
     public float shortJump_up_power;
 
-    public bool shotJumpOn = true;
-
     [SerializeField]
     bool jumping = false; //점프중인지 아닌지 확인
-    bool shortJumping = false;
     bool floorCheck = true; //점프 하고 잠깐동안 바닥 체크 안하게
     float jump_charge = 0.0f; //점프력 충전
     public Image charge_img; //점프 게이지
@@ -68,7 +65,7 @@ public class Player_shj : MonoBehaviour
 
     private void Update()
     {
-        if (shortJumping)
+        if(jumping)
         {
             rigid.AddForce(Vector2.down);
         }
@@ -78,7 +75,6 @@ public class Player_shj : MonoBehaviour
             Debug.DrawRay(gameObject.transform.position, Vector2.down * hit.distance, Color.red);
             if (hit.collider != null)
             {
-                shortJumping = false;
                 jumping = false;
                 if (!jumping)
                 {
@@ -111,55 +107,21 @@ public class Player_shj : MonoBehaviour
         if (!jumping && Input.GetMouseButton(0))
         {
             jump_charge = jump_charge <= maxJumpPower ? jump_charge + Time.deltaTime * charge_speed : maxJumpPower; //차징하면 게이지가 차오릅니다
-            if (shotJumpOn)
+            charge_img.enabled = true; //ui활성화
+            charge_img.fillAmount = jump_charge;
+            if (timeSlowOnOff)
             {
-                if (jump_charge < minJumpPower)
-                {
-
-                }
-                else
-                {
-
-                    charge_img.enabled = true; //ui활성화
-                    charge_img.fillAmount = jump_charge;
-                    if (timeSlowOnOff)
-                    {
-                        Time.timeScale = timeSlowSpeed;
-                    }
-                    PredictLine(transform.position, ((Vector2.right * jump_right_power + Vector2.right * speed) * jump_charge) + Vector2.up * jump_up_power);
-                }
+                Time.timeScale = timeSlowSpeed;
             }
-            else
+            if(jump_charge < minJumpPower) 
             {
-                charge_img.enabled = true; //ui활성화
-                charge_img.fillAmount = jump_charge;
-                if (timeSlowOnOff)
-                {
-                    Time.timeScale = timeSlowSpeed;
-                }
-                PredictLine(transform.position, (((Vector2.right * jump_right_power) * jump_charge) + (Vector2.right * speed) + Vector2.up * jump_up_power));
+                jump_charge = minJumpPower;
             }
 
-           
         }
         else if (!jumping && Input.GetMouseButtonUp(0))
         {
-            if (shotJumpOn)
-            {
-                if (jump_charge < minJumpPower)
-                {
-                    ShortJump();
-                }
-                else
-                {
-                    Jump();
-                }
-            }
-            else
-            {
-                Jump();
-            }
-
+            Jump();
             Time.timeScale = 1f;
         }
 
@@ -186,7 +148,7 @@ public class Player_shj : MonoBehaviour
         playerAnimator.SetTrigger("Jump"); //점프 애니메이션
         jumping = true; //점프중
         charge_img.enabled = false; //ui비활성화
-        rigid.AddForce((((Vector2.right * jump_right_power) * jump_charge) + Vector2.up * jump_up_power) * 50);
+        rigid.AddForce((Vector2.up * jump_up_power) * 50 * jump_charge,ForceMode2D.Force);
         //rigid.velocity = (Vector2.right * jump_right_power + Vector2.up * jump_up_power) * jump_charge;
         //rigid.AddForce(Vector2.up * jump_up_power * jump_charge, ForceMode2D.Impulse); //차징한 만큼 점프
         jump_charge = 0.0f;
@@ -211,7 +173,6 @@ public class Player_shj : MonoBehaviour
         {
 
         }//jumping = false;
-         //jump_cnt = 0; //2단점프 초기화
         else if (collision.gameObject.layer == 9)
         {
             Rock_HJH rock;
@@ -236,7 +197,7 @@ public class Player_shj : MonoBehaviour
         predictLine.positionCount = 120;
         for (int i = 0; i < step; i++)
         {
-            position += velocity * deltaTime + 1f * gravity * deltaTime * deltaTime;
+            position += velocity * deltaTime + gravity * deltaTime * deltaTime;
             velocity += gravity * deltaTime;
             predictLine.SetPosition(i, position);
             Collider2D colls = Physics2D.OverlapCircle(position, 0.5f);
@@ -249,21 +210,6 @@ public class Player_shj : MonoBehaviour
         }
     }
 
-    public void ShortJump()
-    {
-        Debug.Log("ShortJump");
-        floorCheck = false;
-        StartCoroutine(FloorCheck());
-        playerAnimator.SetTrigger("Jump"); //점프 애니메이션
-        jumping = true; //점프중
-        shortJumping = true;
-        charge_img.enabled = false; //ui비활성화
-        //rigid.velocity = Vector2.zero;
-        rigid.AddForce((Vector2.up * shortJump_up_power) * 100);
-        //rigid.velocity = (Vector2.right * jump_right_power + Vector2.up * jump_up_power) * jump_charge;
-        //rigid.AddForce(Vector2.up * jump_up_power * jump_charge, ForceMode2D.Impulse); //차징한 만큼 점프
-        jump_charge = 0.0f;
-    }
 
     public void NukBack()
     {
