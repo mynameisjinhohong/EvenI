@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Specialized;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,7 +11,7 @@ public class Player_shj : MonoBehaviour
 
     public LineRenderer predictLine;
 
-    [Range(0.0f,10.0f)]
+    [Range(0.0f, 10.0f)]
     public float camera_distance;
 
     [Range(0.0f, 1.0f)]
@@ -26,6 +27,12 @@ public class Player_shj : MonoBehaviour
     [Range(0.0f, 15.0f)]
     public float jump_right_power; //오른쪽으로 점프력
 
+    [Range(0.0f, 2.0f)]
+    public float maxJumpPower; //점프 게이지 차오르는 속도
+
+    [Range(0.0f, 2.0f)]
+    public float minJumpPower; //점프 게이지 차오르는 속도
+
     [Range(0.0f, 10.0f)]
     public float charge_speed; //점프 게이지 차오르는 속도
     [SerializeField]
@@ -37,6 +44,7 @@ public class Player_shj : MonoBehaviour
 
     public Animator playerAnimator;
     public GameObject hp_List;
+    public int maxHP = 9;
     public int hp = 9;
 
     [Range(0.0f, 10.0f)]
@@ -48,6 +56,7 @@ public class Player_shj : MonoBehaviour
 
     private void Start()
     {
+        hp = maxHP;
         rigid = GetComponent<Rigidbody2D>();
     }
 
@@ -71,6 +80,18 @@ public class Player_shj : MonoBehaviour
             }
 
         }
+        for(int i = 1; i <= maxHP; i++)
+        {
+            if (i <= hp)
+            {
+                hp_List.transform.GetChild(hp).gameObject.SetActive(true);
+            }
+            else
+            {
+                hp_List.transform.GetChild(hp).gameObject.SetActive(false);
+            }
+        }
+
         Camera.main.transform.position = new Vector3((transform.position + new Vector3(camera_distance, 0, 0)).x, 2, -10);//플레이어한테 맞춰서 카메라 배치
 
 
@@ -78,7 +99,11 @@ public class Player_shj : MonoBehaviour
         if (!jumping && Input.GetMouseButton(0))
         {
             charge_img.enabled = true; //ui활성화
-            jump_charge = jump_charge <= 1.0f ? jump_charge + Time.deltaTime * charge_speed : 1.0f; //차징하면 게이지가 차오릅니다
+            jump_charge = jump_charge <= maxJumpPower ? jump_charge + Time.deltaTime * charge_speed : maxJumpPower; //차징하면 게이지가 차오릅니다
+            if(jump_charge < minJumpPower)
+            {
+                jump_charge = minJumpPower;
+            }
             charge_img.fillAmount = jump_charge;
             if (timeSlowOnOff)
             {
@@ -150,12 +175,10 @@ public class Player_shj : MonoBehaviour
                 rock.RockTouch();
             }
             collision.gameObject.GetComponent<BoxCollider2D>().enabled = false;
-            hp_List.transform.GetChild(hp).gameObject.SetActive(false);
+
             //collision.gameObject.SetActive(false);
             hp--;
         }
-        else if(collision.gameObject.layer == 10)
-            collision.gameObject.SetActive(false);
     }
 
     void PredictLine(Vector2 startPos, Vector2 vel)  //포물선 예측
@@ -166,8 +189,6 @@ public class Player_shj : MonoBehaviour
 
         Vector2 position = startPos;
         Vector2 velocity = vel;
-
-        Debug.Log("??");
         predictLine.positionCount = 120;
         for (int i = 0; i < step; i++)
         {
@@ -182,5 +203,10 @@ public class Player_shj : MonoBehaviour
             }
 
         }
+    }
+
+    public void Hit()
+    {
+
     }
 }
