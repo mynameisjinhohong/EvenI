@@ -108,7 +108,7 @@ public class Player_shj : MonoBehaviour
         {
             jump_charge = jump_charge <= maxJumpPower ? jump_charge + Time.deltaTime * charge_speed : maxJumpPower; //차징하면 게이지가 차오릅니다
             charge_img.enabled = true; //ui활성화
-            charge_img.fillAmount += Time.deltaTime/*jump_charge*/;
+            charge_img.fillAmount += Time.deltaTime/*jump_charge*/; //수정되었음
             if (timeSlowOnOff)
             {
                 Time.timeScale = timeSlowSpeed;
@@ -152,7 +152,7 @@ public class Player_shj : MonoBehaviour
         //rigid.velocity = (Vector2.right * jump_right_power + Vector2.up * jump_up_power) * jump_charge;
         //rigid.AddForce(Vector2.up * jump_up_power * jump_charge, ForceMode2D.Impulse); //차징한 만큼 점프
         jump_charge = 0.0f;
-
+        charge_img.fillAmount = 0.0f; //추가됨
         //if(jump_cnt != 2) //2단 점프 구현
         //{
         //    jump_cnt++;
