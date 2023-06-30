@@ -616,7 +616,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &193925796
 Transform:
   m_ObjectHideFlags: 0
@@ -2792,7 +2792,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   predictLine: {fileID: 940764278}
-  camera_distance: 0
+  camera_distance: 7
   timeSlowSpeed: 0
   timeSlowOnOff: 0
   speed: 7
@@ -2801,6 +2801,7 @@ MonoBehaviour:
   maxJumpPower: 2
   minJumpPower: 1
   charge_speed: 1
+  shortJump_up_power: 4
   jumping: 0
   charge_img: {fileID: 201541819}
   playerAnimator: {fileID: 1143851860}
