@@ -100,6 +100,7 @@ public class Player_shj : MonoBehaviour
             {
                 hp_List.transform.GetChild(hp).gameObject.SetActive(false);
             }
+        }
             Camera.main.transform.position = new Vector3((transform.position + new Vector3(camera_distance, 0, 0)).x, 2, -10);//플레이어한테 맞춰서 카메라 배치
 #if UNITY_EDITOR
             if (!jumping && Input.GetMouseButton(0))
@@ -146,7 +147,7 @@ public class Player_shj : MonoBehaviour
                 Jump();
         }
 #endif
-        }
+
     }
     public void Jump()
     {
