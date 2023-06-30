@@ -191,7 +191,7 @@ public class Player_shj : MonoBehaviour
     {
         int step = 120;
         float deltaTime = Time.fixedDeltaTime;
-        Vector2 gravity = Physics.gravity;
+        Vector2 gravity = (Vector2)Physics.gravity+Vector2.down;
         Vector2 position = startPos;
         Vector2 velocity = vel;
         predictLine.positionCount = 120;
