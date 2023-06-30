@@ -137,7 +137,7 @@ public class Player_shj : MonoBehaviour
                 {
                     Time.timeScale = timeSlowSpeed;
                 }
-                PredictLine(transform.position, ((Vector2.right * jump_right_power + Vector2.right * speed) * jump_charge) + Vector2.up * jump_up_power);
+                PredictLine(transform.position, (((Vector2.right * jump_right_power) * jump_charge) + (Vector2.right * speed) + Vector2.up * jump_up_power));
             }
 
            
@@ -231,7 +231,6 @@ public class Player_shj : MonoBehaviour
         int step = 120;
         float deltaTime = Time.fixedDeltaTime;
         Vector2 gravity = Physics.gravity;
-
         Vector2 position = startPos;
         Vector2 velocity = vel;
         predictLine.positionCount = 120;
