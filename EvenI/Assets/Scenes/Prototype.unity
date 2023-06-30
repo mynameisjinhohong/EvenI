@@ -2796,12 +2796,13 @@ MonoBehaviour:
   timeSlowSpeed: 0
   timeSlowOnOff: 0
   speed: 7
-  jump_up_power: 10
-  jump_right_power: 6
+  jump_up_power: 8
+  jump_right_power: 1
   maxJumpPower: 1
   minJumpPower: 0.4
   charge_speed: 1
   shortJump_up_power: 4
+  shotJumpOn: 0
   jumping: 0
   charge_img: {fileID: 201541819}
   playerAnimator: {fileID: 1143851860}

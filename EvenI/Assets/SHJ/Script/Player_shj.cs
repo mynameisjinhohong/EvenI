@@ -36,8 +36,9 @@ public class Player_shj : MonoBehaviour
     public float charge_speed; //점프 게이지 차오르는 속도
 
     [Range(0.0f, 10.0f)]
-    public float shortJump_up_power; 
+    public float shortJump_up_power;
 
+    public bool shotJumpOn = true;
 
     [SerializeField]
     bool jumping = false; //점프중인지 아닌지 확인
@@ -90,7 +91,7 @@ public class Player_shj : MonoBehaviour
             }
 
         }
-        if(hp > 0)
+        if (hp > 0)
         {
             for (int i = 1; i <= maxHP; i++)
             {
@@ -105,27 +106,45 @@ public class Player_shj : MonoBehaviour
             }
         }
 
-            Camera.main.transform.position = new Vector3((transform.position + new Vector3(camera_distance, 0, 0)).x, 2, -10);//플레이어한테 맞춰서 카메라 배치
+        Camera.main.transform.position = new Vector3((transform.position + new Vector3(camera_distance, 0, 0)).x, 2, -10);//플레이어한테 맞춰서 카메라 배치
 #if UNITY_EDITOR
-            if (!jumping && Input.GetMouseButton(0))
+        if (!jumping && Input.GetMouseButton(0))
+        {
+            jump_charge = jump_charge <= maxJumpPower ? jump_charge + Time.deltaTime * charge_speed : maxJumpPower; //차징하면 게이지가 차오릅니다
+            if (shotJumpOn)
             {
-                jump_charge = jump_charge <= maxJumpPower ? jump_charge + Time.deltaTime * charge_speed : maxJumpPower; //차징하면 게이지가 차오릅니다
                 if (jump_charge < minJumpPower)
                 {
 
                 }
                 else
                 {
+
                     charge_img.enabled = true; //ui활성화
                     charge_img.fillAmount = jump_charge;
                     if (timeSlowOnOff)
                     {
                         Time.timeScale = timeSlowSpeed;
                     }
-                    PredictLine(transform.position, (Vector2.right * jump_right_power + Vector2.up * jump_up_power + Vector2.right * speed) * jump_charge);
+                    PredictLine(transform.position, ((Vector2.right * jump_right_power + Vector2.right * speed) * jump_charge) + Vector2.up * jump_up_power);
                 }
             }
-            else if (!jumping && Input.GetMouseButtonUp(0))
+            else
+            {
+                charge_img.enabled = true; //ui활성화
+                charge_img.fillAmount = jump_charge;
+                if (timeSlowOnOff)
+                {
+                    Time.timeScale = timeSlowSpeed;
+                }
+                PredictLine(transform.position, ((Vector2.right * jump_right_power + Vector2.right * speed) * jump_charge) + Vector2.up * jump_up_power);
+            }
+
+           
+        }
+        else if (!jumping && Input.GetMouseButtonUp(0))
+        {
+            if (shotJumpOn)
             {
                 if (jump_charge < minJumpPower)
                 {
@@ -135,8 +154,14 @@ public class Player_shj : MonoBehaviour
                 {
                     Jump();
                 }
-                Time.timeScale = 1f;
             }
+            else
+            {
+                Jump();
+            }
+
+            Time.timeScale = 1f;
+        }
 
 
 #elif UNITY_ANDROID
@@ -161,7 +186,7 @@ public class Player_shj : MonoBehaviour
         playerAnimator.SetTrigger("Jump"); //점프 애니메이션
         jumping = true; //점프중
         charge_img.enabled = false; //ui비활성화
-        rigid.AddForce((Vector2.right * jump_right_power + Vector2.up * jump_up_power) * jump_charge * 50);
+        rigid.AddForce(((Vector2.right * jump_right_power) * jump_charge) + Vector2.up * jump_up_power * 50);
         //rigid.velocity = (Vector2.right * jump_right_power + Vector2.up * jump_up_power) * jump_charge;
         //rigid.AddForce(Vector2.up * jump_up_power * jump_charge, ForceMode2D.Impulse); //차징한 만큼 점프
         jump_charge = 0.0f;
@@ -235,7 +260,7 @@ public class Player_shj : MonoBehaviour
         shortJumping = true;
         charge_img.enabled = false; //ui비활성화
         //rigid.velocity = Vector2.zero;
-        rigid.AddForce((Vector2.up * shortJump_up_power) *100);
+        rigid.AddForce((Vector2.up * shortJump_up_power) * 100);
         //rigid.velocity = (Vector2.right * jump_right_power + Vector2.up * jump_up_power) * jump_charge;
         //rigid.AddForce(Vector2.up * jump_up_power * jump_charge, ForceMode2D.Impulse); //차징한 만큼 점프
         jump_charge = 0.0f;
@@ -245,4 +270,4 @@ public class Player_shj : MonoBehaviour
     {
 
     }
-} 
+}
