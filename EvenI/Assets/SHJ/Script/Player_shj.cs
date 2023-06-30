@@ -144,7 +144,11 @@ public class Player_shj : MonoBehaviour
         //jump_cnt = 0; //2단점프 초기화
         else if (collision.gameObject.layer == 9)
         {
-            collision.gameObject.GetComponent<Rock_HJH>().RockTouch();
+            Rock_HJH rock;
+            if(collision.gameObject.TryGetComponent<Rock_HJH>(out rock))
+            {
+                rock.RockTouch();
+            }
             collision.gameObject.GetComponent<BoxCollider2D>().enabled = false;
             hp_List.transform.GetChild(hp).gameObject.SetActive(false);
             //collision.gameObject.SetActive(false);
