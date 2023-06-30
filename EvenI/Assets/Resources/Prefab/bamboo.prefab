@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2649044427832067495}
   - component: {fileID: 2649044427832067494}
   - component: {fileID: 2649044427832067492}
+  - component: {fileID: -4289761017068779537}
   m_Layer: 10
   m_Name: bamboo
   m_TagString: Untagged
@@ -111,3 +112,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-4289761017068779537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2649044427832067513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 261c76b538c77f941a53992ec2aefe3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
