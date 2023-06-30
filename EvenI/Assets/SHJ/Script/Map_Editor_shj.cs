@@ -47,7 +47,7 @@ public class Map_Editor_shj : EditorWindow
 
         editor_guide = GameObject.Find("Editor_guide");
         editor_guide.transform.position = offeset_pos;
-        if(editor_guide.GetComponent<Editor_Guide_shj>() == null) editor_guide.AddComponent<Editor_Guide_shj>();
+        if (editor_guide.GetComponent<Editor_Guide_shj>() == null) editor_guide.AddComponent<Editor_Guide_shj>();
 
         map = GameObject.Find("Map");
         //PrefabUtility.SaveAsPrefabAsset(map, "Assets/" + file_name + ".prefab"); //이방식을 이용하면 저장가능
@@ -72,7 +72,7 @@ public class Map_Editor_shj : EditorWindow
     {
         #region 그리드 설정
         show_grid = EditorGUILayout.BeginFoldoutHeaderGroup(show_grid, "장애물 및 아이템 선택");
-        if(show_grid)
+        if (show_grid)
         {
             Texture[] obj_thumnail = new Texture[obj.Length];
             for (int i = 0; i < obj.Length; i++) obj_thumnail[i] = AssetPreview.GetAssetPreview(obj[i]);
@@ -86,7 +86,7 @@ public class Map_Editor_shj : EditorWindow
 
         GUILayout.Label("방향키 버튼으로 제작");
         GUILayout.Label("+버튼 저장,0버튼 undo");
-        string[] btn_text = 
+        string[] btn_text =
         {
             "↙", "▽", "↘",
             "◁", "생성", "▷",
@@ -94,28 +94,38 @@ public class Map_Editor_shj : EditorWindow
         }; //버튼에 보일 텍스트
 
         GUILayout.BeginVertical();
-        for (int i = 2; i >= 0 ; i--)
+        for (int i = 2; i >= 0; i--)
         {
             GUILayout.BeginHorizontal();
             for (int j = 0; j < 3; j++)
-                if(GUILayout.Button(btn_text[i * 3 + j],GUILayout.Height(100),GUILayout.Width(100)))
+                if (GUILayout.Button(btn_text[i * 3 + j], GUILayout.Height(100), GUILayout.Width(100)))
                     Guide_Control((i * 3 + j + 1).ToString());
             GUILayout.EndHorizontal();
         }
         GUILayout.EndVertical();
         GUILayout.Label("*저장누를때 주의문구 없이 저장됩니다,파일명에 신경써주세요");
 
+        GUILayout.BeginHorizontal();
+
+        if (GUILayout.Button("카메라 추적", GUILayout.Height(50), GUILayout.Width(100)))
+        {
+            Set_Scene_Camera();
+        }
+
+        GUILayout.EndHorizontal();
+
+
+
         GUILayout.Space(50);
 
         GUILayout.Label("저장할 파일명");
-        file_name = EditorGUILayout.TextField(file_name,GUILayout.Width(100));
+        file_name = EditorGUILayout.TextField(file_name, GUILayout.Width(100));
 
         GUILayout.Label("오브젝트 사이의 거리");
-        distance = EditorGUILayout.FloatField(distance, GUILayout.Width (100));
+        distance = EditorGUILayout.FloatField(distance, GUILayout.Width(100));
 
         #endregion
     }
-
 
     public void Guide_Control(string key)
     {
@@ -127,8 +137,23 @@ public class Map_Editor_shj : EditorWindow
 
         int key_num;
 
-        if (key == "+") key_num = 10; //저장
-        else key_num = int.Parse(key); //이동
+        switch (key)
+        {
+            case "+": //저장
+                key_num = 10;
+                break;
+
+            case ".":
+                key_num = 11;
+                break;
+
+            default:
+                key_num = int.Parse(key);
+                break;
+        }
+
+        //if (key == "+") key_num = 10; //저장
+        //else key_num = int.Parse(key); //이동
 
         if (0 <= key_num && key_num <= 9)
         {
@@ -144,7 +169,7 @@ public class Map_Editor_shj : EditorWindow
             else if (key_num == 5)
             {
                 creating = creating == true ? false : true;
-                if(!created_pos.Contains(editor_guide.transform.position) && creating) Create(editor_guide.transform.position);
+                if (!created_pos.Contains(editor_guide.transform.position) && creating) Create(editor_guide.transform.position);
             }
             else
             {
@@ -165,6 +190,9 @@ public class Map_Editor_shj : EditorWindow
                     map.name = file_name;
                     PrefabUtility.SaveAsPrefabAsset(map, "Assets/Resources/Prefab/Map/" + file_name + ".prefab"); //이방식을 이용하면 저장가능 경로조정필요
                     break;
+                case 11:
+                    Set_Scene_Camera();
+                    break;
             }
         }
     }
@@ -179,18 +207,20 @@ public class Map_Editor_shj : EditorWindow
     }
     void Create(Vector3 guide_pos)
     {
-        if(!created_pos.Contains(guide_pos))
+        if (!created_pos.Contains(guide_pos))
         {
             GameObject c_obj = Instantiate((GameObject)obj[choice_num]);
             c_obj.transform.parent = map.transform;
             c_obj.transform.position = editor_guide.transform.position;
 
-            if (obj[choice_num].name == "Rock")
-                c_obj.transform.position = new Vector3(c_obj.transform.position.x, -2.2f + map.transform.position.y, c_obj.transform.position.z);
-
             created_obj.Push(c_obj);
             created_pos.Add(c_obj.transform.position);
         }
     }
-}
 
+    void Set_Scene_Camera()
+    {
+        //씬 뷰 카메라 변경
+        SceneView.lastActiveSceneView.pivot = editor_guide.transform.position;
+    }
+}
