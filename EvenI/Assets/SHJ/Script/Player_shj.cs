@@ -90,7 +90,7 @@ public class Player_shj : MonoBehaviour
             }
 
         }
-        if(hp > 1)
+        if(hp > 0)
         {
             for (int i = 1; i <= maxHP; i++)
             {
@@ -112,6 +112,7 @@ public class Player_shj : MonoBehaviour
                 jump_charge = jump_charge <= maxJumpPower ? jump_charge + Time.deltaTime * charge_speed : maxJumpPower; //차징하면 게이지가 차오릅니다
                 if (jump_charge < minJumpPower)
                 {
+
                 }
                 else
                 {

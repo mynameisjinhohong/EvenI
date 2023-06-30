@@ -2799,7 +2799,7 @@ MonoBehaviour:
   jump_up_power: 10
   jump_right_power: 6
   maxJumpPower: 1
-  minJumpPower: 0.2
+  minJumpPower: 0.4
   charge_speed: 1
   shortJump_up_power: 4
   jumping: 0
@@ -3014,6 +3014,10 @@ PrefabInstance:
     - target: {fileID: 260949744689100720, guid: bbb0f0b7d8371784484977d7a865e6b0, type: 3}
       propertyPath: m_Name
       value: hp (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 260949744689100720, guid: bbb0f0b7d8371784484977d7a865e6b0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2203584091968768072, guid: bbb0f0b7d8371784484977d7a865e6b0, type: 3}
       propertyPath: m_Pivot.x
