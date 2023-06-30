@@ -9,7 +9,6 @@ public class GameManager_shj : MonoBehaviour
     public static GameManager_shj Getinstance { get { return instance; } }
     public string nickname;
 
-
     public void Awake()
     {
         instance = this;
