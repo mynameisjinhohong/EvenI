@@ -2448,14 +2448,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   predictLine: {fileID: 940764278}
+  camera_distance: 0
+  timeSlowSpeed: 0
+  timeSlowOnOff: 0
   speed: 7
   jump_up_power: 10
-  jump_right_power: 6
+  maxJumpPower: 0
+  minJumpPower: 0
   charge_speed: 2
+  shortJump_up_power: 0
   jumping: 0
   charge_img: {fileID: 201541819}
   playerAnimator: {fileID: 1143851860}
   hp_List: {fileID: 824284868}
+  maxHP: 9
   hp: 9
   cameraSpeed: 5
 --- !u!61 &1143851858
