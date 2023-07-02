@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6976920357581533066}
   - component: {fileID: 6976920357581533077}
   - component: {fileID: 6976920357581533076}
+  - component: {fileID: 1294726884391868817}
   m_Layer: 0
   m_Name: cave_2
   m_TagString: Untagged
@@ -105,3 +106,54 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!60 &1294726884391868817
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6976920357581533079}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.25, y: 3.1022308}
+    newSize: {x: 1.25, y: 3.1022308}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.59155273, y: -0.68609935}
+      - {x: 0.555542, y: -0.39801344}
+      - {x: 0.50512695, y: -0.13873608}
+      - {x: 0.4042969, y: -0.11712964}
+      - {x: 0.39709476, y: 0.20696704}
+      - {x: 0.30346683, y: 0.86236256}
+      - {x: 0.20263675, y: 0.883969}
+      - {x: 0.1954346, y: 1.1648527}
+      - {x: 0.14501956, y: 1.4601408}
+      - {x: 0.080200225, y: 1.5609709}
+      - {x: -0.06384274, y: 1.5609709}
+      - {x: -0.12866208, y: 1.5321623}
+      - {x: -0.20068356, y: 1.3088957}
+      - {x: -0.3087158, y: 0.5814788}
+      - {x: -0.35192868, y: 0.45904222}
+      - {x: -0.39514157, y: -0.17474683}
+      - {x: -0.510376, y: -0.3908113}
+      - {x: -0.5319824, y: -0.77252513}
+      - {x: -0.6184082, y: -0.83734447}
+      - {x: -0.62561035, y: -0.96698314}
+      - {x: -0.62561035, y: -1.4639314}
+      - {x: -0.560791, y: -1.5503572}
+      - {x: 0.53393555, y: -1.5503572}
+      - {x: 0.5843506, y: -1.5215486}
+      - {x: 0.6275635, y: -1.442325}
+      - {x: 0.6275635, y: -0.8877595}
