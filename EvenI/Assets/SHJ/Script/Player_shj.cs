@@ -108,6 +108,9 @@ public class Player_shj : MonoBehaviour
 
     private void Update()
     {
+        if (player_State == Player_State.Rolling)
+            StartCoroutine(Rolling());
+
         if(jumping)
         {
             rigid.AddForce(Vector2.down);
@@ -225,7 +228,8 @@ public class Player_shj : MonoBehaviour
             collision.gameObject.GetComponent<BoxCollider2D>().enabled = false;
 
             //collision.gameObject.SetActive(false);
-            hp--;
+            if(player_State == Player_State.Run)
+                hp--;
         }
     }
 
@@ -281,13 +285,9 @@ public class Player_shj : MonoBehaviour
     }
     IEnumerator Rolling()
     {
-        if(player_State == Player_State.Run)
-        {
-            player_State = Player_State.Rolling; //구르는 상태로 변경
-            //playerAnimator.SetBool("Rolling"); //구르기 애니메이션 작동
-
-            yield return new WaitForSeconds(rolling_time); //일정시간동안 구르기진행
-            player_State = Player_State.Run; //달리는 상태로 복귀
-        }
+        //playerAnimator.SetBool("Rolling",true); //구르기 애니메이션 작동
+        yield return new WaitForSeconds(rolling_time); //일정시간동안 구르기진행
+        player_State = Player_State.Run; //달리는 상태로 복귀
+        //playerAnimator.SetBool("Rolling", false);
     }
 }
