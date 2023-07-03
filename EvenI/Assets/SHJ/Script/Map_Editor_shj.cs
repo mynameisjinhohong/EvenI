@@ -49,7 +49,6 @@ public class Map_Editor_shj : EditorWindow
         editor_guide.transform.position = offeset_pos;
         if (editor_guide.GetComponent<Editor_Guide_shj>() == null) editor_guide.AddComponent<Editor_Guide_shj>();
 
-        map = GameObject.Find("Map");
         //PrefabUtility.SaveAsPrefabAsset(map, "Assets/" + file_name + ".prefab"); //이방식을 이용하면 저장가능
 
         //panel = Resources.Load<GameObject>("panel");
@@ -66,6 +65,9 @@ public class Map_Editor_shj : EditorWindow
             created_pos = new List<Vector3>();
             StackChk();
         }
+
+        map = GameObject.Find("Map");
+        editor_guide = GameObject.Find("Editor_guide");
     }
 
     private void OnGUI()
@@ -242,7 +244,12 @@ public class Map_Editor_shj : EditorWindow
 
             if (child.GetComponent<SpriteRenderer>() != null)
             {
-                string sprite_name = child.GetComponent<SpriteRenderer>().sprite.name;
+                string sprite_name;
+
+                if (child.GetComponent<SpriteRenderer>().sprite == null)
+                    sprite_name = "null";
+                else
+                    sprite_name = child.GetComponent<SpriteRenderer>().sprite.name;
 
                 if (GameObject.Find(sprite_name) == null)
                 {

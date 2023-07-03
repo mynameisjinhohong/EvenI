@@ -2,6 +2,11 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum Player_State // 플레이어의 상태 달리는중인지, 구르는중인지
+{
+    Run,
+    Rolling,
+}
 
 public class Player_shj : MonoBehaviour
 {
@@ -37,6 +42,9 @@ public class Player_shj : MonoBehaviour
 
     [Range(0.0f, 10.0f)]
     public float shortJump_up_power;
+
+    [Range(0.0f, 10.0f)]
+    public float rolling_time; //구르는 시간
 
     [SerializeField]
     bool jumping = false; //점프중인지 아닌지 확인
@@ -86,12 +94,16 @@ public class Player_shj : MonoBehaviour
     public SpriteRenderer playerSprite;
     bool invincible = false;
 
+    Player_State player_State;
+    public Player_State state { set { player_State = value; } }
+
     #endregion
 
     private void Start()
     {
         hp = maxHP;
         rigid = GetComponent<Rigidbody2D>();
+        player_State = Player_State.Run;
     }
 
     private void Update()
@@ -155,7 +167,6 @@ public class Player_shj : MonoBehaviour
             Jump();
             Time.timeScale = 1f;
         }
-
 
 #elif UNITY_ANDROID
         if (Input.touchCount > 0 && !jumping)
@@ -266,6 +277,17 @@ public class Player_shj : MonoBehaviour
             playerSprite.color = new Color(playerSprite.color.r, playerSprite.color.g, playerSprite.color.b, 1f);
             yield return new WaitForSeconds(blinkSpeed);
             count++;
+        }
+    }
+    IEnumerator Rolling()
+    {
+        if(player_State == Player_State.Run)
+        {
+            player_State = Player_State.Rolling; //구르는 상태로 변경
+            //playerAnimator.SetBool("Rolling"); //구르기 애니메이션 작동
+
+            yield return new WaitForSeconds(rolling_time); //일정시간동안 구르기진행
+            player_State = Player_State.Run; //달리는 상태로 복귀
         }
     }
 }
