@@ -76,7 +76,7 @@ public class Map_Editor_shj : EditorWindow
         {
             Texture[] obj_thumnail = new Texture[obj.Length];
             for (int i = 0; i < obj.Length; i++) obj_thumnail[i] = AssetPreview.GetAssetPreview(obj[i]);
-            choice_num = GUILayout.SelectionGrid(choice_num, obj_thumnail, 2, GUILayout.Height(100), GUILayout.Width(150));
+            choice_num = GUILayout.SelectionGrid(choice_num, obj_thumnail, 4, GUILayout.MaxHeight(250), GUILayout.MaxWidth(300));
         }
         EditorGUILayout.EndFoldoutHeaderGroup();
         GUILayout.Space(50);
@@ -123,6 +123,8 @@ public class Map_Editor_shj : EditorWindow
 
         GUILayout.Label("오브젝트 사이의 거리");
         distance = EditorGUILayout.FloatField(distance, GUILayout.Width(100));
+
+        if (GUILayout.Button("오브젝트 정렬", GUILayout.Height(50), GUILayout.Width(100))) ObjectSort();
 
         #endregion
     }
@@ -210,7 +212,15 @@ public class Map_Editor_shj : EditorWindow
         if (!created_pos.Contains(guide_pos))
         {
             GameObject c_obj = Instantiate((GameObject)obj[choice_num]);
-            c_obj.transform.parent = map.transform;
+            string parent_name = c_obj.GetComponent<SpriteRenderer>().sprite.name;
+
+            if (GameObject.Find(parent_name) == null)
+            {
+                new GameObject(parent_name);
+                GameObject.Find(parent_name).transform.SetParent(map.transform);
+            }
+
+            c_obj.transform.parent = GameObject.Find(parent_name).transform;
             c_obj.transform.position = editor_guide.transform.position;
 
             created_obj.Push(c_obj);
@@ -222,5 +232,27 @@ public class Map_Editor_shj : EditorWindow
     {
         //씬 뷰 카메라 변경
         SceneView.lastActiveSceneView.pivot = editor_guide.transform.position;
+    }
+
+    void ObjectSort()
+    {
+        for (int i = 0; i < map.transform.childCount; i++)
+        {
+            GameObject child = map.transform.GetChild(i).gameObject;
+
+            if (child.GetComponent<SpriteRenderer>() != null)
+            {
+                string sprite_name = child.GetComponent<SpriteRenderer>().sprite.name;
+
+                if (GameObject.Find(sprite_name) == null)
+                {
+                    GameObject parent = new GameObject(sprite_name);
+                    parent.transform.SetParent(map.transform);
+                }
+
+                child.transform.SetParent(GameObject.Find(sprite_name).transform);
+                i--;
+            }
+        }
     }
 }
