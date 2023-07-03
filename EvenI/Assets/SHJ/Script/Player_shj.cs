@@ -48,12 +48,43 @@ public class Player_shj : MonoBehaviour
     public Animator playerAnimator;
     public GameObject hp_List;
     public int maxHP = 9;
-    public int hp = 9;
+
+
+    int Hp = 9;
+
+    public int hp
+    {
+        get
+        {
+            return Hp;
+        }
+        set
+        {
+            if (!invincible)
+            {
+                if (Hp > value)
+                {
+                    NukBack();
+                }
+                Hp = value;
+            }
+        }
+    }
+    [Range(0.0f,10.0f)]
+    public float invincibleTime = 1f;
+    [Range(0.0f, 1000.0f)]
+    public float nuckBackPower = 1f;
 
     [Range(0.0f, 10.0f)]
     public float cameraSpeed;//카메라 스피드
     //public Map_shj map; //점프 속도 조절을 위해
 
+    public int blinkCount;
+    [Range(0.0f, 1f)]
+    public float blinkSpeed;
+
+    public SpriteRenderer playerSprite;
+    bool invincible = false;
 
     #endregion
 
@@ -76,7 +107,7 @@ public class Player_shj : MonoBehaviour
             if (hit.collider != null)
             {
                 jumping = false;
-                if (!jumping)
+                if (!jumping && !invincible)
                 {
                     rigid.velocity = Vector2.right * speed; //점프중이지 않을 때는 속도 일정하게
                     if (!Input.GetMouseButton(0))
@@ -209,10 +240,32 @@ public class Player_shj : MonoBehaviour
 
         }
     }
-
-
     public void NukBack()
     {
+        invincible = true;
+        rigid.AddForce(Vector2.left * nuckBackPower); // 넉백 함수
+        StartCoroutine(Invincible());
+        StartCoroutine(Blink());    
+    }
 
+    IEnumerator Invincible() //무적상태 일정 시간 후 꺼주는 코루틴
+    {
+        yield return new WaitForSeconds(invincibleTime);
+        invincible = false;
+    }
+    IEnumerator Blink() //주인공 깜박이게
+    {
+        Debug.Log("??");
+        int count = 0;
+        gameObject.SetActive(true);
+
+        while (count < blinkCount)
+        {
+            playerSprite.color = new Color(playerSprite.color.r, playerSprite.color.g, playerSprite.color.b,0);
+            yield return new WaitForSeconds(blinkSpeed);
+            playerSprite.color = new Color(playerSprite.color.r, playerSprite.color.g, playerSprite.color.b, 1f);
+            yield return new WaitForSeconds(blinkSpeed);
+            count++;
+        }
     }
 }

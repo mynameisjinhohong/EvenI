@@ -2806,8 +2806,12 @@ MonoBehaviour:
   playerAnimator: {fileID: 1143851860}
   hp_List: {fileID: 824284868}
   maxHP: 9
-  hp: 9
+  invincibleTime: 1
+  nuckBackPower: 500
   cameraSpeed: 5
+  blinkCount: 5
+  blinkSpeed: 0.1
+  playerSprite: {fileID: 1143851855}
 --- !u!61 &1143851858
 BoxCollider2D:
   m_ObjectHideFlags: 0
