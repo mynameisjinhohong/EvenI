@@ -119,14 +119,14 @@ public class Player_shj : MonoBehaviour
             StartCoroutine(Rolling());
             rollStart = true;
         }
-        if(player_State == Player_State.Rolling)
-        {
-            if (transform.position.y < 0)
-            {
-                rigid.velocity = new Vector2(rigid.velocity.x, 0);
-            }
-        }
-        if(jumping)
+        //if (player_State == Player_State.Rolling)
+        //{
+        //    if (transform.position.y < 0)
+        //    {
+        //        rigid.velocity = new Vector2(rigid.velocity.x, 0);
+        //    }
+        //}
+        if (jumping)
         {
             rigid.AddForce(Vector2.down);
         }
@@ -219,7 +219,7 @@ public class Player_shj : MonoBehaviour
         jumping = true; //점프중
         charge_img.enabled = false; //ui비활성화
         Debug.Log((Vector2.up * jump_up_power) * 50 * jump_charge);
-        rigid.AddForce((Vector2.up * jump_up_power) * 50 * jump_charge,ForceMode2D.Force);
+        rigid.AddForce((Vector2.up * jump_up_power) * 5000 * jump_charge * Time.deltaTime,ForceMode2D.Force);
         //rigid.velocity = (Vector2.right * jump_right_power + Vector2.up * jump_up_power) * jump_charge;
         //rigid.AddForce(Vector2.up * jump_up_power * jump_charge, ForceMode2D.Impulse); //차징한 만큼 점프
         jump_charge = 0.0f;
