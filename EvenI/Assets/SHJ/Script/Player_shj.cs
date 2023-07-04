@@ -230,23 +230,23 @@ public class Player_shj : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == 8)
-        {
+        //if (collision.gameObject.layer == 8)
+        //{
 
-        }//jumping = false;
-        else if (collision.gameObject.layer == 9)
-        {
-            Rock_HJH rock;
-            if (collision.gameObject.TryGetComponent<Rock_HJH>(out rock))
-            {
-                rock.RockTouch();
-            }
-            collision.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        //}//jumping = false;
+        //else if (collision.gameObject.layer == 9)
+        //{
+        //    Rock_HJH rock;
+        //    if (collision.gameObject.TryGetComponent<Rock_HJH>(out rock))
+        //    {
+        //        rock.RockTouch();
+        //    }
+        //    collision.gameObject.GetComponent<BoxCollider2D>().enabled = false;
 
-            //collision.gameObject.SetActive(false);
-            if(player_State == Player_State.Run)
-                hp--;
-        }
+        //    //collision.gameObject.SetActive(false);
+        //    if(player_State == Player_State.Run)
+        //        hp--;
+        //}
     }
 
     void PredictLine(Vector2 startPos, Vector2 vel)  //포물선 예측
