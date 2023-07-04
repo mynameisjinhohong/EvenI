@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7700110415676650997}
   - component: {fileID: 7700110415676650999}
   - component: {fileID: 7700110415676650992}
+  - component: {fileID: 2118732677299123057}
   m_Layer: 9
   m_Name: Rock_white
   m_TagString: Untagged
@@ -122,3 +123,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2118732677299123057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7700110415676650996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 261c76b538c77f941a53992ec2aefe3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1

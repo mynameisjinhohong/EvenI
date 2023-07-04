@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bat_HJH : MonoBehaviour
+public class Bat_HJH : Object_Manager_shj
 {
     bool startMove;
     Camera cam;
     [Range(0.0f, 1f)]
     public float speed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,15 +42,14 @@ public class Bat_HJH : MonoBehaviour
             }
             yield return new WaitForSeconds(0.01f);
         }
-        
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.name == "Player")
-        {
-            collision.gameObject.GetComponent<Player_shj>().hp--;
-            Destroy(gameObject);
-        }
-    }
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if(collision.gameObject.name == "Player")
+    //    {
+    //        collision.gameObject.GetComponent<Player_shj>().hp--;
+    //        Destroy(gameObject);
+    //    }
+    //}
 }
