@@ -209,6 +209,7 @@ public class Player_shj : MonoBehaviour
         playerAnimator.SetTrigger("Jump"); //점프 애니메이션
         jumping = true; //점프중
         charge_img.enabled = false; //ui비활성화
+        Debug.Log((Vector2.up * jump_up_power) * 50 * jump_charge);
         rigid.AddForce((Vector2.up * jump_up_power) * 50 * jump_charge,ForceMode2D.Force);
         //rigid.velocity = (Vector2.right * jump_right_power + Vector2.up * jump_up_power) * jump_charge;
         //rigid.AddForce(Vector2.up * jump_up_power * jump_charge, ForceMode2D.Impulse); //차징한 만큼 점프
