@@ -47,6 +47,8 @@ public class Player_shj : MonoBehaviour
     public float rolling_time; //구르는 시간
     [Range(0.0f, 10.0f)]
     public float rolling_Speed; //구르기 속도
+    [Range(0.0f, 10.0f)]
+    public float rolling_MoveSpeed;
     bool rollStart = false;
 
     [SerializeField]
@@ -140,7 +142,14 @@ public class Player_shj : MonoBehaviour
                 jumping = false;
                 if (!jumping && !invincible)
                 {
-                    rigid.velocity = Vector2.right * speed; //점프중이지 않을 때는 속도 일정하게
+                    if(player_State == Player_State.Rolling)
+                    {
+                        rigid.velocity = Vector2.right * speed + Vector2.right * rolling_MoveSpeed;
+                    }
+                    else
+                    {
+                        rigid.velocity = Vector2.right * speed; //점프중이지 않을 때는 속도 일정하게
+                    }
                     if (!Input.GetMouseButton(0))
                     {
                         predictLine.positionCount = 0; // 달릴 때는 예측 선 안그려지게
