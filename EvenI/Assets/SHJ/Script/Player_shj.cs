@@ -25,12 +25,12 @@ public class Player_shj : MonoBehaviour
     [Range(0.0f, 15.0f)]
     public float speed; //속도
 
+    [Header("점프 관련")]
     [Range(0.0f, 15.0f)]
     public float jump_up_power; //위로 점프력
 
     //[Range(0.0f, 15.0f)]
     //public float jump_right_power; //오른쪽으로 점프력
-
     [Range(0.0f, 2.0f)]
     public float maxJumpPower; //점프 게이지 차오르는 속도
 
@@ -42,9 +42,12 @@ public class Player_shj : MonoBehaviour
 
     [Range(0.0f, 10.0f)]
     public float shortJump_up_power;
-
+    [Header("구르기 관련")]
     [Range(0.0f, 10.0f)]
     public float rolling_time; //구르는 시간
+    [Range(0.0f, 10.0f)]
+    public float rolling_Speed; //구르기 속도
+    bool rollStart = false;
 
     [SerializeField]
     bool jumping = false; //점프중인지 아닌지 확인
@@ -54,6 +57,7 @@ public class Player_shj : MonoBehaviour
     //int jump_cnt = 0; //점프횟수 2단점프때 사용
 
     public Animator playerAnimator;
+    [Header("체력 관련")]
     public GameObject hp_List;
     public int maxHP = 9;
 
@@ -78,21 +82,23 @@ public class Player_shj : MonoBehaviour
             }
         }
     }
+    [Header("넉백과 무적시간 관련")]
     [Range(0.0f,10.0f)]
     public float invincibleTime = 1f;
     [Range(0.0f, 1000.0f)]
     public float nuckBackPower = 1f;
+    public int blinkCount;
+    [Range(0.0f, 1f)]
+    public float blinkSpeed;
+    bool invincible = false;
 
+    [Header("카메라 속도")]
     [Range(0.0f, 10.0f)]
     public float cameraSpeed;//카메라 스피드
     //public Map_shj map; //점프 속도 조절을 위해
 
-    public int blinkCount;
-    [Range(0.0f, 1f)]
-    public float blinkSpeed;
 
     public SpriteRenderer playerSprite;
-    bool invincible = false;
 
     Player_State player_State;
     public Player_State state { set { player_State = value; } }
@@ -101,6 +107,7 @@ public class Player_shj : MonoBehaviour
 
     private void Start()
     {
+        playerAnimator.SetFloat("RollSpeed", rolling_Speed);
         hp = maxHP;
         rigid = GetComponent<Rigidbody2D>();
         player_State = Player_State.Run;
@@ -108,9 +115,18 @@ public class Player_shj : MonoBehaviour
 
     private void Update()
     {
-        if (player_State == Player_State.Rolling)
+        if (player_State == Player_State.Rolling && !rollStart)
+        {
             StartCoroutine(Rolling());
-
+            rollStart = true;
+        }
+        if(player_State == Player_State.Rolling)
+        {
+            if (transform.position.y < 0)
+            {
+                rigid.velocity = new Vector2(rigid.velocity.x, 0);
+            }
+        }
         if(jumping)
         {
             rigid.AddForce(Vector2.down);
@@ -285,9 +301,13 @@ public class Player_shj : MonoBehaviour
     }
     IEnumerator Rolling()
     {
-        //playerAnimator.SetBool("Rolling",true); //구르기 애니메이션 작동
+        gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
+        playerAnimator.SetTrigger("Roll"); //구르기 애니메이션 작동
         yield return new WaitForSeconds(rolling_time); //일정시간동안 구르기진행
         player_State = Player_State.Run; //달리는 상태로 복귀
+        gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
+        playerAnimator.SetTrigger("RollEnd");
+        rollStart = false;
         //playerAnimator.SetBool("Rolling", false);
     }
 }
