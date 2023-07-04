@@ -103,6 +103,7 @@ public class Player_shj : MonoBehaviour
     public Player_State state { set { player_State = value; } }
 
     #endregion
+    bool test = false;
 
     private void Start()
     {
@@ -192,7 +193,8 @@ public class Player_shj : MonoBehaviour
         }
         else if (!jumping && Input.GetMouseButtonUp(0))
         {
-            Jump();
+            test = true;
+            //Jump();
             Time.timeScale = 1f;
         }
 
@@ -211,6 +213,16 @@ public class Player_shj : MonoBehaviour
 #endif
 
     }
+
+    private void FixedUpdate()
+    {
+        if(test)
+        {
+            Jump();
+            test = false;
+        }
+    }
+
     public void Jump()
     {
         floorCheck = false;
@@ -219,7 +231,7 @@ public class Player_shj : MonoBehaviour
         jumping = true; //점프중
         charge_img.enabled = false; //ui비활성화
         Debug.Log((Vector2.up * jump_up_power) * 50 * jump_charge);
-        rigid.AddForce((Vector2.up * jump_up_power) * 5000 * jump_charge * Time.deltaTime,ForceMode2D.Force);
+        rigid.AddForce((Vector2.up * jump_up_power) * 0.75f * jump_charge,ForceMode2D.Impulse);
         //rigid.velocity = (Vector2.right * jump_right_power + Vector2.up * jump_up_power) * jump_charge;
         //rigid.AddForce(Vector2.up * jump_up_power * jump_charge, ForceMode2D.Impulse); //차징한 만큼 점프
         jump_charge = 0.0f;
