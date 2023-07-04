@@ -39,9 +39,6 @@ public class Player_shj : MonoBehaviour
 
     [Range(0.0f, 10.0f)]
     public float charge_speed; //점프 게이지 차오르는 속도
-
-    [Range(0.0f, 10.0f)]
-    public float shortJump_up_power;
     [Header("구르기 관련")]
     [Range(0.0f, 10.0f)]
     public float rolling_time; //구르는 시간
@@ -188,7 +185,10 @@ public class Player_shj : MonoBehaviour
             {
                 jump_charge = minJumpPower;
             }
-
+            if (jump_charge > maxJumpPower)
+            {
+                jump_charge = maxJumpPower;
+            }
         }
         else if (!jumping && Input.GetMouseButtonUp(0))
         {
@@ -218,7 +218,7 @@ public class Player_shj : MonoBehaviour
         playerAnimator.SetTrigger("Jump"); //점프 애니메이션
         jumping = true; //점프중
         charge_img.enabled = false; //ui비활성화
-        Debug.Log(jump_charge);
+        Debug.Log((Vector2.up * jump_up_power) * 50 * jump_charge);
         rigid.AddForce((Vector2.up * jump_up_power) * 50 * jump_charge,ForceMode2D.Force);
         //rigid.velocity = (Vector2.right * jump_right_power + Vector2.up * jump_up_power) * jump_charge;
         //rigid.AddForce(Vector2.up * jump_up_power * jump_charge, ForceMode2D.Impulse); //차징한 만큼 점프
