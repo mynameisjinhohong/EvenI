@@ -107,6 +107,7 @@ public class Player_shj : MonoBehaviour
     public float gravity = -9.81f;
     public Vector3 vecSpeed = Vector3.zero;
     public Vector3 velocity = Vector3.zero;
+    bool jumpBool = false;
     #endregion
     float test = 0.0f;
     private void Start()
@@ -119,38 +120,7 @@ public class Player_shj : MonoBehaviour
 
     private void Update()
     {
-
-        if (player_State == Player_State.Rolling && !rollStart)
-        {
-            StartCoroutine(Rolling());
-            rollStart = true;
-        }
-        if(player_State == Player_State.Rolling)
-        {
-            vecSpeed.x = rolling_MoveSpeed;
-        }
-        else
-        {
-            vecSpeed.x = speed;
-        }
-        if (floorCheck)
-        {
-            if (!isFloor)
-            {
-                velocity.y = gravity;
-            }
-            else
-            {
-                vecSpeed.y = 0;
-                velocity.y = 0;
-            }
-            RaycastHit2D hit = Physics2D.Raycast(this.gameObject.transform.position, Vector2.down, transform.localScale.y, LayerMask.GetMask("ground"));
-            if (hit.collider != null)
-            {
-                isFloor = true;
-                jumping = false;
-            }
-        }
+       
         //이전 코드 주석으로 놔둠
         #region test
         //if (player_State == Player_State.Rolling)
@@ -234,7 +204,7 @@ public class Player_shj : MonoBehaviour
         else if (!jumping && Input.GetMouseButtonUp(0))
         {
             //test = true;
-            Jump();
+            jumpBool = true;
             Time.timeScale = 1f;
         }
 
@@ -260,6 +230,12 @@ public class Player_shj : MonoBehaviour
                 Jump();
         }
 #endif
+
+    }
+    private void FixedUpdate()
+    {
+        RunRoll();        
+        Jump();
         vecSpeed += Time.deltaTime * velocity;
         transform.position += vecSpeed * Time.deltaTime;
     }
@@ -278,14 +254,55 @@ public class Player_shj : MonoBehaviour
     //        test = false;
     //    }mathf
     //}
+    public void RunRoll()
+    {
+        if (player_State == Player_State.Rolling && !rollStart)
+        {
+            StartCoroutine(Rolling());
+            rollStart = true;
+        }
+        if (player_State == Player_State.Rolling)
+        {
+            vecSpeed.x = rolling_MoveSpeed;
+        }
+        else
+        {
+            vecSpeed.x = speed;
+        }
+        if (floorCheck)
+        {
+            if (!isFloor)
+            {
+                velocity.y = gravity;
+            }
+            else
+            {
+                transform.position = new Vector3(transform.position.x, 0, transform.position.z);
+                vecSpeed.y = 0;
+                velocity.y = 0;
+            }
+            RaycastHit2D hit = Physics2D.Raycast(this.gameObject.transform.position, Vector2.down, transform.localScale.y, LayerMask.GetMask("ground"));
+            if (hit.collider != null)
+            {
+                isFloor = true;
+                jumping = false;
+            }
+        }
+    }
 
     public void Jump() //점프
     {
+        if (!jumpBool)
+        {
+            return;
+        }
+        jumpBool = false;
         floorCheck = false;
         isFloor = false;
         StartCoroutine(FloorCheck());
         playerAnimator.SetTrigger("Jump"); //점프 애니메이션
         jumping = true; //점프중
+        StartCoroutine(HeightTest());
         Debug.Log(jump_up_power * jump_charge);
         velocity.y = jump_up_power *jump_charge;
         charge_img.enabled = false; //ui비활성화
@@ -304,6 +321,25 @@ public class Player_shj : MonoBehaviour
         //    rigid.AddForce(Vector2.up * jump_power, ForceMode2D.Impulse);
         //}
         #endregion
+    }
+    IEnumerator HeightTest()
+    {
+        Vector3 trans= transform.position;
+        Vector3 trans2 = trans;
+        while (true)
+        {
+            trans = transform.position;
+            yield return null;
+            if(trans2.y > trans.y)
+            {
+                Debug.Log(trans2.y);
+                break;
+            }
+            else
+            {
+                trans2 = trans; 
+            }
+        }
     }
 
     IEnumerator FloorCheck()
