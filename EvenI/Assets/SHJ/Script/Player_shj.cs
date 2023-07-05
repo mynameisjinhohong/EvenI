@@ -216,7 +216,8 @@ public class Player_shj : MonoBehaviour
         {
             jump_charge = jump_charge <= maxJumpPower ? jump_charge + Time.deltaTime * charge_speed : maxJumpPower; //차징하면 게이지가 차오릅니다
             charge_img.enabled = true; //ui활성화
-            charge_img.fillAmount += Time.deltaTime/*jump_charge*/; //수정되었음
+            //Debug.Log(jump_charge/(maxJumpPower -minJumpPower) - 1);
+            charge_img.fillAmount = (jump_charge / (maxJumpPower- minJumpPower))-1/*Time.deltaTime*//*jump_charge*/; //수정되었음
             if (timeSlowOnOff)
             {
                 Time.timeScale = timeSlowSpeed;
@@ -285,6 +286,7 @@ public class Player_shj : MonoBehaviour
         StartCoroutine(FloorCheck());
         playerAnimator.SetTrigger("Jump"); //점프 애니메이션
         jumping = true; //점프중
+        Debug.Log(jump_up_power * jump_charge);
         velocity.y = jump_up_power *jump_charge;
         charge_img.enabled = false; //ui비활성화
         jump_charge = 0.0f;
