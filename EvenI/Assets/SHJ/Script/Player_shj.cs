@@ -103,8 +103,8 @@ public class Player_shj : MonoBehaviour
     public Player_State state { set { player_State = value; } }
 
     #endregion
-    bool test = false;
-
+    //bool test = false;
+    float test = 0.0f;
     private void Start()
     {
         playerAnimator.SetFloat("RollSpeed", rolling_Speed);
@@ -127,12 +127,13 @@ public class Player_shj : MonoBehaviour
         //        rigid.velocity = new Vector2(rigid.velocity.x, 0);
         //    }
         //}
-        if (jumping)
-        {
-            rigid.AddForce(Vector2.down);
-        }
+        //if (jumping)
+        //{
+        //    rigid.AddForce(Vector2.down);
+        //}
         if (floorCheck)
         {
+            test = 0.0f; ;
             RaycastHit2D hit = Physics2D.Raycast(this.gameObject.transform.position, Vector2.down, transform.localScale.y, LayerMask.GetMask("ground")); //바닥 검사 해서 떨어질 수 있게
             Debug.DrawRay(gameObject.transform.position, Vector2.down * hit.distance, Color.red);
             if (hit.collider != null)
@@ -142,11 +143,13 @@ public class Player_shj : MonoBehaviour
                 {
                     if(player_State == Player_State.Rolling)
                     {
-                        rigid.velocity = Vector2.right * speed + Vector2.right * rolling_MoveSpeed;
+                        //rigid.velocity = Vector2.right * speed + Vector2.right * rolling_MoveSpeed;
+                        transform.position += (Vector3)Vector2.right * rolling_MoveSpeed * Time.deltaTime;
                     }
                     else
                     {
-                        rigid.velocity = Vector2.right * speed; //점프중이지 않을 때는 속도 일정하게
+                        //rigid.velocity = Vector2.right * speed; //점프중이지 않을 때는 속도 일정하게
+                        transform.position += (Vector3)Vector2.right * speed * Time.deltaTime;
                     }
                     if (!Input.GetMouseButton(0))
                     {
@@ -193,9 +196,18 @@ public class Player_shj : MonoBehaviour
         }
         else if (!jumping && Input.GetMouseButtonUp(0))
         {
-            test = true;
-            //Jump();
+            //test = true;\
+            Jump();
             Time.timeScale = 1f;
+        }
+
+
+        if(jumping && test < 1.0f)
+        {
+            float angle = 75 * Mathf.Deg2Rad;
+            Vector3 direction = transform.position + new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0);
+            transform.position += (direction - transform.position) * 10 * Time.deltaTime;
+            test += Time.deltaTime;
         }
 
 #elif UNITY_ANDROID
@@ -211,37 +223,46 @@ public class Player_shj : MonoBehaviour
                 Jump();
         }
 #endif
-
     }
-
-    private void FixedUpdate()
+    private void OnDrawGizmos()
     {
-        if(test)
-        {
-            Jump();
-            test = false;
-        }
+        Gizmos.color = Color.blue;
+        float angle = 75 * Mathf.Deg2Rad;
+        Vector3 direction = transform.position + new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0) * 1.0f;
+        Gizmos.DrawLine(transform.position, direction);
     }
+    //private void FixedUpdate()
+    //{
+    //    if(test)
+    //    {
+    //        Jump();
+    //        test = false;
+    //    }mathf
+    //}
 
-    public void Jump()
+    public void Jump() //점프
     {
         floorCheck = false;
         StartCoroutine(FloorCheck());
         playerAnimator.SetTrigger("Jump"); //점프 애니메이션
         jumping = true; //점프중
+
         charge_img.enabled = false; //ui비활성화
-        Debug.Log((Vector2.up * jump_up_power) * 50 * jump_charge);
-        rigid.AddForce((Vector2.up * jump_up_power) * 0.75f * jump_charge,ForceMode2D.Impulse);
-        //rigid.velocity = (Vector2.right * jump_right_power + Vector2.up * jump_up_power) * jump_charge;
-        //rigid.AddForce(Vector2.up * jump_up_power * jump_charge, ForceMode2D.Impulse); //차징한 만큼 점프
         jump_charge = 0.0f;
         charge_img.fillAmount = 0.0f; //추가됨
+
+        #region 이전코드
+        //Debug.Log((Vector2.up * jump_up_power) * 50 * jump_charge);
+        //rigid.AddForce((Vector2.up * jump_up_power) * 0.75f * jump_charge,ForceMode2D.Impulse);
+        //rigid.velocity = (Vector2.right * jump_right_power + Vector2.up * jump_up_power) * jump_charge;
+        //rigid.AddForce(Vector2.up * jump_up_power * jump_charge, ForceMode2D.Impulse); //차징한 만큼 점프
         //if(jump_cnt != 2) //2단 점프 구현
         //{
         //    jump_cnt++;
         //    rigid.velocity = Vector2.zero;
         //    rigid.AddForce(Vector2.up * jump_power, ForceMode2D.Impulse);
         //}
+        #endregion
     }
 
     IEnumerator FloorCheck()
@@ -321,7 +342,7 @@ public class Player_shj : MonoBehaviour
             count++;
         }
     }
-    IEnumerator Rolling()
+    IEnumerator Rolling() //구르기
     {
         gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
         playerAnimator.SetTrigger("Roll"); //구르기 애니메이션 작동
