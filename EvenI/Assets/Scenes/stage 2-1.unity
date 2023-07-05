@@ -38545,6 +38545,10 @@ MonoBehaviour:
   blinkSpeed: 0
   cameraSpeed: 5
   playerSprite: {fileID: 0}
+  isFloor: 0
+  gravity: -9.81
+  vecSpeed: {x: 0, y: 0, z: 0}
+  velocity: {x: 0, y: 0, z: 0}
 --- !u!61 &1143851858
 BoxCollider2D:
   m_ObjectHideFlags: 0
