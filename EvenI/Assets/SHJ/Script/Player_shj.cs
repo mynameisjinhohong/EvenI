@@ -11,7 +11,7 @@ public enum Player_State // 플레이어의 상태 달리는중인지, 구르는중인지
 public class Player_shj : MonoBehaviour
 {
     #region Variable
-    Rigidbody2D rigid;
+    //Rigidbody2D rigid;
 
     public LineRenderer predictLine;
 
@@ -26,7 +26,7 @@ public class Player_shj : MonoBehaviour
     public float speed; //속도
 
     [Header("점프 관련")]
-    [Range(0.0f, 15.0f)]
+    [Range(0.0f, 500.0f)]
     public float jump_up_power; //위로 점프력
 
     //[Range(0.0f, 15.0f)]
@@ -42,7 +42,7 @@ public class Player_shj : MonoBehaviour
     [Header("구르기 관련")]
     [Range(0.0f, 10.0f)]
     public float rolling_time; //구르는 시간
-    [Range(0.0f, 10.0f)]
+    [Range(0.0f, 15.0f)]
     public float rolling_Speed; //구르기 속도
     [Range(0.0f, 10.0f)]
     public float rolling_MoveSpeed;
@@ -102,24 +102,57 @@ public class Player_shj : MonoBehaviour
     Player_State player_State;
     public Player_State state { set { player_State = value; } }
 
+    [Header("임시로 만들어본 것들")]
+    public bool isFloor = false;
+    public float gravity = -9.81f;
+    public Vector3 vecSpeed = Vector3.zero;
+    public Vector3 velocity = Vector3.zero;
     #endregion
-    //bool test = false;
     float test = 0.0f;
     private void Start()
     {
         playerAnimator.SetFloat("RollSpeed", rolling_Speed);
         hp = maxHP;
-        rigid = GetComponent<Rigidbody2D>();
+        //rigid = GetComponent<Rigidbody2D>();
         player_State = Player_State.Run;
     }
 
     private void Update()
     {
+
         if (player_State == Player_State.Rolling && !rollStart)
         {
             StartCoroutine(Rolling());
             rollStart = true;
         }
+        if(player_State == Player_State.Rolling)
+        {
+            vecSpeed.x = rolling_MoveSpeed;
+        }
+        else
+        {
+            vecSpeed.x = speed;
+        }
+        if (floorCheck)
+        {
+            if (!isFloor)
+            {
+                velocity.y = gravity;
+            }
+            else
+            {
+                vecSpeed.y = 0;
+                velocity.y = 0;
+            }
+            RaycastHit2D hit = Physics2D.Raycast(this.gameObject.transform.position, Vector2.down, transform.localScale.y, LayerMask.GetMask("ground"));
+            if (hit.collider != null)
+            {
+                isFloor = true;
+                jumping = false;
+            }
+        }
+        //이전 코드 주석으로 놔둠
+        #region test
         //if (player_State == Player_State.Rolling)
         //{
         //    if (transform.position.y < 0)
@@ -131,34 +164,37 @@ public class Player_shj : MonoBehaviour
         //{
         //    rigid.AddForce(Vector2.down);
         //}
-        if (floorCheck)
-        {
-            test = 0.0f; ;
-            RaycastHit2D hit = Physics2D.Raycast(this.gameObject.transform.position, Vector2.down, transform.localScale.y, LayerMask.GetMask("ground")); //바닥 검사 해서 떨어질 수 있게
-            Debug.DrawRay(gameObject.transform.position, Vector2.down * hit.distance, Color.red);
-            if (hit.collider != null)
-            {
-                jumping = false;
-                if (!jumping && !invincible)
-                {
-                    if(player_State == Player_State.Rolling)
-                    {
-                        //rigid.velocity = Vector2.right * speed + Vector2.right * rolling_MoveSpeed;
-                        transform.position += (Vector3)Vector2.right * rolling_MoveSpeed * Time.deltaTime;
-                    }
-                    else
-                    {
-                        //rigid.velocity = Vector2.right * speed; //점프중이지 않을 때는 속도 일정하게
-                        transform.position += (Vector3)Vector2.right * speed * Time.deltaTime;
-                    }
-                    if (!Input.GetMouseButton(0))
-                    {
-                        predictLine.positionCount = 0; // 달릴 때는 예측 선 안그려지게
-                    }
-                }
-            }
+        //if (floorCheck)
+        //{
+        //    test = 0.0f; ;
+        //    RaycastHit2D hit = Physics2D.Raycast(this.gameObject.transform.position, Vector2.down, transform.localScale.y, LayerMask.GetMask("ground")); //바닥 검사 해서 떨어질 수 있게
+        //    Debug.DrawRay(gameObject.transform.position, Vector2.down * hit.distance, Color.red);
+        //    if (hit.collider != null)
+        //    {
+        //        isFloor = true;
+        //        jumping = false;
+        //        if (!jumping && !invincible)
+        //        {
+        //            if(player_State == Player_State.Rolling)
+        //            {
+        //                moveVec += (Vector3)Vector2.right * rolling_MoveSpeed;
+        //                //rigid.velocity = Vector2.right * speed + Vector2.right * rolling_MoveSpeed;
+        //                //transform.position += (Vector3)Vector2.right * rolling_MoveSpeed * Time.deltaTime;
+        //            }
+        //            else
+        //            {
+        //                moveVec += (Vector3)Vector2.right * speed;
+        //                //rigid.velocity = Vector2.right * speed; //점프중이지 않을 때는 속도 일정하게
+        //                //transform.position += (Vector3)Vector2.right * speed * Time.deltaTime;
+        //            }
+        //            if (!Input.GetMouseButton(0))
+        //            {
+        //                predictLine.positionCount = 0; // 달릴 때는 예측 선 안그려지게
+        //            }
+        //        }
+        //    }
 
-        }
+        //}
         if (hp > 0)
         {
             //for (int i = 1; i <= maxHP; i++)
@@ -173,7 +209,7 @@ public class Player_shj : MonoBehaviour
             //    }
             //}
         }
-
+        #endregion
         Camera.main.transform.position = new Vector3((transform.position + new Vector3(camera_distance, 0, 0)).x, 2, -10);//플레이어한테 맞춰서 카메라 배치
 #if UNITY_EDITOR
         if (!jumping && Input.GetMouseButton(0))
@@ -196,19 +232,19 @@ public class Player_shj : MonoBehaviour
         }
         else if (!jumping && Input.GetMouseButtonUp(0))
         {
-            //test = true;\
+            //test = true;
             Jump();
             Time.timeScale = 1f;
         }
 
 
-        if(jumping && test < 1.0f)
-        {
-            float angle = 75 * Mathf.Deg2Rad;
-            Vector3 direction = transform.position + new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0);
-            transform.position += (direction - transform.position) * 10 * Time.deltaTime;
-            test += Time.deltaTime;
-        }
+        //if(jumping && test < 1.0f)
+        //{
+        //    float angle = 75 * Mathf.Deg2Rad;
+        //    Vector3 direction = transform.position + new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0);
+        //    transform.position += (direction - transform.position) * 10 * Time.deltaTime;
+        //    test += Time.deltaTime;
+        //}
 
 #elif UNITY_ANDROID
         if (Input.touchCount > 0 && !jumping)
@@ -223,6 +259,8 @@ public class Player_shj : MonoBehaviour
                 Jump();
         }
 #endif
+        vecSpeed += Time.deltaTime * velocity;
+        transform.position += vecSpeed * Time.deltaTime;
     }
     private void OnDrawGizmos()
     {
@@ -243,10 +281,11 @@ public class Player_shj : MonoBehaviour
     public void Jump() //점프
     {
         floorCheck = false;
+        isFloor = false;
         StartCoroutine(FloorCheck());
         playerAnimator.SetTrigger("Jump"); //점프 애니메이션
         jumping = true; //점프중
-
+        velocity.y = jump_up_power *jump_charge;
         charge_img.enabled = false; //ui비활성화
         jump_charge = 0.0f;
         charge_img.fillAmount = 0.0f; //추가됨
@@ -317,7 +356,7 @@ public class Player_shj : MonoBehaviour
     public void NukBack()
     {
         invincible = true;
-        rigid.AddForce(Vector2.left * nuckBackPower); // 넉백 함수
+        //rigid.AddForce(Vector2.left * nuckBackPower); // 넉백 함수
         StartCoroutine(Invincible());
         StartCoroutine(Blink());    
     }
@@ -329,7 +368,6 @@ public class Player_shj : MonoBehaviour
     }
     IEnumerator Blink() //주인공 깜박이게
     {
-        Debug.Log("??");
         int count = 0;
         gameObject.SetActive(true);
 
