@@ -3642,6 +3642,7 @@ MonoBehaviour:
   timeSlowSpeed: 0.9
   timeSlowOnOff: 0
   speed: 8
+  velocity: 15
   jump_up_power: 16
   maxJumpPower: 1
   minJumpPower: 0.5
@@ -3654,7 +3655,7 @@ MonoBehaviour:
   playerAnimator: {fileID: 369878198}
   hp_List: {fileID: 1679236719}
   maxHP: 9
-  invincibleTime: 0
+  invincibleTime: 2
   nuckBackPower: 0
   blinkCount: 0
   blinkSpeed: 0
@@ -3662,8 +3663,6 @@ MonoBehaviour:
   playerSprite: {fileID: 0}
   isFloor: 0
   gravity: 15
-  vecSpeed: {x: 0, y: 0, z: 0}
-  velocity: {x: 0, y: 0, z: 0}
 --- !u!95 &369878198
 Animator:
   serializedVersion: 4
