@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5318f7e884b76f543a2c43c668b136c0
+guid: 5905b57e5d89ac6478645d823c956540
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,33 +117,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\uAD6C\uB974\uAE30_0"
+      name: panda_roll_0
       rect:
         serializedVersion: 2
-        x: 10
-        y: 12
-        width: 264
-        height: 276
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dc78029fd0343a04eaf776d7f059884a
-      internalID: 1860098557
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\uAD6C\uB974\uAE30_1"
-      rect:
-        serializedVersion: 2
-        x: 317
-        y: 24
-        width: 255
+        x: 9
+        y: 23
+        width: 256
         height: 245
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -152,123 +131,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fa18eb41ba37cf3448219983dd4e8323
-      internalID: 1362541921
+      spriteID: a5f58cdb7a4c7244386c32cd48b4ad56
+      internalID: 1799243150
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\uAD6C\uB974\uAE30_2"
+      name: panda_roll_1
       rect:
         serializedVersion: 2
-        x: 626
+        x: 318
         y: 15
-        width: 262
-        height: 253
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 701cbb1b76e3e4a4fa6606fdb00fb4bc
-      internalID: 1126943820
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\uAD6C\uB974\uAE30_3"
-      rect:
-        serializedVersion: 2
-        x: 931
-        y: 8
-        width: 275
-        height: 261
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 725cbf409e3ccaa4f88b77f8df597c96
-      internalID: 1024919260
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\uAD6C\uB974\uAE30_4"
-      rect:
-        serializedVersion: 2
-        x: 1258
-        y: 8
-        width: 261
-        height: 262
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 61c46ead56d09ac4a9265af45fdbcfe2
-      internalID: 809105812
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\uAD6C\uB974\uAE30_5"
-      rect:
-        serializedVersion: 2
-        x: 1553
-        y: 17
-        width: 257
-        height: 269
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1e9cf2f3f14314843bd21665a2bee961
-      internalID: -554067953
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\uAD6C\uB974\uAE30_6"
-      rect:
-        serializedVersion: 2
-        x: 1855
-        y: 13
-        width: 258
-        height: 271
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b36db4fefc592bd43a66f305631fa7da
-      internalID: 1776407425
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\uAD6C\uB974\uAE30_7"
-      rect:
-        serializedVersion: 2
-        x: 2189
-        y: 12
         width: 260
         height: 251
       alignment: 0
@@ -278,19 +152,124 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae19fb227b918864eb0abe3c585cfc5c
-      internalID: -1090141018
+      spriteID: a5a89e2e4a5886b4f8fac95cb6af524a
+      internalID: 1265087894
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\uAD6C\uB974\uAE30_8"
+      name: panda_roll_2
       rect:
         serializedVersion: 2
-        x: 2494
+        x: 623
+        y: 7
+        width: 273
+        height: 261
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 600b2e6438f2c7546aa3978a898263c4
+      internalID: -1509191909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panda_roll_3
+      rect:
+        serializedVersion: 2
+        x: 949
+        y: 7
+        width: 262
+        height: 263
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff5a46d462ccf87429ec79ebf5758024
+      internalID: -638965832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panda_roll_4
+      rect:
+        serializedVersion: 2
+        x: 1246
+        y: 17
+        width: 256
+        height: 268
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 267dd2095ab7fa64685526a17cd5d834
+      internalID: -1490743658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panda_roll_5
+      rect:
+        serializedVersion: 2
+        x: 1547
+        y: 13
+        width: 257
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc8dde10e6f959544b4e52773d3080a0
+      internalID: 456171120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panda_roll_6
+      rect:
+        serializedVersion: 2
+        x: 1882
+        y: 13
+        width: 258
+        height: 249
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b42f9be101d0f584aa5c13bb6952019a
+      internalID: 1400897715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panda_roll_7
+      rect:
+        serializedVersion: 2
+        x: 2185
         y: 19
-        width: 271
+        width: 272
         height: 260
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -299,19 +278,40 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb61049271741bc4aac02ba84feebc6b
-      internalID: -2082926433
+      spriteID: 0d1640d1086c3604682096f087e51570
+      internalID: -1291094490
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\uAD6C\uB974\uAE30_9"
+      name: panda_roll_8
       rect:
         serializedVersion: 2
-        x: 2797
-        y: 24
-        width: 258
+        x: 2490
+        y: 23
+        width: 256
+        height: 258
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9aaa69f77d65584cbf74406f241cd78
+      internalID: -1330734837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panda_roll_9
+      rect:
+        serializedVersion: 2
+        x: 2803
+        y: 11
+        width: 242
         height: 257
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -320,62 +320,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7abf345ed26b925479f31cc3ab2cbf6c
-      internalID: 690979983
+      spriteID: 7f9cb8ddc0febe744a4260022eb82631
+      internalID: 816178705
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\uAD6C\uB974\uAE30_10"
+      name: panda_roll_10
       rect:
         serializedVersion: 2
-        x: 3112
-        y: 10
-        width: 241
-        height: 259
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 478334dc14fbee042ad7c85d152bdf3a
-      internalID: -811851850
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\uAD6C\uB974\uAE30_11"
-      rect:
-        serializedVersion: 2
-        x: 3396
-        y: 24
-        width: 257
-        height: 245
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d5ab89f6e4660b64a9bb0e4a17fd5dbf
-      internalID: -673351124
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\uAD6C\uB974\uAE30_12"
-      rect:
-        serializedVersion: 2
-        x: 3723
+        x: 3108
         y: 15
-        width: 260
-        height: 271
+        width: 258
+        height: 270
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -383,20 +341,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2a674df1144833244bdb82c3d7ac4220
-      internalID: -1430259342
+      spriteID: 350d79c89d8480245a3558064f8d7614
+      internalID: -2141301533
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\uAD6C\uB974\uAE30_13"
+      name: panda_roll_11
       rect:
         serializedVersion: 2
-        x: 4021
+        x: 3405
         y: 21
-        width: 271
-        height: 265
+        width: 270
+        height: 266
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -404,19 +362,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8845d5692bec03e4fb0eed16291fcdbd
-      internalID: 1670790491
+      spriteID: 5bde2c5dbf953ef4ea059961b2f6a5d9
+      internalID: 429217367
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\uAD6C\uB974\uAE30_14"
+      name: panda_roll_12
       rect:
         serializedVersion: 2
-        x: 4321
+        x: 3706
         y: 26
-        width: 271
+        width: 268
         height: 255
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -425,8 +383,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c3462093fcd8d284da94f3a2b99d58b0
-      internalID: -141358631
+      spriteID: fabeb1fc70aeb834196473c5d2e9493f
+      internalID: -413381268
       vertices: []
       indices: 
       edges: []
@@ -442,21 +400,19 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      "\uAD6C\uB974\uAE30_7": -1090141018
-      "\uAD6C\uB974\uAE30_6": 1776407425
-      "\uAD6C\uB974\uAE30_11": -673351124
-      "\uAD6C\uB974\uAE30_1": 1362541921
-      "\uAD6C\uB974\uAE30_3": 1024919260
-      "\uAD6C\uB974\uAE30_8": -2082926433
-      "\uAD6C\uB974\uAE30_2": 1126943820
-      "\uAD6C\uB974\uAE30_12": -1430259342
-      "\uAD6C\uB974\uAE30_4": 809105812
-      "\uAD6C\uB974\uAE30_13": 1670790491
-      "\uAD6C\uB974\uAE30_0": 1860098557
-      "\uAD6C\uB974\uAE30_5": -554067953
-      "\uAD6C\uB974\uAE30_9": 690979983
-      "\uAD6C\uB974\uAE30_10": -811851850
-      "\uAD6C\uB974\uAE30_14": -141358631
+      panda_roll_12: -413381268
+      panda_roll_7: -1291094490
+      panda_roll_2: -1509191909
+      panda_roll_1: 1265087894
+      panda_roll_3: -638965832
+      panda_roll_6: 1400897715
+      panda_roll_0: 1799243150
+      panda_roll_5: 456171120
+      panda_roll_8: -1330734837
+      panda_roll_11: 429217367
+      panda_roll_10: -2141301533
+      panda_roll_4: -1490743658
+      panda_roll_9: 816178705
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

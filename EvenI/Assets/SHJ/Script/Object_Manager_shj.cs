@@ -37,10 +37,10 @@ public class Object_Manager_shj : MonoBehaviour
     }
 
     public void InActive() { gameObject.SetActive(false); }
-        
-    private void OnCollisionEnter2D(Collision2D collision)
+
+    public void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.name == "Player" && !touch)
+        if (collision.gameObject.name == "Player" && !touch)
         {
             Active(collision.gameObject);
             touch = true;
