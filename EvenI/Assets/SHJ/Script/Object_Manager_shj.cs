@@ -31,7 +31,7 @@ public class Object_Manager_shj : MonoBehaviour
         }
         else
         {
-            animator.SetTrigger("Touch");
+            if(animator != null) animator.SetTrigger("Touch");
             player.GetComponent<Player_shj>().hp--;
         }
     }
