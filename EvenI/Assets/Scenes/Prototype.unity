@@ -2885,7 +2885,7 @@ MonoBehaviour:
   timeSlowSpeed: 0
   timeSlowOnOff: 0
   speed: 8
-  jump_up_power: 10
+  jump_up_power: 15
   maxJumpPower: 1
   minJumpPower: 0.5
   charge_speed: 1
@@ -2904,7 +2904,7 @@ MonoBehaviour:
   cameraSpeed: 5
   playerSprite: {fileID: 1143851855}
   isFloor: 0
-  gravity: 9.81
+  gravity: 15
   vecSpeed: {x: 0, y: 0, z: 0}
   velocity: {x: 0, y: 0, z: 0}
 --- !u!61 &1143851858
@@ -4903,7 +4903,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2102378763}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 121.39649, y: -3.5, z: 0.024290001}
+  m_LocalPosition: {x: 121.39649, y: 1.8, z: 0.024290001}
   m_LocalScale: {x: 53.930912, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
