@@ -11568,6 +11568,7 @@ MonoBehaviour:
   timeSlowSpeed: 0.9
   timeSlowOnOff: 0
   speed: 8
+  velocity: 15
   jump_up_power: 16
   maxJumpPower: 1
   minJumpPower: 0.5
@@ -11580,16 +11581,14 @@ MonoBehaviour:
   playerAnimator: {fileID: 1143851860}
   hp_List: {fileID: 824284868}
   maxHP: 9
-  invincibleTime: 0
-  nuckBackPower: 0
-  blinkCount: 0
-  blinkSpeed: 0
+  invincibleTime: 0.5
+  nuckBackPower: 100
+  blinkCount: 2
+  blinkSpeed: 0.1
   cameraSpeed: 5
   playerSprite: {fileID: 0}
   isFloor: 0
   gravity: 15
-  vecSpeed: {x: 0, y: 0, z: 0}
-  velocity: {x: 0, y: 0, z: 0}
 --- !u!61 &1143851858
 BoxCollider2D:
   m_ObjectHideFlags: 0
