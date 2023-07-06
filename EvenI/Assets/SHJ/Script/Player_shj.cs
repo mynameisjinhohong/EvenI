@@ -23,7 +23,9 @@ public class Player_shj : MonoBehaviour
     public bool timeSlowOnOff;
 
     [Range(0.0f, 15.0f)]
-    public float speed; //속도
+    public float speed; //최대속도
+    [Range(0.0f, 15.0f)]
+    public float velocity; //가속도
 
     [Header("점프 관련")]
     [Range(0.0f, 100.0f)]
@@ -75,7 +77,7 @@ public class Player_shj : MonoBehaviour
             {
                 if (Hp > value)
                 {
-                    NukBack();
+                    nuckBackBool = true;
                 }
                 Hp = value;
             }
@@ -105,9 +107,9 @@ public class Player_shj : MonoBehaviour
     [Header("임시로 만들어본 것들")]
     public bool isFloor = false;
     public float gravity = -9.81f;
-    public Vector3 vecSpeed = Vector3.zero;
-    public Vector3 velocity = Vector3.zero;
     bool jumpBool = false;
+    bool nuckBackBool = false;
+    bool nuckBackDuring = false;
     #endregion
     float test = 0.0f;
     private void Start()
@@ -120,7 +122,6 @@ public class Player_shj : MonoBehaviour
 
     private void Update()
     {
-       
         //이전 코드 주석으로 놔둠
         #region test
         //if (player_State == Player_State.Rolling)
@@ -236,8 +237,8 @@ public class Player_shj : MonoBehaviour
     {
         RunRoll();        
         Jump();
-        vecSpeed += Time.deltaTime * velocity;
-        transform.position += vecSpeed * Time.deltaTime;
+        NukBack();
+
     }
     private void OnDrawGizmos()
     {
@@ -256,20 +257,26 @@ public class Player_shj : MonoBehaviour
     //}
     public void RunRoll()
     {
+        //rigid.AddForce(Vector2.right * velocity);
         if (player_State == Player_State.Rolling && !rollStart)
         {
             StartCoroutine(Rolling());
             rollStart = true;
         }
-        if (player_State == Player_State.Rolling)
+
+        if (!nuckBackDuring)
         {
-            rigid.velocity = Vector2.right * rolling_MoveSpeed + new Vector2(0,rigid.velocity.y); 
-            //vecSpeed.x = rolling_MoveSpeed;
-        }
-        else
-        {
-            rigid.velocity = Vector2.right * speed + new Vector2(0, rigid.velocity.y);
-            //vecSpeed.x = speed;
+            if (player_State == Player_State.Rolling)
+            {
+
+                rigid.velocity = Vector2.right * rolling_MoveSpeed + new Vector2(0, rigid.velocity.y);
+                //vecSpeed.x = rolling_MoveSpeed;
+            }
+            else
+            {
+                rigid.velocity = Vector2.right * speed + new Vector2(0, rigid.velocity.y);
+                //vecSpeed.x = speed;
+            }
         }
         if (floorCheck)
         {
@@ -397,12 +404,35 @@ public class Player_shj : MonoBehaviour
     }
     public void NukBack()
     {
+        if (!nuckBackBool)
+        {
+            return;
+        }
+        nuckBackBool = false;
         invincible = true;
-        rigid.AddForce(Vector2.left * nuckBackPower); // 넉백 함수
+        rigid.velocity = Vector2.zero;
+        rigid.AddForce((Vector2.left * nuckBackPower), ForceMode2D.Force);
+        nuckBackDuring = true;
+        StartCoroutine(NuckBackAddForce());
         StartCoroutine(Invincible());
         StartCoroutine(Blink());    
     }
 
+    IEnumerator NuckBackAddForce()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(0.01f);
+            rigid.AddForce(Vector2.right * velocity);
+            if (rigid.velocity.x > speed)
+            {
+                rigid.velocity = Vector2.right * speed;
+                nuckBackDuring = false;
+                Debug.Log("End");
+                break;
+            }
+        }
+    }
     IEnumerator Invincible() //무적상태 일정 시간 후 꺼주는 코루틴
     {
         yield return new WaitForSeconds(invincibleTime);
