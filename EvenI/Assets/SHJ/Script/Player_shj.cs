@@ -398,7 +398,7 @@ public class Player_shj : MonoBehaviour
     public void NukBack()
     {
         invincible = true;
-        //rigid.AddForce(Vector2.left * nuckBackPower); // ³Ë¹é ÇÔ¼ö
+        rigid.AddForce(Vector2.left * nuckBackPower); // ³Ë¹é ÇÔ¼ö
         StartCoroutine(Invincible());
         StartCoroutine(Blink());    
     }
