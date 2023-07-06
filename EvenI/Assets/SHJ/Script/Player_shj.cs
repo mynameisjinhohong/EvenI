@@ -11,7 +11,7 @@ public enum Player_State // 플레이어의 상태 달리는중인지, 구르는중인지
 public class Player_shj : MonoBehaviour
 {
     #region Variable
-    //Rigidbody2D rigid;
+    Rigidbody2D rigid;
 
     public LineRenderer predictLine;
 
@@ -26,7 +26,7 @@ public class Player_shj : MonoBehaviour
     public float speed; //속도
 
     [Header("점프 관련")]
-    [Range(0.0f, 500.0f)]
+    [Range(0.0f, 100.0f)]
     public float jump_up_power; //위로 점프력
 
     //[Range(0.0f, 15.0f)]
@@ -114,7 +114,7 @@ public class Player_shj : MonoBehaviour
     {
         playerAnimator.SetFloat("RollSpeed", rolling_Speed);
         hp = maxHP;
-        //rigid = GetComponent<Rigidbody2D>();
+        rigid = GetComponent<Rigidbody2D>();
         player_State = Player_State.Run;
     }
 
@@ -187,7 +187,7 @@ public class Player_shj : MonoBehaviour
             jump_charge = jump_charge <= maxJumpPower ? jump_charge + Time.deltaTime * charge_speed : maxJumpPower; //차징하면 게이지가 차오릅니다
             charge_img.enabled = true; //ui활성화
             //Debug.Log(jump_charge/(maxJumpPower -minJumpPower) - 1);
-            charge_img.fillAmount = (jump_charge / (maxJumpPower- minJumpPower))-1/*Time.deltaTime*//*jump_charge*/; //수정되었음
+            charge_img.fillAmount = (jump_charge-minJumpPower)/((jump_charge-minJumpPower) + (maxJumpPower-jump_charge))/*Time.deltaTime*//*jump_charge*/; //수정되었음
             if (timeSlowOnOff)
             {
                 Time.timeScale = timeSlowSpeed;
@@ -263,23 +263,26 @@ public class Player_shj : MonoBehaviour
         }
         if (player_State == Player_State.Rolling)
         {
-            vecSpeed.x = rolling_MoveSpeed;
+            rigid.velocity = Vector2.right * rolling_MoveSpeed + new Vector2(0,rigid.velocity.y); 
+            //vecSpeed.x = rolling_MoveSpeed;
         }
         else
         {
-            vecSpeed.x = speed;
+            rigid.velocity = Vector2.right * speed + new Vector2(0, rigid.velocity.y);
+            //vecSpeed.x = speed;
         }
         if (floorCheck)
         {
             if (!isFloor)
             {
-                velocity.y = gravity;
+                rigid.AddForce(Vector2.down * gravity);
+                //velocity.y = gravity;
             }
             else
             {
-                transform.position = new Vector3(transform.position.x, 0, transform.position.z);
-                vecSpeed.y = 0;
-                velocity.y = 0;
+                //transform.position = new Vector3(transform.position.x, 0, transform.position.z);
+                //vecSpeed.y = 0;
+                //velocity.y = 0;
             }
             RaycastHit2D hit = Physics2D.Raycast(this.gameObject.transform.position, Vector2.down, transform.localScale.y, LayerMask.GetMask("ground"));
             if (hit.collider != null)
@@ -303,8 +306,9 @@ public class Player_shj : MonoBehaviour
         playerAnimator.SetTrigger("Jump"); //점프 애니메이션
         jumping = true; //점프중
         StartCoroutine(HeightTest());
-        Debug.Log(jump_up_power * jump_charge);
-        velocity.y = jump_up_power *jump_charge;
+        //Debug.Log(jump_up_power * jump_charge);
+        rigid.AddForce((Vector2.up * jump_up_power) * jump_charge,ForceMode2D.Impulse);
+        //velocity.y = jump_up_power *jump_charge;
         charge_img.enabled = false; //ui비활성화
         jump_charge = 0.0f;
         charge_img.fillAmount = 0.0f; //추가됨
