@@ -11531,7 +11531,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1143851856
@@ -11568,13 +11568,13 @@ MonoBehaviour:
   timeSlowSpeed: 0.9
   timeSlowOnOff: 0
   speed: 8
-  jump_up_power: 150
+  jump_up_power: 16
   maxJumpPower: 1
   minJumpPower: 0.5
   charge_speed: 1
-  rolling_time: 5.8
-  rolling_Speed: 6
-  rolling_MoveSpeed: 0
+  rolling_time: 3
+  rolling_Speed: 4
+  rolling_MoveSpeed: 10
   jumping: 1
   charge_img: {fileID: 201541819}
   playerAnimator: {fileID: 1143851860}
@@ -11587,7 +11587,7 @@ MonoBehaviour:
   cameraSpeed: 5
   playerSprite: {fileID: 0}
   isFloor: 0
-  gravity: -30
+  gravity: 15
   vecSpeed: {x: 0, y: 0, z: 0}
   velocity: {x: 0, y: 0, z: 0}
 --- !u!61 &1143851858
