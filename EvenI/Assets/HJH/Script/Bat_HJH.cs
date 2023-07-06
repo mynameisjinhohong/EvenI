@@ -10,7 +10,7 @@ public class Bat_HJH : Object_Manager_shj
     public float speed;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         cam = Camera.main;
         startMove = false;
