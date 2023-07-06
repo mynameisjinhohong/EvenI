@@ -46,7 +46,7 @@ public class Player_shj : MonoBehaviour
     public float rolling_time; //구르는 시간
     [Range(0.0f, 15.0f)]
     public float rolling_Speed; //구르기 속도
-    [Range(0.0f, 10.0f)]
+    [Range(0.0f, 50.0f)]
     public float rolling_MoveSpeed;
     bool rollStart = false;
 
@@ -102,7 +102,7 @@ public class Player_shj : MonoBehaviour
     public SpriteRenderer playerSprite;
 
     Player_State player_State;
-    public Player_State state { set { player_State = value; } }
+    public Player_State state { get { return player_State; } set { player_State = value; } }
 
     [Header("임시로 만들어본 것들")]
     public bool isFloor = false;

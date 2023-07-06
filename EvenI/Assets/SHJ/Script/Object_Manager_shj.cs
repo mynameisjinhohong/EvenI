@@ -32,7 +32,7 @@ public class Object_Manager_shj : MonoBehaviour
         else
         {
             if(animator != null) animator.SetTrigger("Touch");
-            player.GetComponent<Player_shj>().hp--;
+            if (player.GetComponent<Player_shj>().state != Player_State.Rolling) player.GetComponent<Player_shj>().hp--;
         }
     }
 
