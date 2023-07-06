@@ -40,7 +40,7 @@ public class Object_Manager_shj : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "Player" && !touch)
+        if (collision.gameObject.tag == "Player" && !touch)
         {
             Active(collision.gameObject);
             touch = true;
