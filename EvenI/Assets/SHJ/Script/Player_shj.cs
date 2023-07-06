@@ -50,6 +50,11 @@ public class Player_shj : MonoBehaviour
     public float rolling_MoveSpeed;
     bool rollStart = false;
 
+
+    [Range(0.0f, 5.0f)] //구를때 크기
+    public float rolling_size;
+    float default_size;
+
     [SerializeField]
     bool jumping = false; //점프중인지 아닌지 확인
     bool floorCheck = true; //점프 하고 잠깐동안 바닥 체크 안하게
@@ -118,6 +123,7 @@ public class Player_shj : MonoBehaviour
         hp = maxHP;
         rigid = GetComponent<Rigidbody2D>();
         player_State = Player_State.Run;
+        default_size = transform.localScale.x; 
     }
 
     private void Update()
@@ -258,7 +264,7 @@ public class Player_shj : MonoBehaviour
     public void RunRoll()
     {
         //rigid.AddForce(Vector2.right * velocity);
-        if (player_State == Player_State.Rolling && !rollStart)
+        if (player_State == Player_State.Rolling && !rollStart) //구를때
         {
             StartCoroutine(Rolling());
             rollStart = true;
@@ -268,12 +274,13 @@ public class Player_shj : MonoBehaviour
         {
             if (player_State == Player_State.Rolling)
             {
-
+                transform.localScale = new Vector3(rolling_size, rolling_size, 0.0f);
                 rigid.velocity = Vector2.right * rolling_MoveSpeed + new Vector2(0, rigid.velocity.y);
                 //vecSpeed.x = rolling_MoveSpeed;
             }
             else
             {
+                transform.localScale = new Vector3(default_size, default_size, 0.0f);
                 rigid.velocity = Vector2.right * speed + new Vector2(0, rigid.velocity.y);
                 //vecSpeed.x = speed;
             }

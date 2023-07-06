@@ -2954,6 +2954,7 @@ MonoBehaviour:
   rolling_time: 3
   rolling_Speed: 4
   rolling_MoveSpeed: 10
+  rolling_size: 0
   jumping: 0
   charge_img: {fileID: 201541819}
   playerAnimator: {fileID: 1143851860}
@@ -5153,6 +5154,14 @@ PrefabInstance:
       value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3992068706154788459, guid: b7683a2088672844894956287bdc8d44, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3992068706154788459, guid: b7683a2088672844894956287bdc8d44, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3992068706154788459, guid: b7683a2088672844894956287bdc8d44, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.92
       objectReference: {fileID: 0}
@@ -5196,6 +5205,10 @@ PrefabInstance:
       propertyPath: hp_List
       value: 
       objectReference: {fileID: 824284868}
+    - target: {fileID: 3992068706154788461, guid: b7683a2088672844894956287bdc8d44, type: 3}
+      propertyPath: rolling_size
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3992068706154788461, guid: b7683a2088672844894956287bdc8d44, type: 3}
       propertyPath: rolling_MoveSpeed
       value: 15
