@@ -1005,12 +1005,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3992068706154788459, guid: b7683a2088672844894956287bdc8d44, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3992068706154788459, guid: b7683a2088672844894956287bdc8d44, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3992068706154788459, guid: b7683a2088672844894956287bdc8d44, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.82
+      value: -8.77
       objectReference: {fileID: 0}
     - target: {fileID: 3992068706154788459, guid: b7683a2088672844894956287bdc8d44, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.055476308
+      value: 0.17
       objectReference: {fileID: 0}
     - target: {fileID: 3992068706154788459, guid: b7683a2088672844894956287bdc8d44, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1051,6 +1059,10 @@ PrefabInstance:
     - target: {fileID: 3992068706154788461, guid: b7683a2088672844894956287bdc8d44, type: 3}
       propertyPath: camera_distance
       value: 9.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3992068706154788461, guid: b7683a2088672844894956287bdc8d44, type: 3}
+      propertyPath: rolling_MoveSpeed
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7683a2088672844894956287bdc8d44, type: 3}
