@@ -41,9 +41,12 @@ public class Main_Title_UI_shj : UI_Setting_shj
                 else
                     story_text.text += "\n" + senario[i + 3 * click_cnt]["text"].ToString();
             }
+
+            if (click_cnt == senario.Count / 3 - 1) btn_text.text = "로비로 이동";
         }
         else
         {
+
             Next_Scene();
         }
     }
