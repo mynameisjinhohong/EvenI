@@ -7,6 +7,7 @@ using UnityEngine.EventSystems;
 
 public class UI_Setting_shj : MonoBehaviour ,IPointerClickHandler
 {
+    protected List<Dictionary<string, object>> senario;
     protected GameObject root_UI = null;
     public void UI_On_Off() //버튼의 첫번째 자식 켜고 끄기
     {
