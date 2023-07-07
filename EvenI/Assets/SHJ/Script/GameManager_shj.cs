@@ -8,6 +8,7 @@ public class GameManager_shj : MonoBehaviour
     private static GameManager_shj instance = null;
     public static GameManager_shj Getinstance { get { return instance; } }
     public string nickname;
+    bool vibration = true;
 
     public void Awake()
     {
@@ -22,4 +23,6 @@ public class GameManager_shj : MonoBehaviour
         else
             SceneManager.LoadScene(1);
     }
+
+    public bool Set_vibration { set { vibration = !vibration; } }
 }
