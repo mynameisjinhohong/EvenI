@@ -12,6 +12,7 @@ public class Player_shj : MonoBehaviour
 {
     #region Variable
     Rigidbody2D rigid;
+    AudioSource audio;
 
     public LineRenderer predictLine;
 
@@ -119,6 +120,7 @@ public class Player_shj : MonoBehaviour
     float test = 0.0f;
     private void Start()
     {
+        audio = GetComponent<AudioSource>();
         playerAnimator.SetFloat("RollSpeed", rolling_Speed);
         hp = maxHP;
         rigid = GetComponent<Rigidbody2D>();
@@ -329,6 +331,7 @@ public class Player_shj : MonoBehaviour
         {
             return;
         }
+        audio.Play();
         jumpBool = false;
         floorCheck = false;
         isFloor = false;

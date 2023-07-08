@@ -21,6 +21,8 @@ public class Object_Manager_shj : MonoBehaviour
     }
 
     public virtual void Item_Active(GameObject player) { }
+    
+    public virtual void Obstacle_Active(GameObject player) { }
 
     public void Active(GameObject player)
     {
@@ -29,8 +31,10 @@ public class Object_Manager_shj : MonoBehaviour
             Item_Active(player);
             InActive();
         }
-        else
+        else if(type == Type.Obstacle)
         {
+            Debug.Log("??");
+            Obstacle_Active(player);
             if(animator != null) animator.SetTrigger("Touch");
             if (player.GetComponent<Player_shj>().state != Player_State.Rolling) player.GetComponent<Player_shj>().hp--;
         }
