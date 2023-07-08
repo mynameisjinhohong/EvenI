@@ -636,7 +636,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 4
+    m_LineSpacing: 1
   m_Text: "\uD14C\uC2A4\uD2B8 \uD14D\uC2A4\uD2B8"
 --- !u!222 &406957799
 CanvasRenderer:
@@ -991,7 +991,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682d32098066162419568cca2e997a8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nickname_text: {fileID: 40769194}
+  nickname_text: {fileID: 2138939494}
   story_text: {fileID: 406957798}
   btn_text: {fileID: 910266313}
 --- !u!82 &725087988
@@ -2098,7 +2098,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1666311614
 RectTransform:
   m_ObjectHideFlags: 0

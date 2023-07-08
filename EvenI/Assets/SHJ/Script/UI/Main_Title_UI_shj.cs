@@ -38,7 +38,6 @@ public class Main_Title_UI_shj : UI_Setting_shj
     public void Set_NickName() //닉네임 설정
     {
         GameManager_shj.Getinstance.nickname = nickname_text.text;
-        Lastest_Open_UI_Close();
     }
 
     public void next_text()
@@ -50,10 +49,18 @@ public class Main_Title_UI_shj : UI_Setting_shj
             audio.Play();
             for (int i = 0; i < 3; i++)
             {
-                if(i == 0)
-                    story_text.text = senario[i + 3 * click_cnt]["text"].ToString();
+                string text = senario[i + 3 * click_cnt]["text"].ToString();
+                if (text.Contains("(닉네임)"))
+                    text = text.Replace("(닉네임)", GameManager_shj.Getinstance.nickname);
+
+
+                if (i == 0)
+                    story_text.text = text;
+                //story_text.text = senario[i + 3 * click_cnt]["text"].ToString();
                 else
-                    story_text.text += "\n" + senario[i + 3 * click_cnt]["text"].ToString();
+                    story_text.text += "\n" + text;
+
+                //story_text.text += "\n" + senario[i + 3 * click_cnt]["text"].ToString();
             }
 
             if (click_cnt == senario.Count / 3 - 1) btn_text.text = "로비로 이동";
