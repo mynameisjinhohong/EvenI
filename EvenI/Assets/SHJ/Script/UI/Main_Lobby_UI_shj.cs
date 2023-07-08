@@ -37,14 +37,8 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
         }
         else if(EventSystem.current.currentSelectedGameObject.name == "Challenge_Btn")
         {
-            //if (!G_obj.activeSelf)
-            {
-                audio.clip = clips[(int)AudioType.Lock];
-                audio.Play();
-
-                //G_obj.SetActive(true);
-                //root_UI = G_obj;
-            }
+            audio.clip = clips[(int)AudioType.Lock];
+            audio.Play();
         }
         else
         {
