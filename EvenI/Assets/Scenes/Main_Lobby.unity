@@ -148,7 +148,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 13407783}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -863,7 +863,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 123834353}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 429507004}
+        m_TargetAssemblyTypeName: Main_Lobby_UI_shj, Assembly-CSharp
+        m_MethodName: UI_On_Off
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &123834353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2150,6 +2162,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9b26a2ad78ee348458148f96ec1fae63, type: 3}
   - {fileID: 8300000, guid: ee7c5afd4f687e149aa199d1f90f3caf, type: 3}
   - {fileID: 8300000, guid: 5f36fcf8232e663489a3592ec4abc843, type: 3}
+  - {fileID: 8300000, guid: 5f87e6d0b6c78864080a0f6bbe7ed520, type: 3}
 --- !u!82 &429507005
 AudioSource:
   m_ObjectHideFlags: 0
