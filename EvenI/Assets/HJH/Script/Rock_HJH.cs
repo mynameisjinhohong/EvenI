@@ -27,4 +27,9 @@ public class Rock_HJH : Object_Manager_shj
     //{
     //    gameObject.SetActive(false);
     //}
+    public override void Obstacle_Active(GameObject player)
+    {
+        GameObject.Find("SoundManager").GetComponent<SoundManager_HJH>().RockBreakSoundPlay();
+    }
+
 }
