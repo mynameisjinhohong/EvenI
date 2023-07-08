@@ -13,8 +13,10 @@ public class Player_shj : MonoBehaviour
     #region Variable
     Rigidbody2D rigid;
     AudioSource audio;
+    SoundManager_HJH soundManager;
 
     public LineRenderer predictLine;
+    public GameObject gameOverPanel;
 
     [Range(0.0f, 10.0f)]
     public float camera_distance;
@@ -86,6 +88,15 @@ public class Player_shj : MonoBehaviour
                     nuckBackBool = true;
                 }
                 Hp = value;
+                if (Hp < 1)
+                {
+                    if (!gameOverPanel.activeInHierarchy)
+                    {
+                        gameOverPanel.SetActive(true);
+                        Time.timeScale = 0f;
+                    }
+                    soundManager.LifeZeroSoundPlay();
+                }
             }
         }
     }
@@ -120,6 +131,7 @@ public class Player_shj : MonoBehaviour
     float test = 0.0f;
     private void Start()
     {
+        soundManager = GetComponentInChildren<SoundManager_HJH>();  
         audio = GetComponent<AudioSource>();
         playerAnimator.SetFloat("RollSpeed", rolling_Speed);
         hp = maxHP;
@@ -202,7 +214,7 @@ public class Player_shj : MonoBehaviour
         }
         if (hp < 1)
         {
-
+            
         }
         #endregion
         Camera.main.transform.position = new Vector3((transform.position + new Vector3(camera_distance, 0, 0)).x, 2, -10);//플레이어한테 맞춰서 카메라 배치

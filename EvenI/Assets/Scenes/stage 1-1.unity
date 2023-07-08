@@ -5377,10 +5377,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2679178649345074348, guid: b7683a2088672844894956287bdc8d44, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3992068706154788433, guid: b7683a2088672844894956287bdc8d44, type: 3}
       propertyPath: m_Name
       value: 'Player '
@@ -5429,6 +5425,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3992068706154788461, guid: b7683a2088672844894956287bdc8d44, type: 3}
+      propertyPath: gameOverPanel
+      value: 
+      objectReference: {fileID: 838912526}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7683a2088672844894956287bdc8d44, type: 3}
 --- !u!1001 &107227844
@@ -48669,6 +48669,11 @@ Transform:
   m_Father: {fileID: 277028532}
   m_RootOrder: 1149
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &838912526 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2609264209006749027, guid: b7683a2088672844894956287bdc8d44, type: 3}
+  m_PrefabInstance: {fileID: 107155367}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &839152602
 PrefabInstance:
   m_ObjectHideFlags: 0

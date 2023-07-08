@@ -5,18 +5,50 @@ using UnityEngine.EventSystems;
 
 public class Main_Lobby_UI_shj : UI_Setting_shj
 {
+    AudioSource audio;
+    public AudioClip[] clips;
+    enum AudioType
+    {
+        UION,
+        UIOff,
+        StoryDic,
+        PopUPClose,
+    }
+    private void Start()
+    {
+        audio = GetComponent<AudioSource>();
+    }
+
     public void UI_On_Off()
     {
         GameObject G_obj = EventSystem.current.currentSelectedGameObject.transform.GetChild(0).gameObject;
-
-        if (!G_obj.activeSelf)
+        if(EventSystem.current.currentSelectedGameObject.name == "Story_Dictionary_Btn")
         {
-            G_obj.SetActive(true);
-            root_UI = G_obj;
+            if (!G_obj.activeSelf)
+            {
+                audio.clip = clips[(int)AudioType.StoryDic];
+                audio.Play();
+
+                G_obj.SetActive(true);
+                root_UI = G_obj;
+            }
+        }
+        else
+        {
+            if (!G_obj.activeSelf)
+            {
+                audio.clip = clips[(int)AudioType.UION];
+                audio.Play();
+
+                G_obj.SetActive(true);
+                root_UI = G_obj;
+            }
         }
     }
     public void Lastest_Open_UI_Close() //마지막 열린 UI닫기
     {
+        audio.clip = clips[(int)AudioType.UIOff];
+        audio.Play();
         if (root_UI != null) root_UI.SetActive(false);
     }
 

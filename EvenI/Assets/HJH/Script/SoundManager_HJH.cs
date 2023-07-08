@@ -11,7 +11,7 @@ public class SoundManager_HJH : MonoBehaviour
         JuksunSound,
         RockBreakSound,
         ObjectBreakSound,
-
+        LifeZeroSound,
     }
     // Start is called before the first frame update
     void Start()
@@ -38,5 +38,11 @@ public class SoundManager_HJH : MonoBehaviour
     {
         audio.clip = clips[((int)Sound.ObjectBreakSound)];
         audio.Play();
+    }
+    public void LifeZeroSoundPlay()
+    {
+        audio.clip = clips[(int)Sound.LifeZeroSound];
+        audio.Play();
+
     }
 }
