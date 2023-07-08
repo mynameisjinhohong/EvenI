@@ -68,7 +68,7 @@ public class Player_shj : MonoBehaviour
     public int maxHP = 9;
 
 
-    int Hp = 9;
+    public int Hp = 9;
 
     public int hp
     {
@@ -172,19 +172,35 @@ public class Player_shj : MonoBehaviour
         //    }
 
         //}
-        if (hp > 0)
+        if (hp_List.transform.childCount > 0)
         {
-            //for (int i = 1; i <= maxHP; i++)
-            //{
-            //    if (i <= hp)
-            //    {
-            //        hp_List.transform.GetChild(hp).gameObject.SetActive(true);
-            //    }
-            //    else
-            //    {
-            //        hp_List.transform.GetChild(hp).gameObject.SetActive(false);
-            //    }
-            //}
+            if (Hp != 0)
+            {
+                for (int i = 0; i < maxHP; i++)
+                {
+                    if (i < hp)
+                    {
+                        hp_List.transform.GetChild(i).gameObject.SetActive(true);
+                    }
+                    else
+                    {
+                        hp_List.transform.GetChild(i).gameObject.SetActive(false);
+                    }
+                }
+            }
+            else if (Hp == 0)
+            {
+                Debug.Log("??");
+                for (int i = 0; i < hp_List.transform.childCount; i++)
+                {
+                    hp_List.transform.GetChild(i).gameObject.SetActive(false);
+                }
+            }
+
+        }
+        if (hp < 1)
+        {
+
         }
         #endregion
         Camera.main.transform.position = new Vector3((transform.position + new Vector3(camera_distance, 0, 0)).x, 2, -10);//플레이어한테 맞춰서 카메라 배치
