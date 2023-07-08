@@ -15,7 +15,7 @@ public class InGame_UI_shj : UI_Setting_shj
     int count = 0;
     public int Count { get {  return count; } set { count = value; } }
 
-    private void Start()
+    private void Awake()
     {
         if(Hp_list.childCount == 0)
         {
@@ -30,7 +30,7 @@ public class InGame_UI_shj : UI_Setting_shj
     private void Update()
     {
         count_text.text = count.ToString();
-        Debug.Log(Time.timeScale);
+        //Debug.Log(Time.timeScale);
     }
 
     public void Game_Stop() //게임 정지 버튼

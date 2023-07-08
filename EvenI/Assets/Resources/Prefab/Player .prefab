@@ -1558,7 +1558,7 @@ Transform:
   m_GameObject: {fileID: 3992068706154788433}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.92, y: 0.2, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3992068705700017582}
@@ -1632,7 +1632,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   predictLine: {fileID: 3992068705335496168}
-  camera_distance: 7
+  camera_distance: 9.5
   timeSlowSpeed: 0
   timeSlowOnOff: 0
   speed: 8
@@ -1641,14 +1641,14 @@ MonoBehaviour:
   maxJumpPower: 1
   minJumpPower: 0.5
   charge_speed: 1
-  rolling_time: 3
-  rolling_Speed: 4
-  rolling_MoveSpeed: 10
-  rolling_size: 0
+  rolling_time: 3.5
+  rolling_Speed: 8
+  rolling_MoveSpeed: 15
+  rolling_size: 1.5
   jumping: 0
   charge_img: {fileID: 3992068705999525283}
   playerAnimator: {fileID: 3992068706154788462}
-  hp_List: {fileID: 0}
+  hp_List: {fileID: 3992068705703599509}
   maxHP: 9
   invincibleTime: 1
   nuckBackPower: 200
