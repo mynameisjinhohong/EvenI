@@ -6,8 +6,10 @@ using UnityEngine.SceneManagement;
 public class GameManager_shj : MonoBehaviour
 {
     private static GameManager_shj instance = null;
+
     public static GameManager_shj Getinstance { get { return instance; } }
     public string nickname;
+
     bool vibration = true;
 
     public void Awake()

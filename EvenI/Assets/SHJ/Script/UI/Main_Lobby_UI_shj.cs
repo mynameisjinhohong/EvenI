@@ -19,6 +19,7 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
     private void Start()
     {
         audio = GetComponent<AudioSource>();
+
     }
 
     public void UI_On_Off()

@@ -47,28 +47,21 @@ public class Main_Title_UI_shj : UI_Setting_shj
         if (senario.Count / 3 > click_cnt)
         {
             audio.Play();
+
             for (int i = 0; i < 3; i++)
             {
                 string text = senario[i + 3 * click_cnt]["text"].ToString();
-                if (text.Contains("(닉네임)"))
-                    text = text.Replace("(닉네임)", GameManager_shj.Getinstance.nickname);
 
+                //닉네임 부분을 변경
+                if (text.Contains("(닉네임)")) text = text.Replace("(닉네임)", GameManager_shj.Getinstance.nickname);
 
-                if (i == 0)
-                    story_text.text = text;
-                //story_text.text = senario[i + 3 * click_cnt]["text"].ToString();
-                else
-                    story_text.text += "\n" + text;
-
-                //story_text.text += "\n" + senario[i + 3 * click_cnt]["text"].ToString();
+                if (i == 0) story_text.text = text; 
+                else story_text.text += "\n" + text;
             }
 
             if (click_cnt == senario.Count / 3 - 1) btn_text.text = "로비로 이동";
         }
         else
-        {
-
             Next_Scene();
-        }
     }
 }
