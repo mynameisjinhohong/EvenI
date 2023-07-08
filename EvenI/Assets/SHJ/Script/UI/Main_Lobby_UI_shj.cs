@@ -7,12 +7,14 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
 {
     AudioSource audio;
     public AudioClip[] clips;
+
     enum AudioType
     {
         UION,
         UIOff,
         StoryDic,
         PopUPClose,
+        Lock,
     }
     private void Start()
     {
@@ -31,6 +33,17 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
 
                 G_obj.SetActive(true);
                 root_UI = G_obj;
+            }
+        }
+        else if(EventSystem.current.currentSelectedGameObject.name == "Challenge_Btn")
+        {
+            //if (!G_obj.activeSelf)
+            {
+                audio.clip = clips[(int)AudioType.Lock];
+                audio.Play();
+
+                //G_obj.SetActive(true);
+                //root_UI = G_obj;
             }
         }
         else
