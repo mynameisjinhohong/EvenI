@@ -480,11 +480,11 @@ public class Player_shj : MonoBehaviour
     }
     IEnumerator Rolling() //구르기
     {
-        gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
+        //gameObject.GetComponent<BoxCollider2D>().isTrigger = true; //임시 주석
         playerAnimator.SetTrigger("Roll"); //구르기 애니메이션 작동
         yield return new WaitForSeconds(rolling_time); //일정시간동안 구르기진행
         player_State = Player_State.Run; //달리는 상태로 복귀
-        gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
+        //gameObject.GetComponent<BoxCollider2D>().isTrigger = false; //임시 주석
         playerAnimator.SetTrigger("RollEnd");
         rollStart = false;
         //playerAnimator.SetBool("Rolling", false);
