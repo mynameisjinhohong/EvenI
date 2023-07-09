@@ -31,12 +31,18 @@ public class UI_Setting_shj : MonoBehaviour ,IPointerClickHandler
 
     public void Next_Scene() //현재씬에서 다음 씬으로 넘어감
     {
-        GameManager_shj.Getinstance.Change_Next_Scene(true);
+        StartCoroutine(GameManager_shj.Getinstance.Change_Scene(1));
+        //GameManager_shj.Getinstance.Change_Next_Scene(true);
+    }
+
+    public void Retry()
+    {
+        StartCoroutine(GameManager_shj.Getinstance.Change_Scene(0));
     }
 
     public void Return_Lobby() //로비로 돌아가기
     {
-        GameManager_shj.Getinstance.Change_Next_Scene(false);
+        StartCoroutine(GameManager_shj.Getinstance.Change_Scene(1,false));
     }
 
     public void Lastest_Open_UI_Close() //마지막 열린 UI닫기

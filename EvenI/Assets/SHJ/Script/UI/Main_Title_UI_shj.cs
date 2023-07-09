@@ -24,21 +24,22 @@ public class Main_Title_UI_shj : UI_Setting_shj
         senario = CSVReader.Read("Scenario/opening_scenario");
         next_text();
     }
-    public void Next_Scene() //현재씬에서 다음 씬으로 넘어감
-    {
-        audio.Play();
-        Invoke("NextScene", 0.1f);
-    }
 
-    void NextScene()
-    {
-        GameManager_shj.Getinstance.Change_Next_Scene(true);
-    }
+    //public void Next_Scene() //현재씬에서 다음 씬으로 넘어감
+    //{
+    //    audio.Play();
+    //    Invoke("NextScene", 0.1f);
+    //}
 
-    public void Set_NickName() //닉네임 설정
-    {
-        GameManager_shj.Getinstance.nickname = nickname_text.text;
-    }
+    //void NextScene()
+    //{
+    //    GameManager_shj.Getinstance.Change_Next_Scene(true);
+    //}
+
+    //public void Set_NickName() //닉네임 설정
+    //{
+    //    GameManager_shj.Getinstance.nickname = nickname_text.text;
+    //}
 
     public void next_text()
     {
