@@ -114,7 +114,6 @@ public class SoundManager_HJH : MonoBehaviour
 
     void MakeBaby(int target)
     {
-        Debug.Log(target);
         GameObject obj = new GameObject("SoundManagerChild" + gameObject.transform.childCount);
         obj.AddComponent<AudioSource>();
         obj.transform.SetParent(transform);

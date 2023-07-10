@@ -33,7 +33,6 @@ public class Object_Manager_shj : MonoBehaviour
         }
         else if(type == Type.Obstacle)
         {
-            Debug.Log("??");
             Obstacle_Active(player);
             if(animator != null) animator.SetTrigger("Touch");
             if (player.GetComponent<Player_shj>().state != Player_State.Rolling) player.GetComponent<Player_shj>().hp--;

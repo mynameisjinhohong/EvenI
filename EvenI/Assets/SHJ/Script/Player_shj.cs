@@ -94,6 +94,7 @@ public class Player_shj : MonoBehaviour
                     if (!gameOverPanel.activeInHierarchy)
                     {
                         gameOverPanel.SetActive(true);
+                        Debug.Log("??");
                         Time.timeScale = 0f;
                     }
                     soundManager.LifeZeroSoundPlay();
@@ -255,10 +256,10 @@ public class Player_shj : MonoBehaviour
             charge_img.enabled = true; //ui활성화
             //Debug.Log(jump_charge/(maxJumpPower -minJumpPower) - 1);
             charge_img.fillAmount = (jump_charge-minJumpPower)/((jump_charge-minJumpPower) + (maxJumpPower-jump_charge))/*Time.deltaTime*//*jump_charge*/; //수정되었음
-            if (timeSlowOnOff)
-            {
-                Time.timeScale = timeSlowSpeed;
-            }
+            //if (timeSlowOnOff)
+            //{
+            //    Time.timeScale = timeSlowSpeed;
+            //}
             if (jump_charge < minJumpPower)
             {
                 jump_charge = minJumpPower;
@@ -272,7 +273,7 @@ public class Player_shj : MonoBehaviour
         {
             //test = true;
             jumpBool = true;
-            Time.timeScale = 1f;
+            //Time.timeScale = 1f;
         }
 
 
@@ -305,6 +306,11 @@ public class Player_shj : MonoBehaviour
         Jump();
         NukBack();
 
+    }
+    public void GameOver()
+    {
+        gameOverPanel.SetActive(true);
+        Time.timeScale = 0f;
     }
     IEnumerator UpCrushOff()
     {
@@ -542,7 +548,6 @@ public class Player_shj : MonoBehaviour
             {
                 rigid.velocity = Vector2.right * speed;
                 nuckBackDuring = false;
-                Debug.Log("End");
                 break;
             }
         }
@@ -563,7 +568,7 @@ public class Player_shj : MonoBehaviour
             yield return new WaitForSeconds(blinkSpeed);
             playerSprite.color = new Color(playerSprite.color.r, playerSprite.color.g, playerSprite.color.b, 1f);
             yield return new WaitForSeconds(blinkSpeed);
-            count++;
+            count+=2;
         }
     }
     IEnumerator Rolling() //구르기
