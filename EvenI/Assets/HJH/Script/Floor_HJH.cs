@@ -17,11 +17,15 @@ public class Floor_HJH : MonoBehaviour
         
     }
 
-    public void Crash()
+    public void Crash(GameObject player)
     {
-        box.isTrigger = true;
-        StopAllCoroutines();
-        StartCoroutine(TriggerOff());
+        if(player.transform.position.y < box.transform.position.y)
+        {
+            box.isTrigger = true;
+            StopAllCoroutines();
+            StartCoroutine(TriggerOff());
+        }
+
     }
 
     IEnumerator TriggerOff()
