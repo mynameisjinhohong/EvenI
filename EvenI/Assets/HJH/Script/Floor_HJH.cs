@@ -19,7 +19,7 @@ public class Floor_HJH : MonoBehaviour
 
     public void Crash(GameObject player)
     {
-        if(player.transform.position.y < box.transform.position.y)
+        if(player.transform.position.y < transform.position.y || player.transform.position.x < transform.position.x - (transform.localScale.x/2))
         {
             box.isTrigger = true;
             StopAllCoroutines();
