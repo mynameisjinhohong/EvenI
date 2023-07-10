@@ -36,10 +36,10 @@ public class Main_Title_UI_shj : UI_Setting_shj
     //    GameManager_shj.Getinstance.Change_Next_Scene(true);
     //}
 
-    //public void Set_NickName() //닉네임 설정
-    //{
-    //    GameManager_shj.Getinstance.nickname = nickname_text.text;
-    //}
+    public void Set_NickName() //닉네임 설정
+    {
+        GameManager_shj.Getinstance.nickname = nickname_text.text;
+    }
 
     public void next_text()
     {
