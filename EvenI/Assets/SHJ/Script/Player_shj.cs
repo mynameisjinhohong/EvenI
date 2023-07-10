@@ -128,6 +128,7 @@ public class Player_shj : MonoBehaviour
     bool jumpBool = false;
     bool nuckBackBool = false;
     bool nuckBackDuring = false;
+    public bool upCrushCheck = false; //À§¿¡ ºÎµúÇûÀ» ¶§
     #endregion
     float test = 0.0f;
     private void Start()
@@ -190,22 +191,26 @@ public class Player_shj : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(rayPoint[0].position, Vector2.up,transform.localScale.x/2, LayerMask.GetMask("ground"));
         if(hit.collider !=  null)
         {
-            hit.transform.gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
+            hit.transform.gameObject.GetComponent<Floor_HJH>().Crash();
+            upCrushCheck = true;
+            StartCoroutine(UpCrushOff());
         }
         hit = Physics2D.Raycast(rayPoint[1].position, Vector2.up, transform.localScale.x / 2, LayerMask.GetMask("ground"));
         if (hit.collider != null)
         {
-            hit.transform.gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
+            hit.transform.gameObject.GetComponent<Floor_HJH>().Crash();
+            upCrushCheck = true;
+            StartCoroutine(UpCrushOff());
         }
         hit = Physics2D.Raycast(rayPoint[2].position, Vector2.right, transform.localScale.x / 2, LayerMask.GetMask("ground"));
         if (hit.collider != null)
         {
-            hit.transform.gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
+            hit.transform.gameObject.GetComponent<Floor_HJH>().Crash();
         }
         hit = Physics2D.Raycast(rayPoint[3].position, Vector2.right, transform.localScale.x / 2, LayerMask.GetMask("ground"));
         if (hit.collider != null)
         {
-            hit.transform.gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
+            hit.transform.gameObject.GetComponent<Floor_HJH>().Crash();
         }
         if (hp_List.transform.childCount > 0)
         {
@@ -296,6 +301,11 @@ public class Player_shj : MonoBehaviour
         NukBack();
 
     }
+    IEnumerator UpCrushOff()
+    {
+        yield return new WaitForSeconds(0.5f);
+        upCrushCheck = false;
+    }
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
@@ -375,19 +385,19 @@ public class Player_shj : MonoBehaviour
                 rigid.AddForce(Vector2.down * gravity);
                 //velocity.y = gravity;
             }
-            else
+            if (!upCrushCheck)
             {
-                //transform.position = new Vector3(transform.position.x, 0, transform.position.z);
-                //vecSpeed.y = 0;
-                //velocity.y = 0;
-            }
-            RaycastHit2D hit = Physics2D.Raycast(this.gameObject.transform.position, Vector2.down, transform.localScale.y, LayerMask.GetMask("ground"));
-            if (hit.collider != null)
-            {
-                isFloor = true;
-                jumping = false;
+                RaycastHit2D hit = Physics2D.Raycast(this.gameObject.transform.position, Vector2.down, transform.localScale.y, LayerMask.GetMask("ground"));
+                if (hit.collider != null)
+                {
+                    isFloor = true;
+                    jumping = false;
+
+                }
             }
         }
+
+
     }
 
     public void Jump() //Á¡ÇÁ
