@@ -191,26 +191,26 @@ public class Player_shj : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(rayPoint[0].position, Vector2.up,transform.localScale.x/2, LayerMask.GetMask("ground"));
         if(hit.collider !=  null)
         {
-            hit.transform.gameObject.GetComponent<Floor_HJH>().Crash();
+            hit.transform.gameObject.GetComponent<Floor_HJH>().Crash(gameObject);
             upCrushCheck = true;
             StartCoroutine(UpCrushOff());
         }
         hit = Physics2D.Raycast(rayPoint[1].position, Vector2.up, transform.localScale.x / 2, LayerMask.GetMask("ground"));
         if (hit.collider != null)
         {
-            hit.transform.gameObject.GetComponent<Floor_HJH>().Crash();
+            hit.transform.gameObject.GetComponent<Floor_HJH>().Crash(gameObject);
             upCrushCheck = true;
             StartCoroutine(UpCrushOff());
         }
         hit = Physics2D.Raycast(rayPoint[2].position, Vector2.right, transform.localScale.x / 2, LayerMask.GetMask("ground"));
         if (hit.collider != null)
         {
-            hit.transform.gameObject.GetComponent<Floor_HJH>().Crash();
+            hit.transform.gameObject.GetComponent<Floor_HJH>().Crash(gameObject);
         }
         hit = Physics2D.Raycast(rayPoint[3].position, Vector2.right, transform.localScale.x / 2, LayerMask.GetMask("ground"));
         if (hit.collider != null)
         {
-            hit.transform.gameObject.GetComponent<Floor_HJH>().Crash();
+            hit.transform.gameObject.GetComponent<Floor_HJH>().Crash(gameObject);
         }
         if (hp_List.transform.childCount > 0)
         {
@@ -392,7 +392,7 @@ public class Player_shj : MonoBehaviour
                 {
                     isFloor = true;
                     jumping = false;
-
+                    hit.transform.gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
                 }
             }
         }

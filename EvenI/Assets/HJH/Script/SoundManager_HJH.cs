@@ -26,23 +26,99 @@ public class SoundManager_HJH : MonoBehaviour
     }
     public void JuksunSoundPlay()
     {
-        audio.clip = clips[(int)Sound.JuksunSound];
-        audio.Play();
+        for(int i = 0; i<transform.childCount+1; i++)
+        {
+            GameObject target;
+            if(i == 0)
+            {
+                target = gameObject;
+            }
+            else
+            {
+                target = gameObject.transform.GetChild(i - 1).gameObject;
+            }
+            audio = target.GetComponent<AudioSource>();
+            if (!audio.isPlaying)
+            {
+                audio.clip = clips[(int)Sound.JuksunSound];
+                audio.Play();
+                break;
+            }
+            if(i == transform.childCount)
+            {
+                MakeBaby((int)Sound.JuksunSound);
+                break;
+            }
+        }
+
     }
     public void RockBreakSoundPlay()
     {
-        audio.clip = clips[(int)Sound.RockBreakSound];
-        audio.Play();
+        for (int i = 0; i < transform.childCount + 1; i++)
+        {
+            GameObject target;
+            if (i == 0)
+            {
+                target = gameObject;
+            }
+            else
+            {
+                target = gameObject.transform.GetChild(i - 1).gameObject;
+            }
+            audio = target.GetComponent<AudioSource>();
+            if (!audio.isPlaying)
+            {
+                audio.clip = clips[(int)Sound.RockBreakSound];
+                audio.Play();
+                break;
+            }
+            if (i == transform.childCount)
+            {
+                MakeBaby((int)Sound.RockBreakSound);
+                break;
+            }
+        }
     }
     public void ObjectBreakSoundPlay()
     {
-        audio.clip = clips[((int)Sound.ObjectBreakSound)];
-        audio.Play();
+        for (int i = 0; i < transform.childCount + 1; i++)
+        {
+            GameObject target;
+            if (i == 0)
+            {
+                target = gameObject;
+            }
+            else
+            {
+                target = gameObject.transform.GetChild(i - 1).gameObject;
+            }
+            audio = target.GetComponent<AudioSource>();
+            if (!audio.isPlaying)
+            {
+                audio.clip = clips[(int)Sound.ObjectBreakSound];
+                audio.Play();
+                break;
+            }
+            if (i == transform.childCount)
+            {
+                MakeBaby((int)Sound.ObjectBreakSound);
+                break;
+            }
+        }
     }
     public void LifeZeroSoundPlay()
     {
         audio.clip = clips[(int)Sound.LifeZeroSound];
         audio.Play();
+    }
 
+    void MakeBaby(int target)
+    {
+        Debug.Log(target);
+        GameObject obj = new GameObject("SoundManagerChild" + gameObject.transform.childCount);
+        obj.AddComponent<AudioSource>();
+        obj.transform.SetParent(transform);
+        obj.GetComponent<AudioSource>().clip = clips[target];
+        obj.GetComponent<AudioSource>().Play();
     }
 }
