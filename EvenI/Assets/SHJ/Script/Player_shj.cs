@@ -212,6 +212,11 @@ public class Player_shj : MonoBehaviour
         {
             hit.transform.gameObject.GetComponent<Floor_HJH>().Crash(gameObject);
         }
+        hit = Physics2D.Raycast(rayPoint[4].position, Vector2.right, transform.localScale.x / 2, LayerMask.GetMask("ground"));
+        if (hit.collider != null)
+        {
+            hit.transform.gameObject.GetComponent<Floor_HJH>().Crash(gameObject);
+        }
         if (hp_List.transform.childCount > 0)
         {
             if (Hp != 0)
@@ -345,6 +350,15 @@ public class Player_shj : MonoBehaviour
         {
             Gizmos.DrawRay(rayPoint[3].position, Vector2.right * transform.localScale.x / 2);
         }
+        hit = Physics2D.Raycast(rayPoint[4].position, Vector2.right, transform.localScale.x / 2, LayerMask.GetMask("ground"));
+        if (hit.collider != null)
+        {
+            Gizmos.DrawRay(rayPoint[4].position, Vector2.right * hit.distance);
+        }
+        else
+        {
+            Gizmos.DrawRay(rayPoint[4].position, Vector2.right * transform.localScale.x / 2);
+        }
     }
     //private void FixedUpdate()
     //{
@@ -392,7 +406,6 @@ public class Player_shj : MonoBehaviour
                 {
                     isFloor = true;
                     jumping = false;
-                    hit.transform.gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
                 }
             }
         }
