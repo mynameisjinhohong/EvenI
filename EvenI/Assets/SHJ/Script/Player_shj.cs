@@ -17,7 +17,6 @@ public class Player_shj : MonoBehaviour
 
     public LineRenderer predictLine;
     public GameObject gameOverPanel;
-
     [Range(0.0f, 10.0f)]
     public float camera_distance;
 
@@ -71,8 +70,10 @@ public class Player_shj : MonoBehaviour
     public int maxHP = 9;
 
 
+
     public int Hp = 9;
 
+    public Transform[] rayPoint;
     public int hp
     {
         get
@@ -186,6 +187,26 @@ public class Player_shj : MonoBehaviour
         //    }
 
         //}
+        RaycastHit2D hit = Physics2D.Raycast(rayPoint[0].position, Vector2.up,transform.localScale.x/2, LayerMask.GetMask("ground"));
+        if(hit.collider !=  null)
+        {
+            hit.transform.gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
+        }
+        hit = Physics2D.Raycast(rayPoint[1].position, Vector2.up, transform.localScale.x / 2, LayerMask.GetMask("ground"));
+        if (hit.collider != null)
+        {
+            hit.transform.gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
+        }
+        hit = Physics2D.Raycast(rayPoint[2].position, Vector2.right, transform.localScale.x / 2, LayerMask.GetMask("ground"));
+        if (hit.collider != null)
+        {
+            hit.transform.gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
+        }
+        hit = Physics2D.Raycast(rayPoint[3].position, Vector2.right, transform.localScale.x / 2, LayerMask.GetMask("ground"));
+        if (hit.collider != null)
+        {
+            hit.transform.gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
+        }
         if (hp_List.transform.childCount > 0)
         {
             if (Hp != 0)
@@ -204,7 +225,6 @@ public class Player_shj : MonoBehaviour
             }
             else if (Hp == 0)
             {
-                Debug.Log("??");
                 for (int i = 0; i < hp_List.transform.childCount; i++)
                 {
                     hp_List.transform.GetChild(i).gameObject.SetActive(false);
@@ -276,12 +296,45 @@ public class Player_shj : MonoBehaviour
         NukBack();
 
     }
-    private void OnDrawGizmos()
+    void OnDrawGizmos()
     {
-        Gizmos.color = Color.blue;
-        float angle = 75 * Mathf.Deg2Rad;
-        Vector3 direction = transform.position + new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0) * 1.0f;
-        Gizmos.DrawLine(transform.position, direction);
+        Gizmos.color = Color.red;
+        RaycastHit2D hit = Physics2D.Raycast(rayPoint[0].position, Vector2.up, transform.localScale.x/2, LayerMask.GetMask("ground"));
+        if (hit.collider != null)
+        {
+            Gizmos.DrawRay(rayPoint[0].position, Vector2.up*hit.distance);
+        }
+        else
+        {
+            Gizmos.DrawRay(rayPoint[0].position, Vector2.up * transform.localScale.x / 2);
+        }
+        hit = Physics2D.Raycast(rayPoint[1].position, Vector2.up, transform.localScale.x / 2, LayerMask.GetMask("ground"));
+        if (hit.collider != null)
+        {
+            Gizmos.DrawRay(rayPoint[1].position, Vector2.up * hit.distance);
+        }
+        else
+        {
+            Gizmos.DrawRay(rayPoint[1].position, Vector2.up * transform.localScale.x / 2);
+        }
+        hit = Physics2D.Raycast(rayPoint[2].position, Vector2.right, transform.localScale.x / 2, LayerMask.GetMask("ground"));
+        if (hit.collider != null)
+        {
+            Gizmos.DrawRay(rayPoint[2].position, Vector2.right * hit.distance);
+        }
+        else
+        {
+            Gizmos.DrawRay(rayPoint[2].position, Vector2.right * transform.localScale.x / 2);
+        }
+        hit = Physics2D.Raycast(rayPoint[3].position, Vector2.right, transform.localScale.x / 2, LayerMask.GetMask("ground"));
+        if (hit.collider != null)
+        {
+            Gizmos.DrawRay(rayPoint[3].position, Vector2.right * hit.distance);
+        }
+        else
+        {
+            Gizmos.DrawRay(rayPoint[3].position, Vector2.right * transform.localScale.x / 2);
+        }
     }
     //private void FixedUpdate()
     //{
