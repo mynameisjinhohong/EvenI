@@ -94,7 +94,6 @@ public class Player_shj : MonoBehaviour
                     if (!gameOverPanel.activeInHierarchy)
                     {
                         gameOverPanel.SetActive(true);
-                        Debug.Log("??");
                         Time.timeScale = 0f;
                     }
                     soundManager.LifeZeroSoundPlay();
@@ -189,6 +188,10 @@ public class Player_shj : MonoBehaviour
         //    }
 
         //}
+        if(transform.position.y < -6)
+        {
+            hp = 0;
+        }
         RaycastHit2D hit = Physics2D.Raycast(rayPoint[0].position, Vector2.up,transform.localScale.x/2, LayerMask.GetMask("ground"));
         if(hit.collider !=  null)
         {
