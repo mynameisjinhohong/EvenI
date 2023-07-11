@@ -29,7 +29,7 @@ public class UI_Setting_shj : MonoBehaviour ,IPointerClickHandler
 #endif 
     }
 
-    public void Next_Scene() //현재씬에서 다음 씬으로 넘어감
+    public virtual void Next_Scene() //현재씬에서 다음 씬으로 넘어감
     {
         StartCoroutine(GameManager_shj.Getinstance.Change_Scene(1));
         //GameManager_shj.Getinstance.Change_Next_Scene(true);
