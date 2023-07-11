@@ -17,6 +17,9 @@ public class InGame_UI_shj : UI_Setting_shj
 
     int count = 0;
 
+    int recovery;
+    int next_scene_cnt = 0;
+
     public int Count { get {  return count; } set { count = value; } }
 
     private void Awake()
@@ -50,10 +53,11 @@ public class InGame_UI_shj : UI_Setting_shj
     }
 
 
-    public void ShowAds()
+    public void ShowAds(int cnt)
     {
         if (Advertisement.IsReady())
         {
+            recovery = cnt;
             ShowOptions options = new ShowOptions { resultCallback = ResultAds };
             Advertisement.Show(adType, options);
         }
@@ -71,4 +75,11 @@ public class InGame_UI_shj : UI_Setting_shj
                 break;
         }
     }
+
+    public void Next_Scene_num(int num) { next_scene_cnt = num; }
+    public override void Next_Scene()
+    {
+        StartCoroutine(GameManager_shj.Getinstance.Change_Scene(next_scene_cnt));
+    }
+
 }
