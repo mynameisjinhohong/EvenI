@@ -2942,6 +2942,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   predictLine: {fileID: 940764278}
+  gameOverPanel: {fileID: 0}
   camera_distance: 7
   timeSlowSpeed: 0
   timeSlowOnOff: 0
@@ -2960,6 +2961,8 @@ MonoBehaviour:
   playerAnimator: {fileID: 1143851860}
   hp_List: {fileID: 824284868}
   maxHP: 9
+  Hp: 9
+  rayPoint: []
   invincibleTime: 1
   nuckBackPower: 200
   blinkCount: 5
@@ -2968,6 +2971,7 @@ MonoBehaviour:
   playerSprite: {fileID: 1143851855}
   isFloor: 0
   gravity: 15
+  upCrushCheck: 0
 --- !u!61 &1143851858
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2985,7 +2989,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.4666667, y: 1.8666667}
+    oldSize: {x: 1.4666667, y: 1.94}
     newSize: {x: 2.2, y: 2.8}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
