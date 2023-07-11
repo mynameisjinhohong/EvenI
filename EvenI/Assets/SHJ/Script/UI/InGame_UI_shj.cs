@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-
 public class InGame_UI_shj : UI_Setting_shj
 {
     public TextMeshProUGUI count_text;
