@@ -17,7 +17,7 @@ public class GameManager_shj : MonoBehaviour
 
     public void Awake()
     {
-        instance = this;
+        instance = this; 
         DontDestroyOnLoad(this);
     }
 
@@ -31,7 +31,7 @@ public class GameManager_shj : MonoBehaviour
 
     public IEnumerator Change_Scene(int num, bool next = true)
     {
-        yield return new WaitForSeconds(delay);
+        yield return new WaitForSecondsRealtime(delay);
 
         if(next)
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + num);
