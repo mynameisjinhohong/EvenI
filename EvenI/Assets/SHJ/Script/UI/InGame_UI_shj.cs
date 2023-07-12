@@ -76,10 +76,10 @@ public class InGame_UI_shj : UI_Setting_shj
         }
     }
 
-    public void Next_Scene_num(int num) { next_scene_cnt = num; }
-    public override void Next_Scene()
-    {
-        StartCoroutine(GameManager_shj.Getinstance.Change_Scene(next_scene_cnt));
-    }
+    //public void Next_Scene_num(int num) { next_scene_cnt = num; }
+    //public override void Next_Scene()
+    //{
+    //    StartCoroutine(GameManager_shj.Getinstance.Change_Scene(next_scene_cnt));
+    //}
 
 }
