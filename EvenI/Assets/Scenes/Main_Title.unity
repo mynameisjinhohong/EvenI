@@ -394,7 +394,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6903165, g: 1, b: 0.6745283, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -991,6 +991,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 682d32098066162419568cca2e997a8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  background_list:
+  - {fileID: 21300000, guid: 7e8d69ae5fb73374998299b62955bc38, type: 3}
+  - {fileID: 21300000, guid: a5994bc292ff98843b67290d41ab7126, type: 3}
+  - {fileID: 21300000, guid: edc3a507922edf24caf9e08e7ccb8d5f, type: 3}
+  background: {fileID: 178982123}
   nickname_text: {fileID: 2138939494}
   story_text: {fileID: 406957798}
   btn_text: {fileID: 910266313}

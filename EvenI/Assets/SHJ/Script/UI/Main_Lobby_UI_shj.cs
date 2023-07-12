@@ -19,7 +19,7 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
     private void Start()
     {
         audio = GetComponent<AudioSource>();
-
+        BackGround_Set();
     }
 
     public void UI_On_Off()

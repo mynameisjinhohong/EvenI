@@ -23,6 +23,7 @@ public class Main_Title_UI_shj : UI_Setting_shj
         audio = GetComponent<AudioSource>();
         senario = CSVReader.Read("Scenario/opening_scenario");
         next_text();
+        BackGround_Set();
     }
 
     //public void Next_Scene() //현재씬에서 다음 씬으로 넘어감
