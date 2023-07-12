@@ -32,11 +32,12 @@ public class GameManager_shj : MonoBehaviour
     public IEnumerator Change_Scene(int num, bool next = true)
     {
         yield return new WaitForSecondsRealtime(delay);
-
         if(next)
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + num);
         else
             SceneManager.LoadScene(num);
+
+        Time.timeScale = 1.0f;
     }
 
     public bool Set_vibration { set { vibration = !vibration; } }

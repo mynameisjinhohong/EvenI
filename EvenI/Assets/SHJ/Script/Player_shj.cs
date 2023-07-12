@@ -133,7 +133,6 @@ public class Player_shj : MonoBehaviour
     public bool upCrushCheck = false; //위에 부딪혔을 때
     #endregion
     float test = 0.0f;
-    bool mobileGoJump = false;
     public bool gameClear = false;
     private void Start()
     {
@@ -270,7 +269,7 @@ public class Player_shj : MonoBehaviour
                 gameOverPanel.SetActive(false);
             }
         }
-#if UNITY_EDITOR
+//#if UNITY_EDITOR
         if (!jumping && Input.GetMouseButton(0))
         {
             jump_charge = jump_charge <= maxJumpPower ? jump_charge + Time.deltaTime * charge_speed : maxJumpPower; //차징하면 게이지가 차오릅니다
@@ -296,35 +295,29 @@ public class Player_shj : MonoBehaviour
             jumpBool = true;
             //Time.timeScale = 1f;
         }
-#elif UNITY_ANDROID
-        if (Input.touchCount > 0 && !jumping)
-        {
-            jump_charge = jump_charge <= maxJumpPower ? jump_charge + Time.deltaTime * charge_speed : maxJumpPower; //차징하면 게이지가 차오릅니다
-            charge_img.enabled = true; //ui활성화
-            //Debug.Log(jump_charge/(maxJumpPower -minJumpPower) - 1);
-            charge_img.fillAmount = (jump_charge - minJumpPower) / ((jump_charge - minJumpPower) + (maxJumpPower - jump_charge))/*Time.deltaTime*//*jump_charge*/; //수정되었음
-            //if (timeSlowOnOff)
-            //{
-            //    Time.timeScale = timeSlowSpeed;
-            //}
-            if (jump_charge < minJumpPower)
-            {
-                jump_charge = minJumpPower;
-            }
-            if (jump_charge > maxJumpPower)
-            {
-                jump_charge = maxJumpPower;
-            }
-            mobileGoJump = true;
-        }
-        else if (Input.touchCount < 1 && !jumping && mobileGoJump)
-        {
-            //test = true;
-            jumpBool = true;
-            //Time.timeScale = 1f;
-            mobileGoJump = false;
-        }
-#endif
+
+
+        //if(jumping && test < 1.0f)
+        //{
+        //    float angle = 75 * Mathf.Deg2Rad;
+        //    Vector3 direction = transform.position + new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0);
+        //    transform.position += (direction - transform.position) * 10 * Time.deltaTime;
+        //    test += Time.deltaTime;
+        //}
+
+//#elif UNITY_ANDROID
+//        if (Input.touchCount > 0 && !jumping)
+//        {
+//            if (Input.GetTouch(0).phase == TouchPhase.Stationary || Input.GetTouch(0).phase == TouchPhase.Moved)
+//            {
+//                charge_img.enabled = true; //ui활성화
+//                jump_charge = jump_charge <= 1.0f ? jump_charge + Time.deltaTime * charge_speed : 1.0f; //차징하면 게이지가 차오릅니다
+//                charge_img.fillAmount = jump_charge;
+//            }
+//            else if (Input.GetTouch(0).phase == TouchPhase.Ended)
+//                Jump();
+//        }
+//#endif
 
     }
     private void FixedUpdate()
