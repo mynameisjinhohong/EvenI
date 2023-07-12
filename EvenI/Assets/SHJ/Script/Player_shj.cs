@@ -269,7 +269,7 @@ public class Player_shj : MonoBehaviour
                 gameOverPanel.SetActive(false);
             }
         }
-#if UNITY_EDITOR
+//#if UNITY_EDITOR
         if (!jumping && Input.GetMouseButton(0))
         {
             jump_charge = jump_charge <= maxJumpPower ? jump_charge + Time.deltaTime * charge_speed : maxJumpPower; //차징하면 게이지가 차오릅니다
@@ -305,19 +305,19 @@ public class Player_shj : MonoBehaviour
         //    test += Time.deltaTime;
         //}
 
-#elif UNITY_ANDROID
-        if (Input.touchCount > 0 && !jumping)
-        {
-            if (Input.GetTouch(0).phase == TouchPhase.Stationary || Input.GetTouch(0).phase == TouchPhase.Moved)
-            {
-                charge_img.enabled = true; //ui활성화
-                jump_charge = jump_charge <= 1.0f ? jump_charge + Time.deltaTime * charge_speed : 1.0f; //차징하면 게이지가 차오릅니다
-                charge_img.fillAmount = jump_charge;
-            }
-            else if (Input.GetTouch(0).phase == TouchPhase.Ended)
-                Jump();
-        }
-#endif
+//#elif UNITY_ANDROID
+//        if (Input.touchCount > 0 && !jumping)
+//        {
+//            if (Input.GetTouch(0).phase == TouchPhase.Stationary || Input.GetTouch(0).phase == TouchPhase.Moved)
+//            {
+//                charge_img.enabled = true; //ui활성화
+//                jump_charge = jump_charge <= 1.0f ? jump_charge + Time.deltaTime * charge_speed : 1.0f; //차징하면 게이지가 차오릅니다
+//                charge_img.fillAmount = jump_charge;
+//            }
+//            else if (Input.GetTouch(0).phase == TouchPhase.Ended)
+//                Jump();
+//        }
+//#endif
 
     }
     private void FixedUpdate()

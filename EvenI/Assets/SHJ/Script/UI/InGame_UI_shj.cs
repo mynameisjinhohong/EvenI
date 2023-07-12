@@ -48,8 +48,8 @@ public class InGame_UI_shj : UI_Setting_shj
 
     public void Game_Continue()
     {
-        Time.timeScale = 1.0f;
         Lastest_Open_UI_Close();
+        Time.timeScale = 1.0f;
     }
 
 

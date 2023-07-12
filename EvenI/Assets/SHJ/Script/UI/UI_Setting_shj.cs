@@ -33,7 +33,7 @@ public class UI_Setting_shj : MonoBehaviour ,IPointerClickHandler
 #endif 
     }
 
-    public virtual void Next_Scene() //현재씬에서 다음 씬으로 넘어감
+    public void Next_Scene() //현재씬에서 다음 씬으로 넘어감
     {
         StartCoroutine(GameManager_shj.Getinstance.Change_Scene(1));
         //GameManager_shj.Getinstance.Change_Next_Scene(true);
@@ -42,12 +42,16 @@ public class UI_Setting_shj : MonoBehaviour ,IPointerClickHandler
     public void Retry()
     {
         StartCoroutine(GameManager_shj.Getinstance.Change_Scene(0));
-        Time.timeScale = 1.0f;
     }
 
     public void Return_Lobby() //로비로 돌아가기
     {
         StartCoroutine(GameManager_shj.Getinstance.Change_Scene(1,false));
+    }
+
+    public void Return_Scene(int num)
+    {
+        StartCoroutine(GameManager_shj.Getinstance.Change_Scene(num, false));
     }
 
     public void Lastest_Open_UI_Close() //마지막 열린 UI닫기
@@ -68,4 +72,5 @@ public class UI_Setting_shj : MonoBehaviour ,IPointerClickHandler
             background.sprite = background_list[cnt];
         }
     }
+
 }
