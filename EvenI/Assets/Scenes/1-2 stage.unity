@@ -41566,6 +41566,10 @@ PrefabInstance:
       propertyPath: invincibleTime
       value: 2.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7829382358947571333, guid: b7683a2088672844894956287bdc8d44, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1436.76
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7683a2088672844894956287bdc8d44, type: 3}
 --- !u!1001 &888672397
@@ -45265,11 +45269,6 @@ Transform:
   m_Father: {fileID: 2121269208}
   m_RootOrder: 827
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &958080924 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3992068706154788459, guid: b7683a2088672844894956287bdc8d44, type: 3}
-  m_PrefabInstance: {fileID: 888094478}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &959714382 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6669668170009440157, guid: ab7053eb638666f40a85013f615dd7cc, type: 3}
@@ -65905,39 +65904,6 @@ Transform:
   m_Father: {fileID: 2121269208}
   m_RootOrder: 504
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1388991114
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1388991115}
-  m_Layer: 0
-  m_Name: rayPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1388991115
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1388991114}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1690987540}
-  - {fileID: 1811488967}
-  m_Father: {fileID: 958080924}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1389044916
 GameObject:
   m_ObjectHideFlags: 0
@@ -81365,37 +81331,6 @@ Transform:
   m_Father: {fileID: 2121269208}
   m_RootOrder: 932
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1690987539
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1690987540}
-  m_Layer: 0
-  m_Name: RayUp1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1690987540
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1690987539}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1388991115}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1691402683
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -88032,37 +87967,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6669668170009440157, guid: ab7053eb638666f40a85013f615dd7cc, type: 3}
   m_PrefabInstance: {fileID: 1807175820}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1811488966
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1811488967}
-  m_Layer: 0
-  m_Name: RayUp2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1811488967
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1811488966}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1388991115}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1811768059
 GameObject:
   m_ObjectHideFlags: 0

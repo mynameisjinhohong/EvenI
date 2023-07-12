@@ -14,9 +14,11 @@ public class Player_shj : MonoBehaviour
     Rigidbody2D rigid;
     AudioSource audio;
     SoundManager_HJH soundManager;
+    Camera cam;
 
     public LineRenderer predictLine;
     public GameObject gameOverPanel;
+    public GameObject gameClearPanel;
     [Range(0.0f, 10.0f)]
     public float camera_distance;
 
@@ -131,8 +133,10 @@ public class Player_shj : MonoBehaviour
     public bool upCrushCheck = false; //위에 부딪혔을 때
     #endregion
     float test = 0.0f;
+    public bool gameClear = false;
     private void Start()
     {
+        cam = Camera.main;
         soundManager = GetComponentInChildren<SoundManager_HJH>();  
         audio = GetComponent<AudioSource>();
         playerAnimator.SetFloat("RollSpeed", rolling_Speed);
@@ -251,7 +255,20 @@ public class Player_shj : MonoBehaviour
             
         }
         #endregion
-        Camera.main.transform.position = new Vector3((transform.position + new Vector3(camera_distance, 0, 0)).x, 2, -10);//플레이어한테 맞춰서 카메라 배치
+        if (!gameClear)
+        {
+            Camera.main.transform.position = new Vector3((transform.position + new Vector3(camera_distance, 0, 0)).x, 2, -10);//플레이어한테 맞춰서 카메라 배치
+
+        }
+        else
+        {
+            Vector3 viewPos = cam.WorldToViewportPoint(transform.position);
+            if (viewPos.x > 1 &&viewPos.z > 0)
+            {
+                gameClearPanel.SetActive(true);
+                gameOverPanel.SetActive(false);
+            }
+        }
 #if UNITY_EDITOR
         if (!jumping && Input.GetMouseButton(0))
         {
