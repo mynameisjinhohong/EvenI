@@ -42,6 +42,7 @@ public class UI_Setting_shj : MonoBehaviour ,IPointerClickHandler
     public void Retry()
     {
         StartCoroutine(GameManager_shj.Getinstance.Change_Scene(0));
+        Time.timeScale = 1.0f;
     }
 
     public void Return_Lobby() //로비로 돌아가기
