@@ -420,9 +420,9 @@ public class Player_shj : MonoBehaviour
         }
         if (floorCheck)
         {
+            rigid.AddForce(Vector2.down * gravity);
             if (!isFloor)
             {
-                rigid.AddForce(Vector2.down * gravity);
                 //velocity.y = gravity;
             }
             if (!upCrushCheck)
