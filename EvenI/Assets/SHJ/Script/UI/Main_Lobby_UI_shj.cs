@@ -2,11 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class Main_Lobby_UI_shj : UI_Setting_shj
 {
     AudioSource audio;
     public AudioClip[] clips;
+
+    public Text nickname_text;
+    public Text story_text;
+    public Text btn_text;
+
+    int click_cnt = -1;
 
     enum AudioType
     {
@@ -20,7 +27,45 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
     {
         audio = GetComponent<AudioSource>();
         BackGround_Set();
+        senario = CSVReader.Read("Scenario/opening_scenario");
+        next_text();
     }
+
+    public void Set_NickName() //닉네임 설정
+    {
+        GameManager_shj.Getinstance.nickname = nickname_text.text;
+    }
+
+    public void next_text()
+    {
+        click_cnt++;
+
+        if (senario.Count / 3 > click_cnt)
+        {
+            audio.Play();
+
+            for (int i = 0; i < 3; i++)
+            {
+                string text = senario[i + 3 * click_cnt]["text"].ToString();
+
+                //닉네임 부분을 변경
+                if (text.Contains("(닉네임)")) text = text.Replace("(닉네임)", GameManager_shj.Getinstance.nickname);
+
+                if (i == 0) story_text.text = text;
+                else story_text.text += "\n" + text;
+            }
+
+            if (click_cnt == senario.Count / 3 - 1) btn_text.text = "로비로 이동";
+        }
+        else
+            Next_Scene();
+    }
+
+
+
+
+
+
 
     public void UI_On_Off()
     {
