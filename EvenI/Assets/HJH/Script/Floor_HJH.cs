@@ -21,14 +21,14 @@ public class Floor_HJH : MonoBehaviour
     {
         if(player.transform.position.y < transform.position.y || player.transform.position.x < transform.position.x - (transform.localScale.x/2))
         {
-            Debug.Log("3 : " + player.transform.position.x.ToString() + "\n4 : " + (transform.position.x - (transform.localScale.x / 2)));
+            //Debug.Log("3 : " + player.transform.position.x.ToString() + "\n4 : " + (transform.position.x - (transform.localScale.x / 2)));
             box.isTrigger = true;
             StopAllCoroutines();
             StartCoroutine(TriggerOff());
         }
         else
         {
-            Debug.Log("1 : " + player.transform.position.x.ToString() + "\n2 : " + (transform.position.x - (transform.localScale.x / 2)));
+            //Debug.Log("1 : " + player.transform.position.x.ToString() + "\n2 : " + (transform.position.x - (transform.localScale.x / 2)));
         }
 
     }
@@ -36,7 +36,7 @@ public class Floor_HJH : MonoBehaviour
     IEnumerator TriggerOff()
     {
         yield return new WaitForSeconds(0.5f);
-        Debug.Log("yo");
+        //Debug.Log("yo");
         box.isTrigger = false;
     }
 }
