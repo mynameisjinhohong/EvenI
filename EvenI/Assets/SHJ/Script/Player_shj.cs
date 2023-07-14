@@ -104,7 +104,7 @@ public class Player_shj : MonoBehaviour
         }
     }
     [Header("넉백과 무적시간 관련")]
-    [Range(0.0f,10.0f)]
+    [Range(0.0f, 10.0f)]
     public float invincibleTime = 1f;
     [Range(0.0f, 1000.0f)]
     public float nuckBackPower = 1f;
@@ -137,13 +137,13 @@ public class Player_shj : MonoBehaviour
     private void Start()
     {
         cam = Camera.main;
-        soundManager = GetComponentInChildren<SoundManager_HJH>();  
+        soundManager = GetComponentInChildren<SoundManager_HJH>();
         audio = GetComponent<AudioSource>();
         playerAnimator.SetFloat("RollSpeed", rolling_Speed);
         hp = maxHP;
         rigid = GetComponent<Rigidbody2D>();
         player_State = Player_State.Run;
-        default_size = transform.localScale.x; 
+        default_size = transform.localScale.x;
     }
 
     private void Update()
@@ -192,12 +192,12 @@ public class Player_shj : MonoBehaviour
         //    }
 
         //}
-        if(transform.position.y < -6)
+        if (transform.position.y < -6)
         {
             hp = 0;
         }
-        RaycastHit2D hit = Physics2D.Raycast(rayPoint[0].position, Vector2.up,transform.localScale.x/2, LayerMask.GetMask("ground"));
-        if(hit.collider !=  null)
+        RaycastHit2D hit = Physics2D.Raycast(rayPoint[0].position, Vector2.up, transform.localScale.x / 2, LayerMask.GetMask("ground"));
+        if (hit.collider != null)
         {
             hit.transform.gameObject.GetComponent<Floor_HJH>().Crash(gameObject);
             upCrushCheck = true;
@@ -252,7 +252,7 @@ public class Player_shj : MonoBehaviour
         }
         if (hp < 1)
         {
-            
+
         }
         #endregion
         if (!gameClear)
@@ -263,19 +263,19 @@ public class Player_shj : MonoBehaviour
         else
         {
             Vector3 viewPos = cam.WorldToViewportPoint(transform.position);
-            if (viewPos.x > 1 &&viewPos.z > 0)
+            if (viewPos.x > 1 && viewPos.z > 0)
             {
                 gameClearPanel.SetActive(true);
                 gameOverPanel.SetActive(false);
             }
         }
-//#if UNITY_EDITOR
+        //#if UNITY_EDITOR
         if (!jumping && Input.GetMouseButton(0))
         {
             jump_charge = jump_charge <= maxJumpPower ? jump_charge + Time.deltaTime * charge_speed : maxJumpPower; //차징하면 게이지가 차오릅니다
             charge_img.enabled = true; //ui활성화
             //Debug.Log(jump_charge/(maxJumpPower -minJumpPower) - 1);
-            charge_img.fillAmount = (jump_charge-minJumpPower)/((jump_charge-minJumpPower) + (maxJumpPower-jump_charge))/*Time.deltaTime*//*jump_charge*/; //수정되었음
+            charge_img.fillAmount = (jump_charge - minJumpPower) / ((jump_charge - minJumpPower) + (maxJumpPower - jump_charge))/*Time.deltaTime*//*jump_charge*/; //수정되었음
             //if (timeSlowOnOff)
             //{
             //    Time.timeScale = timeSlowSpeed;
@@ -305,24 +305,24 @@ public class Player_shj : MonoBehaviour
         //    test += Time.deltaTime;
         //}
 
-//#elif UNITY_ANDROID
-//        if (Input.touchCount > 0 && !jumping)
-//        {
-//            if (Input.GetTouch(0).phase == TouchPhase.Stationary || Input.GetTouch(0).phase == TouchPhase.Moved)
-//            {
-//                charge_img.enabled = true; //ui활성화
-//                jump_charge = jump_charge <= 1.0f ? jump_charge + Time.deltaTime * charge_speed : 1.0f; //차징하면 게이지가 차오릅니다
-//                charge_img.fillAmount = jump_charge;
-//            }
-//            else if (Input.GetTouch(0).phase == TouchPhase.Ended)
-//                Jump();
-//        }
-//#endif
+        //#elif UNITY_ANDROID
+        //        if (Input.touchCount > 0 && !jumping)
+        //        {
+        //            if (Input.GetTouch(0).phase == TouchPhase.Stationary || Input.GetTouch(0).phase == TouchPhase.Moved)
+        //            {
+        //                charge_img.enabled = true; //ui활성화
+        //                jump_charge = jump_charge <= 1.0f ? jump_charge + Time.deltaTime * charge_speed : 1.0f; //차징하면 게이지가 차오릅니다
+        //                charge_img.fillAmount = jump_charge;
+        //            }
+        //            else if (Input.GetTouch(0).phase == TouchPhase.Ended)
+        //                Jump();
+        //        }
+        //#endif
 
     }
     private void FixedUpdate()
     {
-        RunRoll();        
+        RunRoll();
         Jump();
         NukBack();
 
@@ -340,10 +340,10 @@ public class Player_shj : MonoBehaviour
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        RaycastHit2D hit = Physics2D.Raycast(rayPoint[0].position, Vector2.up, transform.localScale.x/2, LayerMask.GetMask("ground"));
+        RaycastHit2D hit = Physics2D.Raycast(rayPoint[0].position, Vector2.up, transform.localScale.x / 2, LayerMask.GetMask("ground"));
         if (hit.collider != null)
         {
-            Gizmos.DrawRay(rayPoint[0].position, Vector2.up*hit.distance);
+            Gizmos.DrawRay(rayPoint[0].position, Vector2.up * hit.distance);
         }
         else
         {
@@ -385,6 +385,8 @@ public class Player_shj : MonoBehaviour
         {
             Gizmos.DrawRay(rayPoint[4].position, Vector2.right * transform.localScale.x / 2);
         }
+        hit = Physics2D.Raycast(this.gameObject.transform.position, Vector2.down, transform.localScale.y, LayerMask.GetMask("ground"));
+        Gizmos.DrawRay(gameObject.transform.position, Vector2.down * transform.localScale.y);
     }
     //private void FixedUpdate()
     //{
@@ -420,14 +422,17 @@ public class Player_shj : MonoBehaviour
         }
         if (floorCheck)
         {
-            rigid.AddForce(Vector2.down * gravity);
+            RaycastHit2D hit = Physics2D.Raycast(this.gameObject.transform.position, Vector2.down, transform.localScale.y, LayerMask.GetMask("ground"));
+            if (hit.collider == null)
+            {
+                rigid.AddForce(Vector2.down * gravity);
+            }
             if (!isFloor)
             {
                 //velocity.y = gravity;
             }
             if (!upCrushCheck)
             {
-                RaycastHit2D hit = Physics2D.Raycast(this.gameObject.transform.position, Vector2.down, transform.localScale.y, LayerMask.GetMask("ground"));
                 if (hit.collider != null)
                 {
                     isFloor = true;
@@ -454,7 +459,7 @@ public class Player_shj : MonoBehaviour
         jumping = true; //점프중
         StartCoroutine(HeightTest());
         //Debug.Log(jump_up_power * jump_charge);
-        rigid.AddForce((Vector2.up * jump_up_power) * jump_charge,ForceMode2D.Impulse);
+        rigid.AddForce((Vector2.up * jump_up_power) * jump_charge, ForceMode2D.Impulse);
         //velocity.y = jump_up_power *jump_charge;
         charge_img.enabled = false; //ui비활성화
         jump_charge = 0.0f;
@@ -475,20 +480,20 @@ public class Player_shj : MonoBehaviour
     }
     IEnumerator HeightTest()
     {
-        Vector3 trans= transform.position;
+        Vector3 trans = transform.position;
         Vector3 trans2 = trans;
         while (true)
         {
             trans = transform.position;
             yield return null;
-            if(trans2.y > trans.y)
+            if (trans2.y > trans.y)
             {
                 Debug.Log(trans2.y);
                 break;
             }
             else
             {
-                trans2 = trans; 
+                trans2 = trans;
             }
         }
     }
@@ -524,7 +529,7 @@ public class Player_shj : MonoBehaviour
     {
         int step = 120;
         float deltaTime = Time.fixedDeltaTime;
-        Vector2 gravity = (Vector2)Physics.gravity+Vector2.down;
+        Vector2 gravity = (Vector2)Physics.gravity + Vector2.down;
         Vector2 position = startPos;
         Vector2 velocity = vel;
         predictLine.positionCount = 120;
@@ -555,14 +560,16 @@ public class Player_shj : MonoBehaviour
         nuckBackDuring = true;
         StartCoroutine(NuckBackAddForce());
         StartCoroutine(Invincible());
-        StartCoroutine(Blink());    
+        StartCoroutine(Blink());
     }
 
     IEnumerator NuckBackAddForce()
     {
+        Debug.Log("youStart?");
         while (true)
         {
             yield return new WaitForSeconds(0.01f);
+            Debug.Log(rigid.velocity.x);
             rigid.AddForce(Vector2.right * velocity);
             if (rigid.velocity.x > speed)
             {
@@ -584,11 +591,11 @@ public class Player_shj : MonoBehaviour
 
         while (count < blinkCount)
         {
-            playerSprite.color = new Color(playerSprite.color.r, playerSprite.color.g, playerSprite.color.b,0);
+            playerSprite.color = new Color(playerSprite.color.r, playerSprite.color.g, playerSprite.color.b, 0);
             yield return new WaitForSeconds(blinkSpeed);
             playerSprite.color = new Color(playerSprite.color.r, playerSprite.color.g, playerSprite.color.b, 1f);
             yield return new WaitForSeconds(blinkSpeed);
-            count+=2;
+            count += 2;
         }
     }
     IEnumerator Rolling() //구르기
