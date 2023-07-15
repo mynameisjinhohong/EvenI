@@ -26,7 +26,7 @@ public class GameManager_shj : MonoBehaviour
         DataManager_shj dataManager = new DataManager_shj();
 
         save_Data = dataManager.Load_Data(save_Data);
-        Debug.Log( save_Data.nickname;
+        Debug.Log( save_Data.nickname);
     }
 
     //public void Change_Next_Scene(bool next)
