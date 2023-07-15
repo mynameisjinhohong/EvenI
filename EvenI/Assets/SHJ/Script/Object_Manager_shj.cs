@@ -10,7 +10,7 @@ public enum Type
 
 public class Object_Manager_shj : MonoBehaviour
 {
-    Animator animator;
+    protected Animator animator;
     public Type type;
 
     bool touch = false;
