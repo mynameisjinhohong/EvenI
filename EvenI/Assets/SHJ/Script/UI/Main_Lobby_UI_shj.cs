@@ -55,7 +55,7 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
                 else story_text.text += "\n" + text;
             }
 
-            if (click_cnt == senario.Count / 3 - 1) btn_text.text = "로비로 이동";
+            if (click_cnt == senario.Count / 3 - 1) btn_text.text = "게임 시작!";
         }
         else
             Next_Scene();
