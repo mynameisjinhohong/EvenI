@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 
 public class UI_Setting_shj : MonoBehaviour ,IPointerClickHandler
@@ -49,7 +50,7 @@ public class UI_Setting_shj : MonoBehaviour ,IPointerClickHandler
         StartCoroutine(GameManager_shj.Getinstance.Change_Scene(1,false));
     }
 
-    public void Return_Scene(int num)
+    public virtual void Return_Scene(int num)
     {
         StartCoroutine(GameManager_shj.Getinstance.Change_Scene(num, false));
     }

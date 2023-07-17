@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Advertisements;
+using UnityEngine.SceneManagement;
 
 public class InGame_UI_shj : UI_Setting_shj
 {
@@ -74,6 +75,16 @@ public class InGame_UI_shj : UI_Setting_shj
                 Debug.Log("시청완료");
                 break;
         }
+    }
+
+    public void Stage_save(bool next)
+    {
+        if(next)
+            GameManager_shj.Getinstance.Save_data.last_play_scene_num = SceneManager.GetActiveScene().buildIndex + 1;
+        else
+            GameManager_shj.Getinstance.Save_data.last_play_scene_num = 2;
+
+        GameManager_shj.Getinstance.Data_Save();
     }
 
     //public void Next_Scene_num(int num) { next_scene_cnt = num; }

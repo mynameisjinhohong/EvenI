@@ -8,7 +8,6 @@ public class GameManager_shj : MonoBehaviour
     private static GameManager_shj instance = null;
 
     public static GameManager_shj Getinstance { get { return instance; } }
-    public string nickname;
 
     bool vibration = true;
 
@@ -26,7 +25,6 @@ public class GameManager_shj : MonoBehaviour
         DataManager_shj dataManager = new DataManager_shj();
 
         save_Data = dataManager.Load_Data(save_Data);
-        Debug.Log( save_Data.nickname);
     }
 
     //public void Change_Next_Scene(bool next)
@@ -40,6 +38,7 @@ public class GameManager_shj : MonoBehaviour
     public IEnumerator Change_Scene(int num, bool next = true)
     {
         yield return new WaitForSecondsRealtime(delay);
+
         if(next)
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + num);
         else
@@ -48,12 +47,8 @@ public class GameManager_shj : MonoBehaviour
         Time.timeScale = 1.0f;
     }
 
-    //public void Data_Save()
-    //{
-    //    dataManager.Save_Data(save_Data);
-    //}
 
+    public void Data_Save() { dataManager.Save_Data(save_Data); } 
     public bool Set_vibration { set { vibration = !vibration; } }
-    public Save_Data_shj Set_save_data { get { return save_Data; } set { save_Data = value; } }
-
+    public Save_Data_shj Save_data { get { return save_Data; } set { save_Data = value; } }
 }

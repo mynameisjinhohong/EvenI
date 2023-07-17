@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Main_Lobby_UI_shj : UI_Setting_shj
 {
@@ -12,8 +13,12 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
     public Text nickname_text;
     public Text story_text;
     public Text btn_text;
+    public Text scene_name;
 
     int click_cnt = -1;
+
+    public GameObject set_nickname;
+    public GameObject continue_stage;
 
     enum AudioType
     {
@@ -23,6 +28,7 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
         PopUPClose,
         Lock,
     }
+
     private void Start()
     {
         audio = GetComponent<AudioSource>();
@@ -33,7 +39,26 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
 
     public void Set_NickName() //닉네임 설정
     {
-        GameManager_shj.Getinstance.nickname = nickname_text.text;
+        GameManager_shj.Getinstance.Save_data.nickname = nickname_text.text;
+        GameManager_shj.Getinstance.Data_Save();
+    }
+
+    public void Play_Check(GameObject obj)
+    {
+        if (GameManager_shj.Getinstance.Save_data.nickname == "")
+            set_nickname.SetActive(true);
+        else
+        {
+            obj.SetActive(false);
+            continue_stage.SetActive(true);
+            //for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
+            {
+                //Debug.Log(SceneManager.GetSceneAt(i).name);
+                //Debug.Log(SceneManager.GetSceneByBuildIndex(i).name);
+            }
+            //Debug.Log(SceneManager.GetSceneAt(GameManager_shj.Getinstance.Save_data.last_play_scene_num).name);
+            //scene_name.text = SceneManager.get(GameManager_shj.Getinstance.Save_data.last_play_scene_num).name.ToString();
+        }
     }
 
     public void next_text()
@@ -49,7 +74,7 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
                 string text = senario[i + 3 * click_cnt]["text"].ToString();
 
                 //닉네임 부분을 변경
-                if (text.Contains("(닉네임)")) text = text.Replace("(닉네임)", GameManager_shj.Getinstance.nickname);
+                if (text.Contains("(닉네임)")) text = text.Replace("(닉네임)", GameManager_shj.Getinstance.Save_data.nickname);
 
                 if (i == 0) story_text.text = text;
                 else story_text.text += "\n" + text;
@@ -61,13 +86,7 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
             Next_Scene();
     }
 
-
-
-
-
-
-
-    public void UI_On_Off()
+    public void UI_On_Off() //교체 예정
     {
         GameObject G_obj = EventSystem.current.currentSelectedGameObject.transform.GetChild(0).gameObject;
         if(EventSystem.current.currentSelectedGameObject.name == "Story_Dictionary_Btn")
@@ -98,11 +117,17 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
             }
         }
     }
-    public void Lastest_Open_UI_Close() //마지막 열린 UI닫기
+    public void Lastest_Open_UI_Close() //마지막 열린 UI닫기 교체예정
     {
         audio.clip = clips[(int)AudioType.UIOff];
         audio.Play();
         if (root_UI != null) root_UI.SetActive(false);
     }
-
+    public override void Return_Scene(int num)
+    {
+        if (num == 0)
+            base.Return_Scene(GameManager_shj.Getinstance.Save_data.last_play_scene_num);
+        else
+            base.Return_Scene(num);
+    }
 }

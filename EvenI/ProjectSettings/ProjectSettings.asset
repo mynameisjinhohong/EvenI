@@ -257,7 +257,7 @@ PlayerSettings:
   AndroidEnableTango: 0
   androidEnableBanner: 1
   androidUseLowAccuracyLocation: 0
-  androidUseCustomKeystore: 1
+  androidUseCustomKeystore: 0
   m_AndroidBanners:
   - width: 320
     height: 180
@@ -696,7 +696,8 @@ PlayerSettings:
   gcIncremental: 1
   assemblyVersionValidation: 1
   gcWBarrierValidation: 0
-  apiCompatibilityLevelPerPlatform: {}
+  apiCompatibilityLevelPerPlatform:
+    Android: 3
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
   metroPackageName: 2D_BuiltInRenderer
@@ -775,11 +776,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: ba968c88-f63e-49a6-8df2-0a04e4fbcc18
+  cloudProjectId: 73993638-f724-42f0-8999-4decbae41b69
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: EvenI (2)
-  organizationId: ghddhksduq
+  projectName: EvenI
+  organizationId: ilgaemideul
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 
