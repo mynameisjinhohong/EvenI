@@ -10,6 +10,7 @@ public class Lava2_HJH : Object_Manager_shj
     public float startDistance;
     public float angle;
     public float speed;
+    bool startCo = false;
     // Start is called before the first frame update
     void Awake()
     {
@@ -24,6 +25,10 @@ public class Lava2_HJH : Object_Manager_shj
         {
             animator.SetTrigger("InCam");
         }
+        else if(viewPos.x < -0.5)
+        {
+            Destroy(gameObject);
+        }
         if (player == null)
         {
             player = GameObject.Find("Player");
@@ -32,7 +37,12 @@ public class Lava2_HJH : Object_Manager_shj
         {
             if (Mathf.Abs(player.transform.position.x - gameObject.transform.position.x) < startDistance)
             {
-                StartCoroutine(FireBall());
+                if(!startCo)
+                {
+
+                    StartCoroutine(FireBall());
+                    startCo = true;
+                }
             }
         }
 
@@ -40,8 +50,14 @@ public class Lava2_HJH : Object_Manager_shj
 
     IEnumerator FireBall()
     {
-        Vector2 moveVec = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad)).normalized;
-        transform.position += (Vector3)(moveVec * speed * Time.deltaTime);
-        yield return null;
+        while (true)
+        {
+            Vector2 moveVec = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad)).normalized;
+            float ang = Mathf.Atan2(moveVec.y, moveVec.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(ang + 135, Vector3.forward);
+            transform.position += (Vector3)(moveVec * speed * Time.deltaTime);
+            yield return null;
+        }
+
     }
 }

@@ -569,7 +569,6 @@ public class Player_shj : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(0.01f);
-            Debug.Log(rigid.velocity.x);
             rigid.AddForce(Vector2.right * velocity);
             if (rigid.velocity.x > speed)
             {

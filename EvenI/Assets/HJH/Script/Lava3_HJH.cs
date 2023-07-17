@@ -22,7 +22,6 @@ public class Lava3_HJH : Object_Manager_shj
         if (viewPos.x >= 0 && viewPos.x <= 1 && viewPos.y >= 0 && viewPos.y <= 1 && viewPos.z > 0)
         {
             animator.SetFloat("AniSpeed", aniSpeed);
-            animator.SetTrigger("InCam");
         }
         if (player == null)
         {
@@ -32,13 +31,9 @@ public class Lava3_HJH : Object_Manager_shj
         {
             if (Mathf.Abs(player.transform.position.x - gameObject.transform.position.x) < startDistance)
             {
-                FireBall();
+                animator.SetTrigger("InCam");
+                fireBall.SetActive(true);
             }
         }
-    }
-    IEnumerator FireBall()
-    {
-
-        yield return null;
     }
 }
