@@ -40,7 +40,7 @@ public class Bat_HJH : Object_Manager_shj
             {
                 transform.position += Vector3.left * speed * Time.deltaTime;
             }
-            yield return new WaitForSeconds(0.01f);
+            yield return null;
         }
     }
 
