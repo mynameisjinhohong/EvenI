@@ -488,7 +488,7 @@ public class Player_shj : MonoBehaviour
             yield return null;
             if (trans2.y > trans.y)
             {
-                Debug.Log(trans2.y);
+                //Debug.Log(trans2.y);
                 break;
             }
             else
