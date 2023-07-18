@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager_shj : MonoBehaviour
 {
     private static GameManager_shj instance = null;
-
+    AudioSource audio;
     public static GameManager_shj Getinstance { get { return instance; } }
 
     bool vibration = true;
@@ -21,7 +21,7 @@ public class GameManager_shj : MonoBehaviour
     {
         instance = this; 
         DontDestroyOnLoad(this);
-
+        audio = GetComponent<AudioSource>();
         DataManager_shj dataManager = new DataManager_shj();
 
         save_Data = dataManager.Load_Data(save_Data);
@@ -46,7 +46,17 @@ public class GameManager_shj : MonoBehaviour
 
         Time.timeScale = 1.0f;
     }
-
+    private void Update()
+    {
+        if (audio.isPlaying)
+        {
+            if (!SceneManager.GetActiveScene().name.Contains("Main"))
+            {
+                audio.Stop();
+            }
+        }
+        
+    }
 
     public void Data_Save() { dataManager.Save_Data(save_Data); } 
     public bool Set_vibration { set { vibration = !vibration; } }
