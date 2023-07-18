@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class Save_Data_shj : MonoBehaviour
 {
     public string nickname; //판다이름
@@ -14,9 +15,9 @@ public class Save_Data_shj : MonoBehaviour
 
     public Save_Data_shj() //생성자
     {
-        nickname = "테스트";
+        nickname = "";
         juksun = 0;
-        last_play_scene_num = 5;
+        last_play_scene_num = 0;
         hp = 10;
         ending = new bool[6];
         bgm_vol = 0.5f;

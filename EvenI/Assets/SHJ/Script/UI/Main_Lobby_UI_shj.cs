@@ -13,10 +13,11 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
     public Text nickname_text;
     public Text story_text;
     public Text btn_text;
-    public Text scene_name;
 
     int click_cnt = -1;
 
+    public GameObject main;
+    public GameObject story;
     public GameObject set_nickname;
     public GameObject continue_stage;
 
@@ -33,32 +34,32 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
     {
         audio = GetComponent<AudioSource>();
         BackGround_Set();
-        senario = CSVReader.Read("Scenario/opening_scenario");
+        senario = CSVReader.Read("Scenario/opening/opening_scenario");
         next_text();
+        scene_image_num = new int[14] { 3, 4, 5, 6, 8, 9, 10, 12, 13, 14, 15, 16, 17, 18 };
+        image_num = new int[14] { 2, 3, 4, 5, 6, 4, 5, 7, 7, 8, 1, 9, 9, 9 };
     }
 
     public void Set_NickName() //닉네임 설정
     {
-        GameManager_shj.Getinstance.Save_data.nickname = nickname_text.text;
-        GameManager_shj.Getinstance.Data_Save();
+        if(nickname_text.text.Length != 0)
+        {
+            GameManager_shj.Getinstance.Save_data.nickname = nickname_text.text;
+            GameManager_shj.Getinstance.Data_Save();
+            main.SetActive(false);
+            story.SetActive(true);
+        }
     }
 
-    public void Play_Check(GameObject obj)
+    public void Play_Check()
     {
-        if (GameManager_shj.Getinstance.Save_data.nickname == "")
+        if (GameManager_shj.Getinstance.Save_data.nickname.Length == 0)
             set_nickname.SetActive(true);
-        else
-        {
-            obj.SetActive(false);
+
+        else if(GameManager_shj.Getinstance.Save_data.last_play_scene_num > 2)
             continue_stage.SetActive(true);
-            //for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
-            {
-                //Debug.Log(SceneManager.GetSceneAt(i).name);
-                //Debug.Log(SceneManager.GetSceneByBuildIndex(i).name);
-            }
-            //Debug.Log(SceneManager.GetSceneAt(GameManager_shj.Getinstance.Save_data.last_play_scene_num).name);
-            //scene_name.text = SceneManager.get(GameManager_shj.Getinstance.Save_data.last_play_scene_num).name.ToString();
-        }
+        else
+            Next_Scene();
     }
 
     public void next_text()
@@ -68,6 +69,15 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
         if (senario.Count / 3 > click_cnt)
         {
             audio.Play();
+
+            //Debug.Log(scene_image_num[0]);
+            //if (scene_image_num[scenario_cnt] == click_cnt)
+            //{
+            //    story_bg.sprite = scene_image_list[image_num[scenario_cnt]];
+            //    scenario_cnt++;
+            //}
+            //else
+            //    story_bg.sprite = scene_image_list[0];
 
             for (int i = 0; i < 3; i++)
             {

@@ -6,10 +6,17 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 
-public class UI_Setting_shj : MonoBehaviour ,IPointerClickHandler
+public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
 {
     public Sprite[] background_list;
     public Image background;
+
+    protected int[] scene_image_num;
+    public Sprite[] scene_image_list;
+    protected int[] image_num;
+    protected int scenario_cnt = 0;
+
+    public Image story_bg;
 
     protected List<Dictionary<string, object>> senario;
     protected GameObject root_UI = null;
@@ -40,19 +47,24 @@ public class UI_Setting_shj : MonoBehaviour ,IPointerClickHandler
         //GameManager_shj.Getinstance.Change_Next_Scene(true);
     }
 
-    public void Retry()
+    public void Retry() //현재 씬을 재실행
     {
         StartCoroutine(GameManager_shj.Getinstance.Change_Scene(0));
     }
 
     public void Return_Lobby() //로비로 돌아가기
     {
-        StartCoroutine(GameManager_shj.Getinstance.Change_Scene(1,false));
+        StartCoroutine(GameManager_shj.Getinstance.Change_Scene(1, false));
     }
 
-    public virtual void Return_Scene(int num)
+    public virtual void Return_Scene(int num) //원하는 씬 번호로 이동
     {
         StartCoroutine(GameManager_shj.Getinstance.Change_Scene(num, false));
+    }
+
+    public void Call_Save_Scene()
+    {
+        StartCoroutine(GameManager_shj.Getinstance.Change_Scene(GameManager_shj.Getinstance.Save_data.last_play_scene_num, false));
     }
 
     public void Lastest_Open_UI_Close() //마지막 열린 UI닫기
@@ -72,6 +84,22 @@ public class UI_Setting_shj : MonoBehaviour ,IPointerClickHandler
             int cnt = Random.Range(0, background_list.Length);
             background.sprite = background_list[cnt];
         }
+    }
+
+    public void Data_Reset()
+    {
+        GameManager_shj.Getinstance.Save_data.juksun = 0;
+        GameManager_shj.Getinstance.Save_data.last_play_scene_num = 2;
+        GameManager_shj.Getinstance.Save_data.hp = 10;
+        GameManager_shj.Getinstance.Data_Save();
+    }
+
+    public virtual void Data_change(int cnt)
+    {
+        GameManager_shj.Getinstance.Save_data.juksun += cnt;
+        GameManager_shj.Getinstance.Save_data.last_play_scene_num = SceneManager.GetActiveScene().buildIndex + 1;
+        GameManager_shj.Getinstance.Save_data.hp = GameObject.Find("Player").GetComponent<Player_shj>().hp;
+        GameManager_shj.Getinstance.Data_Save();
     }
 
 }

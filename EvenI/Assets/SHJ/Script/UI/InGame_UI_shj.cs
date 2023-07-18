@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Advertisements;
-using UnityEngine.SceneManagement;
 
 public class InGame_UI_shj : UI_Setting_shj
 {
@@ -12,6 +11,8 @@ public class InGame_UI_shj : UI_Setting_shj
     public GameObject Hp;
     public Transform Hp_list;
     public Player_shj player;
+
+    public GameObject ads;
 
     string gameID = "5343352";
     string adType = "Rewarded_Android";
@@ -27,7 +28,7 @@ public class InGame_UI_shj : UI_Setting_shj
     {
         if(Hp_list.childCount == 0)
         {
-            for (int i = 0; i < player.hp; i++)
+            for (int i = 0; i < GameManager_shj.Getinstance.Save_data.hp; i++)
             {
                 GameObject obj = Instantiate(Hp);
                 obj.transform.parent = Hp_list;
@@ -56,6 +57,7 @@ public class InGame_UI_shj : UI_Setting_shj
 
     public void ShowAds(int cnt)
     {
+
         if (Advertisement.IsReady())
         {
             recovery = cnt;
@@ -72,22 +74,23 @@ public class InGame_UI_shj : UI_Setting_shj
                 break;
             case ShowResult.Skipped:
             case ShowResult.Finished:
-                Debug.Log("시청완료");
+
+                ads.SetActive(false);
+               if(GameObject.Find("Player").GetComponent<Player_shj>().hp + recovery <= 10)
+                    GameObject.Find("Player").GetComponent<Player_shj>().Hp += recovery;
+
                 break;
         }
     }
 
-    public void Stage_save(bool next)
+    public override void Data_change(int cnt)
     {
-        if(next)
-            GameManager_shj.Getinstance.Save_data.last_play_scene_num = SceneManager.GetActiveScene().buildIndex + 1;
-        else
-            GameManager_shj.Getinstance.Save_data.last_play_scene_num = 2;
-
-        GameManager_shj.Getinstance.Data_Save();
+        base.Data_change(count);
     }
 
     //public void Next_Scene_num(int num) { next_scene_cnt = num; }
+
+
     //public override void Next_Scene()
     //{
     //    StartCoroutine(GameManager_shj.Getinstance.Change_Scene(next_scene_cnt));

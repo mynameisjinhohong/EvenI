@@ -22,9 +22,10 @@ public class GameManager_shj : MonoBehaviour
         instance = this; 
         DontDestroyOnLoad(this);
         audio = GetComponent<AudioSource>();
-        DataManager_shj dataManager = new DataManager_shj();
 
-        save_Data = dataManager.Load_Data(save_Data);
+        dataManager = GetComponent<DataManager_shj>();
+        save_Data = gameObject.AddComponent<Save_Data_shj>();
+        dataManager.Load_Data(new Save_Data_shj());
     }
 
     //public void Change_Next_Scene(bool next)
@@ -34,6 +35,14 @@ public class GameManager_shj : MonoBehaviour
     //    else
     //        SceneManager.LoadScene(1);
     //}
+
+    public void Change_Next_Scene(bool next)
+    {
+        if (next)
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        else
+            SceneManager.LoadScene(1);
+    }
 
     public IEnumerator Change_Scene(int num, bool next = true)
     {
@@ -59,6 +68,6 @@ public class GameManager_shj : MonoBehaviour
     }
 
     public void Data_Save() { dataManager.Save_Data(save_Data); } 
-    public bool Set_vibration { set { vibration = !vibration; } }
+    //public bool Set_vibration { set { vibration = !vibration; } }
     public Save_Data_shj Save_data { get { return save_Data; } set { save_Data = value; } }
 }

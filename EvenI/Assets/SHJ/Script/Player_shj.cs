@@ -73,7 +73,7 @@ public class Player_shj : MonoBehaviour
 
 
 
-    public int Hp = 9;
+    public int Hp;
 
     public Transform[] rayPoint;
     public int hp
@@ -140,7 +140,7 @@ public class Player_shj : MonoBehaviour
         soundManager = GetComponentInChildren<SoundManager_HJH>();
         audio = GetComponent<AudioSource>();
         playerAnimator.SetFloat("RollSpeed", rolling_Speed);
-        hp = maxHP;
+        Hp = GameManager_shj.Getinstance.Save_data.hp;
         rigid = GetComponent<Rigidbody2D>();
         player_State = Player_State.Run;
         default_size = transform.localScale.x;
@@ -229,7 +229,7 @@ public class Player_shj : MonoBehaviour
         {
             if (Hp != 0)
             {
-                for (int i = 0; i < maxHP; i++)
+                for (int i = 0; i < GameManager_shj.Getinstance.Save_data.hp; i++)
                 {
                     if (i < hp)
                     {
@@ -258,7 +258,6 @@ public class Player_shj : MonoBehaviour
         if (!gameClear)
         {
             Camera.main.transform.position = new Vector3((transform.position + new Vector3(camera_distance, 0, 0)).x, 2, -10);//플레이어한테 맞춰서 카메라 배치
-
         }
         else
         {
@@ -267,6 +266,9 @@ public class Player_shj : MonoBehaviour
             {
                 gameClearPanel.SetActive(true);
                 gameOverPanel.SetActive(false);
+                gameObject.GetComponent<Player_shj>().enabled = false;
+                gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                rigid.velocity = Vector3.zero;
             }
         }
         //#if UNITY_EDITOR
