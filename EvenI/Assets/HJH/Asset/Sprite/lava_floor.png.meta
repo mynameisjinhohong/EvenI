@@ -1,0 +1,311 @@
+fileFormatVersion: 2
+guid: 01aaff7c560334d49a6ff89378713bd8
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: lava_floor_3
+      rect:
+        serializedVersion: 2
+        x: 2090
+        y: 33
+        width: 530
+        height: 335
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9b9591ed394071449ad8e30fa791fb1
+      internalID: 1634908917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lava_floor_2
+      rect:
+        serializedVersion: 2
+        x: 1402
+        y: 31
+        width: 562
+        height: 340
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c1bfc127f837954cb9d556d9d805021
+      internalID: 850596306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lava_floor_0
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 31
+        width: 601
+        height: 338
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e296d4f295239a44fb501461062e9e68
+      internalID: -492950356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lava_floor_1
+      rect:
+        serializedVersion: 2
+        x: 719
+        y: 29
+        width: 600
+        height: 340
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 513ec9e771d0e4f4599732cece07073f
+      internalID: 1352336883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lava_floor_4
+      rect:
+        serializedVersion: 2
+        x: 2759
+        y: 38
+        width: 532
+        height: 340
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a509862109430c14da5f97496e7fb0e8
+      internalID: -1286724307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lava_floor_5
+      rect:
+        serializedVersion: 2
+        x: 3400
+        y: 31
+        width: 572
+        height: 350
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5bfb011540642044b5a011f778625dc
+      internalID: -2131548433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      lava_floor_50: -1576923815
+      lava_floor_12: -122788458
+      lava_floor_22: 226633948
+      lava_floor_18: -406079688
+      lava_floor_9: 1879636372
+      lava_floor_4: -1286724307
+      lava_floor_36: 497607425
+      lava_floor_29: -1059949862
+      lava_floor_38: -1619769254
+      lava_floor_48: -1415472446
+      lava_floor_14: 1657309874
+      lava_floor_37: -1974563869
+      lava_floor_1: 1352336883
+      lava_floor_0: -492950356
+      lava_floor_19: 1009812879
+      lava_floor_26: -1587353636
+      lava_floor_10: 1060044408
+      lava_floor_47: 314316079
+      lava_floor_23: 640950029
+      lava_floor_46: 250490922
+      lava_floor_28: 327693862
+      lava_floor_53: -1666839340
+      lava_floor_44: 1817113175
+      lava_floor_54: -707288896
+      lava_floor_7: -276721772
+      lava_floor_49: -1064598127
+      lava_floor_16: -1312128173
+      lava_floor_42: 1918725829
+      lava_floor_5: -2131548433
+      lava_floor_39: -742453789
+      lava_floor_8: -93211746
+      lava_floor_30: -2010716174
+      lava_floor_2: 850596306
+      lava_floor_31: -900767825
+      lava_floor_41: 111771324
+      lava_floor_24: -1527480571
+      lava_floor_43: 615175587
+      lava_floor_3: 1634908917
+      lava_floor_25: -471356508
+      lava_floor_17: 1686358766
+      lava_floor_45: -49186064
+      lava_floor_52: -1585086557
+      lava_floor_13: 158831076
+      lava_floor_33: -424335212
+      lava_floor_11: -1004079942
+      lava_floor_21: 716383410
+      lava_floor_27: -1989535985
+      lava_floor_20: 558572231
+      lava_floor_40: 804572264
+      lava_floor_51: 1917738642
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
