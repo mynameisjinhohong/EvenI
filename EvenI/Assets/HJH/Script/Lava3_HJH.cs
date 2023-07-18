@@ -36,4 +36,8 @@ public class Lava3_HJH : Object_Manager_shj
             }
         }
     }
+    public override void Obstacle_Active(GameObject player)
+    {
+        GameObject.Find("SoundManager").GetComponent<SoundManager_HJH>().ObjectBreakSoundPlay();
+    }
 }
