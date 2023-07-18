@@ -24,4 +24,8 @@ public class Lava3_FireBall_HJH : Object_Manager_shj
         float angle = Mathf.Atan2(rigidbody.velocity.y, rigidbody.velocity.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle+180, Vector3.forward);
     }
+    public override void Obstacle_Active(GameObject player)
+    {
+        GameObject.Find("SoundManager").GetComponent<SoundManager_HJH>().ObjectBreakSoundPlay();
+    }
 }
