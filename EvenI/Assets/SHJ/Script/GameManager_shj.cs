@@ -19,13 +19,20 @@ public class GameManager_shj : MonoBehaviour
 
     public void Awake()
     {
-        instance = this; 
-        DontDestroyOnLoad(this);
-        audio = GetComponent<AudioSource>();
+        if(instance == null)
+        {
+            instance = this; 
+            DontDestroyOnLoad(this.gameObject);
+            audio = GetComponent<AudioSource>();
+            dataManager = GetComponent<DataManager_shj>();
+            save_Data = gameObject.AddComponent<Save_Data_shj>();
+            dataManager.Load_Data(new Save_Data_shj());
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
 
-        dataManager = GetComponent<DataManager_shj>();
-        save_Data = gameObject.AddComponent<Save_Data_shj>();
-        dataManager.Load_Data(new Save_Data_shj());
     }
 
     //public void Change_Next_Scene(bool next)
