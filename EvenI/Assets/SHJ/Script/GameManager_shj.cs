@@ -65,13 +65,17 @@ public class GameManager_shj : MonoBehaviour
     }
     private void Update()
     {
-        if (audio.isPlaying)
+        if(audio != null)
         {
-            if (!SceneManager.GetActiveScene().name.Contains("Main"))
+            if (audio.isPlaying)
             {
-                audio.Stop();
+                if (!SceneManager.GetActiveScene().name.Contains("Main"))
+                {
+                    audio.Stop();
+                }
             }
         }
+
 ;   }
 
     public void Data_Save() { dataManager.Save_Data(save_Data); } 
