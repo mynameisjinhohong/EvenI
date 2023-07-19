@@ -11,7 +11,7 @@ public class GameManager_shj : MonoBehaviour
 
     bool vibration = true;
 
-    Save_Data_shj save_Data;
+    public Save_Data_shj save_Data;
     DataManager_shj dataManager;
 
     [Range(0,10f)]
@@ -24,9 +24,10 @@ public class GameManager_shj : MonoBehaviour
             instance = this; 
             DontDestroyOnLoad(this.gameObject);
             audio = GetComponent<AudioSource>();
+
             dataManager = GetComponent<DataManager_shj>();
-            save_Data = gameObject.AddComponent<Save_Data_shj>();
-            dataManager.Load_Data(new Save_Data_shj());
+            //save_Data = gameObject.AddComponent<Save_Data_shj>();
+            //dataManager.Load_Data(new Save_Data_shj());
         }
         else
         {
@@ -71,10 +72,10 @@ public class GameManager_shj : MonoBehaviour
                 audio.Stop();
             }
         }
-        
-    }
+;   }
 
     public void Data_Save() { dataManager.Save_Data(save_Data); } 
     //public bool Set_vibration { set { vibration = !vibration; } }
     public Save_Data_shj Save_data { get { return save_Data; } set { save_Data = value; } }
+    public DataManager_shj Data_Manager { get { return dataManager; } }
 }

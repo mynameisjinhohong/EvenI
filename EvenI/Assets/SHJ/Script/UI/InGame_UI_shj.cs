@@ -62,7 +62,6 @@ public class InGame_UI_shj : UI_Setting_shj
 
     public void ShowAds(int cnt)
     {
-
         if (Advertisement.IsReady())
         {
             recovery = cnt;

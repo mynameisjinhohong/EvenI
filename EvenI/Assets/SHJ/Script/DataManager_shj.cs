@@ -16,40 +16,59 @@ public class DataManager_shj : MonoBehaviour
     byte[] data;
     FileStream stream;
 
-    public Save_Data_shj Load_Data(Save_Data_shj save_Data)
+    public bool Data_Check()
     {
-        try
-        {
-            stream = new FileStream(Application.persistentDataPath + "/test.json", FileMode.Open);
-            data = new byte[stream.Length];
-            stream.Read(data, 0, data.Length);
-            jsondata = Encoding.UTF8.GetString(data);
-            //save_Data = JsonUtility.FromJson<Save_Data_shj>(jsondata);
-            save_Data = JsonConvert.DeserializeObject<Save_Data_shj>(jsondata);
-            Data_Copy(GameManager_shj.Getinstance.Save_data,save_Data);
+        return File.Exists(Application.persistentDataPath + "/test.json");
+        //if (File.Exists(Application.persistentDataPath + "/test.json")) //세이브 데이터 있음
+        //    Load_Data(GameManager_shj.Getinstance.Save_data);
+        //else //세이브 데이터 없음
+        //{
+        //    Save_Data(GameManager_shj.Getinstance.Save_data);
+        //}
 
-            stream.Close();
-        }
-        catch
-        {
-            Save_Data(save_Data);
-            //stream = new FileStream(Application.dataPath + "/test.json", FileMode.Create);
-            //Debug.Log("세이브없음");
+        //while(!File.Exists(Application.persistentDataPath + "/test.json"))
+        //{
 
-            //    save_Data = new Save_Data_shj();
+        //}
 
-            //    //jsondata = JsonConvert.SerializeObject(save_Data);
-            //    //data = Encoding.UTF8.GetBytes(jsondata);
-            //    //stream.Write(data, 0, data.Length);
-        }
-        return save_Data;
+        //GameManager_shj.Getinstance.
+    }
+
+    public void Load_Data()
+    {
+        
+        stream = new FileStream(Application.persistentDataPath + "/test.json", FileMode.Open);
+        data = new byte[stream.Length];
+        stream.Read(data,0,data.Length);
+        jsondata = Encoding.UTF8.GetString(data);
+        GameManager_shj.Getinstance.Save_data = JsonConvert.DeserializeObject<Save_Data_shj>(jsondata);
+
+        //save_Data = JsonConvert.DeserializeObject<Save_Data_shj>(jsondata);
+
+        //try
+        //{
+        //    stream = new FileStream(Application.persistentDataPath + "/test.json", FileMode.Open);
+        //    data = new byte[stream.Length];
+        //    stream.Read(data, 0, data.Length);
+        //    jsondata = Encoding.UTF8.GetString(data);
+        //    //save_Data = JsonUtility.FromJson<Save_Data_shj>(jsondata);
+        //    save_Data = JsonConvert.DeserializeObject<Save_Data_shj>(jsondata);
+        //    Data_Copy(GameManager_shj.Getinstance.Save_data,save_Data);
+
+        //    stream.Close();
+        //}
+        //catch
+        //{
+        //    Save_Data(save_Data);
+        //}
+        //return save_Data;
     }
 
     public void Save_Data(Save_Data_shj save_Data)
     {
-        if(File.Exists(Application.dataPath + "/test.json"))
+        if(File.Exists(Application.persistentDataPath + "/test.json"))
         {
-            StreamWriter sw = new StreamWriter(Application.persistentDataPath + "/test.json",false);
+            StreamWriter sw = new StreamWriter(Application.persistentDataPath + "/test.json", false);
             sw.Close();
         }
 

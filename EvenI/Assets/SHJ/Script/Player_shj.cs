@@ -267,9 +267,7 @@ public class Player_shj : MonoBehaviour
             {
                 gameClearPanel.SetActive(true);
                 gameOverPanel.SetActive(false);
-                gameObject.GetComponent<Player_shj>().enabled = false;
                 gameObject.GetComponent<SpriteRenderer>().enabled = false;
-                rigid.velocity = Vector3.zero;
             }
         }
         //#if UNITY_EDITOR
