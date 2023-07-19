@@ -52,7 +52,7 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
 
     public void Play_Check()
     {
-        if (GameManager_shj.Getinstance.Save_data.nickname.Length == 0)
+        if (GameManager_shj.Getinstance.Save_data.nickname.Length == 0 || GameManager_shj.Getinstance.Save_data.nickname == "")
             set_nickname.SetActive(true);
 
         else if(GameManager_shj.Getinstance.Save_data.last_play_scene_num > 2)
@@ -84,8 +84,6 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
 
                 if (i == 2 && senario[i + 3 * click_cnt]["image_num"].ToString() != "")
                     story_bg.sprite = bg_image_list[int.Parse(senario[i + 3 * click_cnt]["image_num"].ToString())];
-                else if (i == 2 && senario[i + 3 * click_cnt]["image_num"].ToString() == "")
-                    story_bg.sprite = bg_image_list[0];
 
                 if (i == 2 && senario[i + 3 * click_cnt]["font_size"].ToString() != "")
                     story_text.fontSize = int.Parse(senario[i + 3 * click_cnt]["font_size"].ToString());
