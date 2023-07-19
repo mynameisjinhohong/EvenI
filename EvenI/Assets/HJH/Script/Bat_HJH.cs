@@ -31,7 +31,6 @@ public class Bat_HJH : Object_Manager_shj
 
     IEnumerator MoveBat()
     {
-        Debug.Log("Go");
         while(true)
         {
             Vector3 viewPos = cam.WorldToViewportPoint(transform.position);

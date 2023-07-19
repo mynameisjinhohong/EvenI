@@ -42,12 +42,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -115,7 +115,91 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: jungle_spider2_1
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 48
+        width: 625
+        height: 624
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 066663a7643d67945b238cab0c87b3ac
+      internalID: -1465731233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jungle_spider2_3
+      rect:
+        serializedVersion: 2
+        x: 2357
+        y: 45
+        width: 636
+        height: 616
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f7a6f81b11ae4f459e7c83a44879a9e
+      internalID: -1737023562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jungle_spider2_0
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 59
+        width: 648
+        height: 593
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 236f8438d3e9b9c419f801d29bc34791
+      internalID: 1912090155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jungle_spider2_2
+      rect:
+        serializedVersion: 2
+        x: 1579
+        y: 57
+        width: 648
+        height: 595
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57b3a5c32bf13344f97928b04a64a393
+      internalID: -1461713860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -126,7 +210,36 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      jungle_spider2_2: -1461713860
+      jungle_spider2_15: -1507871534
+      jungle_spider2_12: 2073152346
+      jungle_spider2_23: 1977920091
+      jungle_spider2_20: -1693492395
+      jungle_spider2_9: 1594352561
+      jungle_spider2_8: -1201080386
+      jungle_spider2_27: -1509752915
+      jungle_spider2_14: 205788268
+      jungle_spider2_4: 151658355
+      jungle_spider2_31: 551226723
+      jungle_spider2_19: -215048535
+      jungle_spider2_26: 479757199
+      jungle_spider2_21: -2044111704
+      jungle_spider2_13: -1281313853
+      jungle_spider2_29: -1913745836
+      jungle_spider2_3: -1737023562
+      jungle_spider2_1: -1465731233
+      jungle_spider2_18: -167774332
+      jungle_spider2_30: 1279954506
+      jungle_spider2_5: -1452604356
+      jungle_spider2_16: 1959601488
+      jungle_spider2_28: 638279233
+      jungle_spider2_0: 1912090155
+      jungle_spider2_25: 997956696
+      jungle_spider2_22: 357708558
+      jungle_spider2_24: -165153384
+      jungle_spider2_11: -1147872730
+      jungle_spider2_17: 1427521943
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
