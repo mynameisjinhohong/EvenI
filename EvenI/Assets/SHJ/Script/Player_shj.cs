@@ -197,31 +197,15 @@ public class Player_shj : MonoBehaviour
         {
             hp = 0;
         }
-        RaycastHit2D hit = Physics2D.Raycast(rayPoint[0].position, Vector2.up, transform.localScale.x / 2, LayerMask.GetMask("ground"));
+        //RaycastHit2D hit = Physics2D.Raycast(rayPoint[0].position, Vector2.up, transform.localScale.x / 2, LayerMask.GetMask("ground"));
+        RaycastHit2D hit = Physics2D.BoxCast(rayPoint[0].position, new Vector2(gameObject.transform.localScale.x, gameObject.transform.localScale.y), 0, Vector2.up, transform.localScale.x / 2, LayerMask.GetMask("ground"));
         if (hit.collider != null)
         {
             hit.transform.gameObject.GetComponent<Floor_HJH>().Crash(gameObject);
             upCrushCheck = true;
             StartCoroutine(UpCrushOff());
         }
-        hit = Physics2D.Raycast(rayPoint[1].position, Vector2.up, transform.localScale.x / 2, LayerMask.GetMask("ground"));
-        if (hit.collider != null)
-        {
-            hit.transform.gameObject.GetComponent<Floor_HJH>().Crash(gameObject);
-            upCrushCheck = true;
-            StartCoroutine(UpCrushOff());
-        }
-        hit = Physics2D.Raycast(rayPoint[2].position, Vector2.right, transform.localScale.x / 2, LayerMask.GetMask("ground"));
-        if (hit.collider != null)
-        {
-            hit.transform.gameObject.GetComponent<Floor_HJH>().Crash(gameObject);
-        }
-        hit = Physics2D.Raycast(rayPoint[3].position, Vector2.right, transform.localScale.x / 2, LayerMask.GetMask("ground"));
-        if (hit.collider != null)
-        {
-            hit.transform.gameObject.GetComponent<Floor_HJH>().Crash(gameObject);
-        }
-        hit = Physics2D.Raycast(rayPoint[4].position, Vector2.right, transform.localScale.x / 2, LayerMask.GetMask("ground"));
+        hit = Physics2D.BoxCast(rayPoint[1].position, new Vector2(gameObject.transform.localScale.x, gameObject.transform.localScale.y), 0, Vector2.right, transform.localScale.x / 2, LayerMask.GetMask("ground"));
         if (hit.collider != null)
         {
             hit.transform.gameObject.GetComponent<Floor_HJH>().Crash(gameObject);
@@ -341,50 +325,72 @@ public class Player_shj : MonoBehaviour
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        RaycastHit2D hit = Physics2D.Raycast(rayPoint[0].position, Vector2.up, transform.localScale.x / 2, LayerMask.GetMask("ground"));
-        if (hit.collider != null)
+        #region 과거 코드
+        //RaycastHit2D hit = Physics2D.Raycast(rayPoint[0].position, Vector2.up, transform.localScale.x / 2, LayerMask.GetMask("ground"));
+        //if (hit.collider != null)
+        //{
+        //    Gizmos.DrawRay(rayPoint[0].position, Vector2.up * hit.distance);
+        //}
+        //else
+        //{
+        //    Gizmos.DrawRay(rayPoint[0].position, Vector2.up * transform.localScale.x / 2);
+        //}
+        //hit = Physics2D.Raycast(rayPoint[1].position, Vector2.up, transform.localScale.x / 2, LayerMask.GetMask("ground"));
+        //if (hit.collider != null)
+        //{
+        //    Gizmos.DrawRay(rayPoint[1].position, Vector2.up * hit.distance);
+        //}
+        //else
+        //{
+        //    Gizmos.DrawRay(rayPoint[1].position, Vector2.up * transform.localScale.x / 2);
+        //}
+        //hit = Physics2D.Raycast(rayPoint[2].position, Vector2.right, transform.localScale.x / 2, LayerMask.GetMask("ground"));
+        //if (hit.collider != null)
+        //{
+        //    Gizmos.DrawRay(rayPoint[2].position, Vector2.right * hit.distance);
+        //}
+        //else
+        //{
+        //    Gizmos.DrawRay(rayPoint[2].position, Vector2.right * transform.localScale.x / 2);
+        //}
+        //hit = Physics2D.Raycast(rayPoint[3].position, Vector2.right, transform.localScale.x / 2, LayerMask.GetMask("ground"));
+        //if (hit.collider != null)
+        //{
+        //    Gizmos.DrawRay(rayPoint[3].position, Vector2.right * hit.distance);
+        //}
+        //else
+        //{
+        //    Gizmos.DrawRay(rayPoint[3].position, Vector2.right * transform.localScale.x / 2);
+        //}
+        //hit = Physics2D.Raycast(rayPoint[4].position, Vector2.right, transform.localScale.x / 2, LayerMask.GetMask("ground"));
+        //if (hit.collider != null)
+        //{
+        //    Gizmos.DrawRay(rayPoint[4].position, Vector2.right * hit.distance);
+        //}
+        //else
+        //{
+        //    Gizmos.DrawRay(rayPoint[4].position, Vector2.right * transform.localScale.x / 2);
+        //}
+        #endregion
+        RaycastHit2D hit = Physics2D.BoxCast(rayPoint[0].position, new Vector2(gameObject.transform.localScale.x, gameObject.transform.localScale.y), 0, Vector2.up, transform.localScale.x / 2, LayerMask.GetMask("ground"));
+        if(hit.collider != null)
         {
             Gizmos.DrawRay(rayPoint[0].position, Vector2.up * hit.distance);
+            Gizmos.DrawWireCube(rayPoint[0].position + (Vector3)Vector2.up * hit.distance, transform.lossyScale);
         }
         else
         {
             Gizmos.DrawRay(rayPoint[0].position, Vector2.up * transform.localScale.x / 2);
         }
-        hit = Physics2D.Raycast(rayPoint[1].position, Vector2.up, transform.localScale.x / 2, LayerMask.GetMask("ground"));
+        hit = Physics2D.BoxCast(rayPoint[1].position, new Vector2(gameObject.transform.localScale.x, gameObject.transform.localScale.y), 0, Vector2.right, transform.localScale.x / 2, LayerMask.GetMask("ground"));
         if (hit.collider != null)
         {
-            Gizmos.DrawRay(rayPoint[1].position, Vector2.up * hit.distance);
+            Gizmos.DrawRay(rayPoint[1].position, Vector2.right * hit.distance);
+            Gizmos.DrawWireCube(rayPoint[1].position + (Vector3)Vector2.right * hit.distance, transform.lossyScale);
         }
         else
         {
-            Gizmos.DrawRay(rayPoint[1].position, Vector2.up * transform.localScale.x / 2);
-        }
-        hit = Physics2D.Raycast(rayPoint[2].position, Vector2.right, transform.localScale.x / 2, LayerMask.GetMask("ground"));
-        if (hit.collider != null)
-        {
-            Gizmos.DrawRay(rayPoint[2].position, Vector2.right * hit.distance);
-        }
-        else
-        {
-            Gizmos.DrawRay(rayPoint[2].position, Vector2.right * transform.localScale.x / 2);
-        }
-        hit = Physics2D.Raycast(rayPoint[3].position, Vector2.right, transform.localScale.x / 2, LayerMask.GetMask("ground"));
-        if (hit.collider != null)
-        {
-            Gizmos.DrawRay(rayPoint[3].position, Vector2.right * hit.distance);
-        }
-        else
-        {
-            Gizmos.DrawRay(rayPoint[3].position, Vector2.right * transform.localScale.x / 2);
-        }
-        hit = Physics2D.Raycast(rayPoint[4].position, Vector2.right, transform.localScale.x / 2, LayerMask.GetMask("ground"));
-        if (hit.collider != null)
-        {
-            Gizmos.DrawRay(rayPoint[4].position, Vector2.right * hit.distance);
-        }
-        else
-        {
-            Gizmos.DrawRay(rayPoint[4].position, Vector2.right * transform.localScale.x / 2);
+            Gizmos.DrawRay(rayPoint[1].position, Vector2.right * transform.localScale.x / 2);
         }
         hit = Physics2D.Raycast(this.gameObject.transform.position, Vector2.down, transform.localScale.y, LayerMask.GetMask("ground"));
         Gizmos.DrawRay(gameObject.transform.position, Vector2.down * transform.localScale.y);
