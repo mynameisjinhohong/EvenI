@@ -198,14 +198,14 @@ public class Player_shj : MonoBehaviour
             hp = 0;
         }
         //RaycastHit2D hit = Physics2D.Raycast(rayPoint[0].position, Vector2.up, transform.localScale.x / 2, LayerMask.GetMask("ground"));
-        RaycastHit2D hit = Physics2D.BoxCast(rayPoint[0].position, new Vector2(gameObject.transform.localScale.x * 2, gameObject.transform.localScale.y), 0, Vector2.up, transform.localScale.x / 2, LayerMask.GetMask("ground"));
+        RaycastHit2D hit = Physics2D.BoxCast(rayPoint[0].position, new Vector2(gameObject.transform.localScale.x * 1.5f, gameObject.transform.localScale.y), 0, Vector2.up, transform.localScale.x / 2, LayerMask.GetMask("ground"));
         if (hit.collider != null)
         {
             hit.transform.gameObject.GetComponent<Floor_HJH>().Crash(gameObject);
             upCrushCheck = true;
             StartCoroutine(UpCrushOff());
         }
-        hit = Physics2D.BoxCast(rayPoint[1].position, new Vector2(gameObject.transform.localScale.x, gameObject.transform.localScale.y * 2), 0, Vector2.right, transform.localScale.x / 2, LayerMask.GetMask("ground"));
+        hit = Physics2D.BoxCast(rayPoint[1].position, new Vector2(gameObject.transform.localScale.x, gameObject.transform.localScale.y * 1.5f), 0, Vector2.right, transform.localScale.x / 2, LayerMask.GetMask("ground"));
         if (hit.collider != null)
         {
             hit.transform.gameObject.GetComponent<Floor_HJH>().Crash(gameObject);
@@ -372,21 +372,21 @@ public class Player_shj : MonoBehaviour
         //    Gizmos.DrawRay(rayPoint[4].position, Vector2.right * transform.localScale.x / 2);
         //}
         #endregion
-        RaycastHit2D hit = Physics2D.BoxCast(rayPoint[0].position, new Vector2(gameObject.transform.localScale.x*2, gameObject.transform.localScale.y), 0, Vector2.up, transform.localScale.x / 2, LayerMask.GetMask("ground"));
+        RaycastHit2D hit = Physics2D.BoxCast(rayPoint[0].position, new Vector2(gameObject.transform.localScale.x*1.5f, gameObject.transform.localScale.y), 0, Vector2.up, transform.localScale.x / 2, LayerMask.GetMask("ground"));
         if(hit.collider != null)
         {
             Gizmos.DrawRay(rayPoint[0].position, Vector2.up * hit.distance);
-            Gizmos.DrawWireCube(rayPoint[0].position + (Vector3)Vector2.up * hit.distance, new Vector2(gameObject.transform.localScale.x*2, gameObject.transform.localScale.y));
+            Gizmos.DrawWireCube(rayPoint[0].position + (Vector3)Vector2.up * hit.distance, new Vector2(gameObject.transform.localScale.x*1.5f, gameObject.transform.localScale.y));
         }
         else
         {
             Gizmos.DrawRay(rayPoint[0].position, Vector2.up * transform.localScale.x / 2);
         }
-        hit = Physics2D.BoxCast(rayPoint[1].position, new Vector2(gameObject.transform.localScale.x, gameObject.transform.localScale.y * 2), 0, Vector2.right, transform.localScale.x / 2, LayerMask.GetMask("ground"));
+        hit = Physics2D.BoxCast(rayPoint[1].position, new Vector2(gameObject.transform.localScale.x, gameObject.transform.localScale.y * 1.5f), 0, Vector2.right, transform.localScale.x / 2, LayerMask.GetMask("ground"));
         if (hit.collider != null)
         {
             Gizmos.DrawRay(rayPoint[1].position, Vector2.right * hit.distance);
-            Gizmos.DrawWireCube(rayPoint[1].position + (Vector3)Vector2.right * hit.distance, new Vector2(gameObject.transform.localScale.x, gameObject.transform.localScale.y*2));
+            Gizmos.DrawWireCube(rayPoint[1].position + (Vector3)Vector2.right * hit.distance, new Vector2(gameObject.transform.localScale.x, gameObject.transform.localScale.y*1.5f));
         }
         else
         {
