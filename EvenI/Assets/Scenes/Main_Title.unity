@@ -210,8 +210,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 725087987}
-        m_TargetAssemblyTypeName: UI_Setting_shj, Assembly-CSharp
-        m_MethodName: Next_Scene
+        m_TargetAssemblyTypeName: Main_Title_UI_shj, Assembly-CSharp
+        m_MethodName: Data_Check
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1091,7 +1091,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 065195422d424dd4ca2bd6fc490021b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  save_Data: {fileID: 0}
   delay: 1
 --- !u!82 &1830104634
 AudioSource:

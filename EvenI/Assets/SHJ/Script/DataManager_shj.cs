@@ -36,13 +36,12 @@ public class DataManager_shj : MonoBehaviour
 
     public void Load_Data()
     {
-        
         stream = new FileStream(Application.persistentDataPath + "/test.json", FileMode.Open);
         data = new byte[stream.Length];
         stream.Read(data,0,data.Length);
         jsondata = Encoding.UTF8.GetString(data);
         GameManager_shj.Getinstance.Save_data = JsonConvert.DeserializeObject<Save_Data_shj>(jsondata);
-
+        stream.Close();
         //save_Data = JsonConvert.DeserializeObject<Save_Data_shj>(jsondata);
 
         //try
@@ -66,17 +65,16 @@ public class DataManager_shj : MonoBehaviour
 
     public void Save_Data(Save_Data_shj save_Data)
     {
-        if(File.Exists(Application.persistentDataPath + "/test.json"))
+        if (File.Exists(Application.persistentDataPath + "/test.json"))
         {
             StreamWriter sw = new StreamWriter(Application.persistentDataPath + "/test.json", false);
             sw.Close();
         }
 
         stream = new FileStream(Application.persistentDataPath + "/test.json", FileMode.OpenOrCreate);
-
         jsondata = JsonUtility.ToJson(save_Data); //jsonconvert를 이용하여 직렬화가 되지않아서 JsonUtility를 사용
         data = Encoding.UTF8.GetBytes(jsondata);
-       
+
         stream.Write(data, 0, data.Length);
         stream.Close();
     }

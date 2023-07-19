@@ -11,7 +11,7 @@ public class GameManager_shj : MonoBehaviour
 
     bool vibration = true;
 
-    public Save_Data_shj save_Data;
+    Save_Data_shj save_Data;
     DataManager_shj dataManager;
 
     [Range(0,10f)]
