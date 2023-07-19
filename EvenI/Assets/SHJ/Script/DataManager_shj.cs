@@ -81,14 +81,14 @@ public class DataManager_shj : MonoBehaviour
         stream.Close();
     }
 
-    public void Data_Copy(Save_Data_shj obj1, Save_Data_shj obj2)
-    {
-        obj1.nickname = obj2.nickname;
-        obj1.juksun = obj2.juksun;
-        obj1.last_play_scene_num = obj2.last_play_scene_num;
-        obj1.hp = obj2.hp;
-        obj1.ending = obj2.ending;
-        obj1.bgm_vol = obj2.bgm_vol;
-        obj1.eff_vol = obj2.eff_vol;
-    }
+    //public void Data_Copy(Save_Data_shj obj1, Save_Data_shj obj2)
+    //{
+    //    obj1.nickname = obj2.nickname;
+    //    obj1.juksun = obj2.juksun;
+    //    obj1.last_play_scene_num = obj2.last_play_scene_num;
+    //    obj1.hp = obj2.hp;
+    //    obj1.ending = obj2.ending;
+    //    obj1.bgm_vol = obj2.bgm_vol;
+    //    obj1.eff_vol = obj2.eff_vol;
+    //}
 }
