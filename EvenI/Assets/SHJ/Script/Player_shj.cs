@@ -407,7 +407,10 @@ public class Player_shj : MonoBehaviour
             StartCoroutine(Rolling());
             rollStart = true;
         }
-
+        if (player_State == Player_State.Rolling)
+        {
+            nuckBackDuring = false;
+        }
         if (!nuckBackDuring)
         {
             if (player_State == Player_State.Rolling)

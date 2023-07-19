@@ -42,12 +42,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -115,7 +115,175 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: iceMountain_rabbit_0
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 115
+        width: 446
+        height: 474
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28a9b201652b19d48946474a8cc81c4b
+      internalID: -1847235524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: iceMountain_rabbit_1
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 112
+        width: 428
+        height: 473
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a99f7ab40c68d94f97276d74cf4d827
+      internalID: -701669540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: iceMountain_rabbit_2
+      rect:
+        serializedVersion: 2
+        x: 1620
+        y: 115
+        width: 439
+        height: 484
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f5e6509f540c3b4890a2da2c2cbda47
+      internalID: -516905510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: iceMountain_rabbit_3
+      rect:
+        serializedVersion: 2
+        x: 2274
+        y: 60
+        width: 606
+        height: 567
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97b50349ef8861d45b9e44ffd42fa870
+      internalID: -2084683793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: iceMountain_rabbit_4
+      rect:
+        serializedVersion: 2
+        x: 2984
+        y: 39
+        width: 665
+        height: 651
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4274877584800d94ab139bbf97b17526
+      internalID: -778267609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: iceMountain_rabbit_5
+      rect:
+        serializedVersion: 2
+        x: 3823
+        y: 122
+        width: 432
+        height: 422
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0ba425476c60244f95a67a57701af36
+      internalID: -1921429448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: iceMountain_rabbit_6
+      rect:
+        serializedVersion: 2
+        x: 4589
+        y: 122
+        width: 424
+        height: 432
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d885ecd37a3fc84468f81e9a45e17594
+      internalID: -1717326556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: iceMountain_rabbit_7
+      rect:
+        serializedVersion: 2
+        x: 5316
+        y: 115
+        width: 425
+        height: 442
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a737c25596ae0b4e80c3e41b52f40d1
+      internalID: 659038418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -126,7 +294,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      iceMountain_rabbit_3: -2084683793
+      iceMountain_rabbit_6: -1717326556
+      iceMountain_rabbit_5: -1921429448
+      iceMountain_rabbit_1: -701669540
+      iceMountain_rabbit_2: -516905510
+      iceMountain_rabbit_7: 659038418
+      iceMountain_rabbit_4: -778267609
+      iceMountain_rabbit_0: -1847235524
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -2978,6 +2978,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   background_list: []
   background: {fileID: 0}
+  bg_image_list: []
+  story_bg: {fileID: 0}
   count_text: {fileID: 3992068704595895198}
   Hp: {fileID: 260949744689100720, guid: bbb0f0b7d8371784484977d7a865e6b0, type: 3}
   Hp_list: {fileID: 3992068705703599506}
@@ -6102,7 +6104,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0

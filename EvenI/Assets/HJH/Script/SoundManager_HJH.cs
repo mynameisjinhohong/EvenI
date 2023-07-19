@@ -118,6 +118,7 @@ public class SoundManager_HJH : MonoBehaviour
         obj.AddComponent<AudioSource>();
         obj.transform.SetParent(transform);
         obj.GetComponent<AudioSource>().clip = clips[target];
+        obj.GetComponent<AudioSource>().volume = 0.2f;
         obj.GetComponent<AudioSource>().Play();
     }
 }
