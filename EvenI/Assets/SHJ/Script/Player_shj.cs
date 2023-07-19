@@ -131,6 +131,7 @@ public class Player_shj : MonoBehaviour
     bool nuckBackBool = false;
     bool nuckBackDuring = false;
     public bool upCrushCheck = false; //위에 부딪혔을 때
+    Coroutine nuckBackCoroutine;
     #endregion
     float test = 0.0f;
     public bool gameClear = false;
@@ -461,6 +462,12 @@ public class Player_shj : MonoBehaviour
         jumping = true; //점프중
         StartCoroutine(HeightTest());
         //Debug.Log(jump_up_power * jump_charge);
+        if(nuckBackCoroutine != null)
+        {
+            nuckBackDuring = false;
+            StopCoroutine(nuckBackCoroutine);
+            rigid.velocity = new Vector2(speed, 0);
+        }
         rigid.AddForce((Vector2.up * jump_up_power) * jump_charge, ForceMode2D.Impulse);
         //velocity.y = jump_up_power *jump_charge;
         charge_img.enabled = false; //ui비활성화
@@ -560,14 +567,13 @@ public class Player_shj : MonoBehaviour
         rigid.velocity = Vector2.zero;
         rigid.AddForce((Vector2.left * nuckBackPower), ForceMode2D.Force);
         nuckBackDuring = true;
-        StartCoroutine(NuckBackAddForce());
+        nuckBackCoroutine = StartCoroutine(NuckBackAddForce());
         StartCoroutine(Invincible());
         StartCoroutine(Blink());
     }
 
     IEnumerator NuckBackAddForce()
     {
-        Debug.Log("youStart?");
         while (true)
         {
             yield return new WaitForSeconds(0.01f);
@@ -576,6 +582,7 @@ public class Player_shj : MonoBehaviour
             {
                 rigid.velocity = Vector2.right * speed;
                 nuckBackDuring = false;
+                Debug.Log("Done");
                 break;
             }
         }
