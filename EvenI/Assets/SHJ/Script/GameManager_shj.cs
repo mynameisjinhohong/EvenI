@@ -11,7 +11,7 @@ public class GameManager_shj : MonoBehaviour
 
     bool vibration = true;
 
-    public Save_Data_shj save_Data;
+    Save_Data_shj save_Data;
     DataManager_shj dataManager;
 
     [Range(0,10f)]
@@ -26,7 +26,7 @@ public class GameManager_shj : MonoBehaviour
             audio = GetComponent<AudioSource>();
 
             dataManager = GetComponent<DataManager_shj>();
-            //save_Data = gameObject.AddComponent<Save_Data_shj>();
+            save_Data = gameObject.AddComponent<Save_Data_shj>();
             //dataManager.Load_Data(new Save_Data_shj());
         }
         else
