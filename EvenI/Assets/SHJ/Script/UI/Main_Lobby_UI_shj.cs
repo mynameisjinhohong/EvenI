@@ -10,6 +10,7 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
     AudioSource audio;
     public AudioClip[] clips;
 
+    public RectTransform text_pos;
     public Text nickname_text;
     public Text story_text;
     public Text btn_text;
@@ -36,13 +37,11 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
         BackGround_Set();
         senario = CSVReader.Read("Scenario/opening/opening_scenario");
         next_text();
-        scene_image_num = new int[14] { 3, 4, 5, 6, 8, 9, 10, 12, 13, 14, 15, 16, 17, 18 };
-        image_num = new int[14] { 2, 3, 4, 5, 6, 4, 5, 7, 7, 8, 1, 9, 9, 9 };
     }
 
     public void Set_NickName() //닉네임 설정
     {
-        if(nickname_text.text.Length != 0)
+        if (nickname_text.text.Length != 0)
         {
             GameManager_shj.Getinstance.Save_data.nickname = nickname_text.text;
             GameManager_shj.Getinstance.Data_Save();
@@ -82,6 +81,21 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
             for (int i = 0; i < 3; i++)
             {
                 string text = senario[i + 3 * click_cnt]["text"].ToString();
+
+                if (i == 2 && senario[i + 3 * click_cnt]["image_num"].ToString() != "")
+                    story_bg.sprite = bg_image_list[int.Parse(senario[i + 3 * click_cnt]["image_num"].ToString())];
+                else if (i == 2 && senario[i + 3 * click_cnt]["image_num"].ToString() == "")
+                    story_bg.sprite = bg_image_list[0];
+
+                if (i == 2 && senario[i + 3 * click_cnt]["font_size"].ToString() != "")
+                    story_text.fontSize = int.Parse(senario[i + 3 * click_cnt]["font_size"].ToString());
+                else story_text.fontSize = 30;
+
+                if (i == 2 && senario[i + 3 * click_cnt]["pos_y"].ToString() != "")
+                    text_pos.anchoredPosition = new Vector2(0, -10);
+                else text_pos.anchoredPosition = new Vector2(0, 10);
+
+
 
                 //닉네임 부분을 변경
                 if (text.Contains("(닉네임)")) text = text.Replace("(닉네임)", GameManager_shj.Getinstance.Save_data.nickname);

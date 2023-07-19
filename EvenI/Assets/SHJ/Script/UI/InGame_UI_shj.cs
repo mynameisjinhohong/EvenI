@@ -17,7 +17,7 @@ public class InGame_UI_shj : UI_Setting_shj
     string gameID = "5343352";
     string adType = "Rewarded_Android";
 
-    int count = 0;
+    int count;
 
     int recovery;
     int next_scene_cnt = 0;
@@ -35,6 +35,11 @@ public class InGame_UI_shj : UI_Setting_shj
             }
         }
         Advertisement.Initialize(gameID, true);
+    }
+
+    private void Start()
+    {
+        count = GameManager_shj.Getinstance.Save_data.juksun;
     }
 
     private void Update()

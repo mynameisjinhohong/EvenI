@@ -11,10 +11,7 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
     public Sprite[] background_list;
     public Image background;
 
-    protected int[] scene_image_num;
-    public Sprite[] scene_image_list;
-    protected int[] image_num;
-    protected int scenario_cnt = 0;
+    public Sprite[] bg_image_list;
 
     public Image story_bg;
 
@@ -101,5 +98,4 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
         GameManager_shj.Getinstance.Save_data.hp = GameObject.Find("Player").GetComponent<Player_shj>().hp;
         GameManager_shj.Getinstance.Data_Save();
     }
-
 }
