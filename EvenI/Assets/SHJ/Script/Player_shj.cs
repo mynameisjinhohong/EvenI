@@ -69,7 +69,7 @@ public class Player_shj : MonoBehaviour
     public Animator playerAnimator;
     [Header("체력 관련")]
     public GameObject hp_List;
-    public int maxHP = 9;
+    public int maxHP = 10;
 
 
 
@@ -214,7 +214,7 @@ public class Player_shj : MonoBehaviour
         {
             if (Hp != 0)
             {
-                for (int i = 0; i < GameManager_shj.Getinstance.Save_data.hp; i++)
+                for (int i = 0; i < Hp; i++)
                 {
                     if (i < hp)
                     {

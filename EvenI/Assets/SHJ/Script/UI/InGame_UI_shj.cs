@@ -40,6 +40,8 @@ public class InGame_UI_shj : UI_Setting_shj
     private void Start()
     {
         count = GameManager_shj.Getinstance.Save_data.juksun;
+        //카운트다운 3초 필요
+        //Time.timeScale = 0.0f 게임 일시정지됨
     }
 
     private void Update()
@@ -80,8 +82,8 @@ public class InGame_UI_shj : UI_Setting_shj
             case ShowResult.Finished:
 
                 ads.SetActive(false);
-               if(GameObject.Find("Player").GetComponent<Player_shj>().hp + recovery <= 10)
-                    GameObject.Find("Player").GetComponent<Player_shj>().Hp += recovery;
+               if(player.Hp + recovery <= 10)
+                    player.Hp += recovery;
 
                 break;
         }
