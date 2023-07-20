@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6454281006416774365}
   - component: {fileID: 8422802202592446845}
   - component: {fileID: 8831436266622849246}
-  - component: {fileID: -824933952172260896}
+  - component: {fileID: 1876430432838774907}
   - component: {fileID: 672334733516203095}
   m_Layer: 0
   m_Name: iceMountain_breakFloor
@@ -107,7 +107,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &-824933952172260896
+--- !u!114 &1876430432838774907
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,10 +116,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 31276918662469906}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 261c76b538c77f941a53992ec2aefe3b, type: 3}
+  m_Script: {fileID: 11500000, guid: d69e0dd30f3896647a5a9de85bbf06d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
+  type: 0
 --- !u!61 &672334733516203095
 BoxCollider2D:
   m_ObjectHideFlags: 0

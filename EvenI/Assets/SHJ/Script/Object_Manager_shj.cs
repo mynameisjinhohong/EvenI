@@ -14,7 +14,7 @@ public class Object_Manager_shj : MonoBehaviour
     public Type type;
 
     bool touch = false;
-
+    protected bool ItmeInActive = true;
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -29,7 +29,11 @@ public class Object_Manager_shj : MonoBehaviour
         if(type == Type.Item) //아이템 일때
         {
             Item_Active(player);
-            InActive();
+            if (ItmeInActive)
+            {
+                InActive();
+
+            }
         }
         else if(type == Type.Obstacle)
         {
