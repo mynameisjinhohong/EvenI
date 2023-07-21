@@ -214,7 +214,7 @@ public class Player_shj : MonoBehaviour
         {
             if (Hp != 0)
             {
-                for (int i = 0; i < Hp; i++)
+                for (int i = 0; i < 10; i++)
                 {
                     if (i < hp)
                     {

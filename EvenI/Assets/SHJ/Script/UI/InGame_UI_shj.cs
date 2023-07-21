@@ -47,7 +47,8 @@ public class InGame_UI_shj : UI_Setting_shj
         player.GetComponent<Player_shj>().enabled = false;
         player.GetComponent<Animator>().enabled = false;
         gamestart = false;
-        countdown = 3.0f;
+        countdown = 3.9f;
+        Time.timeScale = 1.0f;
         //카운트다운 3초 필요
     }
 
@@ -55,13 +56,15 @@ public class InGame_UI_shj : UI_Setting_shj
     {
         count_text.text = count.ToString();
 
-        if (!gamestart) Count_down();
-
+        if (!gamestart)
+        {
+            Count_down();
+        }
     }
 
     void Count_down()
     {
-        if (countdown < 0.0f)
+        if (countdown < 1.0f)
         {
             gamestart = true;
             count_down_txt.GetComponent<TextMeshProUGUI>().text = "START!";
@@ -69,11 +72,12 @@ public class InGame_UI_shj : UI_Setting_shj
             player.GetComponent<Animator>().enabled = true;
             StartCoroutine(Delay_active(1.0f, count_down_txt));
         }
-        else
+        else 
         {
             count_down_txt.SetActive(true);
             countdown -= Time.deltaTime;
             count_down_txt.GetComponent<TextMeshProUGUI>().text = countdown.ToString("F0");
+
         }
     }
 
