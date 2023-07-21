@@ -30,7 +30,7 @@ public class GameManager_shj : MonoBehaviour
             audio = GetComponent<AudioSource>();
 
             dataManager = GetComponent<DataManager_shj>();
-            //save_Data = gameObject.AddComponent<Save_Data_shj>();
+            save_Data = gameObject.AddComponent<Save_Data_shj>();
             //dataManager.Load_Data(new Save_Data_shj());
         }
         else
