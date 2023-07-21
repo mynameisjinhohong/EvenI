@@ -23,6 +23,11 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
     public GameObject set_nickname;
     public GameObject continue_stage;
 
+    public Slider BGM_value;
+    public Slider Effect_value;
+
+
+
     enum AudioType
     {
         UION,
@@ -38,6 +43,8 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
         BackGround_Set();
         senario = CSVReader.Read("Scenario/opening/opening_scenario");
         next_text();
+        BGM_value.value = GameManager_shj.Getinstance.Save_data.bgm_vol;
+        Effect_value.value = GameManager_shj.Getinstance.Save_data.eff_vol;
     }
 
     public void Set_NickName() //닉네임 설정
@@ -45,7 +52,7 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
         if (nickname_text.text.Length != 0)
         {
             GameManager_shj.Getinstance.Save_data.nickname = nickname_text.text;
-            GameManager_shj.Getinstance.Data_Save();
+            Data_Save();
             main.SetActive(false);
             story.SetActive(true);
         }
@@ -83,6 +90,7 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
             {
                 string text = senario[i + 3 * click_cnt]["text"].ToString();
 
+                //수정필요
                 if (i == 2 && senario[i + 3 * click_cnt]["image_num"].ToString() != "")
                     story_bg.sprite = bg_image_list[int.Parse(senario[i + 3 * click_cnt]["image_num"].ToString())];
 
@@ -155,8 +163,14 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
             base.Return_Scene(num);
     }
 
-    public void Set_BGM_vol(Slider bar) { GameManager_shj.Getinstance.BGM_vol_set(bar.value); }
+    public void Set_BGM_vol(Slider bar) { GameManager_shj.Getinstance.Volume_Set("BGM",bar.value); }
 
-    public void Set_Effect_vol(Slider bar) { GameManager_shj.Getinstance.Effect_vol_set(bar.value); }
+    public void Set_Effect_vol(Slider bar) { GameManager_shj.Getinstance.Volume_Set("Effect", bar.value); }
+
+    //public void Set_value()
+    //{
+    //    BGM_value.value = GameManager_shj.Getinstance.Save_data.bgm_vol;
+    //    Effect_value.value = GameManager_shj.Getinstance.Save_data.eff_vol;
+    //}
 
 }

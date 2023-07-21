@@ -90,7 +90,7 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
         GameManager_shj.Getinstance.Save_data.juksun = 0;
         GameManager_shj.Getinstance.Save_data.last_play_scene_num = 2;
         GameManager_shj.Getinstance.Save_data.hp = 10;
-        GameManager_shj.Getinstance.Data_Save();
+        Data_Save();
     }
 
     public virtual void Data_change(int cnt)
@@ -98,12 +98,17 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
         GameManager_shj.Getinstance.Save_data.juksun = cnt;
         GameManager_shj.Getinstance.Save_data.last_play_scene_num = SceneManager.GetActiveScene().buildIndex + 1;
         GameManager_shj.Getinstance.Save_data.hp = player.GetComponent<Player_shj>().Hp;
-        GameManager_shj.Getinstance.Data_Save();
+        Data_Save();
     }
 
     protected IEnumerator Delay_active (float delay_time,GameObject obj)
     {
         yield return new WaitForSeconds(delay_time);
         obj.SetActive(false);
+    }
+
+    public void Data_Save()
+    {
+        GameManager_shj.Getinstance.Data_Save();
     }
 }

@@ -39,6 +39,17 @@ public class GameManager_shj : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        if (Data_Manager.Data_Check())
+        {
+            Data_Manager.Load_Data();
+            Volume_Set("BGM",save_Data.bgm_vol);
+            Volume_Set("Effect", save_Data.eff_vol);
+        }
+
+    }
+
     //public void Change_Next_Scene(bool next)
     //{
     //    if(next)
@@ -67,7 +78,7 @@ public class GameManager_shj : MonoBehaviour
     }
     private void Update()
     {
-        if(audio != null)
+        if (audio != null)
         {
             if (audio.isPlaying)
             {
@@ -77,25 +88,43 @@ public class GameManager_shj : MonoBehaviour
                 }
             }
         }
-        float a;
-       mixer.GetFloat("BGM", out a);
-        Debug.Log(a);
-;   }
+    }
+
+    public void Volume_Set(string type,float vol)
+    {
+        if (vol == -20f) mixer.SetFloat(type, -80f);
+        else mixer.SetFloat(type, vol);
+
+        switch (type)
+        {
+            case "BGM":
+                mixer.GetFloat(type, out save_Data.bgm_vol);
+                break;
+            case "Effect":
+                mixer.GetFloat(type, out save_Data.eff_vol);
+                break;
+        }
+    }
+
+    //public void BGM_vol_set(float vol)
+    //{
+    //    if (vol == -20f) mixer.SetFloat("BGM", -80f);
+    //    else mixer.SetFloat("BGM",vol);
+
+    //    mixer.GetFloat("BGM",out save_Data.bgm_vol);
+    //}
+
+    //public void Effect_vol_set(float vol)
+    //{
+    //    if (vol == -20f) mixer.SetFloat("Effect", -80f);
+    //    else mixer.SetFloat("Effect", vol);
+
+    //    mixer.GetFloat("Effect", out save_Data.eff_vol);
+    //}
 
     public void Data_Save() { dataManager.Save_Data(save_Data); } 
     //public bool Set_vibration { set { vibration = !vibration; } }
     public Save_Data_shj Save_data { get { return save_Data; } set { save_Data = value; } }
     public DataManager_shj Data_Manager { get { return dataManager; } }
 
-    public void BGM_vol_set(float vol)
-    {
-        if (vol == -20f) mixer.SetFloat("BGM", -80f);
-        else mixer.SetFloat("BGM",vol);
-    }
-
-    public void Effect_vol_set(float vol)
-    {
-        if (vol == -20f) mixer.SetFloat("BGM", -80f);
-        else mixer.SetFloat("BGM", vol);
-    }
 }
