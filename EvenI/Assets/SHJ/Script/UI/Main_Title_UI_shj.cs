@@ -32,6 +32,5 @@ public class Main_Title_UI_shj : UI_Setting_shj
             }
         }
         Next_Scene();
-
     }
 }

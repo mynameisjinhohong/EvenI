@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class Main_Lobby_UI_shj : UI_Setting_shj
 {
@@ -145,6 +146,7 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
         audio.Play();
         if (root_UI != null) root_UI.SetActive(false);
     }
+
     public override void Return_Scene(int num)
     {
         if (num == 0)
@@ -152,4 +154,9 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
         else
             base.Return_Scene(num);
     }
+
+    public void Set_BGM_vol(Slider bar) { GameManager_shj.Getinstance.BGM_vol_set(bar.value); }
+
+    public void Set_Effect_vol(Slider bar) { GameManager_shj.Getinstance.Effect_vol_set(bar.value); }
+
 }

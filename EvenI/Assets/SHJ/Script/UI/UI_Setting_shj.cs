@@ -18,7 +18,7 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
     protected List<Dictionary<string, object>> senario;
     protected GameObject root_UI = null;
 
-    public Player_shj player;
+    public GameObject player;
 
     public void UI_On_Off() //버튼의 첫번째 자식 켜고 끄기
     {
@@ -97,7 +97,13 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
     {
         GameManager_shj.Getinstance.Save_data.juksun = cnt;
         GameManager_shj.Getinstance.Save_data.last_play_scene_num = SceneManager.GetActiveScene().buildIndex + 1;
-        GameManager_shj.Getinstance.Save_data.hp = player.Hp;
+        GameManager_shj.Getinstance.Save_data.hp = player.GetComponent<Player_shj>().Hp;
         GameManager_shj.Getinstance.Data_Save();
+    }
+
+    protected IEnumerator Delay_active (float delay_time,GameObject obj)
+    {
+        yield return new WaitForSeconds(delay_time);
+        obj.SetActive(false);
     }
 }

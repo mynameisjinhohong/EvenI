@@ -1085,7 +1085,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &182286563
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2561,6 +2561,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d9f7c842be2ee174697256c9b6050d16, type: 3}
   - {fileID: 21300000, guid: cd559c2cdf9c2014a80e9bf630c64d16, type: 3}
   story_bg: {fileID: 1122715287}
+  player: {fileID: 0}
   clips:
   - {fileID: 8300000, guid: d23de0b9aac23e941b2d860e38fd7622, type: 3}
   - {fileID: 8300000, guid: 9b26a2ad78ee348458148f96ec1fae63, type: 3}
@@ -2584,7 +2585,7 @@ AudioSource:
   m_GameObject: {fileID: 429507002}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 6416187686218131869, guid: 5828859ad2984a64aab2b2520b7cf581, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -4060,22 +4061,22 @@ MonoBehaviour:
   m_FillRect: {fileID: 1126976924}
   m_HandleRect: {fileID: 141986506}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -20
+  m_MaxValue: 20
   m_WholeNumbers: 0
-  m_Value: 0.5
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 429507005}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: set_volume
-        m_Mode: 4
+      - m_Target: {fileID: 429507004}
+        m_TargetAssemblyTypeName: Main_Lobby_UI_shj, Assembly-CSharp
+        m_MethodName: Set_Effect_vol
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 837173946}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
           m_IntArgument: 0
-          m_FloatArgument: 0.5
+          m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -4968,7 +4969,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1157129643
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6360,22 +6361,22 @@ MonoBehaviour:
   m_FillRect: {fileID: 1266260229}
   m_HandleRect: {fileID: 268927371}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -20
+  m_MaxValue: 20
   m_WholeNumbers: 0
-  m_Value: 0.5
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 429507005}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: set_volume
-        m_Mode: 4
+      - m_Target: {fileID: 429507004}
+        m_TargetAssemblyTypeName: Main_Lobby_UI_shj, Assembly-CSharp
+        m_MethodName: Set_BGM_vol
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1420096102}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
           m_IntArgument: 0
-          m_FloatArgument: 0.5
+          m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -7954,7 +7955,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2073892941
 RectTransform:
   m_ObjectHideFlags: 0

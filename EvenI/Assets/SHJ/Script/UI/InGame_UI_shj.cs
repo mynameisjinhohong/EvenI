@@ -10,9 +10,10 @@ public class InGame_UI_shj : UI_Setting_shj
     public TextMeshProUGUI count_text;
     public GameObject Hp;
     public Transform Hp_list;
-    public Player_shj player;
 
     public GameObject ads;
+
+    public GameObject count_down_txt;
 
     string gameID = "5343352";
     string adType = "Rewarded_Android";
@@ -21,6 +22,9 @@ public class InGame_UI_shj : UI_Setting_shj
 
     int recovery;
     int next_scene_cnt = 0;
+
+    bool gamestart;
+    float countdown;
 
     public int Count { get {  return count; } set { count = value; } }
 
@@ -40,13 +44,37 @@ public class InGame_UI_shj : UI_Setting_shj
     private void Start()
     {
         count = GameManager_shj.Getinstance.Save_data.juksun;
+        player.GetComponent<Player_shj>().enabled = false;
+        player.GetComponent<Animator>().enabled = false;
+        gamestart = false;
+        countdown = 3.0f;
         //카운트다운 3초 필요
-        //Time.timeScale = 0.0f 게임 일시정지됨
     }
 
     private void Update()
     {
         count_text.text = count.ToString();
+
+        if (!gamestart) Count_down();
+
+    }
+
+    void Count_down()
+    {
+        if (countdown < 0.0f)
+        {
+            gamestart = true;
+            count_down_txt.GetComponent<TextMeshProUGUI>().text = "START!";
+            player.GetComponent<Player_shj>().enabled = true;
+            player.GetComponent<Animator>().enabled = true;
+            StartCoroutine(Delay_active(1.0f, count_down_txt));
+        }
+        else
+        {
+            count_down_txt.SetActive(true);
+            countdown -= Time.deltaTime;
+            count_down_txt.GetComponent<TextMeshProUGUI>().text = countdown.ToString("F0");
+        }
     }
 
     public void Game_Stop() //게임 정지 버튼
@@ -82,8 +110,8 @@ public class InGame_UI_shj : UI_Setting_shj
             case ShowResult.Finished:
 
                 ads.SetActive(false);
-               if(player.Hp + recovery <= 10)
-                    player.Hp += recovery;
+               if(player.GetComponent<Player_shj>().Hp + recovery <= 10)
+                    player.GetComponent<Player_shj>().Hp += recovery;
 
                 break;
         }

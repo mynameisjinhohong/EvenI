@@ -116,6 +116,7 @@ public class SoundManager_HJH : MonoBehaviour
     {
         GameObject obj = new GameObject("SoundManagerChild" + gameObject.transform.childCount);
         obj.AddComponent<AudioSource>();
+        obj.GetComponent<AudioSource>().outputAudioMixerGroup = gameObject.GetComponent<AudioSource>().outputAudioMixerGroup;
         obj.transform.SetParent(transform);
         obj.GetComponent<AudioSource>().clip = clips[target];
         obj.GetComponent<AudioSource>().volume = 0.2f;
