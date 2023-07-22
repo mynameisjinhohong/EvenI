@@ -41,12 +41,12 @@ public class GameManager_shj : MonoBehaviour
 
     private void Start()
     {
-        if (Data_Manager.Data_Check())
-        {
-            Data_Manager.Load_Data();
-            Volume_Set("BGM",save_Data.bgm_vol);
-            Volume_Set("Effect", save_Data.eff_vol);
-        }
+        //if (Data_Manager.Data_Check())
+        //{
+        //    Data_Manager.Load_Data();
+        //    Volume_Set("BGM",save_Data.bgm_vol);
+        //    Volume_Set("Effect", save_Data.eff_vol);
+        //}
 
     }
 
