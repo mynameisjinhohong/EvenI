@@ -1225,7 +1225,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uD558\uD2B8\uCDA9\uC804\n(\uAD11\uACE0\uC2DC\uCCAD)"
+  m_Text: "\uBD80\uD65C\uD558\uAE30\n\uB2E8 1\uBC88!"
 --- !u!1 &1865023132510050484
 GameObject:
   m_ObjectHideFlags: 0
@@ -3002,7 +3002,6 @@ MonoBehaviour:
   count_text: {fileID: 3992068704595895198}
   Hp: {fileID: 260949744689100720, guid: bbb0f0b7d8371784484977d7a865e6b0, type: 3}
   Hp_list: {fileID: 3992068705703599506}
-  ads: {fileID: 4789244973392265844}
   count_down_txt: {fileID: 7577814354904086388}
 --- !u!1 &3992068704782450276
 GameObject:
@@ -4927,10 +4926,10 @@ MonoBehaviour:
       - m_Target: {fileID: 3992068704724015219}
         m_TargetAssemblyTypeName: InGame_UI_shj, Assembly-CSharp
         m_MethodName: ShowAds
-        m_Mode: 3
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 4789244973392265844}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4954,7 +4953,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2513462307309415056
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5061,11 +5060,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3992068704724015219}
         m_TargetAssemblyTypeName: InGame_UI_shj, Assembly-CSharp
-        m_MethodName: ShowAds
-        m_Mode: 3
+        m_MethodName: Restart_Check
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 5119389983099874671}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5700,7 +5699,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 900, y: -75}
+  m_AnchoredPosition: {x: 1000, y: -75}
   m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7881339951321426358
@@ -6095,7 +6094,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8248777353385739549
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6113,8 +6112,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 200}
-  m_SizeDelta: {x: 1000, y: 250}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1800, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3217412508986284822
 CanvasRenderer:
@@ -6144,7 +6143,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Start!
+  m_text: '1-1 stage Bamboo Forest
+
+    START!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8d34560b6d49c4469b2174ccd34ae34b, type: 2}
   m_sharedMaterial: {fileID: 8690591861142563998, guid: 8d34560b6d49c4469b2174ccd34ae34b, type: 2}
@@ -6171,8 +6172,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 200
-  m_fontSizeBase: 200
+  m_fontSize: 140
+  m_fontSizeBase: 140
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6364,7 +6365,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8346090926432847167
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6686,7 +6687,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 300, y: -75}
+  m_AnchoredPosition: {x: 600, y: -75}
   m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3928072343943486981

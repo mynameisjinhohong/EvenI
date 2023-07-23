@@ -10,6 +10,7 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
 {
     AudioSource audio;
     public AudioClip[] clips;
+    public GameObject[] scenario_list;
 
     public RectTransform text_pos;
     public Text nickname_text;
@@ -45,6 +46,15 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
         next_text();
         BGM_value.value = GameManager_shj.Getinstance.Save_data.bgm_vol;
         Effect_value.value = GameManager_shj.Getinstance.Save_data.eff_vol;
+
+        for (int i = 0; i < GameManager_shj.Getinstance.Save_data.ending.Length; i++)
+        {
+            GameObject target = scenario_list[i];
+            target = scenario_list[i].transform.GetChild(0).GetChild(0).gameObject;
+
+            if (GameManager_shj.Getinstance.Save_data.ending[i]) target.transform.GetChild(0).gameObject.SetActive(true);
+            else target.transform.GetChild(1).gameObject.SetActive(true);
+        }
     }
 
     public void Set_NickName() //닉네임 설정
@@ -155,13 +165,13 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
         if (root_UI != null) root_UI.SetActive(false);
     }
 
-    public override void Return_Scene(int num)
-    {
-        if (num == 0)
-            base.Return_Scene(GameManager_shj.Getinstance.Save_data.last_play_scene_num);
-        else
-            base.Return_Scene(num);
-    }
+    //public override void Return_Scene(int num)
+    //{
+    //    if (num == 0)
+    //        base.Return_Scene(GameManager_shj.Getinstance.Save_data.last_play_scene_num);
+    //    else
+    //        base.Return_Scene(num);
+    //}
 
     public void Set_BGM_vol(Slider bar) { GameManager_shj.Getinstance.Volume_Set("BGM",bar.value); }
 

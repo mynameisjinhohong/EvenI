@@ -4,14 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Advertisements;
+using UnityEngine.SceneManagement;
+
+
 
 public class InGame_UI_shj : UI_Setting_shj
 {
     public TextMeshProUGUI count_text;
     public GameObject Hp;
     public Transform Hp_list;
-
-    public GameObject ads;
 
     public GameObject count_down_txt;
 
@@ -26,6 +27,8 @@ public class InGame_UI_shj : UI_Setting_shj
     bool gamestart;
     float countdown;
 
+    Vector3 hitpoint;
+
     public int Count { get {  return count; } set { count = value; } }
 
     private void Awake()
@@ -39,11 +42,11 @@ public class InGame_UI_shj : UI_Setting_shj
             }
         }
         Advertisement.Initialize(gameID, true);
+        count = GameManager_shj.Getinstance.Save_data.juksun;
     }
 
     private void Start()
     {
-        count = GameManager_shj.Getinstance.Save_data.juksun;
         player.GetComponent<Player_shj>().enabled = false;
         player.GetComponent<Animator>().enabled = false;
         gamestart = false;
@@ -67,7 +70,8 @@ public class InGame_UI_shj : UI_Setting_shj
         if (countdown < 1.0f)
         {
             gamestart = true;
-            count_down_txt.GetComponent<TextMeshProUGUI>().text = "START!";
+            count_down_txt.GetComponent<TextMeshProUGUI>().text = SceneManager.GetActiveScene().name +  "\nSTART!";
+            count_down_txt.GetComponent<TextMeshProUGUI>().fontSize = 140;
             player.GetComponent<Player_shj>().enabled = true;
             player.GetComponent<Animator>().enabled = true;
             StartCoroutine(Delay_active(1.0f, count_down_txt));
@@ -77,6 +81,7 @@ public class InGame_UI_shj : UI_Setting_shj
             count_down_txt.SetActive(true);
             countdown -= Time.deltaTime;
             count_down_txt.GetComponent<TextMeshProUGUI>().text = countdown.ToString("F0");
+            count_down_txt.GetComponent<TextMeshProUGUI>().fontSize = 200;
 
         }
     }
@@ -94,14 +99,14 @@ public class InGame_UI_shj : UI_Setting_shj
     }
 
 
-    public void ShowAds(int cnt)
+    public void ShowAds(GameObject ads)
     {
         if (Advertisement.IsReady())
         {
-            recovery = cnt;
             ShowOptions options = new ShowOptions { resultCallback = ResultAds };
             Advertisement.Show(adType, options);
         }
+        ads.SetActive(false);
     }
 
     void ResultAds(ShowResult result)
@@ -113,10 +118,8 @@ public class InGame_UI_shj : UI_Setting_shj
             case ShowResult.Skipped:
             case ShowResult.Finished:
 
-                ads.SetActive(false);
-               if(player.GetComponent<Player_shj>().Hp + recovery <= 10)
-                    player.GetComponent<Player_shj>().Hp += recovery;
-
+               if(player.GetComponent<Player_shj>().Hp + 1 <= 10)
+                    player.GetComponent<Player_shj>().Hp += 1;
                 break;
         }
     }
@@ -126,6 +129,31 @@ public class InGame_UI_shj : UI_Setting_shj
         base.Data_change(count);
     }
 
+    public void Restart_Check(GameObject ads)
+    {
+        GameObject player = GameObject.Find("Player");
+        Vector3 player_pos = player.transform.localPosition;
+        int hp = player.GetComponent<Player_shj>().hp;
+
+        RaycastHit2D hit = Physics2D.Raycast(player_pos + new Vector3(- 15f, 20, 0), Vector3.down, 30.0f);
+
+        if(player.GetComponent<Player_shj>().hp < 3) ShowAds(ads);
+        else if (player_pos.y <= -6)
+        {
+            hp -= 2;
+            ads.SetActive(false);
+        }
+
+        gamestart = false;
+        player.GetComponent<Player_shj>().gameOverPanel.SetActive(false);
+        player.transform.localPosition = hit.point;
+        Camera.main.transform.position = (Vector3)hit.point + new Vector3(player.GetComponent<Player_shj>().camera_distance, 2, -10);
+        player.GetComponent<Player_shj>().Start();
+        player.GetComponent<Player_shj>().hp = hp;
+
+        Start();
+    }
+
     //public void Next_Scene_num(int num) { next_scene_cnt = num; }
 
 
@@ -133,5 +161,4 @@ public class InGame_UI_shj : UI_Setting_shj
     //{
     //    StartCoroutine(GameManager_shj.Getinstance.Change_Scene(next_scene_cnt));
     //}
-
 }

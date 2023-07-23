@@ -136,7 +136,7 @@ public class Player_shj : MonoBehaviour
     #endregion
     float test = 0.0f;
     public bool gameClear = false;
-    private void Start()
+    public void Start()
     {
         cam = Camera.main;
         soundManager = GetComponentInChildren<SoundManager_HJH>();
@@ -150,6 +150,7 @@ public class Player_shj : MonoBehaviour
 
     private void Update()
     {
+        //Debug.Log(transform.localPosition);
         //이전 코드 주석으로 놔둠
         #region test
         //if (player_State == Player_State.Rolling)
@@ -196,7 +197,7 @@ public class Player_shj : MonoBehaviour
         //}
         if (transform.position.y < -6)
         {
-            hp = 0;
+            GameOver();
         }
         //RaycastHit2D hit = Physics2D.Raycast(rayPoint[0].position, Vector2.up, transform.localScale.x / 2, LayerMask.GetMask("ground"));
         RaycastHit2D hit = Physics2D.BoxCast(rayPoint[0].position, new Vector2(gameObject.transform.localScale.x * 1.5f, gameObject.transform.localScale.y), 0, Vector2.up, transform.localScale.x / 2, LayerMask.GetMask("ground"));
@@ -585,6 +586,7 @@ public class Player_shj : MonoBehaviour
         StartCoroutine(Invincible());
         StartCoroutine(Blink());
     }
+
 
     IEnumerator NuckBackAddForce()
     {
