@@ -19,10 +19,10 @@ public class Save_Data_shj : MonoBehaviour
         juksun = 0;
         last_play_scene_num = 0;
         hp = 10;
-        ending = new bool[6];
+        ending = new bool[7];
         bgm_vol = 0.5f;
         eff_vol = 0.5f;
 
-        for (int i = 0; i < 6; i++) ending[i] = false;
+        for (int i = 0; i < ending.Length; i++) ending[i] = false;
     }
 }

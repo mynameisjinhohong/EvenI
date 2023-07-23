@@ -173,4 +173,8 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
     //    Effect_value.value = GameManager_shj.Getinstance.Save_data.eff_vol;
     //}
 
+    public void btn_test()
+    {
+        Debug.Log(1);
+    }
 }

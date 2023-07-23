@@ -63,7 +63,8 @@ public class Player_shj : MonoBehaviour
     bool jumping = false; //점프중인지 아닌지 확인
     bool floorCheck = true; //점프 하고 잠깐동안 바닥 체크 안하게
     float jump_charge = 0.0f; //점프력 충전
-    public Image charge_img; //점프 게이지
+    public GameObject charge_img;
+    //public Image charge_img; //점프 게이지
     //int jump_cnt = 0; //점프횟수 2단점프때 사용
 
     public Animator playerAnimator;
@@ -258,9 +259,12 @@ public class Player_shj : MonoBehaviour
         if (!jumping && Input.GetMouseButton(0))
         {
             jump_charge = jump_charge <= maxJumpPower ? jump_charge + Time.deltaTime * charge_speed : maxJumpPower; //차징하면 게이지가 차오릅니다
-            charge_img.enabled = true; //ui활성화
+            //charge_img.enabled = true; //ui활성화
+            charge_img.SetActive(true); // 슬라이더로 변경
             //Debug.Log(jump_charge/(maxJumpPower -minJumpPower) - 1);
-            charge_img.fillAmount = (jump_charge - minJumpPower) / ((jump_charge - minJumpPower) + (maxJumpPower - jump_charge))/*Time.deltaTime*//*jump_charge*/; //수정되었음
+            //charge_img.fillAmount = (jump_charge - minJumpPower) / ((jump_charge - minJumpPower) + (maxJumpPower - jump_charge))/*Time.deltaTime*//*jump_charge*/; //수정되었음
+            charge_img.GetComponent<Slider>().value = (jump_charge - minJumpPower) / ((jump_charge - minJumpPower) + (maxJumpPower - jump_charge));
+
             //if (timeSlowOnOff)
             //{
             //    Time.timeScale = timeSlowSpeed;
@@ -477,9 +481,12 @@ public class Player_shj : MonoBehaviour
         }
         rigid.AddForce((Vector2.up * jump_up_power) * jump_charge, ForceMode2D.Impulse);
         //velocity.y = jump_up_power *jump_charge;
-        charge_img.enabled = false; //ui비활성화
+        //charge_img.enabled = false; //ui비활성화
+        charge_img.SetActive(false);
         jump_charge = 0.0f;
-        charge_img.fillAmount = 0.0f; //추가됨
+        //charge_img.fillAmount = 0.0f; //추가됨
+        charge_img.GetComponent<Slider>().value = 0.0f;
+
 
         #region 이전코드
         //Debug.Log((Vector2.up * jump_up_power) * 50 * jump_charge);
