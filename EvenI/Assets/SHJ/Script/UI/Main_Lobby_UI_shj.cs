@@ -17,7 +17,7 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
     public Text story_text;
     public Text btn_text;
 
-    int click_cnt = -1;
+    int click_cnt;
 
     public GameObject main;
     public GameObject story;
@@ -27,7 +27,7 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
     public Slider BGM_value;
     public Slider Effect_value;
 
-
+    bool gamestart;
 
     enum AudioType
     {
@@ -40,10 +40,12 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
 
     private void Start()
     {
+        gamestart = false;
         audio = GetComponent<AudioSource>();
         BackGround_Set();
-        senario = CSVReader.Read("Scenario/opening/opening_scenario");
-        next_text();
+        //senario = CSVReader.Read("Scenario/opening/opening_scenario");
+        //next_text();
+        click_cnt = -1;
         BGM_value.value = GameManager_shj.Getinstance.Save_data.bgm_vol;
         Effect_value.value = GameManager_shj.Getinstance.Save_data.eff_vol;
 
@@ -62,9 +64,10 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
         if (nickname_text.text.Length != 0)
         {
             GameManager_shj.Getinstance.Save_data.nickname = nickname_text.text;
+            GameManager_shj.Getinstance.Save_data.ending[0] = true;
             Data_Save();
-            main.SetActive(false);
-            story.SetActive(true);
+            gamestart = true;
+            Load_Story("opening");
         }
     }
 
@@ -112,25 +115,61 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
                     text_pos.anchoredPosition = new Vector2(0, -10);
                 else text_pos.anchoredPosition = new Vector2(0, 10);
 
-
-
                 //닉네임 부분을 변경
                 if (text.Contains("(닉네임)")) text = text.Replace("(닉네임)", GameManager_shj.Getinstance.Save_data.nickname);
 
                 if (i == 0) story_text.text = text;
                 else story_text.text += "\n" + text;
             }
-
-            if (click_cnt == senario.Count / 3 - 1) btn_text.text = "게임 시작!";
+            btn_text.text = "다음";
+            if (click_cnt == senario.Count / 3 - 1) //스토리 끝났을때
+            {
+                if (gamestart) btn_text.text = "게임 시작!";
+                else btn_text.text = "돌아 가기";
+            }
         }
         else
-            Next_Scene();
+        {
+            if (gamestart) Next_Scene();
+            else
+            {
+                main.SetActive(true);
+                story.SetActive(false);
+            }
+        }
     }
 
+    public void Set_BGM_vol(Slider bar) { GameManager_shj.Getinstance.Volume_Set("BGM",bar.value); }
+
+    public void Set_Effect_vol(Slider bar) { GameManager_shj.Getinstance.Volume_Set("Effect", bar.value); }
+
+    public void Load_Story(string scenario_name)
+    {
+        main.SetActive(false);
+        story.SetActive(true);
+        click_cnt = -1;
+        senario = CSVReader.Read("Scenario/"+ scenario_name + "/" + scenario_name + "_scenario");
+        next_text();
+    }
+   
+    //public override void Return_Scene(int num)
+    //{
+    //    if (num == 0)
+    //        base.Return_Scene(GameManager_shj.Getinstance.Save_data.last_play_scene_num);
+    //    else
+    //        base.Return_Scene(num);
+    //}
+
+    public void btn_test() //버튼 테스트용
+    {
+        Debug.Log(1);
+    }
+
+    //부모클래스에서 변경예정
     public void UI_On_Off() //교체 예정
     {
         GameObject G_obj = EventSystem.current.currentSelectedGameObject.transform.GetChild(0).gameObject;
-        if(EventSystem.current.currentSelectedGameObject.name == "Story_Dictionary_Btn")
+        if (EventSystem.current.currentSelectedGameObject.name == "Story_Dictionary_Btn")
         {
             if (!G_obj.activeSelf)
             {
@@ -141,7 +180,7 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
                 root_UI = G_obj;
             }
         }
-        else if(EventSystem.current.currentSelectedGameObject.name == "Challenge_Btn")
+        else if (EventSystem.current.currentSelectedGameObject.name == "Challenge_Btn")
         {
             audio.clip = clips[(int)AudioType.Lock];
             audio.Play();
@@ -164,27 +203,5 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
         audio.Play();
         if (root_UI != null) root_UI.SetActive(false);
     }
-
-    //public override void Return_Scene(int num)
-    //{
-    //    if (num == 0)
-    //        base.Return_Scene(GameManager_shj.Getinstance.Save_data.last_play_scene_num);
-    //    else
-    //        base.Return_Scene(num);
-    //}
-
-    public void Set_BGM_vol(Slider bar) { GameManager_shj.Getinstance.Volume_Set("BGM",bar.value); }
-
-    public void Set_Effect_vol(Slider bar) { GameManager_shj.Getinstance.Volume_Set("Effect", bar.value); }
-
-    //public void Set_value()
-    //{
-    //    BGM_value.value = GameManager_shj.Getinstance.Save_data.bgm_vol;
-    //    Effect_value.value = GameManager_shj.Getinstance.Save_data.eff_vol;
-    //}
-
-    public void btn_test()
-    {
-        Debug.Log(1);
-    }
+    //여기까지
 }

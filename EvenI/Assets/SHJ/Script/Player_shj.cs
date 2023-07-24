@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public enum Player_State // 플레이어의 상태 달리는중인지, 구르는중인지
 {
@@ -265,7 +266,8 @@ public class Player_shj : MonoBehaviour
             //Debug.Log(jump_charge/(maxJumpPower -minJumpPower) - 1);
             //charge_img.fillAmount = (jump_charge - minJumpPower) / ((jump_charge - minJumpPower) + (maxJumpPower - jump_charge))/*Time.deltaTime*//*jump_charge*/; //수정되었음
             charge_img.GetComponent<Slider>().value = (jump_charge - minJumpPower) / ((jump_charge - minJumpPower) + (maxJumpPower - jump_charge));
-
+            if (charge_img.GetComponent<Slider>().value >= 1.0f)
+                charge_img.GetComponentInChildren<TextMeshProUGUI>().enabled = true;
             //if (timeSlowOnOff)
             //{
             //    Time.timeScale = timeSlowSpeed;
@@ -283,6 +285,7 @@ public class Player_shj : MonoBehaviour
         {
             //test = true;
             jumpBool = true;
+
             //Time.timeScale = 1f;
         }
 
@@ -487,7 +490,7 @@ public class Player_shj : MonoBehaviour
         jump_charge = 0.0f;
         //charge_img.fillAmount = 0.0f; //추가됨
         charge_img.GetComponent<Slider>().value = 0.0f;
-
+        charge_img.GetComponentInChildren<TextMeshProUGUI>().enabled = false;
 
         #region 이전코드
         //Debug.Log((Vector2.up * jump_up_power) * 50 * jump_charge);
