@@ -4,8 +4,21 @@ using UnityEngine;
 
 public class InvisiblsDestroy_HJH : MonoBehaviour
 {
-    private void OnBecameInvisible()
+    Camera cam;
+    private void Start()
     {
-        Destroy(gameObject);
+        cam = Camera.main;
+    }
+
+    private void Update()
+    {
+        Vector3 viewPos = cam.WorldToViewportPoint(transform.position);
+        if (viewPos.x < -1)
+        {
+            if(gameObject.layer != 8)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 }
