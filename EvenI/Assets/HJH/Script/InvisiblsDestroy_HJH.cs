@@ -13,7 +13,7 @@ public class InvisiblsDestroy_HJH : MonoBehaviour
     private void Update()
     {
         Vector3 viewPos = cam.WorldToViewportPoint(transform.position);
-        if (viewPos.x < 0)
+        if (viewPos.x < -1)
         {
             Destroy(gameObject);
         }
