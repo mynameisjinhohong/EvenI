@@ -18,7 +18,7 @@ public class Save_Data_shj : MonoBehaviour
         nickname = "";
         juksun = 0;
         last_play_scene_num = 0;
-        hp = 10;
+        hp = 50;
         ending = new bool[7];
         bgm_vol = 0.5f;
         eff_vol = 0.5f;

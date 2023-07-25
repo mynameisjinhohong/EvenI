@@ -70,8 +70,8 @@ public class Player_shj : MonoBehaviour
 
     public Animator playerAnimator;
     [Header("체력 관련")]
-    public GameObject hp_List;
-    public int maxHP = 10;
+    //public GameObject hp_List;
+    //public int maxHP = 10;
 
 
 
@@ -214,35 +214,35 @@ public class Player_shj : MonoBehaviour
         {
             hit.transform.gameObject.GetComponent<Floor_HJH>().Crash(gameObject);
         }
-        if (hp_List.transform.childCount > 0)
-        {
-            if (Hp != 0)
-            {
-                for (int i = 0; i < 10; i++)
-                {
-                    if (i < hp)
-                    {
-                        hp_List.transform.GetChild(i).gameObject.SetActive(true);
-                    }
-                    else
-                    {
-                        hp_List.transform.GetChild(i).gameObject.SetActive(false);
-                    }
-                }
-            }
-            else if (Hp == 0)
-            {
-                for (int i = 0; i < hp_List.transform.childCount; i++)
-                {
-                    hp_List.transform.GetChild(i).gameObject.SetActive(false);
-                }
-            }
+        //if (hp_List.transform.childCount > 0)
+        //{
+        //    if (Hp != 0)
+        //    {
+        //        for (int i = 0; i < 10; i++)
+        //        {
+        //            if (i < hp)
+        //            {
+        //                hp_List.transform.GetChild(i).gameObject.SetActive(true);
+        //            }
+        //            else
+        //            {
+        //                hp_List.transform.GetChild(i).gameObject.SetActive(false);
+        //            }
+        //        }
+        //    }
+        //    else if (Hp == 0)
+        //    {
+        //        for (int i = 0; i < hp_List.transform.childCount; i++)
+        //        {
+        //            hp_List.transform.GetChild(i).gameObject.SetActive(false);
+        //        }
+        //    }
 
-        }
-        if (hp < 1)
-        {
+        //}
+        //if (hp < 1)
+        //{
 
-        }
+        //}
         #endregion
         if (!gameClear)
         {

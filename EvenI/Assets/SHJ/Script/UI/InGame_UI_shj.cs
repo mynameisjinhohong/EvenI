@@ -21,7 +21,7 @@ public class InGame_UI_shj : UI_Setting_shj
 
     int count;
 
-    int recovery;
+    public int hp_cnt;
     int next_scene_cnt = 0;
 
     bool gamestart;
@@ -33,14 +33,14 @@ public class InGame_UI_shj : UI_Setting_shj
 
     private void Awake()
     {
-        if(Hp_list.childCount == 0)
-        {
-            for (int i = 0; i < GameManager_shj.Getinstance.Save_data.hp; i++)
-            {
-                GameObject obj = Instantiate(Hp);
-                obj.transform.parent = Hp_list;
-            }
-        }
+        //if(Hp_list.childCount == 0)
+        //{
+        //    for (int i = 0; i < GameManager_shj.Getinstance.Save_data.hp; i++)
+        //    {
+        //        GameObject obj = Instantiate(Hp);
+        //        obj.transform.parent = Hp_list;
+        //    }
+        //}
         Advertisement.Initialize(gameID, true);
         count = GameManager_shj.Getinstance.Save_data.juksun;
     }
@@ -58,7 +58,7 @@ public class InGame_UI_shj : UI_Setting_shj
     private void Update()
     {
         count_text.text = count.ToString();
-
+        hp_cnt = player.GetComponent<Player_shj>().hp;
         if (!gamestart)
         {
             Count_down();
