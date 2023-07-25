@@ -9,9 +9,9 @@ using UnityEngine.SceneManagement;
 public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
 {
     public Sprite[] background_list;
+    public Sprite[] bg_image_list;
     public Image background;
 
-    public Sprite[] bg_image_list;
 
     public Image story_bg;
 
