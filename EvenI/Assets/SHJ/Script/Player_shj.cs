@@ -614,7 +614,6 @@ public class Player_shj : MonoBehaviour
             {
                 rigid.velocity = Vector2.right * speed;
                 nuckBackDuring = false;
-                Debug.Log("Done");
                 break;
             }
         }
