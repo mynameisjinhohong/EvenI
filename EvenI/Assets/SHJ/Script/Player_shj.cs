@@ -141,6 +141,8 @@ public class Player_shj : MonoBehaviour
     public bool gameClear = false;
     float slowTime = 0f;
 
+    Vector3 hitpoint;
+
     public void Start()
     {
         cam = Camera.main;
@@ -150,10 +152,14 @@ public class Player_shj : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         player_State = Player_State.Run;
         default_size = transform.localScale.x;
+        charge_img.SetActive(false);
+        Debug.Log(Time.fixedDeltaTime);
+        Debug.Log(rigid.velocity);
     }
 
     private void Update()
     {
+       
         //Debug.Log(transform.localPosition);
         //이전 코드 주석으로 놔둠
         #region test
@@ -201,7 +207,8 @@ public class Player_shj : MonoBehaviour
         //}
         if (transform.position.y < -6)
         {
-            GameOver();
+            if (hp <= 2) GameOver();
+            else Respawn();
         }
         //RaycastHit2D hit = Physics2D.Raycast(rayPoint[0].position, Vector2.up, transform.localScale.x / 2, LayerMask.GetMask("ground"));
         RaycastHit2D hit = Physics2D.BoxCast(rayPoint[0].position, new Vector2(gameObject.transform.localScale.x * 1.6f, gameObject.transform.localScale.y), 0, Vector2.up, transform.localScale.x / 2, LayerMask.GetMask("ground"));
@@ -349,6 +356,8 @@ public class Player_shj : MonoBehaviour
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
+        Gizmos.DrawSphere(hitpoint,1.0f);
+
         #region 과거 코드
         //RaycastHit2D hit = Physics2D.Raycast(rayPoint[0].position, Vector2.up, transform.localScale.x / 2, LayerMask.GetMask("ground"));
         //if (hit.collider != null)
@@ -650,5 +659,17 @@ public class Player_shj : MonoBehaviour
         playerAnimator.SetTrigger("RollEnd");
         rollStart = false;
         //playerAnimator.SetBool("Rolling", false);
+    }
+
+    public void Respawn()
+    {
+        rigid.velocity = Vector2.zero;
+        RaycastHit2D hit = Physics2D.Raycast(transform.localPosition + new Vector3(-15f, 20, 0), Vector3.down, 30.0f);
+        transform.localPosition = hit.point + (Vector2)Vector3.up;
+        Camera.main.transform.position = new Vector3((transform.position + new Vector3(camera_distance, 0, 0)).x, 2, -10);//플레이어한테 맞춰서 카메라 배치
+
+        if (hp - 2 > 0) Hp -= 2;
+
+        ui.Start();
     }
 }
