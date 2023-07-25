@@ -2994,15 +2994,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e9d2cff12a69794fa9ac6ec671a1d05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  background_list: []
+  background_list:
+  - {fileID: 21300000, guid: a5994bc292ff98843b67290d41ab7126, type: 3}
+  - {fileID: 21300000, guid: cbbeac5852acd1e46906e2eaa8d78065, type: 3}
+  - {fileID: 21300000, guid: edc3a507922edf24caf9e08e7ccb8d5f, type: 3}
+  - {fileID: 21300000, guid: 2b6609bf28427ee46a514a2cdd02e593, type: 3}
+  - {fileID: 21300000, guid: 9cbf5fe3842ceb84eb1ce0e75548b6cb, type: 3}
   background: {fileID: 0}
   bg_image_list: []
   story_bg: {fileID: 0}
   player: {fileID: 3992068706154788433}
   count_text: {fileID: 3992068704595895198}
+  hp_cnt: {fileID: 5492627314248165322}
   Hp: {fileID: 260949744689100720, guid: bbb0f0b7d8371784484977d7a865e6b0, type: 3}
   Hp_list: {fileID: 3992068705703599506}
   count_down_txt: {fileID: 7577814354904086388}
+  select_panel: {fileID: 2009677573279888749}
 --- !u!1 &3992068704782450276
 GameObject:
   m_ObjectHideFlags: 0
@@ -4426,8 +4433,6 @@ MonoBehaviour:
   jumping: 0
   charge_img: {fileID: 8724385207671885189}
   playerAnimator: {fileID: 3992068706154788462}
-  hp_List: {fileID: 3992068705703599509}
-  maxHP: 9
   Hp: 9
   rayPoint:
   - {fileID: 1690987540}

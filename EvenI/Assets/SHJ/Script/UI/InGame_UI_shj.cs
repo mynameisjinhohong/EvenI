@@ -7,27 +7,29 @@ using UnityEngine.Advertisements;
 using UnityEngine.SceneManagement;
 
 
-
 public class InGame_UI_shj : UI_Setting_shj
 {
     public TextMeshProUGUI count_text;
+    public TextMeshProUGUI hp_cnt;
     public GameObject Hp;
     public Transform Hp_list;
 
     public GameObject count_down_txt;
+    public GameObject select_panel;
 
     string gameID = "5343352";
     string adType = "Rewarded_Android";
 
     int count;
 
-    public int hp_cnt;
     int next_scene_cnt = 0;
 
     bool gamestart;
     float countdown;
 
     Vector3 hitpoint;
+
+    List<int> scene_chk = new List<int>() { 3 };
 
     public int Count { get {  return count; } set { count = value; } }
 
@@ -43,6 +45,7 @@ public class InGame_UI_shj : UI_Setting_shj
         //}
         Advertisement.Initialize(gameID, true);
         count = GameManager_shj.Getinstance.Save_data.juksun;
+        player.GetComponent<Player_shj>().hp = GameManager_shj.Getinstance.Save_data.hp;
     }
 
     private void Start()
@@ -53,12 +56,25 @@ public class InGame_UI_shj : UI_Setting_shj
         countdown = 3.9f;
         Time.timeScale = 1.0f;
         //카운트다운 3초 필요
+        next_scene_cnt = SceneManager.GetActiveScene().buildIndex > 3 ? 4 : 1;
+        if(Select_chk)
+        {
+            int num = SceneManager.GetActiveScene().buildIndex;
+            select_panel.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(() => Set_cnt(next_scene_cnt));
+            select_panel.transform.GetChild(0).GetComponent<Image>().sprite = bg_image_list[(num + 1) / 3 - 1];
+
+            select_panel.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(() => Set_cnt(next_scene_cnt + 3));
+            select_panel.transform.GetChild(1).GetComponent<Image>().sprite = bg_image_list[(num + 4) / 3 - 1];
+
+        }
     }
+
+    void Set_cnt(int value) { next_scene_cnt = value; }
 
     private void Update()
     {
         count_text.text = count.ToString();
-        hp_cnt = player.GetComponent<Player_shj>().hp;
+        hp_cnt.text = player.GetComponent<Player_shj>().hp.ToString();
         if (!gamestart)
         {
             Count_down();
@@ -118,15 +134,10 @@ public class InGame_UI_shj : UI_Setting_shj
             case ShowResult.Skipped:
             case ShowResult.Finished:
 
-               if(player.GetComponent<Player_shj>().Hp + 1 <= 10)
-                    player.GetComponent<Player_shj>().Hp += 1;
+               if(player.GetComponent<Player_shj>().hp + 1 <= 10)
+                    player.GetComponent<Player_shj>().hp += 1;
                 break;
         }
-    }
-
-    public override void Data_change(int cnt)
-    {
-        base.Data_change(count);
     }
 
     public void Restart_Check(GameObject ads)
@@ -152,6 +163,21 @@ public class InGame_UI_shj : UI_Setting_shj
         player.GetComponent<Player_shj>().hp = hp;
 
         Start();
+    }
+
+    public bool Select_chk { get { return scene_chk.Contains(SceneManager.GetActiveScene().buildIndex); } }
+
+    public void Change_Scene()
+    {
+        if (Select_chk)
+        {
+
+        }
+        else
+        {
+
+        }
+        Data_change(count, next_scene_cnt);
     }
 
     //public void Next_Scene_num(int num) { next_scene_cnt = num; }

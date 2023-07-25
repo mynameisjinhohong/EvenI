@@ -75,7 +75,7 @@ public class Player_shj : MonoBehaviour
 
 
 
-    public int Hp;
+    int Hp;
 
     public Transform[] rayPoint;
     public int hp
@@ -138,13 +138,13 @@ public class Player_shj : MonoBehaviour
     float test = 0.0f;
     public bool gameClear = false;
     float slowTime = 0f;
+
     public void Start()
     {
         cam = Camera.main;
         soundManager = GetComponentInChildren<SoundManager_HJH>();
         audio = GetComponent<AudioSource>();
         playerAnimator.SetFloat("RollSpeed", rolling_Speed);
-        Hp = GameManager_shj.Getinstance.Save_data.hp;
         rigid = GetComponent<Rigidbody2D>();
         player_State = Player_State.Run;
         default_size = transform.localScale.x;
