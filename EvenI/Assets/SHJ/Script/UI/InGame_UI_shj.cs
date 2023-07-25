@@ -31,7 +31,8 @@ public class InGame_UI_shj : UI_Setting_shj
 
     List<int> scene_chk = new List<int>() { 3 };
     public int Count { get {  return count; } set { count = value; } }
-    public bool Ending { get { return (SceneManager.GetActiveScene().buildIndex / 3 > 3 && SceneManager.GetActiveScene().buildIndex % 3 != 0); } };
+    public bool Ending
+    { get { return (SceneManager.GetActiveScene().buildIndex / 3 > 3 && SceneManager.GetActiveScene().buildIndex % 3 != 0); } }
 
 
 
