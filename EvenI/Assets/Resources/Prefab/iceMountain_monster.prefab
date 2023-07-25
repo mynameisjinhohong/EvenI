@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 7376557025014948102}
   - component: {fileID: 7376557025014948101}
   - component: {fileID: 7376557025014948100}
-  - component: {fileID: 7223714915278566575}
+  - component: {fileID: -283162251120750424}
   - component: {fileID: 5005716711394636789}
+  - component: {fileID: 3838892107610718313}
   m_Layer: 0
   m_Name: iceMountain_monster
   m_TagString: Untagged
@@ -107,7 +108,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7223714915278566575
+--- !u!114 &-283162251120750424
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,10 +117,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 7376557025014948099}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 261c76b538c77f941a53992ec2aefe3b, type: 3}
+  m_Script: {fileID: 11500000, guid: 3aefdb3ecb28f6f47aed3a1fd0e58c35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  startDistance: 20
+  runningTime: 1
+  runSpeed: 10
+  jumpPower: 10
+  angle: 110
 --- !u!61 &5005716711394636789
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -130,7 +136,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -146,3 +152,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.415, y: 2.925}
   m_EdgeRadius: 0
+--- !u!50 &3838892107610718313
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7376557025014948099}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
