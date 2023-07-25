@@ -74,6 +74,7 @@ public class IceMonster_HJH : Object_Manager_shj
     {
         if (collision.gameObject.tag == "Player" && !Out)
         {
+            GameObject.Find("SoundManager").GetComponent<SoundManager_HJH>().ObjectBreakSoundPlay();
             Active(collision.gameObject);
             rigid.velocity = move;
             gameObject.layer = 3;

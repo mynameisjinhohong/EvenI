@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7476808399243300289}
   - component: {fileID: 7476808399243300290}
   - component: {fileID: 7476808399243300291}
-  - component: {fileID: 7476808399243300292}
+  - component: {fileID: 5554758253986299594}
   m_Layer: 0
   m_Name: iceMountain_rabbit
   m_TagString: Untagged
@@ -133,7 +133,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.9717883, y: 2.2005882}
   m_EdgeRadius: 0
---- !u!114 &7476808399243300292
+--- !u!114 &5554758253986299594
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,7 +142,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 7476808399243300293}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 261c76b538c77f941a53992ec2aefe3b, type: 3}
+  m_Script: {fileID: 11500000, guid: 8fea1f445506fdd4dbd2a1056c4dd62d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
