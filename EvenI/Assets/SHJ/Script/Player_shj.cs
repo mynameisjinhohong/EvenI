@@ -65,7 +65,7 @@ public class Player_shj : MonoBehaviour
     [SerializeField]
     bool jumping = false; //점프중인지 아닌지 확인
     bool floorCheck = true; //점프 하고 잠깐동안 바닥 체크 안하게
-    float jump_charge = 0.0f; //점프력 충전
+    public float jump_charge = 0.0f; //점프력 충전
     public GameObject charge_img;
     //public Image charge_img; //점프 게이지
     //int jump_cnt = 0; //점프횟수 2단점프때 사용
@@ -131,7 +131,7 @@ public class Player_shj : MonoBehaviour
     [Header("임시로 만들어본 것들")]
     public bool isFloor = false;
     public float gravity = -9.81f;
-    bool jumpBool = false;
+    public bool jumpBool = false;
     bool nuckBackBool = false;
     bool nuckBackDuring = false;
     public bool upCrushCheck = false; //위에 부딪혔을 때
