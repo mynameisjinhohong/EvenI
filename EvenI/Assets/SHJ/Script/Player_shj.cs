@@ -17,9 +17,11 @@ public class Player_shj : MonoBehaviour
     SoundManager_HJH soundManager;
     Camera cam;
 
+    public InGame_UI_shj ui;
     public LineRenderer predictLine;
     public GameObject gameOverPanel;
     public GameObject gameClearPanel;
+    public GameObject selectPanel;
     [Range(0.0f, 10.0f)]
     public float camera_distance;
 
@@ -253,7 +255,8 @@ public class Player_shj : MonoBehaviour
             Vector3 viewPos = cam.WorldToViewportPoint(transform.position);
             if (viewPos.x > 1 && viewPos.z > 0)
             {
-                gameClearPanel.SetActive(true);
+                if (ui.Select_chk) selectPanel.SetActive(true);
+                else gameClearPanel.SetActive(true);
                 gameOverPanel.SetActive(false);
                 gameObject.GetComponent<SpriteRenderer>().enabled = false;
             }

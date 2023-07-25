@@ -30,8 +30,11 @@ public class InGame_UI_shj : UI_Setting_shj
     Vector3 hitpoint;
 
     List<int> scene_chk = new List<int>() { 3 };
-
     public int Count { get {  return count; } set { count = value; } }
+    public bool Ending
+    { get { return (SceneManager.GetActiveScene().buildIndex / 3 > 3 && SceneManager.GetActiveScene().buildIndex % 3 != 0); } }
+
+
 
     private void Awake()
     {
@@ -61,10 +64,10 @@ public class InGame_UI_shj : UI_Setting_shj
         {
             int num = SceneManager.GetActiveScene().buildIndex;
             select_panel.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(() => Set_cnt(next_scene_cnt));
-            select_panel.transform.GetChild(0).GetComponent<Image>().sprite = bg_image_list[(num + 1) / 3 - 1];
+            select_panel.transform.GetChild(0).GetComponent<Image>().sprite = background_list[(num + 1) / 3 - 1];
 
             select_panel.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(() => Set_cnt(next_scene_cnt + 3));
-            select_panel.transform.GetChild(1).GetComponent<Image>().sprite = bg_image_list[(num + 4) / 3 - 1];
+            select_panel.transform.GetChild(1).GetComponent<Image>().sprite = background_list[(num + 4) / 3 - 1];
 
         }
     }
@@ -169,14 +172,11 @@ public class InGame_UI_shj : UI_Setting_shj
 
     public void Change_Scene()
     {
-        if (Select_chk)
-        {
+        if (Select_chk) Return_Scene(SceneManager.GetActiveScene().buildIndex + next_scene_cnt);
+        else if(SceneManager.GetActiveScene().buildIndex == 6)
+            Return_Scene(10);
+        else Next_Scene();
 
-        }
-        else
-        {
-
-        }
         Data_change(count, next_scene_cnt);
     }
 
