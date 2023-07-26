@@ -8,7 +8,7 @@ public class MapScrolling_HJH : MonoBehaviour
     Player_shj play;
     public GameObject[] bgs;
     public GameObject[] bgParents;
-    public float distance;
+    float distance = 15;
     int nowBg;
     Vector3 bgSize;
     // Start is called before the first frame update
