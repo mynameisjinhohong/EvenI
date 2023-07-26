@@ -139,11 +139,14 @@ public class Player_shj : MonoBehaviour
     float test = 0.0f;
     public bool gameClear = false;
     float slowTime = 0f;
-
+    Vector2 colSize;
+    Vector2 colOffset;
     Vector3 hitpoint;
 
     public void Start()
     {
+        colOffset = boxCol.offset;
+        colSize = boxCol.size;
         cam = Camera.main;
         soundManager = GetComponentInChildren<SoundManager_HJH>();
         audio = GetComponent<AudioSource>();
@@ -494,7 +497,7 @@ public class Player_shj : MonoBehaviour
         }
         if (floorCheck)
         {
-            RaycastHit2D hit = Physics2D.Raycast(gameObject.transform.position - new Vector3(0, boxCol.size.y * transform.localScale.y * 0.5f),Vector2.down ,0.1f, LayerMask.GetMask("ground"));
+            RaycastHit2D hit = Physics2D.Raycast(gameObject.transform.position - new Vector3(0, boxCol.size.y * transform.localScale.y * 0.5f - boxCol.offset.y), Vector2.down ,0.1f, LayerMask.GetMask("ground"));
             if (hit.collider == null)
             {
                 rigid.AddForce(Vector2.down * gravity);
@@ -507,7 +510,6 @@ public class Player_shj : MonoBehaviour
             {
                 if (hit.collider != null)
                 {
-                    //Debug.Log("Floor");
                     isFloor = true;
                     if (jumping)
                     {
@@ -687,7 +689,11 @@ public class Player_shj : MonoBehaviour
     {
         //boxCol.isTrigger = true; //임시 주석
         playerAnimator.SetTrigger("Roll"); //구르기 애니메이션 작동
+        boxCol.offset = Vector2.zero;
+        boxCol.size = new Vector2(1.5f, 1.5f);
         yield return new WaitForSeconds(rolling_time); //일정시간동안 구르기진행
+        boxCol.offset = colOffset;
+        boxCol.size = colSize;
         player_State = Player_State.Run; //달리는 상태로 복귀
         //boxCol.isTrigger = false; //임시 주석
         playerAnimator.SetTrigger("RollEnd");
