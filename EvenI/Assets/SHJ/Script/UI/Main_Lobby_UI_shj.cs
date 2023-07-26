@@ -31,12 +31,10 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
 
     private void Start()
     {
-        gamestart = false;
         audio = GetComponent<AudioSource>();
         BackGround_Set();
         //senario = CSVReader.Read("Scenario/opening/opening_scenario");
         //next_text();
-        click_cnt = -1;
 
         BGM_value.value = GameManager_shj.Getinstance.Save_data.bgm_vol;
         Effect_value.value = GameManager_shj.Getinstance.Save_data.eff_vol;
