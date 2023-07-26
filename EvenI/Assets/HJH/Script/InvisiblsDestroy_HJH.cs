@@ -4,13 +4,8 @@ using UnityEngine;
 
 public class InvisiblsDestroy_HJH : MonoBehaviour
 {
-
-    private void Start()
-    {
-    }
-
     private void OnBecameInvisible()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }
