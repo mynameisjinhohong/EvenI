@@ -50,6 +50,7 @@ public class InGame_UI_shj : UI_Setting_shj
         game_start = false;
         countdown = 3.5f;
         Time.timeScale = 1.0f;
+        Time.fixedDeltaTime = 0.0f;
         //카운트다운 3초 필요
         next_scene_cnt = SceneManager.GetActiveScene().buildIndex > 3 ? 4 : 1;
         if(Select_chk)
@@ -76,6 +77,7 @@ public class InGame_UI_shj : UI_Setting_shj
     {
         if (countdown < 1.0f)
         {
+            Time.fixedDeltaTime = 0.02f;
             game_start = true;
             count_down_txt.GetComponent<TextMeshProUGUI>().text = SceneManager.GetActiveScene().name +  "\nSTART!";
             count_down_txt.GetComponent<TextMeshProUGUI>().fontSize = 140;
