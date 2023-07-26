@@ -11,8 +11,6 @@ public class InGame_UI_shj : UI_Setting_shj
 {
     public TextMeshProUGUI count_text;
     public TextMeshProUGUI hp_cnt;
-    public GameObject Hp;
-    public Transform Hp_list;
 
     public GameObject count_down_txt;
     public GameObject select_panel;
@@ -132,8 +130,11 @@ public class InGame_UI_shj : UI_Setting_shj
                     respawn = false;
                     player.GetComponent<Player_shj>().hp += 1;
                 }
-                if (player.GetComponent<Player_shj>().hp + 1 <= 10)
+                if (player.GetComponent<Player_shj>().hp + 1 <= 50)
+                {
                     player.GetComponent<Player_shj>().hp += 1;
+                    hp_cnt.text = (int.Parse(hp_cnt.text) + 1).ToString(); 
+                }
                 break;
         }
     }
