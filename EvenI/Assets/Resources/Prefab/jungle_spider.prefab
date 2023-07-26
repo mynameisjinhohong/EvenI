@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1545792331601186766}
   - component: {fileID: 1545792331601186760}
   - component: {fileID: 1545792331601186767}
-  - component: {fileID: 1545792331601186762}
+  - component: {fileID: 2879075357997765150}
   - component: {fileID: 1545792331601186761}
   m_Layer: 0
   m_Name: jungle_spider
@@ -107,7 +107,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1545792331601186762
+--- !u!114 &2879075357997765150
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,10 +116,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1545792331601186765}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 261c76b538c77f941a53992ec2aefe3b, type: 3}
+  m_Script: {fileID: 11500000, guid: 878a4ff2e76dce94d934b367cd6ca5d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  startDistance: 15
+  downSpeed: 10
+  downTime: 0.5
 --- !u!61 &1545792331601186761
 BoxCollider2D:
   m_ObjectHideFlags: 0

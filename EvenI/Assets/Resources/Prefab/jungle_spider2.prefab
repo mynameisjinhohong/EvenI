@@ -96,8 +96,8 @@ GameObject:
   - component: {fileID: 4193802703997315878}
   - component: {fileID: 4662186037026405769}
   - component: {fileID: 8405493413481203216}
+  - component: {fileID: 6867133907088072098}
   - component: {fileID: 7732040589855626214}
-  - component: {fileID: 946396659124424525}
   m_Layer: 0
   m_Name: jungle_spider2
   m_TagString: Untagged
@@ -192,6 +192,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6867133907088072098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7829556843922678948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 878a4ff2e76dce94d934b367cd6ca5d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
+  startDistance: 15
+  downSpeed: 10
+  downTime: 0.5
 --- !u!61 &7732040589855626214
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -218,16 +234,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.346129, y: 1.6543887}
   m_EdgeRadius: 0
---- !u!114 &946396659124424525
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7829556843922678948}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 261c76b538c77f941a53992ec2aefe3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 1

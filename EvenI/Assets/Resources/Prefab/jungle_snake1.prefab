@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 248496398652540447}
   - component: {fileID: 248496398652540440}
   - component: {fileID: 248496398652540441}
-  - component: {fileID: 6617202481440495749}
+  - component: {fileID: 2414088511635347356}
   - component: {fileID: 5678948007302734852}
   m_Layer: 0
   m_Name: jungle_snake1
@@ -107,7 +107,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6617202481440495749
+--- !u!114 &2414088511635347356
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,10 +116,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 248496398652540442}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 261c76b538c77f941a53992ec2aefe3b, type: 3}
+  m_Script: {fileID: 11500000, guid: 50690b36622c0804dacfd047f0f632f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  startDistance: 25
+  moveSpeed: 5
+  moveTime: 1
+  waitTime: 1
 --- !u!61 &5678948007302734852
 BoxCollider2D:
   m_ObjectHideFlags: 0

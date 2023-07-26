@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3615270053458216481}
   - component: {fileID: 7859228664038482154}
   - component: {fileID: 3048172382572715719}
-  - component: {fileID: 3216017126018883655}
+  - component: {fileID: 7756513612265048813}
   m_Layer: 0
   m_Name: jungle_snake2
   m_TagString: Untagged
@@ -133,7 +133,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.45, y: 1.65}
   m_EdgeRadius: 0
---- !u!114 &3216017126018883655
+--- !u!114 &7756513612265048813
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,7 +142,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1844396496366760416}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 261c76b538c77f941a53992ec2aefe3b, type: 3}
+  m_Script: {fileID: 11500000, guid: 50690b36622c0804dacfd047f0f632f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  startDistance: 25
+  moveSpeed: 5
+  moveTime: 1
+  waitTime: 1
