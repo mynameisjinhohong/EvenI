@@ -697,12 +697,12 @@ public class Player_shj : MonoBehaviour
 
     public void Respawn()
     {
-        float default_x = -15.0f;
+        float default_x = 0;
         rigid.velocity = Vector2.zero;
-        RaycastHit2D hit = Physics2D.Raycast(transform.localPosition + new Vector3(default_x, 10, 0), Vector3.down, 30.0f);
 
+        RaycastHit2D hit = Physics2D.Raycast(new Vector3(transform.localPosition.x + default_x, 10, 0), Vector3.down, 30.0f);
 
-        while (hit.point == Vector2.zero)
+        while (hit.collider == null && hit.collider.gameObject.layer != 8)
         {
             default_x += 1.0f;
             hit = Physics2D.Raycast(transform.localPosition + new Vector3(default_x, 10, 0), Vector3.down, 30.0f);
