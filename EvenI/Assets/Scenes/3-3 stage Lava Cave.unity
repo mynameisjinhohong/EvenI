@@ -27716,6 +27716,7 @@ MonoBehaviour:
   - {fileID: 629820157}
   - {fileID: 1735737244}
   - {fileID: 1076004296}
+  bgParents: []
   distance: 10
 --- !u!4 &589694005
 Transform:
@@ -27733,8 +27734,9 @@ Transform:
   - {fileID: 907986405}
   - {fileID: 1735737246}
   - {fileID: 1076004298}
+  - {fileID: 832633438}
   m_Father: {fileID: 0}
-  m_RootOrder: 82
+  m_RootOrder: 81
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &590934051
 PrefabInstance:
@@ -39941,8 +39943,8 @@ Transform:
   m_LocalScale: {x: 0.5005475, y: 0.6718226, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 81
+  m_Father: {fileID: 589694005}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &832633439
 SpriteRenderer:
