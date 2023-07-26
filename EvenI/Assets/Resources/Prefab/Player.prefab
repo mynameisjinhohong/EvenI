@@ -3570,8 +3570,6 @@ MonoBehaviour:
   hidden2_img: []
   count_text: {fileID: 3992068704595895198}
   hp_cnt: {fileID: 5492627314248165322}
-  Hp: {fileID: 260949744689100720, guid: bbb0f0b7d8371784484977d7a865e6b0, type: 3}
-  Hp_list: {fileID: 3992068705703599506}
   count_down_txt: {fileID: 7577814354904086388}
   select_panel: {fileID: 2009677573279888749}
 --- !u!1 &3992068704782450276
@@ -7084,7 +7082,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
