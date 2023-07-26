@@ -455,8 +455,7 @@ public class Player_shj : MonoBehaviour
         {
             Gizmos.DrawRay(rayPoint[1].position, Vector2.right * transform.localScale.x / 2);
         }
-        hit = Physics2D.Raycast(this.gameObject.transform.position, Vector2.down, transform.localScale.y, LayerMask.GetMask("ground"));
-        Gizmos.DrawRay(gameObject.transform.position, Vector2.down * transform.localScale.y);
+        Gizmos.DrawRay(gameObject.transform.position, Vector2.down * gameObject.GetComponent<BoxCollider2D>().size.y/2);
     }
     //private void FixedUpdate()
     //{
@@ -495,7 +494,7 @@ public class Player_shj : MonoBehaviour
         }
         if (floorCheck)
         {
-            RaycastHit2D hit = Physics2D.Raycast(this.gameObject.transform.position, Vector2.down, transform.localScale.y, LayerMask.GetMask("ground"));
+            RaycastHit2D hit = Physics2D.Raycast(this.gameObject.transform.position, Vector2.down, gameObject.GetComponent<BoxCollider2D>().size.y/2, LayerMask.GetMask("ground"));
             if (hit.collider == null)
             {
                 rigid.AddForce(Vector2.down * gravity);
