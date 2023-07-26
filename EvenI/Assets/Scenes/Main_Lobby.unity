@@ -5116,17 +5116,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: edc3a507922edf24caf9e08e7ccb8d5f, type: 3}
   - {fileID: 21300000, guid: 9cbf5fe3842ceb84eb1ce0e75548b6cb, type: 3}
   - {fileID: 21300000, guid: 2b6609bf28427ee46a514a2cdd02e593, type: 3}
-  bg_image_list:
-  - {fileID: 21300000, guid: 9edf88ae67e094b3cb3b788b80b98798, type: 3}
-  - {fileID: 21300000, guid: 0d9b985d19dc8cd41a9a1ac6c89298c3, type: 3}
-  - {fileID: 21300000, guid: 4e3bc9c66355bfc4d81a3d88e7681f2a, type: 3}
-  - {fileID: 21300000, guid: b8f2796def1c04945a6d95e0a5dab01c, type: 3}
-  - {fileID: 21300000, guid: 37ae9c955f0dc1142ae8f3e7e88e7196, type: 3}
-  - {fileID: 21300000, guid: 3cd48d43a49741747b0548a70f7599c8, type: 3}
-  - {fileID: 21300000, guid: fd99db9ffe551744884784b6ded59080, type: 3}
-  - {fileID: 21300000, guid: 18d610648f6bda04290db0d76a6e38dc, type: 3}
-  - {fileID: 21300000, guid: d9f7c842be2ee174697256c9b6050d16, type: 3}
-  - {fileID: 21300000, guid: cd559c2cdf9c2014a80e9bf630c64d16, type: 3}
   background: {fileID: 13407785}
   story_bg: {fileID: 1122715287}
   player: {fileID: 0}
@@ -17533,8 +17522,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 429507004}
-        m_TargetAssemblyTypeName: UI_Setting_shj, Assembly-CSharp
-        m_MethodName: Next_Scene
+        m_TargetAssemblyTypeName: Main_Lobby_UI_shj, Assembly-CSharp
+        m_MethodName: Skip_btn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

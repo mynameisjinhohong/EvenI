@@ -30,7 +30,8 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
 
     bool gamestart;
 
-    string[] scenario_name = { "opening", "ending1", "ending2", "ending3", "ending4", "hidden1", "hidden1" };
+    //string[] scenario_name = { "opening", "ending1", "ending2", "ending3", "ending4", "hidden1", "hidden1" };
+
 
     enum AudioType
     {
@@ -115,7 +116,7 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
 
                 //수정필요
                 if (i == 2 && senario[i + 3 * click_cnt]["image_num"].ToString() != "")
-                    story_bg.sprite = bg_image_list[int.Parse(senario[i + 3 * click_cnt]["image_num"].ToString())];
+                    story_bg.sprite = scenario_img[int.Parse(senario[i + 3 * click_cnt]["image_num"].ToString()) - 1];
 
                 if (i == 2 && senario[i + 3 * click_cnt]["font_size"].ToString() != "")
                     story_text.fontSize = int.Parse(senario[i + 3 * click_cnt]["font_size"].ToString());
@@ -149,12 +150,24 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
         }
     }
 
+    public void Skip_btn()
+    {
+        if (gamestart) Next_Scene();
+        else
+        {
+            story.SetActive(false);
+            main.SetActive(true);
+        }
+    }
+
     public void Set_BGM_vol(Slider bar) { GameManager_shj.Getinstance.Volume_Set("BGM",bar.value); }
 
     public void Set_Effect_vol(Slider bar) { GameManager_shj.Getinstance.Volume_Set("Effect", bar.value); }
 
     public void Load_Story(string scenario_name)
     {
+        scenario_img = Resources.LoadAll<Sprite>("Scenario/" + scenario_name);
+        Debug.Log(scenario_img.Length);
         main.SetActive(false);
         story.SetActive(true);
         click_cnt = -1;
