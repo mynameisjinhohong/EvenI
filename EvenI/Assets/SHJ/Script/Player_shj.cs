@@ -695,8 +695,17 @@ public class Player_shj : MonoBehaviour
 
     public void Respawn()
     {
+        float default_x = -15.0f;
         rigid.velocity = Vector2.zero;
-        RaycastHit2D hit = Physics2D.Raycast(transform.localPosition + new Vector3(-15f, 20, 0), Vector3.down, 30.0f);
+        RaycastHit2D hit = Physics2D.Raycast(transform.localPosition + new Vector3(default_x, 10, 0), Vector3.down, 30.0f);
+
+
+        while (hit.point == Vector2.zero)
+        {
+            default_x += 1.0f;
+            hit = Physics2D.Raycast(transform.localPosition + new Vector3(default_x, 10, 0), Vector3.down, 30.0f);
+        }
+
         transform.localPosition = hit.point + (Vector2)Vector3.up;
         Camera.main.transform.position = new Vector3((transform.position + new Vector3(camera_distance, 0, 0)).x, 2, -10);//플레이어한테 맞춰서 카메라 배치
 
