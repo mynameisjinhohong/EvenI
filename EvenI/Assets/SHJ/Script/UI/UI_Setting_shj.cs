@@ -155,7 +155,6 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
 
     public void Load_Story(string scenario_name) //--
     {
-        Debug.Log(scenario_name);
         switch (scenario_name)
         {
             case "opening":

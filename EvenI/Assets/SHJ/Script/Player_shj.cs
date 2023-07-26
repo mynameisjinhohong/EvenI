@@ -154,8 +154,6 @@ public class Player_shj : MonoBehaviour
         player_State = Player_State.Run;
         default_size = transform.localScale.x;
         charge_img.SetActive(false);
-        Debug.Log(Time.fixedDeltaTime);
-        Debug.Log(rigid.velocity);
     }
 
     private void Update()

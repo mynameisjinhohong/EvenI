@@ -21,7 +21,8 @@ public class Floor_HJH : MonoBehaviour
     {
         if(player.transform.position.y < transform.position.y || player.transform.position.x < transform.position.x - (transform.localScale.x/2))
         {
-            //Debug.Log("3 : " + player.transform.position.x.ToString() + "\n4 : " + (transform.position.x - (transform.localScale.x / 2)));
+            //
+            //("3 : " + player.transform.position.x.ToString() + "\n4 : " + (transform.position.x - (transform.localScale.x / 2)));
             box.isTrigger = true;
             StopAllCoroutines();
             StartCoroutine(TriggerOff());
