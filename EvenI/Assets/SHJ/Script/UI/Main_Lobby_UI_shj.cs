@@ -23,11 +23,14 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
     public GameObject story;
     public GameObject set_nickname;
     public GameObject continue_stage;
+    public GameObject scenario_info;
 
     public Slider BGM_value;
     public Slider Effect_value;
 
     bool gamestart;
+
+    string[] scenario_name = { "opening", "ending1", "ending2", "ending3", "ending4", "hidden1", "hidden1" };
 
     enum AudioType
     {
@@ -55,9 +58,16 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
             target = scenario_list[i].transform.GetChild(0).GetChild(0).gameObject;
 
             if (GameManager_shj.Getinstance.Save_data.ending[i]) target.transform.GetChild(0).gameObject.SetActive(true);
-            else target.transform.GetChild(1).gameObject.SetActive(true);
+            else
+            {
+                target.transform.GetChild(1).gameObject.SetActive(true);
+                scenario_list[i].GetComponent<Button>().onClick.SetPersistentListenerState(0, UnityEngine.Events.UnityEventCallState.Off);
+                scenario_list[i].GetComponent<Button>().onClick.AddListener(Active_Info);
+            }
         }
     }
+
+    public void Active_Info() { scenario_info.SetActive(true); }
 
     public void Set_NickName() //닉네임 설정
     {
