@@ -690,7 +690,7 @@ public class Player_shj : MonoBehaviour
         //boxCol.isTrigger = true; //임시 주석
         playerAnimator.SetTrigger("Roll"); //구르기 애니메이션 작동
         boxCol.offset = Vector2.zero;
-        boxCol.size = new Vector2(1.5f, 1.5f);
+        boxCol.size = new Vector2(1.7f, 1.7f);
         yield return new WaitForSeconds(rolling_time); //일정시간동안 구르기진행
         boxCol.offset = colOffset;
         boxCol.size = colSize;
