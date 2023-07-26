@@ -5,11 +5,6 @@ using System.IO;
 using UnityEngine;
 using Newtonsoft.Json;
 
-//class SaveData
-//{
-
-//}
-
 public class DataManager_shj : MonoBehaviour
 {
     string jsondata;
@@ -18,7 +13,7 @@ public class DataManager_shj : MonoBehaviour
 
     public bool Data_Check()
     {
-        return File.Exists(Application.persistentDataPath + "/test.json");
+        return File.Exists(Application.persistentDataPath + "/savedata.json");
         //if (File.Exists(Application.persistentDataPath + "/test.json")) //세이브 데이터 있음
         //    Load_Data(GameManager_shj.Getinstance.Save_data);
         //else //세이브 데이터 없음
@@ -36,7 +31,7 @@ public class DataManager_shj : MonoBehaviour
 
     public void Load_Data()
     {
-        stream = new FileStream(Application.persistentDataPath + "/test.json", FileMode.Open);
+        stream = new FileStream(Application.persistentDataPath + "/savedata.json", FileMode.Open);
         data = new byte[stream.Length];
         stream.Read(data,0,data.Length);
         jsondata = Encoding.UTF8.GetString(data);
@@ -65,13 +60,13 @@ public class DataManager_shj : MonoBehaviour
 
     public void Save_Data(Save_Data_shj save_Data)
     {
-        if (File.Exists(Application.persistentDataPath + "/test.json"))
+        if (File.Exists(Application.persistentDataPath + "/savedata.json"))
         {
-            StreamWriter sw = new StreamWriter(Application.persistentDataPath + "/test.json", false);
+            StreamWriter sw = new StreamWriter(Application.persistentDataPath + "/savedata.json", false);
             sw.Close();
         }
 
-        stream = new FileStream(Application.persistentDataPath + "/test.json", FileMode.OpenOrCreate);
+        stream = new FileStream(Application.persistentDataPath + "/savedata.json", FileMode.OpenOrCreate);
         jsondata = JsonUtility.ToJson(save_Data); //jsonconvert를 이용하여 직렬화가 되지않아서 JsonUtility를 사용
         data = Encoding.UTF8.GetBytes(jsondata);
 
