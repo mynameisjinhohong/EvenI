@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public enum Player_State // 플레이어의 상태 달리는중인지, 구르는중인지
 {
@@ -298,26 +299,30 @@ public class Player_shj : MonoBehaviour
         //#if UNITY_EDITOR
         if (!jumping && Input.GetMouseButton(0))
         {
-            jump_charge = jump_charge <= maxJumpPower ? jump_charge + Time.deltaTime * charge_speed : maxJumpPower; //차징하면 게이지가 차오릅니다
-            //charge_img.enabled = true; //ui활성화
-            charge_img.SetActive(true); // 슬라이더로 변경
-            //Debug.Log(jump_charge/(maxJumpPower -minJumpPower) - 1);
-            //charge_img.fillAmount = (jump_charge - minJumpPower) / ((jump_charge - minJumpPower) + (maxJumpPower - jump_charge))/*Time.deltaTime*//*jump_charge*/; //수정되었음
-            charge_img.GetComponent<Slider>().value = (jump_charge - minJumpPower) / ((jump_charge - minJumpPower) + (maxJumpPower - jump_charge));
-            if (charge_img.GetComponent<Slider>().value >= 1.0f)
-                charge_img.GetComponentInChildren<TextMeshProUGUI>().enabled = true;
-            //if (timeSlowOnOff)
-            //{
-            //    Time.timeScale = timeSlowSpeed;
-            //}
-            if (jump_charge < minJumpPower)
+            if (!EventSystem.current.IsPointerOverGameObject() && Time.deltaTime > 0f)
             {
-                jump_charge = minJumpPower;
+                jump_charge = jump_charge <= maxJumpPower ? jump_charge + Time.deltaTime * charge_speed : maxJumpPower; //차징하면 게이지가 차오릅니다
+                                                                                                                        //charge_img.enabled = true; //ui활성화
+                charge_img.SetActive(true); // 슬라이더로 변경
+                                            //Debug.Log(jump_charge/(maxJumpPower -minJumpPower) - 1);
+                                            //charge_img.fillAmount = (jump_charge - minJumpPower) / ((jump_charge - minJumpPower) + (maxJumpPower - jump_charge))/*Time.deltaTime*//*jump_charge*/; //수정되었음
+                charge_img.GetComponent<Slider>().value = (jump_charge - minJumpPower) / ((jump_charge - minJumpPower) + (maxJumpPower - jump_charge));
+                if (charge_img.GetComponent<Slider>().value >= 1.0f)
+                    charge_img.GetComponentInChildren<TextMeshProUGUI>().enabled = true;
+                //if (timeSlowOnOff)
+                //{
+                //    Time.timeScale = timeSlowSpeed;
+                //}
+                if (jump_charge < minJumpPower)
+                {
+                    jump_charge = minJumpPower;
+                }
+                if (jump_charge > maxJumpPower)
+                {
+                    jump_charge = maxJumpPower;
+                }
             }
-            if (jump_charge > maxJumpPower)
-            {
-                jump_charge = maxJumpPower;
-            }
+
         }
         else if (!jumping && Input.GetMouseButtonUp(0))
         {
