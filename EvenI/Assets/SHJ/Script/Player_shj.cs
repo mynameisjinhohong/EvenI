@@ -265,7 +265,30 @@ public class Player_shj : MonoBehaviour
                 if (ui.Select_chk) selectPanel.SetActive(true);
                 else if(ui.Ending)
                 {
+                    int num = (ui.Scene_num / 3) - 4 + 1;
 
+                    switch (num)
+                    {
+                        case 1:
+                            ui.Load_Story("ending1");
+                            break;
+                        case 2:
+                            ui.Load_Story("ending2");
+                            break;
+                        case 3:
+                            ui.Load_Story("ending3");
+                            break;
+                        case 4:
+                            ui.Load_Story("hidden1");
+                            break;
+                        case 5:
+                            ui.Load_Story("hidden2");
+                            break;
+                    }
+                    GameManager_shj.Getinstance.Save_data.ending[num] = true;
+                    ui.Data_Reset();
+                    ui.Data_Save();
+                    gameObject.GetComponent<Player_shj>().enabled = false;
                 }
                 else gameClearPanel.SetActive(true);
                 gameOverPanel.SetActive(false);

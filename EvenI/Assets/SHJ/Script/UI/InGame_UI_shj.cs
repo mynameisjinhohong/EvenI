@@ -23,6 +23,7 @@ public class InGame_UI_shj : UI_Setting_shj
     int count;
     int next_scene_cnt = 0;
     bool respawn;
+    bool game_start;
     float countdown;
 
     public int Count { get {  return count; } set { count = value; } }
@@ -45,11 +46,10 @@ public class InGame_UI_shj : UI_Setting_shj
     public void Start()
     {
         respawn = false;
-        click_cnt = -1;
 
         player.GetComponent<Player_shj>().enabled = false;
         player.GetComponent<Animator>().enabled = false;
-        gamestart = false;
+        game_start = false;
         countdown = 3.5f;
         Time.timeScale = 1.0f;
         //카운트다운 3초 필요
@@ -71,14 +71,14 @@ public class InGame_UI_shj : UI_Setting_shj
     {
         count_text.text = count.ToString();
         hp_cnt.text = player.GetComponent<Player_shj>().hp.ToString();
-        if (!gamestart) Count_down();
+        if (!game_start) Count_down();
     }
 
     void Count_down()
     {
         if (countdown < 1.0f)
         {
-            gamestart = true;
+            game_start = true;
             count_down_txt.GetComponent<TextMeshProUGUI>().text = SceneManager.GetActiveScene().name +  "\nSTART!";
             count_down_txt.GetComponent<TextMeshProUGUI>().fontSize = 140;
             player.GetComponent<Player_shj>().enabled = true;

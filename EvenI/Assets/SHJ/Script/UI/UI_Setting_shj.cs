@@ -37,8 +37,9 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
     List<int> scene_chk = new List<int>() { 3 };
     List<int> ending_chk = new List<int>() { 12, 15, 18 };
 
-    protected int click_cnt;
-    protected bool gamestart;
+    protected int click_cnt = -1;
+    protected bool gamestart = false;
+
 
     public void UI_On_Off() //버튼의 첫번째 자식 켜고 끄기 음향 추가 해야함
     {
@@ -62,6 +63,8 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
 
     public bool Ending { get { return ending_chk.Contains(SceneManager.GetActiveScene().buildIndex); } }
     public bool Select_chk { get { return scene_chk.Contains(SceneManager.GetActiveScene().buildIndex); } }
+
+    public int Scene_num { get { return SceneManager.GetActiveScene().buildIndex; } }
 
     //씬이동 변경 고민해봐야할듯
     public void Next_Scene() //현재씬에서 다음 씬으로 넘어감
@@ -114,7 +117,7 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
     {
         GameManager_shj.Getinstance.Save_data.juksun = 0;
         GameManager_shj.Getinstance.Save_data.last_play_scene_num = 2;
-        GameManager_shj.Getinstance.Save_data.hp = 10;
+        GameManager_shj.Getinstance.Save_data.hp = 50;
         Data_Save();
     }
 
@@ -139,11 +142,10 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
 
     public void Skip_btn()
     {
-        if (gamestart) Next_Scene();
+        if (gamestart)
+            Next_Scene();
         else if (Ending)
-        {
             Return_Lobby();
-        }
         else
         {
             story.SetActive(false);
@@ -153,6 +155,7 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
 
     public void Load_Story(string scenario_name) //--
     {
+        Debug.Log(scenario_name);
         switch (scenario_name)
         {
             case "opening":
@@ -183,8 +186,7 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
                 scenario_img = hidden2_img;
                 break;
         }
-
-        main.SetActive(false);
+        if(main != null) main.SetActive(false);
         story.SetActive(true);
         click_cnt = -1;
         senario = CSVReader.Read("Scenario/" + scenario_name + "/" + scenario_name + "_scenario");
@@ -197,7 +199,7 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
 
         if (senario.Count / 3 > click_cnt)
         {
-            audio.Play();
+            if(audio != null) audio.Play();
 
             //Debug.Log(scene_image_num[0]);
             //if (scene_image_num[scenario_cnt] == click_cnt)
@@ -216,7 +218,6 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
                 if (i == 2 && senario[i + 3 * click_cnt]["image_num"].ToString() != "")
                 {
                     story_bg.sprite = scenario_img[int.Parse(senario[i + 3 * click_cnt]["image_num"].ToString()) - 1];
-                    Debug.Log(scenario_img[int.Parse(senario[i + 3 * click_cnt]["image_num"].ToString()) - 1].name);
                 }
 
                 if (i == 2 && senario[i + 3 * click_cnt]["font_size"].ToString() != "")
