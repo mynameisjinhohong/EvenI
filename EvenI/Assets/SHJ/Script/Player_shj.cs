@@ -509,6 +509,10 @@ public class Player_shj : MonoBehaviour
                 if (hit.collider != null)
                 {
                     isFloor = true;
+                    if (jumping)
+                    {
+                        playerAnimator.SetTrigger("JumpEnd");
+                    }
                     jumping = false;
                 }
             }
@@ -530,7 +534,7 @@ public class Player_shj : MonoBehaviour
         StartCoroutine(FloorCheck());
         playerAnimator.SetTrigger("Jump"); //점프 애니메이션
         jumping = true; //점프중
-        StartCoroutine(HeightTest());
+        //StartCoroutine(HeightTest());
         //Debug.Log(jump_up_power * jump_charge);
         if(nuckBackCoroutine != null)
         {
