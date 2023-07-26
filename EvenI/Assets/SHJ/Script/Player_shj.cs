@@ -72,15 +72,13 @@ public class Player_shj : MonoBehaviour
     //int jump_cnt = 0; //점프횟수 2단점프때 사용
 
     public Animator playerAnimator;
-    [Header("체력 관련")]
+    [Header("충돌 관련")]
     //public GameObject hp_List;
     //public int maxHP = 10;
 
-
+    public BoxCollider2D boxCol;
 
     int Hp;
-
-    public Transform[] rayPoint;
     public int hp
     {
         get
@@ -210,14 +208,14 @@ public class Player_shj : MonoBehaviour
             else Respawn();
         }
         //RaycastHit2D hit = Physics2D.Raycast(rayPoint[0].position, Vector2.up, transform.localScale.x / 2, LayerMask.GetMask("ground"));
-        RaycastHit2D hit = Physics2D.BoxCast(rayPoint[0].position, new Vector2(gameObject.transform.localScale.x * 1.6f, gameObject.transform.localScale.y), 0, Vector2.up, transform.localScale.x / 2, LayerMask.GetMask("ground"));
+        RaycastHit2D hit = Physics2D.BoxCast(transform.position + new Vector3(0, boxCol.size.y * transform.localScale.y * 0.5f), new Vector2(boxCol.size.x * transform.localScale.x, 1f), 0, Vector2.up, 0.1f, LayerMask.GetMask("ground"));//위
         if (hit.collider != null)
         {
             hit.transform.gameObject.GetComponent<Floor_HJH>().Crash(gameObject);
             upCrushCheck = true;
             StartCoroutine(UpCrushOff());
         }
-        hit = Physics2D.BoxCast(rayPoint[1].position, new Vector2(gameObject.transform.localScale.x, gameObject.transform.localScale.y * 1.5f), 0, Vector2.right, transform.localScale.x / 2, LayerMask.GetMask("ground"));
+        hit = Physics2D.BoxCast(transform.position + new Vector3(boxCol.size.x * transform.localScale.x * 0.5f, 0), new Vector2(1f, boxCol.size.y * transform.localScale.y), 0, Vector2.right, 0.1f, LayerMask.GetMask("ground")); //앞
         if (hit.collider != null)
         {
             hit.transform.gameObject.GetComponent<Floor_HJH>().Crash(gameObject);
@@ -435,27 +433,29 @@ public class Player_shj : MonoBehaviour
         //    Gizmos.DrawRay(rayPoint[4].position, Vector2.right * transform.localScale.x / 2);
         //}
         #endregion
-        RaycastHit2D hit = Physics2D.BoxCast(rayPoint[0].position, new Vector2(gameObject.transform.localScale.x*1.6f, gameObject.transform.localScale.y), 0, Vector2.up, transform.localScale.x / 2, LayerMask.GetMask("ground"));
+        //위로 쏘는 넘
+        RaycastHit2D hit = Physics2D.BoxCast(transform.position + new Vector3(0,boxCol.size.y * transform.localScale.y*0.5f), new Vector2(boxCol.size.x * transform.localScale.x, 1f), 0, Vector2.up,0.1f, LayerMask.GetMask("ground"));
         if(hit.collider != null)
         {
-            Gizmos.DrawRay(rayPoint[0].position, Vector2.up * hit.distance);
-            Gizmos.DrawWireCube(rayPoint[0].position + (Vector3)Vector2.up * hit.distance, new Vector2(gameObject.transform.localScale.x*1.5f, gameObject.transform.localScale.y));
+            Gizmos.DrawRay(transform.position + new Vector3(0, boxCol.size.y * transform.localScale.y*0.5f), Vector2.up * hit.distance);
+            Gizmos.DrawWireCube(transform.position + new Vector3(0, boxCol.size.y * transform.localScale.y * 0.5f) + (Vector3)Vector2.up * hit.distance, new Vector2(boxCol.size.x * transform.localScale.x, 1f));
         }
         else
         {
-            Gizmos.DrawRay(rayPoint[0].position, Vector2.up * transform.localScale.x / 2);
+            Gizmos.DrawRay(transform.position + new Vector3(0, boxCol.size.y * transform.localScale.y * 0.5f), Vector2.up * 0.1f);
         }
-        hit = Physics2D.BoxCast(rayPoint[1].position, new Vector2(gameObject.transform.localScale.x, gameObject.transform.localScale.y * 1.5f), 0, Vector2.right, transform.localScale.x / 2, LayerMask.GetMask("ground"));
+        //앞으로 쏘는 넘
+        hit = Physics2D.BoxCast(transform.position + new Vector3(boxCol.size.x * transform.localScale.x * 0.5f, 0), new Vector2(1f, boxCol.size.y * transform.localScale.y), 0, Vector2.right, 0.1f, LayerMask.GetMask("ground"));
         if (hit.collider != null)
         {
-            Gizmos.DrawRay(rayPoint[1].position, Vector2.right * hit.distance);
-            Gizmos.DrawWireCube(rayPoint[1].position + (Vector3)Vector2.right * hit.distance, new Vector2(gameObject.transform.localScale.x, gameObject.transform.localScale.y*1.5f));
+            Gizmos.DrawRay(transform.position + new Vector3(boxCol.size.x * transform.localScale.x * 0.5f, 0), Vector2.right * hit.distance);
+            Gizmos.DrawWireCube(transform.position + new Vector3(boxCol.size.x * transform.localScale.x * 0.5f, 0) + (Vector3)Vector2.right * hit.distance, new Vector2(1f, boxCol.size.y * transform.localScale.y));
         }
         else
         {
-            Gizmos.DrawRay(rayPoint[1].position, Vector2.right * transform.localScale.x / 2);
+            Gizmos.DrawRay(transform.position + new Vector3(boxCol.size.x * transform.localScale.x * 0.5f, 0), Vector2.right * 0.1f);
         }
-        Gizmos.DrawRay(gameObject.transform.position, Vector2.down * gameObject.GetComponent<BoxCollider2D>().size.y/2);
+        Gizmos.DrawRay(gameObject.transform.position- new Vector3(0, boxCol.size.y * transform.localScale.y * 0.5f), Vector2.down * 0.1f);
     }
     //private void FixedUpdate()
     //{
@@ -494,7 +494,7 @@ public class Player_shj : MonoBehaviour
         }
         if (floorCheck)
         {
-            RaycastHit2D hit = Physics2D.Raycast(this.gameObject.transform.position, Vector2.down, gameObject.GetComponent<BoxCollider2D>().size.y/2, LayerMask.GetMask("ground"));
+            RaycastHit2D hit = Physics2D.Raycast(gameObject.transform.position - new Vector3(0, boxCol.size.y * transform.localScale.y * 0.5f),Vector2.down ,0.1f, LayerMask.GetMask("ground"));
             if (hit.collider == null)
             {
                 rigid.AddForce(Vector2.down * gravity);
@@ -507,6 +507,7 @@ public class Player_shj : MonoBehaviour
             {
                 if (hit.collider != null)
                 {
+                    //Debug.Log("Floor");
                     isFloor = true;
                     if (jumping)
                     {
@@ -602,7 +603,7 @@ public class Player_shj : MonoBehaviour
         //    {
         //        rock.RockTouch();
         //    }
-        //    collision.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        //    collision.boxCol.enabled = false;
 
         //    //collision.gameObject.SetActive(false);
         //    if(player_State == Player_State.Run)
@@ -684,11 +685,11 @@ public class Player_shj : MonoBehaviour
     }
     IEnumerator Rolling() //구르기
     {
-        //gameObject.GetComponent<BoxCollider2D>().isTrigger = true; //임시 주석
+        //boxCol.isTrigger = true; //임시 주석
         playerAnimator.SetTrigger("Roll"); //구르기 애니메이션 작동
         yield return new WaitForSeconds(rolling_time); //일정시간동안 구르기진행
         player_State = Player_State.Run; //달리는 상태로 복귀
-        //gameObject.GetComponent<BoxCollider2D>().isTrigger = false; //임시 주석
+        //boxCol.isTrigger = false; //임시 주석
         playerAnimator.SetTrigger("RollEnd");
         rollStart = false;
         //playerAnimator.SetBool("Rolling", false);
