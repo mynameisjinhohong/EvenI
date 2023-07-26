@@ -21,21 +21,12 @@ public class InGame_UI_shj : UI_Setting_shj
     string adType = "Rewarded_Android";
 
     int count;
-
     int next_scene_cnt = 0;
-
     bool respawn;
-    bool gamestart;
     float countdown;
 
-    Vector3 hitpoint;
-
-    List<int> scene_chk = new List<int>() { 3 };
     public int Count { get {  return count; } set { count = value; } }
-    public bool Ending
-    { get { return (SceneManager.GetActiveScene().buildIndex / 3 > 3 && SceneManager.GetActiveScene().buildIndex % 3 != 0); } }
-
-
+    
     private void Awake()
     {
         //if(Hp_list.childCount == 0)
@@ -54,7 +45,8 @@ public class InGame_UI_shj : UI_Setting_shj
     public void Start()
     {
         respawn = false;
-        
+        click_cnt = -1;
+
         player.GetComponent<Player_shj>().enabled = false;
         player.GetComponent<Animator>().enabled = false;
         gamestart = false;
@@ -70,7 +62,6 @@ public class InGame_UI_shj : UI_Setting_shj
 
             select_panel.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(() => Set_cnt(next_scene_cnt + 3));
             select_panel.transform.GetChild(1).GetComponent<Image>().sprite = background_list[(num + 4) / 3 - 1];
-
         }
     }
 
@@ -80,10 +71,7 @@ public class InGame_UI_shj : UI_Setting_shj
     {
         count_text.text = count.ToString();
         hp_cnt.text = player.GetComponent<Player_shj>().hp.ToString();
-        if (!gamestart)
-        {
-            Count_down();
-        }
+        if (!gamestart) Count_down();
     }
 
     void Count_down()
@@ -103,7 +91,6 @@ public class InGame_UI_shj : UI_Setting_shj
             countdown -= Time.deltaTime;
             count_down_txt.GetComponent<TextMeshProUGUI>().text = countdown.ToString("F0");
             count_down_txt.GetComponent<TextMeshProUGUI>().fontSize = 200;
-
         }
     }
 
@@ -178,22 +165,13 @@ public class InGame_UI_shj : UI_Setting_shj
         //Start();
     }
 
-    public bool Select_chk { get { return scene_chk.Contains(SceneManager.GetActiveScene().buildIndex); } }
 
     public void Change_Scene()
     {
         if (Select_chk) Return_Scene(SceneManager.GetActiveScene().buildIndex + next_scene_cnt);
-        else if(SceneManager.GetActiveScene().buildIndex == 6)
-            Return_Scene(10);
+        else if(SceneManager.GetActiveScene().buildIndex == 6) Return_Scene(10);
         else Next_Scene();
 
         Data_change(count, next_scene_cnt);
     }
-
-    //public void Next_Scene_num(int num) { next_scene_cnt = num; }
-
-    //public override void Next_Scene()
-    //{
-    //    StartCoroutine(GameManager_shj.Getinstance.Change_Scene(next_scene_cnt));
-    //}
 }

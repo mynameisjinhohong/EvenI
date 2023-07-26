@@ -263,6 +263,10 @@ public class Player_shj : MonoBehaviour
             if (viewPos.x > 1 && viewPos.z > 0)
             {
                 if (ui.Select_chk) selectPanel.SetActive(true);
+                else if(ui.Ending)
+                {
+
+                }
                 else gameClearPanel.SetActive(true);
                 gameOverPanel.SetActive(false);
                 gameObject.GetComponent<SpriteRenderer>().enabled = false;

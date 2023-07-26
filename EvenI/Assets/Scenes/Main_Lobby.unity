@@ -5118,21 +5118,12 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 2b6609bf28427ee46a514a2cdd02e593, type: 3}
   background: {fileID: 13407785}
   story_bg: {fileID: 1122715287}
+  text_pos: {fileID: 406957797}
+  story_text: {fileID: 406957798}
+  btn_text: {fileID: 910266313}
   player: {fileID: 0}
-  clips:
-  - {fileID: 8300000, guid: d23de0b9aac23e941b2d860e38fd7622, type: 3}
-  - {fileID: 8300000, guid: 9b26a2ad78ee348458148f96ec1fae63, type: 3}
-  - {fileID: 8300000, guid: ee7c5afd4f687e149aa199d1f90f3caf, type: 3}
-  - {fileID: 8300000, guid: 5f36fcf8232e663489a3592ec4abc843, type: 3}
-  - {fileID: 8300000, guid: 5f87e6d0b6c78864080a0f6bbe7ed520, type: 3}
-  scenario_list:
-  - {fileID: 780009640}
-  - {fileID: 1752567304}
-  - {fileID: 298388584}
-  - {fileID: 998412498}
-  - {fileID: 133194113}
-  - {fileID: 147084916}
-  - {fileID: 779659915}
+  main: {fileID: 1366298532}
+  story: {fileID: 2125264632}
   opening_img:
   - {fileID: 21300000, guid: 0d9b985d19dc8cd41a9a1ac6c89298c3, type: 3}
   - {fileID: 21300000, guid: 4e3bc9c66355bfc4d81a3d88e7681f2a, type: 3}
@@ -5174,12 +5165,21 @@ MonoBehaviour:
   ending4_img: []
   hidden1_img: []
   hidden2_img: []
-  text_pos: {fileID: 406957797}
+  clips:
+  - {fileID: 8300000, guid: d23de0b9aac23e941b2d860e38fd7622, type: 3}
+  - {fileID: 8300000, guid: 9b26a2ad78ee348458148f96ec1fae63, type: 3}
+  - {fileID: 8300000, guid: ee7c5afd4f687e149aa199d1f90f3caf, type: 3}
+  - {fileID: 8300000, guid: 5f36fcf8232e663489a3592ec4abc843, type: 3}
+  - {fileID: 8300000, guid: 5f87e6d0b6c78864080a0f6bbe7ed520, type: 3}
+  scenario_list:
+  - {fileID: 780009640}
+  - {fileID: 1752567304}
+  - {fileID: 298388584}
+  - {fileID: 998412498}
+  - {fileID: 133194113}
+  - {fileID: 147084916}
+  - {fileID: 779659915}
   nickname_text: {fileID: 2138939494}
-  story_text: {fileID: 406957798}
-  btn_text: {fileID: 910266313}
-  main: {fileID: 1366298532}
-  story: {fileID: 2125264632}
   set_nickname: {fileID: 45752899}
   continue_stage: {fileID: 1417652068}
   scenario_info: {fileID: 1639216371}
