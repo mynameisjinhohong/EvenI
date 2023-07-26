@@ -12,6 +12,16 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
     public AudioClip[] clips;
     public GameObject[] scenario_list;
 
+
+
+    public Sprite[] opening_img;
+    public Sprite[] ending1_img;
+    public Sprite[] ending2_img;
+    public Sprite[] ending3_img;
+    public Sprite[] ending4_img;
+    public Sprite[] hidden1_img;
+    public Sprite[] hidden2_img;
+
     public RectTransform text_pos;
     public Text nickname_text;
     public Text story_text;
@@ -29,6 +39,7 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
     public Slider Effect_value;
 
     bool gamestart;
+
 
     //string[] scenario_name = { "opening", "ending1", "ending2", "ending3", "ending4", "hidden1", "hidden1" };
 
@@ -116,7 +127,10 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
 
                 //수정필요
                 if (i == 2 && senario[i + 3 * click_cnt]["image_num"].ToString() != "")
+                {
                     story_bg.sprite = scenario_img[int.Parse(senario[i + 3 * click_cnt]["image_num"].ToString()) - 1];
+                    Debug.Log(scenario_img[int.Parse(senario[i + 3 * click_cnt]["image_num"].ToString()) - 1].name);
+                }
 
                 if (i == 2 && senario[i + 3 * click_cnt]["font_size"].ToString() != "")
                     story_text.fontSize = int.Parse(senario[i + 3 * click_cnt]["font_size"].ToString());
@@ -166,8 +180,30 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
 
     public void Load_Story(string scenario_name)
     {
-        scenario_img = Resources.LoadAll<Sprite>("Scenario/" + scenario_name);
-        Debug.Log(scenario_img.Length);
+        switch(scenario_name)
+        {
+            case "opening":scenario_img = opening_img;
+                break;
+
+            case "ending1":scenario_img = ending1_img;
+                break;
+
+            case "ending2": scenario_img = ending2_img;
+                break;
+
+            case "ending3":scenario_img = ending3_img;
+                break;
+
+            case "ending4":scenario_img = ending4_img;
+                break;
+
+            case "hidden1":scenario_img = hidden1_img;
+                break;
+
+            case "hidden2": scenario_img = hidden2_img;
+                break;
+        }
+
         main.SetActive(false);
         story.SetActive(true);
         click_cnt = -1;
