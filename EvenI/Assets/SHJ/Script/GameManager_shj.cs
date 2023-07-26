@@ -44,10 +44,9 @@ public class GameManager_shj : MonoBehaviour
         //if (Data_Manager.Data_Check())
         //{
         //    Data_Manager.Load_Data();
-        //    Volume_Set("BGM",save_Data.bgm_vol);
+        //    Volume_Set("BGM", save_Data.bgm_vol);
         //    Volume_Set("Effect", save_Data.eff_vol);
         //}
-
     }
 
     //public void Change_Next_Scene(bool next)
@@ -80,13 +79,11 @@ public class GameManager_shj : MonoBehaviour
     {
         if (audio != null)
         {
-            if (audio.isPlaying)
-            {
-                if (!SceneManager.GetActiveScene().name.Contains("Main"))
-                {
-                    audio.Stop();
-                }
-            }
+            if (audio.isPlaying && !SceneManager.GetActiveScene().name.Contains("Main"))
+                audio.Stop();
+
+            else if (!audio.isPlaying && SceneManager.GetActiveScene().name.Contains("Main"))
+                audio.Play();
         }
     }
 
