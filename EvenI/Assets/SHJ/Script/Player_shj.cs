@@ -434,28 +434,28 @@ public class Player_shj : MonoBehaviour
         //}
         #endregion
         //위로 쏘는 넘
-        RaycastHit2D hit = Physics2D.BoxCast(transform.position + new Vector3(0,boxCol.size.y * transform.localScale.y*0.5f), new Vector2(boxCol.size.x * transform.localScale.x, 1f), 0, Vector2.up,0.1f, LayerMask.GetMask("ground"));
+        RaycastHit2D hit = Physics2D.BoxCast(transform.position + new Vector3(0,boxCol.size.y * transform.localScale.y*0.5f + boxCol.offset.y), new Vector2(boxCol.size.x * transform.localScale.x, 1f), 0, Vector2.up,0.1f, LayerMask.GetMask("ground"));
         if(hit.collider != null)
         {
-            Gizmos.DrawRay(transform.position + new Vector3(0, boxCol.size.y * transform.localScale.y*0.5f), Vector2.up * hit.distance);
-            Gizmos.DrawWireCube(transform.position + new Vector3(0, boxCol.size.y * transform.localScale.y * 0.5f) + (Vector3)Vector2.up * hit.distance, new Vector2(boxCol.size.x * transform.localScale.x, 1f));
+            Gizmos.DrawRay(transform.position + new Vector3(0, boxCol.size.y * transform.localScale.y*0.5f + boxCol.offset.y), Vector2.up * hit.distance);
+            Gizmos.DrawWireCube(transform.position + new Vector3(0, boxCol.size.y * transform.localScale.y * 0.5f + boxCol.offset.y) + (Vector3)Vector2.up * hit.distance, new Vector2(boxCol.size.x * transform.localScale.x, 1f));
         }
         else
         {
-            Gizmos.DrawRay(transform.position + new Vector3(0, boxCol.size.y * transform.localScale.y * 0.5f), Vector2.up * 0.1f);
+            Gizmos.DrawRay(transform.position + new Vector3(0, boxCol.size.y * transform.localScale.y * 0.5f + boxCol.offset.y), Vector2.up * 0.1f);
         }
         //앞으로 쏘는 넘
-        hit = Physics2D.BoxCast(transform.position + new Vector3(boxCol.size.x * transform.localScale.x * 0.5f, 0), new Vector2(1f, boxCol.size.y * transform.localScale.y), 0, Vector2.right, 0.1f, LayerMask.GetMask("ground"));
+        hit = Physics2D.BoxCast(transform.position + new Vector3(boxCol.size.x * transform.localScale.x * 0.5f + boxCol.offset.x, 0), new Vector2(1f, boxCol.size.y * transform.localScale.y), 0, Vector2.right, 0.1f, LayerMask.GetMask("ground"));
         if (hit.collider != null)
         {
-            Gizmos.DrawRay(transform.position + new Vector3(boxCol.size.x * transform.localScale.x * 0.5f, 0), Vector2.right * hit.distance);
-            Gizmos.DrawWireCube(transform.position + new Vector3(boxCol.size.x * transform.localScale.x * 0.5f, 0) + (Vector3)Vector2.right * hit.distance, new Vector2(1f, boxCol.size.y * transform.localScale.y));
+            Gizmos.DrawRay(transform.position + new Vector3(boxCol.size.x * transform.localScale.x * 0.5f + boxCol.offset.x, 0), Vector2.right * hit.distance);
+            Gizmos.DrawWireCube(transform.position + new Vector3(boxCol.size.x * transform.localScale.x * 0.5f + boxCol.offset.x, 0) + (Vector3)Vector2.right * hit.distance, new Vector2(1f, boxCol.size.y * transform.localScale.y));
         }
         else
         {
-            Gizmos.DrawRay(transform.position + new Vector3(boxCol.size.x * transform.localScale.x * 0.5f, 0), Vector2.right * 0.1f);
+            Gizmos.DrawRay(transform.position + new Vector3(boxCol.size.x * transform.localScale.x * 0.5f + boxCol.offset.x, 0), Vector2.right * 0.1f);
         }
-        Gizmos.DrawRay(gameObject.transform.position- new Vector3(0, boxCol.size.y * transform.localScale.y * 0.5f), Vector2.down * 0.1f);
+        Gizmos.DrawRay(gameObject.transform.position- new Vector3(0, boxCol.size.y * transform.localScale.y * 0.5f - boxCol.offset.y), Vector2.down * 0.1f);
     }
     //private void FixedUpdate()
     //{
