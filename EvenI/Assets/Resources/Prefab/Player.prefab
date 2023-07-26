@@ -3570,8 +3570,6 @@ MonoBehaviour:
   hidden2_img: []
   count_text: {fileID: 3992068704595895198}
   hp_cnt: {fileID: 5492627314248165322}
-  Hp: {fileID: 260949744689100720, guid: bbb0f0b7d8371784484977d7a865e6b0, type: 3}
-  Hp_list: {fileID: 3992068705703599506}
   count_down_txt: {fileID: 7577814354904086388}
   select_panel: {fileID: 2009677573279888749}
 --- !u!1 &3992068704782450276
@@ -4955,7 +4953,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 1820590749, guid: 89f0339e526814d408aacf8258699900, type: 3}
+  m_Sprite: {fileID: -1863207392, guid: 9b4d0c12004baef448bee68faeb4c0e7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5052,7 +5050,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.4666667, y: 1.94}
+    oldSize: {x: 1.8, y: 2.1}
     newSize: {x: 2.2, y: 2.8}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
