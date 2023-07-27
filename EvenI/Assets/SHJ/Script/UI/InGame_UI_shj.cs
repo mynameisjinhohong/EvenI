@@ -47,14 +47,14 @@ public class InGame_UI_shj : UI_Setting_shj
 
     public void Start()
     {
+        Time.timeScale = 1.0f;
+        //Time.fixedDeltaTime = 0.0f; //밀림현상때문에 생성, 카운트다운 버벅임 원인의심
         respawn = false;
         count_down_txt.SetActive(true);
         player.GetComponent<Player_shj>().enabled = false;
         player.GetComponent<Animator>().enabled = false;
         game_start = false;
         countdown = 3.5f;
-        Time.timeScale = 1.0f;
-        Time.fixedDeltaTime = 0.0f;
 
         next_scene_cnt = Scene_num > 3 ? 4 : 1;
 
@@ -85,7 +85,7 @@ public class InGame_UI_shj : UI_Setting_shj
     {
         if (countdown < 1.0f)
         {
-            Time.fixedDeltaTime = 0.02f;
+            //Time.fixedDeltaTime = 0.02f; //밀림현상때문에 생성, 카운트다운 버벅임 원인의심
             game_start = true;
             count_down_txt.GetComponent<TextMeshProUGUI>().text = SceneManager.GetActiveScene().name +  "\nSTART!";
             count_down_txt.GetComponent<TextMeshProUGUI>().fontSize = 140;
