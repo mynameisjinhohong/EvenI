@@ -126,6 +126,10 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
         GameManager_shj.Getinstance.Save_data.juksun = cnt;
         GameManager_shj.Getinstance.Save_data.last_play_scene_num = SceneManager.GetActiveScene().buildIndex + num;
         GameManager_shj.Getinstance.Save_data.hp = player.GetComponent<Player_shj>().hp;
+
+        for (int i = 0; i < GameManager_shj.Getinstance.Save_data.playing.Length; i++)
+            GameManager_shj.Getinstance.Save_data.playing[i] = 0.0f;
+
         Data_Save();
     }
 

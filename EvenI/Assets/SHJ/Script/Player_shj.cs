@@ -141,7 +141,6 @@ public class Player_shj : MonoBehaviour
     float slowTime = 0f;
     Vector2 colSize;
     Vector2 colOffset;
-    Vector3 hitpoint;
 
     public void Start()
     {
@@ -207,6 +206,7 @@ public class Player_shj : MonoBehaviour
         //}
         if (transform.position.y < -6)
         {
+            //GameOver();
             if (hp <= 2) GameOver();
             else Respawn();
         }
@@ -387,7 +387,6 @@ public class Player_shj : MonoBehaviour
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawSphere(hitpoint,1.0f);
 
         #region 과거 코드
         //RaycastHit2D hit = Physics2D.Raycast(rayPoint[0].position, Vector2.up, transform.localScale.x / 2, LayerMask.GetMask("ground"));
@@ -703,15 +702,18 @@ public class Player_shj : MonoBehaviour
 
     public void Respawn()
     {
-        float default_x = 0;
+        float default_x = 1.0f;
         rigid.velocity = Vector2.zero;
 
-        RaycastHit2D hit = Physics2D.Raycast(new Vector3(transform.localPosition.x + default_x, 10, 0), Vector3.down, 30.0f);
+        charge_img.SetActive(false);
+        charge_img.GetComponent<Slider>().value = 1.0f;
 
-        while (hit.collider == null && hit.collider.gameObject.layer != 8)
+        RaycastHit2D hit = Physics2D.Raycast(new Vector3(transform.localPosition.x + default_x, 5, 0), Vector3.down, 30.0f);
+
+        while (hit.collider == null || hit.collider.gameObject.layer != 8)
         {
-            default_x += 1.0f;
-            hit = Physics2D.Raycast(transform.localPosition + new Vector3(default_x, 10, 0), Vector3.down, 30.0f);
+            default_x += 3.0f;
+            hit = Physics2D.Raycast(new Vector3(transform.localPosition.x + default_x, 5, 0), Vector3.down, 30.0f);
         }
 
         transform.localPosition = hit.point + (Vector2)Vector3.up;
