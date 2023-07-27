@@ -118,6 +118,10 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
         GameManager_shj.Getinstance.Save_data.juksun = 0;
         GameManager_shj.Getinstance.Save_data.last_play_scene_num = 2;
         GameManager_shj.Getinstance.Save_data.hp = 50;
+
+        for (int i = 0; i < GameManager_shj.Getinstance.Save_data.playing.Length; i++)
+            GameManager_shj.Getinstance.Save_data.playing[i] = 0.0f;
+
         Data_Save();
     }
 

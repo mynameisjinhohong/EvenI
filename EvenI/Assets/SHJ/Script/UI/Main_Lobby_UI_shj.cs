@@ -10,7 +10,7 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
 {
     public AudioClip[] clips;
     public GameObject[] scenario_list;
-
+    public Image[] playing_value;
     public Text nickname_text;
 
     public GameObject set_nickname;
@@ -38,6 +38,9 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
 
         BGM_value.value = GameManager_shj.Getinstance.Save_data.bgm_vol;
         Effect_value.value = GameManager_shj.Getinstance.Save_data.eff_vol;
+
+        for (int i = 0; i < GameManager_shj.Getinstance.Save_data.playing.Length; i++)
+            playing_value[i].fillAmount = GameManager_shj.Getinstance.Save_data.playing[i];
 
         for (int i = 0; i < GameManager_shj.Getinstance.Save_data.ending.Length; i++)
         {
