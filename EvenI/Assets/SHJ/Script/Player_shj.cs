@@ -733,7 +733,6 @@ public class Player_shj : MonoBehaviour
     public void Respawn()
     {
         float default_x = 1.0f;
-        rigid.velocity = Vector2.zero;
 
         charge_img.SetActive(false);
         charge_img.GetComponent<Slider>().value = 1.0f;
@@ -751,6 +750,7 @@ public class Player_shj : MonoBehaviour
 
         if (hp - 2 > 0) Hp -= 2;
 
+        rigid.velocity = Vector2.zero;
         ui.Start();
     }
 }
