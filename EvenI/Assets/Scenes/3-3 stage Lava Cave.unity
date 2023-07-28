@@ -5122,6 +5122,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4244379375438690630, guid: b7683a2088672844894956287bdc8d44, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5875888705865622510, guid: b7683a2088672844894956287bdc8d44, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -5152,6 +5156,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6139205844468472564, guid: b7683a2088672844894956287bdc8d44, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7295855321768946205, guid: b7683a2088672844894956287bdc8d44, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7829382358947571333, guid: b7683a2088672844894956287bdc8d44, type: 3}
@@ -32189,6 +32197,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1202809748}
     m_Modifications:
+    - target: {fileID: 1404117091256038937, guid: f2c1636b6f8669542868bd177600f8bc, type: 3}
+      propertyPath: angle
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 1404117091256038937, guid: f2c1636b6f8669542868bd177600f8bc, type: 3}
+      propertyPath: speed
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1404117091256038937, guid: f2c1636b6f8669542868bd177600f8bc, type: 3}
+      propertyPath: startDistance
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4330314200353680148, guid: 8ff8e0081c7bd374c8c1fbb4aeecf400, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -32248,18 +32268,6 @@ PrefabInstance:
     - target: {fileID: 4330314200353680155, guid: 8ff8e0081c7bd374c8c1fbb4aeecf400, type: 3}
       propertyPath: m_SortingOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1404117091256038937, guid: f2c1636b6f8669542868bd177600f8bc, type: 3}
-      propertyPath: angle
-      value: 250
-      objectReference: {fileID: 0}
-    - target: {fileID: 1404117091256038937, guid: f2c1636b6f8669542868bd177600f8bc, type: 3}
-      propertyPath: speed
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 1404117091256038937, guid: f2c1636b6f8669542868bd177600f8bc, type: 3}
-      propertyPath: startDistance
-      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ff8e0081c7bd374c8c1fbb4aeecf400, type: 3}

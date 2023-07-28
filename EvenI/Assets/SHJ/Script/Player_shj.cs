@@ -119,6 +119,9 @@ public class Player_shj : MonoBehaviour
     [Header("카메라 속도")]
     [Range(0.0f, 10.0f)]
     public float cameraSpeed;//카메라 스피드
+
+    public float stuckCheckTime;
+    bool stuckRespawn;
     //public Map_shj map; //점프 속도 조절을 위해
 
 
@@ -158,7 +161,6 @@ public class Player_shj : MonoBehaviour
 
     private void Update()
     {
-       
         //Debug.Log(transform.localPosition);
         //이전 코드 주석으로 놔둠
         #region test
@@ -204,6 +206,14 @@ public class Player_shj : MonoBehaviour
         //    }
 
         //}
+        if(rigid.velocity.x == 0)
+        {
+            if(!stuckRespawn)
+            {
+                stuckRespawn = true;
+                StartCoroutine(StuckCheck());
+            }
+        }
         if (transform.position.y < -6)
         {
             //GameOver();
@@ -698,6 +708,26 @@ public class Player_shj : MonoBehaviour
         playerAnimator.SetTrigger("RollEnd");
         rollStart = false;
         //playerAnimator.SetBool("Rolling", false);
+    }
+    IEnumerator StuckCheck()
+    {
+        float current = 0;
+        while(true)
+        {
+            current += Time.deltaTime;
+            if(rigid.velocity.x != 0)
+            {
+                stuckRespawn = false;
+                break;
+            }
+            if(current > stuckCheckTime)
+            {
+                stuckRespawn = false;
+                Respawn();
+                break;
+            }
+            yield return null;
+        }
     }
 
     public void Respawn()
