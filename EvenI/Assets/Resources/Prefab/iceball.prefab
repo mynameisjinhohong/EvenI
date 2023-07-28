@@ -116,8 +116,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
-  speed: 3
-  startDistance: 25
+  startDistance: 23
+  angle: 180
+  speed: 8
+  rotateSpeed: 1500
 --- !u!95 &2244333599793092742
 Animator:
   serializedVersion: 4
