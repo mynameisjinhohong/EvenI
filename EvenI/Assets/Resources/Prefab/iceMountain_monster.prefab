@@ -122,11 +122,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   startDistance: 20
-  runningTime: 1
+  runningTime: 3
   runSpeed: 10
-  jumpPower: 20
+  jumpPower: 25
   angle: 110
-  gravity: 0
+  gravity: 25
 --- !u!61 &5005716711394636789
 BoxCollider2D:
   m_ObjectHideFlags: 0
