@@ -149,10 +149,6 @@ public class Player_shj : MonoBehaviour
 
     public void Start()
     {
-        if(hp == 0)
-        {
-            hp = 50;
-        }
         nomalSpeed = speed;
         colOffset = boxCol.offset;
         colSize = boxCol.size;
