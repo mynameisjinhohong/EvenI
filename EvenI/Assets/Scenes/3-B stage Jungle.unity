@@ -4698,6 +4698,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2793810242751966181, guid: b7683a2088672844894956287bdc8d44, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2793810242751966181, guid: b7683a2088672844894956287bdc8d44, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2793810242751966181, guid: b7683a2088672844894956287bdc8d44, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2793810242751966181, guid: b7683a2088672844894956287bdc8d44, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3992068706154788433, guid: b7683a2088672844894956287bdc8d44, type: 3}
       propertyPath: m_Name
       value: Player
@@ -4755,9 +4771,17 @@ PrefabInstance:
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 3992068706154788461, guid: b7683a2088672844894956287bdc8d44, type: 3}
+      propertyPath: rolling_time
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3992068706154788461, guid: b7683a2088672844894956287bdc8d44, type: 3}
       propertyPath: gameOverPanel
       value: 
       objectReference: {fileID: 838912526}
+    - target: {fileID: 3992068706154788461, guid: b7683a2088672844894956287bdc8d44, type: 3}
+      propertyPath: rolling_MoveSpeed
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 4244379375438690630, guid: b7683a2088672844894956287bdc8d44, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -4799,6 +4823,22 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6139205844468472564, guid: b7683a2088672844894956287bdc8d44, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7126307000456602263, guid: b7683a2088672844894956287bdc8d44, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7126307000456602263, guid: b7683a2088672844894956287bdc8d44, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7126307000456602263, guid: b7683a2088672844894956287bdc8d44, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7126307000456602263, guid: b7683a2088672844894956287bdc8d44, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
@@ -55550,44 +55590,44 @@ Transform:
   - {fileID: 146932407}
   - {fileID: 1876280468}
   - {fileID: 186318127}
+  - {fileID: 771715125}
   - {fileID: 862032694}
   - {fileID: 1059785589}
   - {fileID: 1097052516}
   - {fileID: 279252181}
+  - {fileID: 184454035}
   - {fileID: 157789260}
   - {fileID: 1708358848}
+  - {fileID: 1082359169}
   - {fileID: 1779916828}
   - {fileID: 1422504522}
+  - {fileID: 362774178}
   - {fileID: 511591643}
   - {fileID: 2057222845}
+  - {fileID: 1570327383}
   - {fileID: 602124388}
   - {fileID: 322644181}
   - {fileID: 388920641}
-  - {fileID: 2050257434}
+  - {fileID: 1847053486}
+  - {fileID: 952067423}
   - {fileID: 2138694179}
+  - {fileID: 1661692867}
+  - {fileID: 2050257434}
   - {fileID: 729964003}
   - {fileID: 27309632}
   - {fileID: 244088673}
-  - {fileID: 184454035}
   - {fileID: 1706339745}
-  - {fileID: 1032666383}
-  - {fileID: 107576518}
-  - {fileID: 1234947977}
-  - {fileID: 1744272864}
-  - {fileID: 1959861977}
-  - {fileID: 1847053486}
-  - {fileID: 952067423}
-  - {fileID: 1661692867}
-  - {fileID: 1570327383}
-  - {fileID: 771715125}
-  - {fileID: 1082359169}
   - {fileID: 907089841}
+  - {fileID: 107576518}
   - {fileID: 1486159990}
   - {fileID: 1773175841}
+  - {fileID: 1032666383}
   - {fileID: 1218955371}
-  - {fileID: 362774178}
+  - {fileID: 1234947977}
   - {fileID: 1786473983}
+  - {fileID: 1744272864}
   - {fileID: 1508842286}
+  - {fileID: 1959861977}
   - {fileID: 430479786}
   m_Father: {fileID: 277028532}
   m_RootOrder: 1
