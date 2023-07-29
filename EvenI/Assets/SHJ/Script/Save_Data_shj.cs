@@ -7,6 +7,8 @@ public class Save_Data_shj : MonoBehaviour
 {
     public string nickname; //판다이름
     public int juksun; //죽순개수
+    public int carrot; //당근개수
+    public int ancientRock; //고대비석개수
     public int last_play_scene_num; //마지막 플레이한 씬 번호
     public int hp; //판다 hp
     public float[] playing;
@@ -18,6 +20,8 @@ public class Save_Data_shj : MonoBehaviour
     {
         nickname = "";
         juksun = 0;
+        carrot = 0;
+        ancientRock = 0;
         last_play_scene_num = 0;
         hp = 50;
         ending = new bool[7];

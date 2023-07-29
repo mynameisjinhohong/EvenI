@@ -76,7 +76,6 @@ public class Player_shj : MonoBehaviour
     [Header("충돌 관련")]
     //public GameObject hp_List;
     //public int maxHP = 10;
-
     public BoxCollider2D boxCol;
 
     int Hp;
@@ -150,6 +149,10 @@ public class Player_shj : MonoBehaviour
 
     public void Start()
     {
+        if(hp == 0)
+        {
+            hp = 50;
+        }
         nomalSpeed = speed;
         colOffset = boxCol.offset;
         colSize = boxCol.size;
