@@ -9,21 +9,10 @@ public class IceFloor_HJH : MonoBehaviour
     bool Out = false;
     float nomalSpeed = 0;
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player" && !touch)
         {
-            Debug.Log(gameObject.name);
             Player_shj player = collision.GetComponent<Player_shj>();
             nomalSpeed = player.nomalSpeed;
             player.speed = nomalSpeed*speedChangeAmount;
