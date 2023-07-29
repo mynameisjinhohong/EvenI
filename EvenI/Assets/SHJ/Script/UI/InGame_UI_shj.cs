@@ -9,9 +9,16 @@ using UnityEngine.SceneManagement;
 
 public class InGame_UI_shj : UI_Setting_shj
 {
+    public TextMeshProUGUI carrot_text;
+    public Image carrot_heart;
+    public int carrotCount = 0;
+
+    public TextMeshProUGUI ancientStone_text;
+    public int ancientStoneCount = 0;
 
     public TextMeshProUGUI count_text;
     public TextMeshProUGUI hp_cnt;
+
 
     public GameObject count_down_txt;
     public GameObject select_panel;
@@ -28,7 +35,7 @@ public class InGame_UI_shj : UI_Setting_shj
     bool game_start;
     float countdown;
 
-    public int carrotCount = 0;
+    Player_shj playerScript;
 
     public int Count { get {  return count; } set { count = value; } }
     
@@ -44,7 +51,9 @@ public class InGame_UI_shj : UI_Setting_shj
         //}
         Advertisement.Initialize(gameID, true);
         count = GameManager_shj.Getinstance.Save_data.juksun;
-        player.GetComponent<Player_shj>().hp = GameManager_shj.Getinstance.Save_data.hp;
+        carrotCount = GameManager_shj.Getinstance.Save_data.carrot;
+        playerScript = player.GetComponent<Player_shj>();
+        playerScript.hp = GameManager_shj.Getinstance.Save_data.hp;
     }
 
     public void Start()
@@ -53,7 +62,7 @@ public class InGame_UI_shj : UI_Setting_shj
         //Time.fixedDeltaTime = 0.0f; //밀림현상때문에 생성, 카운트다운 버벅임 원인의심
         respawn = false;
         count_down_txt.SetActive(true);
-        player.GetComponent<Player_shj>().enabled = false;
+        playerScript.enabled = false;
         player.GetComponent<Animator>().enabled = false;
         game_start = false;
         countdown = 3.5f;
@@ -75,8 +84,16 @@ public class InGame_UI_shj : UI_Setting_shj
 
     private void Update()
     {
+        carrot_text.text = carrotCount.ToString() + "%";
+        carrot_heart.fillAmount = (float)carrotCount / 100;
+        if(carrotCount > 99)
+        {
+            carrotCount -= 100;
+            playerScript.hp++;
+        }
+        ancientStone_text.text = ancientStoneCount.ToString();
         count_text.text = count.ToString();
-        hp_cnt.text = player.GetComponent<Player_shj>().hp.ToString();
+        hp_cnt.text = playerScript.hp.ToString();
         if (!game_start) Count_down();
 
         playing_slider.value = playing_slider.value < 1.0f ? 
@@ -91,7 +108,7 @@ public class InGame_UI_shj : UI_Setting_shj
             game_start = true;
             count_down_txt.GetComponent<TextMeshProUGUI>().text = SceneManager.GetActiveScene().name +  "\nSTART!";
             count_down_txt.GetComponent<TextMeshProUGUI>().fontSize = 140;
-            player.GetComponent<Player_shj>().enabled = true;
+            playerScript.enabled = true;
             player.GetComponent<Animator>().enabled = true;
             StartCoroutine(Delay_active(1.0f, count_down_txt));
         }
@@ -136,13 +153,13 @@ public class InGame_UI_shj : UI_Setting_shj
                
                 if (respawn)
                 {
-                    player.GetComponent<Player_shj>().Respawn();
+                    playerScript.Respawn();
                     respawn = false;
-                    player.GetComponent<Player_shj>().hp += 1;
+                    playerScript.hp += 1;
                 }
-                if (player.GetComponent<Player_shj>().hp + 1 <= 50)
+                if (playerScript.hp + 1 <= 50)
                 {
-                    player.GetComponent<Player_shj>().hp += 1;
+                    playerScript.hp += 1;
                     hp_cnt.text = (int.Parse(hp_cnt.text) + 1).ToString(); 
                 }
                 break;
