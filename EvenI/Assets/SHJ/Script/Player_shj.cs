@@ -8,6 +8,7 @@ public enum Player_State // 플레이어의 상태 달리는중인지, 구르는중인지
 {
     Run,
     Rolling,
+    IceFloor,
 }
 
 public class Player_shj : MonoBehaviour
@@ -140,6 +141,8 @@ public class Player_shj : MonoBehaviour
     Coroutine nuckBackCoroutine;
     #endregion
     float test = 0.0f;
+    bool iceFloorRunning = false;
+    public float nomalSpeed = 0f;
     public bool gameClear = false;
     float slowTime = 0f;
     Vector2 colSize;
@@ -147,6 +150,7 @@ public class Player_shj : MonoBehaviour
 
     public void Start()
     {
+        nomalSpeed = speed;
         colOffset = boxCol.offset;
         colSize = boxCol.size;
         cam = Camera.main;
@@ -375,6 +379,43 @@ public class Player_shj : MonoBehaviour
         else
         {
             slowTime = 0;
+        }
+        if(state == Player_State.IceFloor && !iceFloorRunning)
+        {
+            StartCoroutine(IceFloorCheck());
+        }
+    }
+    IEnumerator IceFloorCheck()
+    {
+        bool noIce = false;
+        while (true)
+        {
+            iceFloorRunning = true;
+            RaycastHit2D[] hit = Physics2D.RaycastAll (gameObject.transform.position - new Vector3(0, boxCol.size.y * transform.localScale.y * 0.5f - boxCol.offset.y), Vector2.down, 50f, LayerMask.GetMask("ground"));
+            if(hit != null)
+            {
+                for(int i =0; i<hit.Length; i++)
+                {
+                    if (hit[i].collider.name.Contains("iceFloor"))
+                    {
+                        noIce = false; 
+                        break ;
+                    }
+                    if(i == hit.Length - 1)
+                    {
+                        noIce = true;
+                    }
+                }
+
+            }
+            if (noIce)
+            {
+                iceFloorRunning = false;
+                speed = nomalSpeed;
+                state = Player_State.Run;
+                break;
+            }
+            yield return null;
         }
     }
     private void FixedUpdate()
