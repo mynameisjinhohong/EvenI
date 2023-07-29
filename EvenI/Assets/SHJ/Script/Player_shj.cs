@@ -76,7 +76,6 @@ public class Player_shj : MonoBehaviour
     [Header("충돌 관련")]
     //public GameObject hp_List;
     //public int maxHP = 10;
-
     public BoxCollider2D boxCol;
 
     int Hp;

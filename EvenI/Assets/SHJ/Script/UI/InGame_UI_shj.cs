@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 
 public class InGame_UI_shj : UI_Setting_shj
 {
+
     public TextMeshProUGUI count_text;
     public TextMeshProUGUI hp_cnt;
 
@@ -27,6 +28,7 @@ public class InGame_UI_shj : UI_Setting_shj
     bool game_start;
     float countdown;
 
+    public int carrotCount = 0;
 
     public int Count { get {  return count; } set { count = value; } }
     
