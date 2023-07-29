@@ -384,9 +384,10 @@ public class Player_shj : MonoBehaviour
             StartCoroutine(IceFloorCheck());
         }
     }
-    IEnumerator IceFloorCheck()
+    IEnumerator IceFloorCheck() //밑에 얼음 바닥이 있는지
     {
         bool noIce = false;
+        Debug.Log("Start");
         while (true)
         {
             iceFloorRunning = true;
