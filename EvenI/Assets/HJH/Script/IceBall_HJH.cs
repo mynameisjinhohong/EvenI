@@ -22,11 +22,7 @@ public class IceBall_HJH : Object_Manager_shj
     void Update()
     {
         Vector3 viewPos = cam.WorldToViewportPoint(transform.position);
-        if (viewPos.x >= 0 && viewPos.x <= 1 && viewPos.y >= 0 && viewPos.y <= 1 && viewPos.z > 0)
-        {
-            animator.SetTrigger("InCam");
-        }
-        else if (viewPos.x < -0.5)
+        if (viewPos.x < -0.5)
         {
             Destroy(gameObject);
         }
