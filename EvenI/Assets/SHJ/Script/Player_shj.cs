@@ -225,18 +225,27 @@ public class Player_shj : MonoBehaviour
             else Respawn();
         }
         //RaycastHit2D hit = Physics2D.Raycast(rayPoint[0].position, Vector2.up, transform.localScale.x / 2, LayerMask.GetMask("ground"));
-        RaycastHit2D hit = Physics2D.BoxCast(transform.position + new Vector3(0, boxCol.size.y * transform.localScale.y * 0.5f), new Vector2(boxCol.size.x * transform.localScale.x, 1f), 0, Vector2.up, 0.1f, LayerMask.GetMask("ground"));//위
-        if (hit.collider != null)
+        RaycastHit2D[] hit = Physics2D.BoxCastAll(transform.position + new Vector3(0, boxCol.size.y * transform.localScale.y * 0.5f), new Vector2(boxCol.size.x * transform.localScale.x, 1f), 0, Vector2.up, 0.1f, LayerMask.GetMask("ground"));//위
+        for(int i = 0; i < hit.Length; i++)
         {
-            hit.transform.gameObject.GetComponent<Floor_HJH>().Crash(gameObject);
-            upCrushCheck = true;
-            StartCoroutine(UpCrushOff());
+            if (hit[i].collider != null)
+            {
+                hit[i].transform.gameObject.GetComponent<Floor_HJH>().Crash(gameObject);
+                upCrushCheck = true;
+                StartCoroutine(UpCrushOff());
+            }
         }
-        hit = Physics2D.BoxCast(transform.position + new Vector3(boxCol.size.x * transform.localScale.x * 0.5f, 0), new Vector2(1f, boxCol.size.y * transform.localScale.y), 0, Vector2.right, 0.1f, LayerMask.GetMask("ground")); //앞
-        if (hit.collider != null)
+
+        hit = Physics2D.BoxCastAll(transform.position + new Vector3(boxCol.size.x * transform.localScale.x * 0.5f, 0), new Vector2(1f, boxCol.size.y * transform.localScale.y), 0, Vector2.right, 0.1f, LayerMask.GetMask("ground")); //앞
+        for(int i = 0; i< hit.Length; i++)
         {
-            hit.transform.gameObject.GetComponent<Floor_HJH>().Crash(gameObject);
+            if (hit[i].collider != null)
+            {
+                hit[i].transform.gameObject.GetComponent<Floor_HJH>().Crash(gameObject);
+            }
+
         }
+
         //if (hp_List.transform.childCount > 0)
         //{
         //    if (Hp != 0)
@@ -388,7 +397,6 @@ public class Player_shj : MonoBehaviour
     IEnumerator IceFloorCheck() //밑에 얼음 바닥이 있는지
     {
         bool noIce = false;
-        Debug.Log("Start");
         while (true)
         {
             iceFloorRunning = true;
