@@ -155,8 +155,10 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
     public void Data_Reset() //데이터 리셋 매개변수로 받을까 싶음
     {
         GameManager_shj.Getinstance.Save_data.juksun = 0;
+        GameManager_shj.Getinstance.Save_data.carrot = 0;
+        GameManager_shj.Getinstance.Save_data.ancientRock = 0;
         GameManager_shj.Getinstance.Save_data.last_play_scene_num = 2;
-        GameManager_shj.Getinstance.Save_data.hp = 50;
+        GameManager_shj.Getinstance.Save_data.hp = GameManager_shj.Getinstance.Save_data.max_hp;
 
         for (int i = 0; i < GameManager_shj.Getinstance.Save_data.playing.Length; i++)
             GameManager_shj.Getinstance.Save_data.playing[i] = 0.0f;
@@ -321,7 +323,7 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
                 //    player.GetComponent<Player_shj>().hp += 1;
                     
                 //}
-                if(Scene_num > 1)
+                if(Scene_num == 1)
                 {
                     GameManager_shj.Getinstance.Save_data.hp += heal;
                     Data_Save();
@@ -331,13 +333,14 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
                     if(player.GetComponent<Player_shj>().hp + heal <= GameManager_shj.Getinstance.Save_data.max_hp)
                         player.GetComponent<Player_shj>().hp += heal;
 
-                    if(respawn)
+                    if (respawn)
                     {
                         player.GetComponent<Player_shj>().Respawn();
                         respawn = false;
                     }
+                    if (hp_cnt != null) hp_cnt.text = (int.Parse(hp_cnt.text) + 1).ToString();
                 }
-                if (hp_cnt != null) hp_cnt.text = (int.Parse(hp_cnt.text) + 1).ToString();
+
                 break;
         }
     }

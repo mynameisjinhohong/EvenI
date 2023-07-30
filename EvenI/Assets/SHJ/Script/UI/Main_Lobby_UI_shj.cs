@@ -5,6 +5,8 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
+using TMPro;
+using System;
 
 public class Main_Lobby_UI_shj : UI_Setting_shj
 {
@@ -15,7 +17,10 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
     public Text nickname_text;
     public GameObject set_nickname;
     public GameObject continue_stage;
+    public GameObject continue_stage_btn;
+    public Text charge_cnt_txt;
     public GameObject scenario_info;
+    public GameObject heart_charge;
 
     public Slider BGM_value;
     public Slider Effect_value;
@@ -26,9 +31,13 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
     {
         init_set();
         BackGround_Set();
+        Date_Check();
+
         //senario = CSVReader.Read("Scenario/opening/opening_scenario");
         //next_text();
 
+        charge_cnt_txt.text = "하트 무료 충전" + "\n" + "(" + GameManager_shj.Getinstance.Save_data.healcnt + "/5" + ")";
+        hp_cnt.text = GameManager_shj.Getinstance.Save_data.hp.ToString();
         BGM_value.value = GameManager_shj.Getinstance.Save_data.bgm_vol;
         Effect_value.value = GameManager_shj.Getinstance.Save_data.eff_vol;
 
@@ -50,7 +59,61 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
         }
     }
 
+    private void Update()
+    {
+        if (heart_charge.activeInHierarchy)
+        {
+            hp_cnt.text = GameManager_shj.Getinstance.Save_data.hp.ToString();
+            if (GameManager_shj.Getinstance.Save_data.healcnt < 5 &Time_Check >= GameManager_shj.Getinstance.Save_data.nexthealtime)
+            {
+                heart_charge.transform.GetChild(1).gameObject.SetActive(true);
+                if (heart_charge.transform.GetChild(2).gameObject.activeSelf) heart_charge.transform.GetChild(2).gameObject.SetActive(false);
+            }
+            else if(GameManager_shj.Getinstance.Save_data.healcnt == 5)
+            {
+                for (int i = 0; i < 3; i++)
+                    heart_charge.transform.GetChild(i).gameObject.SetActive(false);
+
+                heart_charge.transform.GetChild(3).gameObject.SetActive(true);
+            }
+            else
+            {
+                if(heart_charge.transform.GetChild(1).gameObject.activeSelf) heart_charge.transform.GetChild(1).gameObject.SetActive(false);
+                heart_charge.transform.GetChild(2).gameObject.SetActive(true);
+
+                int cnt = GameManager_shj.Getinstance.Save_data.nexthealtime - Time_Check;
+                heart_charge.GetComponentInChildren<TextMeshProUGUI>().text = cnt / 60 + " : " + (cnt % 60).ToString("D2");
+            }
+            //int time_cnt = Time_Check;
+        }
+        //    Debug.Log(heart_charge.activeInHierarchy);
+        //int a = int.Parse(DateTime.Now.ToString("HH")) * 3600 + int.Parse(DateTime.Now.ToString("mm")) * 60 + int.Parse(DateTime.Now.ToString("ss"));
+        //Debug.Log(a);
+        //Debug.Log(DateTime.Now.ToString());
+        //Debug.Log(DateTime.Now.ToString());
+        //Debug.Log(DateTime.Now.ToString());
+    }
+
     public void Active_Info() { scenario_info.SetActive(true); }
+    public int Time_Check { get { return int.Parse(DateTime.Now.ToString("HH")) * 3600 + int.Parse(DateTime.Now.ToString("mm")) * 60 + int.Parse(DateTime.Now.ToString("ss")); } }
+    public void Active_Heal()
+    {
+        GameManager_shj.Getinstance.Save_data.nexthealtime = Time_Check + 300;
+        GameManager_shj.Getinstance.Save_data.healcnt += 1;
+        charge_cnt_txt.text = "하트 무료 충전" + "\n" + "(" + GameManager_shj.Getinstance.Save_data.healcnt + "/5" + ")";
+        Data_Save();
+    }
+
+    public void Date_Check()
+    {
+        if (GameManager_shj.Getinstance.Save_data.lastjoin != DateTime.Now.ToString("yyyy-MM-dd")) //날짜가 하루 지나면 힐카운트 초기화
+        {
+            GameManager_shj.Getinstance.Save_data.healcnt = 0;
+            GameManager_shj.Getinstance.Save_data.lastjoin = DateTime.Now.ToString("yyyy-MM-dd");
+            GameManager_shj.Getinstance.Save_data.nexthealtime = 0;
+            Data_Save();
+        }
+    }
 
     public void Set_NickName() //닉네임 설정
     {
@@ -69,10 +132,15 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
         if (GameManager_shj.Getinstance.Save_data.nickname.Length == 0 || GameManager_shj.Getinstance.Save_data.nickname == "")
             set_nickname.SetActive(true);
 
-        else if(GameManager_shj.Getinstance.Save_data.last_play_scene_num > 2)
+        else /*if(GameManager_shj.Getinstance.Save_data.last_play_scene_num >= 2)*/
+        {
             continue_stage.SetActive(true);
-        else
-            Next_Scene();
+
+            if (GameManager_shj.Getinstance.Save_data.last_play_scene_num == 2)
+                continue_stage_btn.SetActive(false);
+        }
+        //else
+        //    Next_Scene();
     }
 
     public void Set_BGM_vol(Slider bar) { GameManager_shj.Getinstance.Volume_Set("BGM",bar.value); }
