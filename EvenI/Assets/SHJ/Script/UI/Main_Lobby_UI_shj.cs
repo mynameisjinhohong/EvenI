@@ -18,14 +18,13 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
     public GameObject set_nickname;
     public GameObject continue_stage;
     public GameObject continue_stage_btn;
+    public GameObject[] hidden_list;
     public Text charge_cnt_txt;
-    public GameObject scenario_info;
+    public GameObject info;
     public GameObject heart_charge;
 
     public Slider BGM_value;
     public Slider Effect_value;
-
-    
 
     public void Start()
     {
@@ -44,6 +43,28 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
         for (int i = 0; i < GameManager_shj.Getinstance.Save_data.playing.Length; i++)
             playing_value[i].fillAmount = GameManager_shj.Getinstance.Save_data.playing[i];
 
+        for (int i = 0; i < /*GameManager_shj.Getinstance.Save_data.hidden_open.Length*/hidden_list.Length; i++)
+        {
+            if(!GameManager_shj.Getinstance.Save_data.hidden_open[i])
+            {
+                hidden_list[i].GetComponentInChildren<Text>().text = "???";
+                hidden_list[i].transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
+                hidden_list[i].GetComponent<Button>().onClick.SetPersistentListenerState(0, UnityEngine.Events.UnityEventCallState.Off);
+                //hidden_list[i].GetComponent<Button>().onClick.AddListener(() => Active_Info(i/*hidden_str[i]*/));
+                //hidden_list[i + 2].GetComponentInChildren<Text>().text = "???";
+                //hidden_list[i + 2].transform.GetChild(1).GetChild(0).GetChild(1).gameObject.SetActive(true);
+                //hidden_list[i + 2].GetComponent<Button>().onClick.SetPersistentListenerState(0, UnityEngine.Events.UnityEventCallState.Off);
+                //hidden_list[i + 2].GetComponent<Button>().onClick.AddListener(() => Active_Info(i + 2/*hidden_str[i])*/));
+
+            }
+            else
+            {
+                hidden_list[i].transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+                hidden_list[i].GetComponent<Button>().onClick.SetPersistentListenerState(1, UnityEngine.Events.UnityEventCallState.Off);
+                //hidden_list[i + 2].transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+            }
+        }
+
         for (int i = 0; i < GameManager_shj.Getinstance.Save_data.ending.Length; i++)
         {
             GameObject target = scenario_list[i];
@@ -54,7 +75,7 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
             {
                 target.transform.GetChild(1).gameObject.SetActive(true);
                 scenario_list[i].GetComponent<Button>().onClick.SetPersistentListenerState(0, UnityEngine.Events.UnityEventCallState.Off);
-                scenario_list[i].GetComponent<Button>().onClick.AddListener(Active_Info);
+                scenario_list[i].GetComponent<Button>().onClick.AddListener(() =>Active_Info(""));
             }
         }
     }
@@ -94,7 +115,11 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
         //Debug.Log(DateTime.Now.ToString());
     }
 
-    public void Active_Info() { scenario_info.SetActive(true); }
+    public void Active_Info(string txt)
+    {
+        info.GetComponent<Text>().text = txt;
+        info.SetActive(true);
+    }
     public int Time_Check { get { return int.Parse(DateTime.Now.ToString("HH")) * 3600 + int.Parse(DateTime.Now.ToString("mm")) * 60 + int.Parse(DateTime.Now.ToString("ss")); } }
     public void Active_Heal()
     {
