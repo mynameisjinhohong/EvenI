@@ -212,7 +212,7 @@ public class Player_shj : MonoBehaviour
         //}
         if(rigid.velocity.x == 0)
         {
-            if(!stuckRespawn)
+            if(!stuckRespawn && !gameClear)
             {
                 stuckRespawn = true;
                 StartCoroutine(StuckCheck());

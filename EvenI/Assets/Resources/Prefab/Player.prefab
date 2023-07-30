@@ -3842,6 +3842,7 @@ MonoBehaviour:
   text_pos: {fileID: 6425430357217917084}
   story_text: {fileID: 910145773439196434}
   btn_text: {fileID: 1978705698305778545}
+  hp_cnt: {fileID: 5492627314248165322}
   player: {fileID: 3992068706154788433}
   main: {fileID: 0}
   story: {fileID: 7174021564876263597}
@@ -3883,7 +3884,6 @@ MonoBehaviour:
   ancientStone_text: {fileID: 3022051055375890704}
   ancientStoneCount: 0
   count_text: {fileID: 3992068704595895198}
-  hp_cnt: {fileID: 5492627314248165322}
   count_down_txt: {fileID: 7577814354904086388}
   select_panel: {fileID: 2009677573279888749}
   playing_slider: {fileID: 4900849837248382284}
@@ -5327,6 +5327,7 @@ MonoBehaviour:
   gravity: 25
   jumpBool: 0
   upCrushCheck: 0
+  ancientMax: 0
   nomalSpeed: 0
   gameClear: 0
 --- !u!50 &3992068706154788460
@@ -6061,12 +6062,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3992068704724015219}
-        m_TargetAssemblyTypeName: InGame_UI_shj, Assembly-CSharp
+        m_TargetAssemblyTypeName: UI_Setting_shj, Assembly-CSharp
         m_MethodName: ShowAds
-        m_Mode: 2
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 4789244973392265844}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6196,12 +6197,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3992068704724015219}
-        m_TargetAssemblyTypeName: InGame_UI_shj, Assembly-CSharp
-        m_MethodName: Restart_Check
-        m_Mode: 2
+        m_TargetAssemblyTypeName: UI_Setting_shj, Assembly-CSharp
+        m_MethodName: ShowAds
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 5119389983099874671}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 

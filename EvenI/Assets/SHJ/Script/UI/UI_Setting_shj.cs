@@ -4,10 +4,23 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.Advertisements;
+using TMPro;
+using System;
 
 public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
 {
+    #region 변수
+
+    protected enum AudioType
+    {
+        UION,
+        UIOff,
+        StoryDic,
+        PopUPClose,
+        Lock,
+    }
+
     protected AudioSource audio;
 
     public Sprite[] background_list; //맵 배경
@@ -16,6 +29,7 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
     public RectTransform text_pos;
     public Text story_text;
     public Text btn_text;
+    public TextMeshProUGUI hp_cnt;
 
     protected Sprite[] scenario_img; //시나리오 이미지 배열
 
@@ -40,16 +54,46 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
     protected int click_cnt = -1;
     protected bool gamestart = false;
 
+    string gameID = "5343352";
+    string adType = "Rewarded_Android";
 
-    public void UI_On_Off() //버튼의 첫번째 자식 켜고 끄기 음향 추가 해야함
+    int heal;
+    protected bool respawn;
+
+    #endregion
+
+    #region 프로퍼티
+    public bool Ending { get { return ending_chk.Contains(SceneManager.GetActiveScene().buildIndex); } }
+    public bool Select_chk { get { return scene_chk.Contains(SceneManager.GetActiveScene().buildIndex); } }
+    public int Scene_num { get { return SceneManager.GetActiveScene().buildIndex; } }
+    #endregion
+
+    public DateTime Nowtime { get { return DateTime.Now; } }
+
+    protected void init_set()
     {
-        GameObject G_obj = EventSystem.current.currentSelectedGameObject.transform.GetChild(0).gameObject;
+        if (GetComponent<AudioSource>() != null) audio = GetComponent<AudioSource>();
+        Advertisement.Initialize(gameID, true);
 
-        if (!G_obj.activeSelf)
-        {
-            G_obj.SetActive(true);
-            root_UI = G_obj;
-        }
+        if(Scene_num > 1) respawn = false;
+    }
+
+
+    public void UI_On_Off(GameObject obj) //버튼의 첫번째 자식 켜고 끄기 음향 추가 해야함
+    {
+        //GameObject G_obj = EventSystem.current.currentSelectedGameObject.transform.GetChild(0).gameObject; //클릭한 게임오브젝트
+
+        //if (!G_obj.activeSelf)
+        //{
+        //    G_obj.SetActive(true);
+        //    root_UI = G_obj;
+        //}
+
+        obj.SetActive(obj.activeSelf);
+
+   
+
+        audio.Play();
     }
 
     public void Game_Exit() //게임종료
@@ -60,11 +104,6 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
         Application.Quit();
 #endif 
     }
-
-    public bool Ending { get { return ending_chk.Contains(SceneManager.GetActiveScene().buildIndex); } }
-    public bool Select_chk { get { return scene_chk.Contains(SceneManager.GetActiveScene().buildIndex); } }
-
-    public int Scene_num { get { return SceneManager.GetActiveScene().buildIndex; } }
 
     //씬이동 변경 고민해봐야할듯
     public void Next_Scene() //현재씬에서 다음 씬으로 넘어감
@@ -108,7 +147,7 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
     {
         if (background_list.Length > 0)
         {
-            int cnt = Random.Range(0, background_list.Length);
+            int cnt = UnityEngine.Random.Range(0, background_list.Length);
             background.sprite = background_list[cnt];
         }
     }
@@ -249,5 +288,57 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
         }
         else
             Skip_btn();
+    }
+
+    public void ShowAds(/*GameObject ads*/int heal)
+    {
+        this.heal = heal;
+        if (Advertisement.IsReady())
+        {
+            ShowOptions options = new ShowOptions { resultCallback = ResultAds };
+            Advertisement.Show(adType, options);
+        }
+        //ads.SetActive(false);
+    }
+
+    void ResultAds(ShowResult result)
+    {
+        switch (result)
+        {
+            case ShowResult.Failed:
+                break;
+            case ShowResult.Skipped:
+            case ShowResult.Finished:
+
+                //if (respawn)
+                //{
+                //    player.GetComponent<Player_shj>().Respawn();
+                //    respawn = false;
+                //    player.GetComponent<Player_shj>().hp += 1;
+                //}
+                //if (player.GetComponent<Player_shj>().hp + 1 <= 50)
+                //{
+                //    player.GetComponent<Player_shj>().hp += 1;
+                    
+                //}
+                if(Scene_num > 1)
+                {
+                    GameManager_shj.Getinstance.Save_data.hp += heal;
+                    Data_Save();
+                }
+                else
+                {
+                    if(player.GetComponent<Player_shj>().hp + heal <= GameManager_shj.Getinstance.Save_data.max_hp)
+                        player.GetComponent<Player_shj>().hp += heal;
+
+                    if(respawn)
+                    {
+                        player.GetComponent<Player_shj>().Respawn();
+                        respawn = false;
+                    }
+                }
+                if (hp_cnt != null) hp_cnt.text = (int.Parse(hp_cnt.text) + 1).ToString();
+                break;
+        }
     }
 }

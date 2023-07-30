@@ -17,8 +17,6 @@ public class InGame_UI_shj : UI_Setting_shj
     public int ancientStoneCount = 0;
 
     public TextMeshProUGUI count_text;
-    public TextMeshProUGUI hp_cnt;
-
 
     public GameObject count_down_txt;
     public GameObject select_panel;
@@ -31,7 +29,6 @@ public class InGame_UI_shj : UI_Setting_shj
 
     int count;
     int next_scene_cnt = 0;
-    bool respawn;
     bool game_start;
     float countdown;
 
@@ -58,6 +55,7 @@ public class InGame_UI_shj : UI_Setting_shj
 
     public void Start()
     {
+        init_set();
         Time.timeScale = 1.0f;
         //Time.fixedDeltaTime = 0.0f; //밀림현상때문에 생성, 카운트다운 버벅임 원인의심
         respawn = false;
@@ -131,45 +129,10 @@ public class InGame_UI_shj : UI_Setting_shj
         Time.timeScale = 1.0f;
     }
 
-    public void ShowAds(GameObject ads)
-    {
-
-        if (Advertisement.IsReady())
-        {
-            ShowOptions options = new ShowOptions { resultCallback = ResultAds };
-            Advertisement.Show(adType, options);
-        }
-        ads.SetActive(false);
-    }
-
-    void ResultAds(ShowResult result)
-    {
-        switch (result)
-        {
-            case ShowResult.Failed:
-                break;
-            case ShowResult.Skipped:
-            case ShowResult.Finished:
-               
-                if (respawn)
-                {
-                    playerScript.Respawn();
-                    respawn = false;
-                    playerScript.hp += 1;
-                }
-                if (playerScript.hp + 1 <= 50)
-                {
-                    playerScript.hp += 1;
-                    hp_cnt.text = (int.Parse(hp_cnt.text) + 1).ToString(); 
-                }
-                break;
-        }
-    }
-
-    public void Restart_Check(GameObject ads)
+    public void Restart_Check()
     {
         respawn = true;
-        ShowAds(ads);
+        ShowAds(2);
         //GameObject player = GameObject.Find("Player");
         //Vector3 player_pos = player.transform.localPosition;
         //int hp = player.GetComponent<Player_shj>().hp;

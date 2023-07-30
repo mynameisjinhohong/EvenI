@@ -20,18 +20,11 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
     public Slider BGM_value;
     public Slider Effect_value;
 
-    enum AudioType
-    {
-        UION,
-        UIOff,
-        StoryDic,
-        PopUPClose,
-        Lock,
-    }
+    
 
-    private void Start()
+    public void Start()
     {
-        audio = GetComponent<AudioSource>();
+        init_set();
         BackGround_Set();
         //senario = CSVReader.Read("Scenario/opening/opening_scenario");
         //next_text();
