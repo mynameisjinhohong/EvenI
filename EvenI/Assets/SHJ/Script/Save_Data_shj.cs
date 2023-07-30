@@ -15,10 +15,11 @@ public class Save_Data_shj : MonoBehaviour
     public int hp; //판다 hp
     public float[] playing; //진행률
     public bool[] ending; //엔딩 수집
+    public bool[] hidden_open;
     public float bgm_vol; //배경음 볼륨
     public float eff_vol; //효과음 볼륨
     public string lastjoin; //마지막 접속
-    public string lastheal; //마지막회복
+    public int nexthealtime; //다음회복시간
     public int healcnt; //일일 회복횟수
 
     public Save_Data_shj() //생성자
@@ -32,13 +33,15 @@ public class Save_Data_shj : MonoBehaviour
         hp = 30;
         ending = new bool[7];
         playing = new float[6];
+        hidden_open = new bool[2];
         bgm_vol = 0.5f;
         eff_vol = 0.5f;
         lastjoin = DateTime.Now.ToString("yyyy-MM-dd");
-        lastheal = DateTime.Now.ToString("HH-mm-ss");
+        nexthealtime = 0;
         healcnt = 0;
 
         for (int i = 0; i < ending.Length; i++) ending[i] = false;
+        for (int i = 0; i < hidden_open.Length; i++) hidden_open[i] = false;
         for (int i = 0; i < playing.Length; i++) playing[i] = 0.0f;
 
     }
