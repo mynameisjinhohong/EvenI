@@ -10,9 +10,15 @@ public class Floor_HJH : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        box = GetComponent<BoxCollider2D>();
-        sprite = GetComponent<SpriteRenderer>();
-        bgSize = GetBGSize();
+        TryGetComponent<BoxCollider2D>(out box);
+        TryGetComponent<SpriteRenderer>(out sprite);
+        //box = GetComponent<BoxCollider2D>();
+        
+        //sprite = GetComponent<SpriteRenderer>();
+        if(sprite != null)
+        {
+            bgSize = GetBGSize();
+        }
     }
 
     // Update is called once per frame
@@ -23,6 +29,10 @@ public class Floor_HJH : MonoBehaviour
 
     public void Crash(GameObject player)
     {
+        if(box == null)
+        {
+            return;
+        }
         if(player.transform.position.y < transform.position.y || player.transform.position.x < transform.position.x - (bgSize.x/2))
         {
             
