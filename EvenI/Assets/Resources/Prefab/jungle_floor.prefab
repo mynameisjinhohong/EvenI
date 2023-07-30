@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 353788066}
   - component: {fileID: 353788067}
-  m_Layer: 0
+  - component: {fileID: 3160253267892556507}
+  m_Layer: 8
   m_Name: LowFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51,17 +52,26 @@ EdgeCollider2D:
   - {x: 2.8737643, y: -0.6093973}
   - {x: -2.911989, y: -0.53558517}
   - {x: -2.9042835, y: 0.58229077}
-  - {x: -1.4959965, y: -0.06182289}
-  - {x: -1.4959965, y: -0.06182289}
-  - {x: -1.4959965, y: -0.06182289}
-  - {x: -1.4959965, y: -0.06182289}
-  - {x: 2.0376873, y: -0.090709984}
-  - {x: 2.9001946, y: 0.6064665}
-  - {x: 2.8845973, y: -0.6270609}
+  - {x: -0.11177862, y: -0.158961}
+  - {x: 0.15535143, y: -0.16705585}
+  - {x: 2.972356, y: 0.5533851}
+  - {x: 2.9430578, y: -0.57097}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &3160253267892556507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 353788065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d53278b746eb547a4495bb8510959d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1295183353517702109
 GameObject:
   m_ObjectHideFlags: 0
