@@ -289,29 +289,31 @@ public class Player_shj : MonoBehaviour
                 //if (ui.Select_chk) selectPanel.SetActive(true);
                 if(ui.Ending)
                 {
-                    int num = ui.Scene_num < 30 ? (ui.Scene_num / 5) - 2 : ui.Scene_num / 2;
+                    ui.Ending_Check();
+                    //InGameUI, Ending_Check() 함수로 복사이동시켰습니다
+                    //int num = ui.Scene_num < 30 ? (ui.Scene_num / 5) - 2 : ui.Scene_num / 2;
 
-                    switch (num)
-                    {
-                        case 1:
-                            ui.Load_Story("ending1");
-                            break;
-                        case 2:
-                            ui.Load_Story("ending2");
-                            break;
-                        case 3:
-                            ui.Load_Story("ending3");
-                            break;
-                        case 15:
-                            ui.Load_Story("hidden1");
-                            break;
-                        case 16:
-                            ui.Load_Story("hidden2");
-                            break;
-                    }
-                    GameManager_shj.Getinstance.Save_data.ending[num] = true;
-                    ui.Data_Reset();
-                    ui.Data_Save();
+                    //switch (num)
+                    //{
+                    //    case 1:
+                    //        ui.Load_Story("ending1");
+                    //        break;
+                    //    case 2:
+                    //        ui.Load_Story("ending2");
+                    //        break;
+                    //    case 3:
+                    //        ui.Load_Story("ending3");
+                    //        break;
+                    //    case 15:
+                    //        ui.Load_Story("hidden1");
+                    //        break;
+                    //    case 16:
+                    //        ui.Load_Story("hidden2");
+                    //        break;
+                    //}
+                    //GameManager_shj.Getinstance.Save_data.ending[num] = true;
+                    //ui.Data_Reset();
+                    //ui.Data_Save();
                     gameObject.GetComponent<Player_shj>().enabled = false;
                 }
                 else gameClearPanel.SetActive(true);

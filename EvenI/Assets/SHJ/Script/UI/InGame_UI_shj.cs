@@ -173,21 +173,45 @@ public class InGame_UI_shj : UI_Setting_shj
         //Start();
     }
 
+    public void Ending_Check()
+    {
+        int num = Scene_num < 30 ? (Scene_num / 5) - 2 : Scene_num / 2;
+
+        switch (num)
+        {
+            case 1:
+                Load_Story("ending1");
+                break;
+            case 2:
+                Load_Story("ending2");
+                break;
+            case 3:
+                Load_Story("ending3");
+                break;
+            case 15:
+                Load_Story("hidden1");
+                break;
+            case 16:
+                Load_Story("hidden2");
+                break;
+        }
+        GameManager_shj.Getinstance.Save_data.ending[num] = true;
+        Data_Reset();
+        Data_Save();
+    }
+
     public void Select_Check()
     {
         if (Select_chk)
-        {
             select_panel.SetActive(true);
-            EventSystem.current.currentSelectedGameObject.transform.parent.gameObject.SetActive(false);
-        }
         else
             Change_Scene();
     }
 
     public void Change_Scene()
     {
-        int stage_num = (Scene_num - 1) / 3;
-        GameManager_shj.Getinstance.Save_data.playing[stage_num] += stage_num != 0 ? 0.34f : 0.5f;
+        int stage_num = Scene_num / 5;
+        GameManager_shj.Getinstance.Save_data.playing[stage_num] += stage_num != 0 ? 0.2f : 0.34f;
         if (GameManager_shj.Getinstance.Save_data.playing[stage_num] > 1.0f)
             GameManager_shj.Getinstance.Save_data.playing[stage_num] = 1.0f;
 
