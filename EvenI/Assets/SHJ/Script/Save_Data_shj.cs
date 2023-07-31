@@ -6,6 +6,7 @@ using System;
 [System.Serializable]
 public class Save_Data_shj : MonoBehaviour
 {
+
     public string nickname; //판다이름
     public int juksun; //죽순개수
     public int carrot; //당근개수
