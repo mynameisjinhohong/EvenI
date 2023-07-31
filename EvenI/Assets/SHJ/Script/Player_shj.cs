@@ -138,6 +138,7 @@ public class Player_shj : MonoBehaviour
     bool nuckBackDuring = false;
     public bool upCrushCheck = false; //위에 부딪혔을 때
     public int ancientMax; //고대비석 충족 개수
+    public int juksunMax;
     Coroutine nuckBackCoroutine;
     #endregion
     float test = 0.0f;

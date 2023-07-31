@@ -179,4 +179,15 @@ public class InGame_UI_shj : UI_Setting_shj
             Data_change(count, 1);
         }
     }
+    public override void HiddenOpenCheck()
+    {
+        if(GameManager_shj.Getinstance.Save_data.ancientRock == player.GetComponent<Player_shj>().ancientMax)
+        {
+            GameManager_shj.Getinstance.Save_data.hidden_open[0] = true;
+        }
+        if(GameManager_shj.Getinstance.Save_data.juksun == player.GetComponent<Player_shj>().juksunMax)
+        {
+            GameManager_shj.Getinstance.Save_data.hidden_open[1] = true;
+        }
+    }
 }
