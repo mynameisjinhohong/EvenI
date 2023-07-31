@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Advertisements;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 
 public class InGame_UI_shj : UI_Setting_shj
@@ -82,9 +83,11 @@ public class InGame_UI_shj : UI_Setting_shj
         {
             int num = Scene_num;
             select_panel.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(() => Set_cnt(next_scene_cnt));
+            select_panel.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(Change_Scene);
             select_panel.transform.GetChild(0).GetComponent<Image>().sprite = background_list[(num + 1) / 5 - 1];
 
             select_panel.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(() => Set_cnt(next_scene_cnt + 5));
+            select_panel.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(Change_Scene);
             select_panel.transform.GetChild(1).GetComponent<Image>().sprite = background_list[(num + 6) / 5 - 1];
         }
     }
@@ -170,6 +173,17 @@ public class InGame_UI_shj : UI_Setting_shj
         //Start();
     }
 
+    public void Select_Check()
+    {
+        if (Select_chk)
+        {
+            select_panel.SetActive(true);
+            EventSystem.current.currentSelectedGameObject.transform.parent.gameObject.SetActive(false);
+        }
+        else
+            Change_Scene();
+    }
+
     public void Change_Scene()
     {
         int stage_num = (Scene_num - 1) / 3;
@@ -181,11 +195,6 @@ public class InGame_UI_shj : UI_Setting_shj
         {
             Return_Scene(Scene_num + next_scene_cnt);
             Data_change(count, next_scene_cnt);
-        }
-        else if(Scene_num == 6)
-        {
-            Return_Scene(10);
-            Data_change(count, 4);
         }
         else
         {

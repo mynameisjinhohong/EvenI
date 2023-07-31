@@ -286,8 +286,8 @@ public class Player_shj : MonoBehaviour
             Vector3 viewPos = cam.WorldToViewportPoint(transform.position);
             if (viewPos.x > 1 && viewPos.z > 0)
             {
-                if (ui.Select_chk) selectPanel.SetActive(true);
-                else if(ui.Ending)
+                //if (ui.Select_chk) selectPanel.SetActive(true);
+                if(ui.Ending)
                 {
                     int num = ui.Scene_num < 30 ? (ui.Scene_num / 5) - 2 : ui.Scene_num / 2;
 
