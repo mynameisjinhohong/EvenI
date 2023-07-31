@@ -36,6 +36,7 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
     protected List<Dictionary<string, object>> senario; //CSV로 불러올 시나리오 내용
     protected GameObject root_UI = null; //없어도 될듯 삭제예정
 
+    public GameObject story_mask;
     public GameObject player;
     public GameObject main;
     public GameObject story;
@@ -183,6 +184,15 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
         obj.SetActive(false);
     }
 
+    protected IEnumerator Story_Open(GameObject obj) //지연 삭제
+    {
+        story_mask.SetActive(true);
+        yield return new WaitForSeconds(1.5f/2);
+        obj.SetActive(false);
+        yield return new WaitForSeconds(1.5f / 2);
+        story_mask.SetActive(false);
+    }
+
     public void Data_Save() //데이터 저장
     {
         GameManager_shj.Getinstance.Data_Save();
@@ -233,8 +243,10 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
                 scenario_img = hidden2_img;
                 break;
         }
-        if(main != null) main.SetActive(false);
-        story.SetActive(true);
+
+        StartCoroutine(Story_Open(story));
+        //if(main != null) main.SetActive(false);
+        //story.SetActive(true);
         click_cnt = -1;
         senario = CSVReader.Read("Scenario/" + scenario_name + "/" + scenario_name + "_scenario");
         next_text();
