@@ -289,7 +289,7 @@ public class Player_shj : MonoBehaviour
                 if (ui.Select_chk) selectPanel.SetActive(true);
                 else if(ui.Ending)
                 {
-                    int num = (ui.Scene_num / 5) - 3;
+                    int num = ui.Scene_num < 29 ? (ui.Scene_num / 5) - 3 : ui.Scene_num / 2;
 
                     switch (num)
                     {
@@ -302,10 +302,10 @@ public class Player_shj : MonoBehaviour
                         case 3:
                             ui.Load_Story("ending3");
                             break;
-                        case 4:
+                        case 15:
                             ui.Load_Story("hidden1");
                             break;
-                        case 5:
+                        case 16:
                             ui.Load_Story("hidden2");
                             break;
                     }
