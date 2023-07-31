@@ -4272,7 +4272,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3992068706154788461, guid: b7683a2088672844894956287bdc8d44, type: 3}
       propertyPath: rolling_time
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3992068706154788461, guid: b7683a2088672844894956287bdc8d44, type: 3}
       propertyPath: rolling_MoveSpeed
@@ -23859,7 +23859,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8539ae9e6d1d13c43b50eece71542c81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 0.5
   player: {fileID: 0}
   bgs:
   - {fileID: 907986403}

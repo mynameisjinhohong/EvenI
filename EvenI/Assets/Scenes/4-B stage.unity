@@ -18905,6 +18905,14 @@ PrefabInstance:
       propertyPath: speed
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 3992068706154788461, guid: b7683a2088672844894956287bdc8d44, type: 3}
+      propertyPath: rolling_time
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3992068706154788461, guid: b7683a2088672844894956287bdc8d44, type: 3}
+      propertyPath: rolling_MoveSpeed
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 4244379375438690630, guid: b7683a2088672844894956287bdc8d44, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
