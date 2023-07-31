@@ -76,16 +76,16 @@ public class InGame_UI_shj : UI_Setting_shj
         game_start = false;
         countdown = 3.5f;
 
-        next_scene_cnt = Scene_num > 3 ? 6 : 1;
+        next_scene_cnt = Scene_num > 4 ? 6 : 1;
 
         if(Select_chk)
         {
             int num = Scene_num;
             select_panel.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(() => Set_cnt(next_scene_cnt));
-            select_panel.transform.GetChild(0).GetComponent<Image>().sprite = background_list[(num + 1) / 3 - 1];
+            select_panel.transform.GetChild(0).GetComponent<Image>().sprite = background_list[(num + 1) / 5 - 1];
 
             select_panel.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(() => Set_cnt(next_scene_cnt + 5));
-            select_panel.transform.GetChild(1).GetComponent<Image>().sprite = background_list[(num + 4) / 3 - 1];
+            select_panel.transform.GetChild(1).GetComponent<Image>().sprite = background_list[(num + 6) / 5 - 1];
         }
     }
 
