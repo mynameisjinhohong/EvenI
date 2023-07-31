@@ -20,6 +20,7 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
     public GameObject continue_stage_btn;
     public GameObject[] hidden_list;
     public Text charge_cnt_txt;
+    public GameObject gameinfo;
     public GameObject info;
     public GameObject heart_charge;
 
@@ -31,6 +32,9 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
         init_set();
         BackGround_Set();
         Date_Check();
+
+        if (GameManager_shj.Getinstance.Save_data.nickname.Length == 0 || GameManager_shj.Getinstance.Save_data.nickname == "")
+            gameinfo.SetActive(true);
 
         charge_cnt_txt.text = "하트 무료 충전" + "\n" + "(" + GameManager_shj.Getinstance.Save_data.healcnt + "/5" + ")";
         hp_cnt.text = GameManager_shj.Getinstance.Save_data.hp.ToString();

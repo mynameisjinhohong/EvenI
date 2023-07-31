@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Advertisements;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 
 public class InGame_UI_shj : UI_Setting_shj
@@ -76,16 +77,18 @@ public class InGame_UI_shj : UI_Setting_shj
         game_start = false;
         countdown = 3.5f;
 
-        next_scene_cnt = Scene_num > 3 ? 6 : 1;
+        next_scene_cnt = Scene_num > 4 ? 6 : 1;
 
         if(Select_chk)
         {
             int num = Scene_num;
             select_panel.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(() => Set_cnt(next_scene_cnt));
-            select_panel.transform.GetChild(0).GetComponent<Image>().sprite = background_list[(num + 1) / 3 - 1];
+            select_panel.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(Change_Scene);
+            select_panel.transform.GetChild(0).GetComponent<Image>().sprite = background_list[(num + 1) / 5 - 1];
 
             select_panel.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(() => Set_cnt(next_scene_cnt + 5));
-            select_panel.transform.GetChild(1).GetComponent<Image>().sprite = background_list[(num + 4) / 3 - 1];
+            select_panel.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(Change_Scene);
+            select_panel.transform.GetChild(1).GetComponent<Image>().sprite = background_list[(num + 6) / 5 - 1];
         }
     }
 
@@ -170,10 +173,45 @@ public class InGame_UI_shj : UI_Setting_shj
         //Start();
     }
 
+    public void Ending_Check()
+    {
+        int num = Scene_num < 30 ? (Scene_num / 5) - 2 : Scene_num / 2;
+
+        switch (num)
+        {
+            case 1:
+                Load_Story("ending1");
+                break;
+            case 2:
+                Load_Story("ending2");
+                break;
+            case 3:
+                Load_Story("ending3");
+                break;
+            case 15:
+                Load_Story("hidden1");
+                break;
+            case 16:
+                Load_Story("hidden2");
+                break;
+        }
+        GameManager_shj.Getinstance.Save_data.ending[num] = true;
+        Data_Reset();
+        Data_Save();
+    }
+
+    public void Select_Check()
+    {
+        if (Select_chk)
+            select_panel.SetActive(true);
+        else
+            Change_Scene();
+    }
+
     public void Change_Scene()
     {
-        int stage_num = (Scene_num - 1) / 3;
-        GameManager_shj.Getinstance.Save_data.playing[stage_num] += stage_num != 0 ? 0.34f : 0.5f;
+        int stage_num = Scene_num / 5;
+        GameManager_shj.Getinstance.Save_data.playing[stage_num] += stage_num != 0 ? 0.2f : 0.34f;
         if (GameManager_shj.Getinstance.Save_data.playing[stage_num] > 1.0f)
             GameManager_shj.Getinstance.Save_data.playing[stage_num] = 1.0f;
 
@@ -181,11 +219,6 @@ public class InGame_UI_shj : UI_Setting_shj
         {
             Return_Scene(Scene_num + next_scene_cnt);
             Data_change(count, next_scene_cnt);
-        }
-        else if(Scene_num == 6)
-        {
-            Return_Scene(10);
-            Data_change(count, 4);
         }
         else
         {

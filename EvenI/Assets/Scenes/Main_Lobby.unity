@@ -468,7 +468,7 @@ RectTransform:
   - {fileID: 1132028730}
   - {fileID: 203353612}
   m_Father: {fileID: 1366298536}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5374,7 +5374,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9edf88ae67e094b3cb3b788b80b98798, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 74e324dd9cbd34aa2811e539973caac7, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5619,15 +5619,19 @@ MonoBehaviour:
   main: {fileID: 1366298532}
   story: {fileID: 2125264632}
   opening_img:
-  - {fileID: 21300000, guid: 0d9b985d19dc8cd41a9a1ac6c89298c3, type: 3}
-  - {fileID: 21300000, guid: 4e3bc9c66355bfc4d81a3d88e7681f2a, type: 3}
-  - {fileID: 21300000, guid: e0524053f8815404387fed14aad77f3c, type: 3}
-  - {fileID: 21300000, guid: 37ae9c955f0dc1142ae8f3e7e88e7196, type: 3}
-  - {fileID: 21300000, guid: 3cd48d43a49741747b0548a70f7599c8, type: 3}
-  - {fileID: 21300000, guid: 618b8eaafc5bb92488a1d2b85bf591fb, type: 3}
-  - {fileID: 21300000, guid: 18d610648f6bda04290db0d76a6e38dc, type: 3}
-  - {fileID: 21300000, guid: d9f7c842be2ee174697256c9b6050d16, type: 3}
-  - {fileID: 21300000, guid: cd559c2cdf9c2014a80e9bf630c64d16, type: 3}
+  - {fileID: 21300000, guid: eae8e80adc397ba4981315d0a3223523, type: 3}
+  - {fileID: 21300000, guid: 400353a31fee96847baa6015dd14d576, type: 3}
+  - {fileID: 21300000, guid: 9628795c265d2ee44ad67df1ebc2d1a7, type: 3}
+  - {fileID: 21300000, guid: 8aa5b78314665f548a244cab5c30c03f, type: 3}
+  - {fileID: 21300000, guid: 2e9df587eeac2f941a3604c79e70874e, type: 3}
+  - {fileID: 21300000, guid: 87894a33ac8381c41bcff6f97ec0205a, type: 3}
+  - {fileID: 21300000, guid: ce85eb1fd6259da43ab989a46d5d1b7f, type: 3}
+  - {fileID: 21300000, guid: 674d8b0af78167947ba1b00c7eda2d8a, type: 3}
+  - {fileID: 21300000, guid: 87c9ec59be6d0f549b5add62b4e963c2, type: 3}
+  - {fileID: 21300000, guid: a4bf101059a99b84ea12d079e3b81969, type: 3}
+  - {fileID: 21300000, guid: c44b51785222bb14c9687c0f6cc2f983, type: 3}
+  - {fileID: 21300000, guid: dee423932f6a9514cacbc1ceb164ddc7, type: 3}
+  - {fileID: 21300000, guid: 60620a24bb6931149a695c57c7ec890c, type: 3}
   ending1_img:
   - {fileID: 21300000, guid: 35db95e8ddd70c143af57de4db97dc7b, type: 3}
   - {fileID: 21300000, guid: 2877ebb4ea098ef41b2e9f091427c5f6, type: 3}
@@ -5690,6 +5694,7 @@ MonoBehaviour:
   - {fileID: 1645569128}
   - {fileID: 1805557491}
   charge_cnt_txt: {fileID: 485406394}
+  gameinfo: {fileID: 413443900}
   info: {fileID: 1639216371}
   heart_charge: {fileID: 430130015}
   BGM_value: {fileID: 1420096102}
@@ -7108,7 +7113,7 @@ RectTransform:
   - {fileID: 329793962}
   - {fileID: 1224802672}
   m_Father: {fileID: 1366298536}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -12887,7 +12892,7 @@ RectTransform:
   m_Children:
   - {fileID: 2071124486}
   m_Father: {fileID: 1366298536}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -16286,10 +16291,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 13407784}
+  - {fileID: 1117429170}
   - {fileID: 1485861931}
   - {fileID: 555290629}
   - {fileID: 45752900}
-  - {fileID: 1117429170}
   - {fileID: 380380883}
   - {fileID: 1634986612}
   m_Father: {fileID: 429507003}
@@ -16514,7 +16519,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9edf88ae67e094b3cb3b788b80b98798, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 74e324dd9cbd34aa2811e539973caac7, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -17581,7 +17586,7 @@ RectTransform:
   - {fileID: 1365325617}
   - {fileID: 123834351}
   m_Father: {fileID: 1366298536}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
