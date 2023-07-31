@@ -78,6 +78,7 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
     {
         if (heart_charge.activeInHierarchy)
         {
+            Date_Check();
             hp_cnt.text = GameManager_shj.Getinstance.Save_data.hp.ToString();
             if (GameManager_shj.Getinstance.Save_data.healcnt < 5 &Time_Check >= GameManager_shj.Getinstance.Save_data.nexthealtime)
             {
@@ -99,14 +100,7 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
                 int cnt = GameManager_shj.Getinstance.Save_data.nexthealtime - Time_Check;
                 heart_charge.GetComponentInChildren<TextMeshProUGUI>().text = cnt / 60 + " : " + (cnt % 60).ToString("D2");
             }
-            //int time_cnt = Time_Check;
         }
-        //    Debug.Log(heart_charge.activeInHierarchy);
-        //int a = int.Parse(DateTime.Now.ToString("HH")) * 3600 + int.Parse(DateTime.Now.ToString("mm")) * 60 + int.Parse(DateTime.Now.ToString("ss"));
-        //Debug.Log(a);
-        //Debug.Log(DateTime.Now.ToString());
-        //Debug.Log(DateTime.Now.ToString());
-        //Debug.Log(DateTime.Now.ToString());
     }
 
     public void Active_Info(string txt)
@@ -117,7 +111,9 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
     public int Time_Check { get { return int.Parse(DateTime.Now.ToString("HH")) * 3600 + int.Parse(DateTime.Now.ToString("mm")) * 60 + int.Parse(DateTime.Now.ToString("ss")); } }
     public void Active_Heal()
     {
-        GameManager_shj.Getinstance.Save_data.nexthealtime = Time_Check + 300;
+        int nexthealtime = Time_Check + 300 < 86400 ? Time_Check + 300 : 86400;
+
+        GameManager_shj.Getinstance.Save_data.nexthealtime = nexthealtime;
         GameManager_shj.Getinstance.Save_data.healcnt += 1;
         charge_cnt_txt.text = "하트 무료 충전" + "\n" + "(" + GameManager_shj.Getinstance.Save_data.healcnt + "/5" + ")";
         Data_Save();
