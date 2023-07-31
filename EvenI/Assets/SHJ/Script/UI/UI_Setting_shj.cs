@@ -49,8 +49,8 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
     public Sprite[] hidden1_img;
     public Sprite[] hidden2_img;
 
-    List<int> scene_chk = new List<int>() { 3,8,13 };
-    List<int> ending_chk = new List<int>() { 18,23,28 };
+    List<int> scene_chk = new List<int>() { 4,9,14 };
+    List<int> ending_chk = new List<int>() { 19,24,29 };
 
     protected int click_cnt = -1;
     protected bool gamestart = false;

@@ -289,7 +289,7 @@ public class Player_shj : MonoBehaviour
                 if (ui.Select_chk) selectPanel.SetActive(true);
                 else if(ui.Ending)
                 {
-                    int num = ui.Scene_num < 30 ? (ui.Scene_num / 5) - 3 : ui.Scene_num / 2;
+                    int num = ui.Scene_num < 30 ? (ui.Scene_num / 5) - 2 : ui.Scene_num / 2;
 
                     switch (num)
                     {
