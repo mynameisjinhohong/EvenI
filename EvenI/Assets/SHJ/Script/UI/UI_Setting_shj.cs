@@ -91,9 +91,6 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
         //}
 
         obj.SetActive(obj.activeSelf);
-
-   
-
         audio.Play();
     }
 
@@ -172,8 +169,13 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
         GameManager_shj.Getinstance.Save_data.juksun = cnt;
         GameManager_shj.Getinstance.Save_data.last_play_scene_num = SceneManager.GetActiveScene().buildIndex + num;
         GameManager_shj.Getinstance.Save_data.hp = player.GetComponent<Player_shj>().hp;
-
         Data_Save();
+    }
+
+    protected IEnumerator Component_delay_active(Behaviour com,bool chk,float time)
+    {
+        yield return new WaitForSeconds(time);
+        com.enabled = chk;
     }
 
     protected IEnumerator Delay_active (float delay_time,GameObject obj) //지연 삭제
