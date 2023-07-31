@@ -99,6 +99,7 @@ public class InGame_UI_shj : UI_Setting_shj
         ancientStone_text.text = ancientStoneCount.ToString();
         count_text.text = count.ToString();
         hp_cnt.text = playerScript.hp.ToString();
+
         if (!game_start) Count_down();
 
         playing_slider.value = playing_slider.value < 1.0f ? 
@@ -113,9 +114,11 @@ public class InGame_UI_shj : UI_Setting_shj
             game_start = true;
             count_down_txt.GetComponent<TextMeshProUGUI>().text = SceneManager.GetActiveScene().name +  "\nSTART!";
             count_down_txt.GetComponent<TextMeshProUGUI>().fontSize = 140;
+            count_down_txt.GetComponent<Animator>().enabled = true;
+
             playerScript.enabled = true;
             player.GetComponent<Animator>().enabled = true;
-            StartCoroutine(Delay_active(1.0f, count_down_txt));
+            //StartCoroutine(Delay_active(1.0f, count_down_txt));
         }
         else
         {

@@ -32,9 +32,6 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
         BackGround_Set();
         Date_Check();
 
-        //senario = CSVReader.Read("Scenario/opening/opening_scenario");
-        //next_text();
-
         charge_cnt_txt.text = "하트 무료 충전" + "\n" + "(" + GameManager_shj.Getinstance.Save_data.healcnt + "/5" + ")";
         hp_cnt.text = GameManager_shj.Getinstance.Save_data.hp.ToString();
         BGM_value.value = GameManager_shj.Getinstance.Save_data.bgm_vol;
@@ -43,25 +40,18 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
         for (int i = 0; i < GameManager_shj.Getinstance.Save_data.playing.Length; i++)
             playing_value[i].fillAmount = GameManager_shj.Getinstance.Save_data.playing[i];
 
-        for (int i = 0; i < /*GameManager_shj.Getinstance.Save_data.hidden_open.Length*/hidden_list.Length; i++)
+        for (int i = 0; i < hidden_list.Length; i++)
         {
-            if(!GameManager_shj.Getinstance.Save_data.hidden_open[i])
+            if(!GameManager_shj.Getinstance.Save_data.hidden_open[i % 2])
             {
                 hidden_list[i].GetComponentInChildren<Text>().text = "???";
                 hidden_list[i].transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
                 hidden_list[i].GetComponent<Button>().onClick.SetPersistentListenerState(0, UnityEngine.Events.UnityEventCallState.Off);
-                //hidden_list[i].GetComponent<Button>().onClick.AddListener(() => Active_Info(i/*hidden_str[i]*/));
-                //hidden_list[i + 2].GetComponentInChildren<Text>().text = "???";
-                //hidden_list[i + 2].transform.GetChild(1).GetChild(0).GetChild(1).gameObject.SetActive(true);
-                //hidden_list[i + 2].GetComponent<Button>().onClick.SetPersistentListenerState(0, UnityEngine.Events.UnityEventCallState.Off);
-                //hidden_list[i + 2].GetComponent<Button>().onClick.AddListener(() => Active_Info(i + 2/*hidden_str[i])*/));
-
             }
             else
             {
                 hidden_list[i].transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
                 hidden_list[i].GetComponent<Button>().onClick.SetPersistentListenerState(1, UnityEngine.Events.UnityEventCallState.Off);
-                //hidden_list[i + 2].transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
             }
         }
 
@@ -70,12 +60,16 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
             GameObject target = scenario_list[i];
             target = scenario_list[i].transform.GetChild(0).GetChild(0).gameObject;
 
-            if (GameManager_shj.Getinstance.Save_data.ending[i]) target.transform.GetChild(0).gameObject.SetActive(true);
+            if (GameManager_shj.Getinstance.Save_data.ending[i])
+            {
+                target.transform.GetChild(0).gameObject.SetActive(true);
+                scenario_list[i].GetComponent<Button>().onClick.SetPersistentListenerState(1, UnityEngine.Events.UnityEventCallState.Off);
+            }
             else
             {
                 target.transform.GetChild(1).gameObject.SetActive(true);
                 scenario_list[i].GetComponent<Button>().onClick.SetPersistentListenerState(0, UnityEngine.Events.UnityEventCallState.Off);
-                scenario_list[i].GetComponent<Button>().onClick.AddListener(() =>Active_Info(""));
+                //scenario_list[i].GetComponent<Button>().onClick.AddListener(() =>Active_Info(""));
             }
         }
     }
@@ -84,6 +78,7 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
     {
         if (heart_charge.activeInHierarchy)
         {
+            Date_Check();
             hp_cnt.text = GameManager_shj.Getinstance.Save_data.hp.ToString();
             if (GameManager_shj.Getinstance.Save_data.healcnt < 5 &Time_Check >= GameManager_shj.Getinstance.Save_data.nexthealtime)
             {
@@ -105,14 +100,7 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
                 int cnt = GameManager_shj.Getinstance.Save_data.nexthealtime - Time_Check;
                 heart_charge.GetComponentInChildren<TextMeshProUGUI>().text = cnt / 60 + " : " + (cnt % 60).ToString("D2");
             }
-            //int time_cnt = Time_Check;
         }
-        //    Debug.Log(heart_charge.activeInHierarchy);
-        //int a = int.Parse(DateTime.Now.ToString("HH")) * 3600 + int.Parse(DateTime.Now.ToString("mm")) * 60 + int.Parse(DateTime.Now.ToString("ss"));
-        //Debug.Log(a);
-        //Debug.Log(DateTime.Now.ToString());
-        //Debug.Log(DateTime.Now.ToString());
-        //Debug.Log(DateTime.Now.ToString());
     }
 
     public void Active_Info(string txt)
@@ -123,7 +111,9 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
     public int Time_Check { get { return int.Parse(DateTime.Now.ToString("HH")) * 3600 + int.Parse(DateTime.Now.ToString("mm")) * 60 + int.Parse(DateTime.Now.ToString("ss")); } }
     public void Active_Heal()
     {
-        GameManager_shj.Getinstance.Save_data.nexthealtime = Time_Check + 300;
+        int nexthealtime = Time_Check + 300 < 86400 ? Time_Check + 300 : 86400;
+
+        GameManager_shj.Getinstance.Save_data.nexthealtime = nexthealtime;
         GameManager_shj.Getinstance.Save_data.healcnt += 1;
         charge_cnt_txt.text = "하트 무료 충전" + "\n" + "(" + GameManager_shj.Getinstance.Save_data.healcnt + "/5" + ")";
         Data_Save();
