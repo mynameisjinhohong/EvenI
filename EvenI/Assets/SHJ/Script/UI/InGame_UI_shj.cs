@@ -9,6 +9,13 @@ using UnityEngine.SceneManagement;
 
 public class InGame_UI_shj : UI_Setting_shj
 {
+    #region 임시 변수
+    public GameObject endingPopUpBtn;
+    public Text jukSunText;
+    public Transform StoryEndImage;
+    public GameObject SomeThingOpen;
+    #endregion
+
     public TextMeshProUGUI carrot_text;
     public Image carrot_heart;
     public int carrotCount = 0;
@@ -184,13 +191,28 @@ public class InGame_UI_shj : UI_Setting_shj
     }
     public override void HiddenOpenCheck()
     {
-        if(GameManager_shj.Getinstance.Save_data.ancientRock == player.GetComponent<Player_shj>().ancientMax)
+        endingPopUpBtn.SetActive(true);
+        jukSunText.text = "X " + count;
+        if(GameManager_shj.Getinstance.Save_data.ancientRock == player.GetComponent<Player_shj>().ancientMax && GameManager_shj.Getinstance.Save_data.hidden_open[0] == false)
         {
+            GameObject some = Instantiate(SomeThingOpen, StoryEndImage);
+            some.transform.SetSiblingIndex(1);
+            some.transform.GetChild(0).gameObject.GetComponent<Text>().text = "히든스테이지(무릉도원)가\n오픈되었습니다";
+            //some.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = 
             GameManager_shj.Getinstance.Save_data.hidden_open[0] = true;
         }
-        if(GameManager_shj.Getinstance.Save_data.juksun == player.GetComponent<Player_shj>().juksunMax)
+        if(GameManager_shj.Getinstance.Save_data.juksun == player.GetComponent<Player_shj>().juksunMax && GameManager_shj.Getinstance.Save_data.hidden_open[1] == false)
         {
+            GameObject some = Instantiate(SomeThingOpen, StoryEndImage);
+            some.transform.SetSiblingIndex(1);
+            some.transform.GetChild(0).gameObject.GetComponent<Text>().text = "히든스테이지(고대유적)가\n오픈되었습니다";
+
             GameManager_shj.Getinstance.Save_data.hidden_open[1] = true;
         }
+    }
+
+    public void GoMainScene()
+    {
+        SceneManager.LoadScene("Main_Lobby");
     }
 }
