@@ -66,6 +66,11 @@ public class InGame_UI_shj : UI_Setting_shj
         string scene_name = SceneManager.GetActiveScene().name;
         count_down_txt.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = scene_name.Substring(0, 3) + " STAGE";
 
+        TextMeshProUGUI[] tmpro_list = count_down_txt.GetComponentsInChildren<TextMeshProUGUI>();
+
+        for (int i = 0; i < tmpro_list.Length; i++)
+            tmpro_list[i].color = new Color(1,1,1,1);
+
 
         init_set();
         Time.timeScale = 1.0f;
@@ -82,13 +87,14 @@ public class InGame_UI_shj : UI_Setting_shj
         if(Select_chk)
         {
             int num = Scene_num;
+
             select_panel.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(() => Set_cnt(next_scene_cnt));
             select_panel.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(Change_Scene);
-            select_panel.transform.GetChild(0).GetComponent<Image>().sprite = background_list[(num + 1) / 5 - 1];
+            select_panel.transform.GetChild(0).GetComponent<Image>().sprite = background_list[(num + next_scene_cnt) / 5 - 1];
 
             select_panel.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(() => Set_cnt(next_scene_cnt + 5));
             select_panel.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(Change_Scene);
-            select_panel.transform.GetChild(1).GetComponent<Image>().sprite = background_list[(num + 6) / 5 - 1];
+            select_panel.transform.GetChild(1).GetComponent<Image>().sprite = background_list[(num + next_scene_cnt + 5) / 5 - 1];
         }
     }
 
@@ -125,6 +131,9 @@ public class InGame_UI_shj : UI_Setting_shj
 
             playerScript.enabled = true;
             player.GetComponent<Animator>().enabled = true;
+            StartCoroutine(Component_delay_active(count_down_txt.GetComponent<Animator>(), false, 2.0f));
+            StartCoroutine(Delay_active(2.0f, count_down_txt));
+
             //StartCoroutine(Delay_active(1.0f, count_down_txt));
         }
         else
