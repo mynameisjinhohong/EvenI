@@ -62,6 +62,10 @@ public class InGame_UI_shj : UI_Setting_shj
 
     public void Start()
     {
+        string scene_name = SceneManager.GetActiveScene().name;
+        count_down_txt.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = scene_name.Substring(0, 3) + " STAGE";
+
+
         init_set();
         Time.timeScale = 1.0f;
         //Time.fixedDeltaTime = 0.0f; //밀림현상때문에 생성, 카운트다운 버벅임 원인의심
@@ -72,7 +76,7 @@ public class InGame_UI_shj : UI_Setting_shj
         game_start = false;
         countdown = 3.5f;
 
-        next_scene_cnt = Scene_num > 3 ? 4 : 1;
+        next_scene_cnt = Scene_num > 3 ? 6 : 1;
 
         if(Select_chk)
         {
@@ -80,7 +84,7 @@ public class InGame_UI_shj : UI_Setting_shj
             select_panel.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(() => Set_cnt(next_scene_cnt));
             select_panel.transform.GetChild(0).GetComponent<Image>().sprite = background_list[(num + 1) / 3 - 1];
 
-            select_panel.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(() => Set_cnt(next_scene_cnt + 3));
+            select_panel.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(() => Set_cnt(next_scene_cnt + 5));
             select_panel.transform.GetChild(1).GetComponent<Image>().sprite = background_list[(num + 4) / 3 - 1];
         }
     }
@@ -112,8 +116,8 @@ public class InGame_UI_shj : UI_Setting_shj
         {
             //Time.fixedDeltaTime = 0.02f; //밀림현상때문에 생성, 카운트다운 버벅임 원인의심
             game_start = true;
-            count_down_txt.GetComponent<TextMeshProUGUI>().text = SceneManager.GetActiveScene().name +  "\nSTART!";
-            count_down_txt.GetComponent<TextMeshProUGUI>().fontSize = 140;
+            count_down_txt.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "START!";
+            //count_down_txt.GetComponent<TextMeshProUGUI>().fontSize = 140;
             count_down_txt.GetComponent<Animator>().enabled = true;
 
             playerScript.enabled = true;
@@ -123,7 +127,7 @@ public class InGame_UI_shj : UI_Setting_shj
         else
         {
             countdown -= Time.deltaTime;
-            count_down_txt.GetComponent<TextMeshProUGUI>().text = countdown.ToString("F0");
+            count_down_txt.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = countdown.ToString("F0");
         }
     }
 

@@ -49,8 +49,8 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
     public Sprite[] hidden1_img;
     public Sprite[] hidden2_img;
 
-    List<int> scene_chk = new List<int>() { 3 };
-    List<int> ending_chk = new List<int>() { 12, 15, 18 };
+    List<int> scene_chk = new List<int>() { 3,8,13 };
+    List<int> ending_chk = new List<int>() { 18,23,28 };
 
     protected int click_cnt = -1;
     protected bool gamestart = false;
@@ -186,7 +186,7 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
     {
         story_mask.SetActive(true);
         yield return new WaitForSeconds(1.5f/2);
-        obj.SetActive(false);
+        obj.SetActive(true);
         yield return new WaitForSeconds(1.5f / 2);
         story_mask.SetActive(false);
     }
@@ -205,7 +205,7 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
         else
         {
             story.SetActive(false);
-            main.SetActive(true);
+            //main.SetActive(true);
         }
     }
 

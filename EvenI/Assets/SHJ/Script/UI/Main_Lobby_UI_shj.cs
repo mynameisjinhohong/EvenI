@@ -80,7 +80,7 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
         {
             Date_Check();
             hp_cnt.text = GameManager_shj.Getinstance.Save_data.hp.ToString();
-            if (GameManager_shj.Getinstance.Save_data.healcnt < 5 &Time_Check >= GameManager_shj.Getinstance.Save_data.nexthealtime)
+            if (GameManager_shj.Getinstance.Save_data.healcnt < 5 && Time_Check >= GameManager_shj.Getinstance.Save_data.nexthealtime)
             {
                 heart_charge.transform.GetChild(1).gameObject.SetActive(true);
                 if (heart_charge.transform.GetChild(2).gameObject.activeSelf) heart_charge.transform.GetChild(2).gameObject.SetActive(false);
