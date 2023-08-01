@@ -94,9 +94,9 @@ public class Player_shj : MonoBehaviour
                     nuckBackBool = true;
                 }
                 Hp = value;
-                if(Hp > 30)
+                if(Hp > GameManager_shj.Getinstance.Save_data.max_hp)
                 {
-                    Hp = 30;
+                    Hp = GameManager_shj.Getinstance.Save_data.max_hp;
                 }
                 if (Hp < 1)
                 {
