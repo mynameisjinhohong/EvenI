@@ -6,6 +6,8 @@ public class SoundManager_HJH : MonoBehaviour
 {
     AudioSource audio;
     public AudioClip[] clips;
+    public GameObject soundObject;
+    public int idx = 0;
     enum Sound
     {
         JuksunSound,
@@ -44,11 +46,25 @@ public class SoundManager_HJH : MonoBehaviour
                 audio.Play();
                 break;
             }
-            if(i == transform.childCount)
+            if (i == transform.childCount)
             {
-                MakeBaby((int)Sound.JuksunSound);
-                break;
+                if (transform.childCount < 30)
+                {
+                    MakeBaby((int)Sound.JuksunSound);
+                    break;
+                }
+                else
+                {
+                    gameObject.transform.GetChild(idx).GetComponent<AudioSource>().clip = clips[(int)Sound.JuksunSound];
+                    gameObject.transform.GetChild(idx).GetComponent<AudioSource>().Play();
+                    idx++;
+                    if(idx > 29)
+                    {
+                        idx = 0;
+                    }
+                }
             }
+            
         }
 
     }
@@ -74,9 +90,24 @@ public class SoundManager_HJH : MonoBehaviour
             }
             if (i == transform.childCount)
             {
-                MakeBaby((int)Sound.RockBreakSound);
-                break;
+
+                if (transform.childCount < 30)
+                {
+                    MakeBaby((int)Sound.RockBreakSound);
+                    break;
+                }
+                else
+                {
+                    gameObject.transform.GetChild(idx).GetComponent<AudioSource>().clip = clips[(int)Sound.RockBreakSound];
+                    gameObject.transform.GetChild(idx).GetComponent<AudioSource>().Play();
+                    idx++;
+                    if (idx > 29)
+                    {
+                        idx = 0;
+                    }
+                }
             }
+            
         }
     }
     public void ObjectBreakSoundPlay()
@@ -101,8 +132,22 @@ public class SoundManager_HJH : MonoBehaviour
             }
             if (i == transform.childCount)
             {
-                MakeBaby((int)Sound.ObjectBreakSound);
-                break;
+
+                if (transform.childCount < 30)
+                {
+                    MakeBaby((int)Sound.ObjectBreakSound);
+                    break;
+                }
+                else
+                {
+                    gameObject.transform.GetChild(idx).GetComponent<AudioSource>().clip = clips[(int)Sound.ObjectBreakSound];
+                    gameObject.transform.GetChild(idx).GetComponent<AudioSource>().Play();
+                    idx++;
+                    if (idx > 29)
+                    {
+                        idx = 0;
+                    }
+                }
             }
         }
     }
@@ -114,12 +159,13 @@ public class SoundManager_HJH : MonoBehaviour
 
     void MakeBaby(int target)
     {
-        GameObject obj = new GameObject("SoundManagerChild" + gameObject.transform.childCount);
-        obj.AddComponent<AudioSource>();
-        obj.GetComponent<AudioSource>().outputAudioMixerGroup = gameObject.GetComponent<AudioSource>().outputAudioMixerGroup;
-        obj.transform.SetParent(transform);
-        obj.GetComponent<AudioSource>().clip = clips[target];
-        obj.GetComponent<AudioSource>().volume = 0.2f;
-        obj.GetComponent<AudioSource>().Play();
+        if(transform.childCount < 30)
+        {
+            GameObject obj = Instantiate(soundObject, transform);
+            obj.GetComponent<AudioSource>().clip = clips[target];
+            obj.GetComponent<AudioSource>().volume = 0.2f;
+            obj.GetComponent<AudioSource>().Play();
+        }
+
     }
 }

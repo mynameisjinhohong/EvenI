@@ -167,6 +167,10 @@ public class Player_shj : MonoBehaviour
         default_size = transform.localScale.x;
         charge_img.SetActive(false);
     }
+    private void OnEnable()
+    {
+        
+    }
 
     private void Update()
     {
