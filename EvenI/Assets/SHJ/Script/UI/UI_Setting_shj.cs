@@ -55,8 +55,8 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
     protected int click_cnt = -1;
     protected bool gamestart = false;
 
-    string gameID = "5343352";
-    string adType = "Rewarded_Android";
+    protected string gameID = "5343352";
+    protected string adType = "Rewarded_Android";
 
     int heal;
     protected bool respawn;
@@ -346,7 +346,10 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
                 //}
                 if(Scene_num == 1)
                 {
-                    GameManager_shj.Getinstance.Save_data.hp += heal;
+                    if (GameManager_shj.Getinstance.Save_data.hp + heal <= GameManager_shj.Getinstance.Save_data.max_hp)
+                        GameManager_shj.Getinstance.Save_data.hp += heal;
+                    else
+                        GameManager_shj.Getinstance.Save_data.hp = GameManager_shj.Getinstance.Save_data.max_hp;
                     Data_Save();
                 }
                 else

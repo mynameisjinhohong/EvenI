@@ -32,8 +32,7 @@ public class InGame_UI_shj : UI_Setting_shj
     public Slider playing_slider;
     public GameObject end_pos;
 
-    string gameID = "5343352";
-    string adType = "Rewarded_Android";
+    
 
     int count;
     int next_scene_cnt = 0;
