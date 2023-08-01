@@ -807,6 +807,7 @@ public class Player_shj : MonoBehaviour
 
         if (hp - 2 > 0) Hp -= 2;
 
+        if (ui.respawn) gameOverPanel.SetActive(false);
         rigid.velocity = Vector2.zero;
         ui.Start();
     }
