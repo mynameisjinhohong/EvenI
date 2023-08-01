@@ -1923,7 +1923,7 @@ RectTransform:
   m_Children:
   - {fileID: 1165337272}
   m_Father: {fileID: 1639216372}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -6478,6 +6478,7 @@ MonoBehaviour:
   gameinfo: {fileID: 413443900}
   info: {fileID: 1639216371}
   heart_charge: {fileID: 430130015}
+  panda_hos: {fileID: 1117429171}
   BGM_value: {fileID: 1420096102}
   Effect_value: {fileID: 837173946}
 --- !u!82 &429507005
@@ -8347,7 +8348,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1639216372}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -23857,8 +23858,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 138990419}
   - {fileID: 597961206}
+  - {fileID: 138990419}
   m_Father: {fileID: 1853689452}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
