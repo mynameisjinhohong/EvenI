@@ -203,7 +203,7 @@ public class InGame_UI_shj : UI_Setting_shj
                 Load_Story("hidden2");
                 break;
         }
-        GameManager_shj.Getinstance.Save_data.ending[num] = true;
+        //GameManager_shj.Getinstance.Save_data.ending[num] = true;
         Data_Reset();
         Data_Save();
     }
@@ -238,7 +238,16 @@ public class InGame_UI_shj : UI_Setting_shj
     {
         endingPopUpBtn.SetActive(true);
         jukSunText.text = "X " + count;
-        if(GameManager_shj.Getinstance.Save_data.ancientRock == player.GetComponent<Player_shj>().ancientMax && GameManager_shj.Getinstance.Save_data.hidden_open[0] == false)
+        int num = Scene_num < 30 ? (Scene_num / 5) - 2 : Scene_num / 2;
+        if(GameManager_shj.Getinstance.Save_data.ending[num] == false)
+        {
+            GameObject some = Instantiate(SomeThingOpen, StoryEndImage);
+            some.transform.SetSiblingIndex(1);
+            some.transform.GetChild(0).gameObject.GetComponent<Text>().text = "ENDING.N0 " + num + "가\n오픈되었습니다";
+            //some.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = 
+            GameManager_shj.Getinstance.Save_data.ending[num] = true;
+        }
+        if (GameManager_shj.Getinstance.Save_data.ancientRock >= player.GetComponent<Player_shj>().ancientMax && GameManager_shj.Getinstance.Save_data.hidden_open[0] == false)
         {
             GameObject some = Instantiate(SomeThingOpen, StoryEndImage);
             some.transform.SetSiblingIndex(1);
@@ -246,12 +255,11 @@ public class InGame_UI_shj : UI_Setting_shj
             //some.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = 
             GameManager_shj.Getinstance.Save_data.hidden_open[0] = true;
         }
-        if(GameManager_shj.Getinstance.Save_data.juksun == player.GetComponent<Player_shj>().juksunMax && GameManager_shj.Getinstance.Save_data.hidden_open[1] == false)
+        if(GameManager_shj.Getinstance.Save_data.juksun >= player.GetComponent<Player_shj>().juksunMax && GameManager_shj.Getinstance.Save_data.hidden_open[1] == false)
         {
             GameObject some = Instantiate(SomeThingOpen, StoryEndImage);
             some.transform.SetSiblingIndex(1);
             some.transform.GetChild(0).gameObject.GetComponent<Text>().text = "히든스테이지(고대유적)가\n오픈되었습니다";
-
             GameManager_shj.Getinstance.Save_data.hidden_open[1] = true;
         }
     }
