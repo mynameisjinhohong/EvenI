@@ -7,8 +7,6 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 using TMPro;
 using System;
-using Unity.Notifications.Android;
-using UnityEngine.Advertisements;
 
 public class Main_Lobby_UI_shj : UI_Setting_shj
 {
@@ -26,6 +24,7 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
     public GameObject info;
     public GameObject heart_charge;
 
+    public Button panda_hos;
     public Slider BGM_value;
     public Slider Effect_value;
 
@@ -35,10 +34,16 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
         BackGround_Set();
         Date_Check();
 
-        Advertisement.Initialize(gameID, true);
+        //Advertisement.Initialize(gameID, true);
 
         if (GameManager_shj.Getinstance.Save_data.nickname.Length == 0 || GameManager_shj.Getinstance.Save_data.nickname == "")
             gameinfo.SetActive(true);
+
+        if(GameManager_shj.Getinstance.Save_data.hp == GameManager_shj.Getinstance.Save_data.max_hp)
+        {
+            panda_hos.onClick.SetPersistentListenerState(0, UnityEngine.Events.UnityEventCallState.Off);
+            panda_hos.onClick.AddListener(() => Active_Info("판다가 아프지 않습니다!"));
+        }
 
         charge_cnt_txt.text = "하트 무료 충전" + "\n" + "(" + GameManager_shj.Getinstance.Save_data.healcnt + "/5" + ")";
         hp_cnt.text = GameManager_shj.Getinstance.Save_data.hp.ToString();
@@ -113,17 +118,18 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
 
     public void Active_Info(string txt)
     {
-        info.GetComponent<Text>().text = txt;
         info.SetActive(true);
+        info.GetComponentInChildren<Text>().text = txt;
     }
     public int Time_Check { get { return int.Parse(DateTime.Now.ToString("HH")) * 3600 + int.Parse(DateTime.Now.ToString("mm")) * 60 + int.Parse(DateTime.Now.ToString("ss")); } }
     public void Active_Heal()
     {
         ShowAds(3);
+        
         int nexthealtime = Time_Check + 300 < 86400 ? Time_Check + 300 : 86400;
-        int noti_time = nexthealtime - Time_Check;
         GameManager_shj.Getinstance.Save_data.nexthealtime = nexthealtime;
         GameManager_shj.Getinstance.Save_data.healcnt += 1;
+        //GameManager_shj.Getinstance.Push_Alarm();
         charge_cnt_txt.text = "하트 무료 충전" + "\n" + "(" + GameManager_shj.Getinstance.Save_data.healcnt + "/5" + ")";
         Data_Save();
     }
@@ -160,7 +166,7 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
         {
             continue_stage.SetActive(true);
 
-            if (GameManager_shj.Getinstance.Save_data.last_play_scene_num == 2)
+            if (GameManager_shj.Getinstance.Save_data.last_play_scene_num <= 2)
                 continue_stage_btn.SetActive(false);
         }
         //else
