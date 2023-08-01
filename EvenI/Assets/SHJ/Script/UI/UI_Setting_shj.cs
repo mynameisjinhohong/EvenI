@@ -59,7 +59,7 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
     protected string adType = "Rewarded_Android";
 
     int heal;
-    protected bool respawn;
+    public bool respawn;
 
     #endregion
 
@@ -130,7 +130,6 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
         StartCoroutine(GameManager_shj.Getinstance.Change_Scene(GameManager_shj.Getinstance.Save_data.last_play_scene_num, false));
     }
 
-    
     public void Lastest_Open_UI_Close() //마지막 열린 UI닫기 //제거 예정
     {
         if (root_UI != null) root_UI.SetActive(false);
@@ -362,6 +361,7 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
                     if (respawn)
                     {
                         player.GetComponent<Player_shj>().Respawn();
+                        player.GetComponent<Player_shj>().hp = 2;
                         respawn = false;
                     }
                     if (hp_cnt != null) hp_cnt.text = (int.Parse(hp_cnt.text) + 1).ToString();

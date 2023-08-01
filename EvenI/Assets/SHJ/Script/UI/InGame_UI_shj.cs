@@ -158,7 +158,7 @@ public class InGame_UI_shj : UI_Setting_shj
     public void Restart_Check()
     {
         respawn = true;
-        ShowAds(2);
+        ShowAds(0);
         //GameObject player = GameObject.Find("Player");
         //Vector3 player_pos = player.transform.localPosition;
         //int hp = player.GetComponent<Player_shj>().hp;
