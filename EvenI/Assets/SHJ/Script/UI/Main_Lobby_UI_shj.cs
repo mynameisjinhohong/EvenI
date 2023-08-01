@@ -7,8 +7,6 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 using TMPro;
 using System;
-using Unity.Notifications.Android;
-using UnityEngine.Advertisements;
 
 public class Main_Lobby_UI_shj : UI_Setting_shj
 {
@@ -35,7 +33,7 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
         BackGround_Set();
         Date_Check();
 
-        Advertisement.Initialize(gameID, true);
+        //Advertisement.Initialize(gameID, true);
 
         if (GameManager_shj.Getinstance.Save_data.nickname.Length == 0 || GameManager_shj.Getinstance.Save_data.nickname == "")
             gameinfo.SetActive(true);
@@ -120,10 +118,11 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
     public void Active_Heal()
     {
         ShowAds(3);
+        
         int nexthealtime = Time_Check + 300 < 86400 ? Time_Check + 300 : 86400;
-        int noti_time = nexthealtime - Time_Check;
         GameManager_shj.Getinstance.Save_data.nexthealtime = nexthealtime;
         GameManager_shj.Getinstance.Save_data.healcnt += 1;
+        //GameManager_shj.Getinstance.Push_Alarm();
         charge_cnt_txt.text = "하트 무료 충전" + "\n" + "(" + GameManager_shj.Getinstance.Save_data.healcnt + "/5" + ")";
         Data_Save();
     }
