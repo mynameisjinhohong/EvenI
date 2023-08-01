@@ -80,7 +80,7 @@ public class InGame_UI_shj : UI_Setting_shj
         playerScript.enabled = false;
         player.GetComponent<Animator>().enabled = false;
         game_start = false;
-        countdown = 3.5f;
+        countdown = 3.4f;
 
         next_scene_cnt = Scene_num > 4 ? 6 : 1;
 

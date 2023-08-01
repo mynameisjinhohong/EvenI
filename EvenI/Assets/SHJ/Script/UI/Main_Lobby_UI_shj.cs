@@ -23,6 +23,7 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
     public GameObject gameinfo;
     public GameObject info;
     public GameObject heart_charge;
+    public GameObject[] playing_target;
 
     public Button panda_hos;
     public Slider BGM_value;
@@ -43,6 +44,30 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
         {
             panda_hos.onClick.SetPersistentListenerState(0, UnityEngine.Events.UnityEventCallState.Off);
             panda_hos.onClick.AddListener(() => Active_Info("판다가 아프지 않습니다!"));
+        }
+
+        for (int i = 0, j = 1; i < playing_target.Length; i++)
+        {
+            if (GameManager_shj.Getinstance.Save_data.playing[i] == 1.0f)
+            {
+                playing_target[i].SetActive(true);
+
+                if(GameManager_shj.Getinstance.Save_data.playing[i + j] != GameManager_shj.Getinstance.Save_data.playing[i + j + 1])
+                {
+                    playing_target[i].GetComponent<RectTransform>().rotation = 
+                        GameManager_shj.Getinstance.Save_data.playing[i + j] > GameManager_shj.Getinstance.Save_data.playing[i + j + 1] 
+                        ? Quaternion.Euler(0, 0, 30) : Quaternion.Euler(0, 0, -30);
+                }
+                else
+                {
+                    int check = GameManager_shj.Getinstance.Save_data.last_play_scene_num / 5 - j - i;
+                    playing_target[i].GetComponent<RectTransform>().rotation = check == 0 ? Quaternion.Euler(0, 0, 30) : Quaternion.Euler(0, 0, -30);
+                }
+            }
+            else
+                continue;
+
+            if (i == 0) j++;
         }
 
         charge_cnt_txt.text = "하트 무료 충전" + "\n" + "(" + GameManager_shj.Getinstance.Save_data.healcnt + "/5" + ")";
