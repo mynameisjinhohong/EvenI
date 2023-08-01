@@ -94,6 +94,10 @@ public class Player_shj : MonoBehaviour
                     nuckBackBool = true;
                 }
                 Hp = value;
+                if(Hp > 30)
+                {
+                    Hp = 30;
+                }
                 if (Hp < 1)
                 {
                     if (!gameOverPanel.activeInHierarchy)

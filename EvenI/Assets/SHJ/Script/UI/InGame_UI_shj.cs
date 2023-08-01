@@ -56,6 +56,7 @@ public class InGame_UI_shj : UI_Setting_shj
         Advertisement.Initialize(gameID, true);
         count = GameManager_shj.Getinstance.Save_data.juksun;
         carrotCount = GameManager_shj.Getinstance.Save_data.carrot;
+        ancientStoneCount = GameManager_shj.Getinstance.Save_data.ancientRock;
         playerScript = player.GetComponent<Player_shj>();
         playerScript.hp = GameManager_shj.Getinstance.Save_data.hp;
     }
@@ -226,12 +227,12 @@ public class InGame_UI_shj : UI_Setting_shj
         if (Select_chk)
         {
             Return_Scene(Scene_num + next_scene_cnt);
-            Data_change(count, next_scene_cnt);
+            Data_change(count,carrotCount,ancientStoneCount, next_scene_cnt);
         }
         else
         {
             Next_Scene();
-            Data_change(count, 1);
+            Data_change(count,carrotCount,ancientStoneCount, 1);
         }
     }
     public override void HiddenOpenCheck()
