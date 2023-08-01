@@ -164,9 +164,11 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
         Data_Save();
     }
 
-    public  void Data_change(int cnt,int num) //데이터값 변경 매개변수 조정으로 RESET이랑 교체하고싶음
+    public  void Data_change(int cnt,int carrot,int ancient,int num) //데이터값 변경 매개변수 조정으로 RESET이랑 교체하고싶음
     {
         GameManager_shj.Getinstance.Save_data.juksun = cnt;
+        GameManager_shj.Getinstance.Save_data.carrot = carrot;
+        GameManager_shj.Getinstance.Save_data.ancientRock = ancient;
         GameManager_shj.Getinstance.Save_data.last_play_scene_num = SceneManager.GetActiveScene().buildIndex + num;
         GameManager_shj.Getinstance.Save_data.hp = player.GetComponent<Player_shj>().hp;
         Data_Save();
