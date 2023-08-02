@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public enum Player_State // 플레이어의 상태 달리는중인지, 구르는중인지
 {
@@ -155,6 +156,7 @@ public class Player_shj : MonoBehaviour
     [Header("히든,챌린지")]
     public GameObject challengGameOverPanel;
     public GameObject hiddenGameOverPanel;
+    public GameObject hiddenGameClearPanel;
     public void Start()
     {
         nomalSpeed = speed;
@@ -297,7 +299,7 @@ public class Player_shj : MonoBehaviour
             if (viewPos.x > 1 && viewPos.z > 0)
             {
                 //if (ui.Select_chk) selectPanel.SetActive(true);
-                if(ui.Ending)
+                if (ui.Ending)
                 {
                     ui.Ending_Check();
                     //InGameUI, Ending_Check() 함수로 복사이동시켰습니다
@@ -326,7 +328,18 @@ public class Player_shj : MonoBehaviour
                     //ui.Data_Save();
                     gameObject.GetComponent<Player_shj>().enabled = false;
                 }
-                else gameClearPanel.SetActive(true);
+                else
+                {
+                    if (SceneManager.GetActiveScene().name.Contains("Hidden"))
+                    {
+                        hiddenGameClearPanel.SetActive(true);
+                    }
+                    else
+                    {
+                        gameClearPanel.SetActive(true);
+                    }
+
+                }
                 gameOverPanel.SetActive(false);
                 gameObject.GetComponent<SpriteRenderer>().enabled = false;
             }
@@ -449,7 +462,19 @@ public class Player_shj : MonoBehaviour
     }
     public void GameOver()
     {
-        gameOverPanel.SetActive(true);
+        if(SceneManager.GetActiveScene().name.Contains("Hidden"))
+        {
+            hiddenGameOverPanel.SetActive(true);
+        }
+        else if (SceneManager.GetActiveScene().name.Contains("Challenge"))
+        {
+            challengGameOverPanel.SetActive(true);
+        }
+        else
+        {
+            gameOverPanel.SetActive(true);
+
+        }
         Time.timeScale = 0f;
     }
     IEnumerator UpCrushOff()
