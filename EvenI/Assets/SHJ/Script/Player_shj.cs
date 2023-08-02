@@ -152,7 +152,9 @@ public class Player_shj : MonoBehaviour
     float slowTime = 0f;
     Vector2 colSize;
     Vector2 colOffset;
-
+    [Header("È÷µç,Ã§¸°Áö")]
+    public GameObject challengGameOverPanel;
+    public GameObject hiddenGameOverPanel;
     public void Start()
     {
         nomalSpeed = speed;
