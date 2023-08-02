@@ -78,7 +78,7 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
     protected void init_set()
     {
         if (GetComponent<AudioSource>() != null) audio = GetComponent<AudioSource>();
-        if(!Advertisement.IsReady()) Advertisement.Initialize(gameID, true);
+        if(!Advertisement.isInitialized) Advertisement.Initialize(gameID, true);
 
         if(Scene_num > 1) respawn = false;
         gamestart = false;
@@ -319,7 +319,7 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
         
     }
 
-    public void ShowAds(/*GameObject ads*/int heal)
+    public void ShowAds(int heal)
     {
         this.heal = heal;
         if (Advertisement.IsReady())
