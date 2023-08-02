@@ -153,8 +153,6 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
     public int Time_Check { get { return int.Parse(DateTime.Now.ToString("HH")) * 3600 + int.Parse(DateTime.Now.ToString("mm")) * 60 + int.Parse(DateTime.Now.ToString("ss")); } }
     public void Active_Heal()
     {
-        ShowAds(3);
-        
         int nexthealtime = Time_Check + 300 < 86400 ? Time_Check + 300 : 86400;
         GameManager_shj.Getinstance.Save_data.nexthealtime = nexthealtime;
         GameManager_shj.Getinstance.Save_data.healcnt += 1;
@@ -166,7 +164,7 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
         }
 
         charge_cnt_txt.text = "하트 무료 충전" + "\n" + "(" + GameManager_shj.Getinstance.Save_data.healcnt + "/5" + ")";
-        Data_Save();
+        ShowAds(3);
     }
 
     public void Date_Check()

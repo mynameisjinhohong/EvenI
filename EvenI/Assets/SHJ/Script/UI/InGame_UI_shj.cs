@@ -118,7 +118,7 @@ public class InGame_UI_shj : UI_Setting_shj
 
         if (!gamestart) Count_down();
 
-        playing_slider.value = playing_slider.value < 1.0f ? 
+        playing_slider.value = playing_slider.value < 1.0f ?
             player.transform.position.x / end_pos.transform.position.x : 1.0f;
     }
 
@@ -261,6 +261,7 @@ public class InGame_UI_shj : UI_Setting_shj
             some.transform.GetChild(0).gameObject.GetComponent<Text>().text = "히든스테이지(고대유적)가\n오픈되었습니다";
             GameManager_shj.Getinstance.Save_data.hidden_open[1] = true;
         }
+        GameManager_shj.Getinstance.Data_Save();
     }
 
     public void GoMainScene()
