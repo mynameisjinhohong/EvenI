@@ -45,7 +45,7 @@ public class MapScrolling_HJH : MonoBehaviour
             }
             else
             {
-                if (player.transform.position.x > (bgParents[nowBg].transform.position + bgSize/2 + bgSize - transform.position).x- distance)
+                if (player.transform.position.x > (bgs[nowBg].transform.position + bgSize/2 + bgSize - transform.position).x- distance)
                 {
                     bgs[nowBg].transform.position = new Vector3(bgs[nowBg].transform.position.x + (bgSize.x * 4), bgs[nowBg].transform.position.y, 0);
                     nowBg++;
