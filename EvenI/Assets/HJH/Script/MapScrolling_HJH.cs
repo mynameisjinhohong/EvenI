@@ -8,7 +8,7 @@ public class MapScrolling_HJH : MonoBehaviour
     Player_shj play;
     public GameObject[] bgs;
     public GameObject[] bgParents;
-    float distance = 10;
+    float distance = 0;
     int nowBg;
     Vector3 bgSize;
     // Start is called before the first frame update
@@ -27,12 +27,13 @@ public class MapScrolling_HJH : MonoBehaviour
         if (!play.gameClear)
         {
             transform.position += Vector3.left * speed * Time.deltaTime;
+            distance += speed * Time.deltaTime;
         }
         if (!play.gameClear)
         {
             if (bgParents.Length > 1)
             {
-                if (player.transform.position.x > (bgParents[nowBg].transform.position + bgSize/2 +bgSize - transform.position).x)
+                if (player.transform.position.x > (bgParents[nowBg].transform.position + bgSize/2 +bgSize - transform.position).x - distance)
                 {
                     bgParents[nowBg].transform.position = new Vector3(bgParents[nowBg].transform.position.x + (bgSize.x * 4), bgParents[nowBg].transform.position.y, 0);
                     nowBg++;
@@ -44,7 +45,7 @@ public class MapScrolling_HJH : MonoBehaviour
             }
             else
             {
-                if (player.transform.position.x > (bgParents[nowBg].transform.position + bgSize/2 + bgSize - transform.position).x)
+                if (player.transform.position.x > (bgParents[nowBg].transform.position + bgSize/2 + bgSize - transform.position).x- distance)
                 {
                     bgs[nowBg].transform.position = new Vector3(bgs[nowBg].transform.position.x + (bgSize.x * 4), bgs[nowBg].transform.position.y, 0);
                     nowBg++;
