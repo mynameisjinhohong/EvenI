@@ -9,7 +9,7 @@ public class Bat_HJH : Object_Manager_shj
     [Range(0.0f, 10f)]
     public float speed;
 
-    public float startDistance;
+    public float startDistance = 25;
     bool startCo = false;
     // Start is called before the first frame update
     void Awake()

@@ -245,7 +245,23 @@ public class InGame_UI_shj : UI_Setting_shj
             GameObject some = Instantiate(SomeThingOpen, StoryEndImage);
             some.transform.SetSiblingIndex(1);
             some.transform.GetChild(0).gameObject.GetComponent<Text>().text = "ENDING.N0 " + num + "가\n오픈되었습니다";
-            //some.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = 
+            switch (num)
+            {
+                case 1:
+                    some.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = ending1_img[0];
+                    break;
+                case 2:
+                    some.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = ending2_img[0];
+                    break;
+                case 3:
+                    some.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = ending3_img[0];
+                    break;
+                case 15:
+                    break;
+                case 16:
+                    break;
+            }
+
             GameManager_shj.Getinstance.Save_data.ending[num] = true;
         }
         if (GameManager_shj.Getinstance.Save_data.ancientRock >= player.GetComponent<Player_shj>().ancientMax && GameManager_shj.Getinstance.Save_data.hidden_open[0] == false)
