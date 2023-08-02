@@ -11,8 +11,6 @@ public class GameManager_shj : MonoBehaviour
     AudioSource audio;
     public static GameManager_shj Getinstance { get { return instance; } }
 
-    bool vibration = true;
-
     Save_Data_shj save_Data;
     DataManager_shj dataManager;
     Notification_Manager_shj notification;
@@ -32,8 +30,8 @@ public class GameManager_shj : MonoBehaviour
 
             dataManager = GetComponent<DataManager_shj>();
             notification = GetComponent<Notification_Manager_shj>();
-            save_Data = gameObject.AddComponent<Save_Data_shj>();
-            //dataManager.Load_Data(new Save_Data_shj());
+
+            //save_Data = gameObject.AddComponent<Save_Data_shj>();
         }
         else
         {
@@ -43,29 +41,13 @@ public class GameManager_shj : MonoBehaviour
 
     private void Start()
     {
-        //if (dataManager.Data_Check())
-        //{
-        //    dataManager.Load_Data();
-        //    Volume_Set("bgm", save_Data.bgm_vol);
-        //    Volume_Set("effect", save_Data.eff_vol);
-        //}
+        if (dataManager.Data_Check())
+        {
+            dataManager.Load_Data();
+            Volume_Set("bgm", save_Data.bgm_vol);
+            Volume_Set("effect", save_Data.eff_vol);
+        }
     }
-
-    //public void Change_Next_Scene(bool next)
-    //{
-    //    if(next)
-    //        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    //    else
-    //        SceneManager.LoadScene(1);
-    //}
-
-    //public void Change_Next_Scene(bool next)
-    //{
-    //    if (next)
-    //        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    //    else
-    //        SceneManager.LoadScene(1);
-    //}
 
     public IEnumerator Change_Scene(int num, bool next = true)
     {
@@ -104,22 +86,6 @@ public class GameManager_shj : MonoBehaviour
                 break;
         }
     }
-
-    //public void BGM_vol_set(float vol)
-    //{
-    //    if (vol == -20f) mixer.SetFloat("BGM", -80f);
-    //    else mixer.SetFloat("BGM",vol);
-
-    //    mixer.GetFloat("BGM",out save_Data.bgm_vol);
-    //}
-
-    //public void Effect_vol_set(float vol)
-    //{
-    //    if (vol == -20f) mixer.SetFloat("Effect", -80f);
-    //    else mixer.SetFloat("Effect", vol);
-
-    //    mixer.GetFloat("Effect", out save_Data.eff_vol);
-    //}
 
     public void Data_Save() { dataManager.Save_Data(save_Data); } 
     //public bool Set_vibration { set { vibration = !vibration; } }
