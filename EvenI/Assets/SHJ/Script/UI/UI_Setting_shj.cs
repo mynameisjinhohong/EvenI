@@ -254,7 +254,7 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
         //if(main != null) main.SetActive(false);
         //story.SetActive(true);
         click_cnt = -1;
-        senario = CSVReader.Read("Scenario/" + scenario_name + "/" + scenario_name + "_scenario");
+        senario = CSVReader.Read(/*"Scenario/" + scenario_name + "/" + */scenario_name + "_scenario");
         next_text();
     }
 

@@ -6518,6 +6518,7 @@ MonoBehaviour:
   hidden1_img: []
   hidden2_img: []
   respawn: 0
+  count_down_txt: {fileID: 0}
   clips:
   - {fileID: 8300000, guid: d23de0b9aac23e941b2d860e38fd7622, type: 3}
   - {fileID: 8300000, guid: 9b26a2ad78ee348458148f96ec1fae63, type: 3}
@@ -11484,6 +11485,7 @@ RectTransform:
   - {fileID: 1555130156}
   - {fileID: 887341810}
   - {fileID: 413443901}
+  - {fileID: 1639216372}
   m_Father: {fileID: 429507003}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -20141,7 +20143,6 @@ RectTransform:
   - {fileID: 1634986612}
   - {fileID: 1371992113}
   - {fileID: 437126760}
-  - {fileID: 1639216372}
   m_Father: {fileID: 429507003}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -24405,13 +24406,13 @@ RectTransform:
   m_Children:
   - {fileID: 597961206}
   - {fileID: 138990419}
-  m_Father: {fileID: 1366298536}
-  m_RootOrder: 9
+  m_Father: {fileID: 785207089}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 800, y: 500}
+  m_SizeDelta: {x: 1000, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1639216373
 MonoBehaviour:
