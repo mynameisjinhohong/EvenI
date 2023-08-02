@@ -165,7 +165,7 @@ public class InGame_UI_shj : UI_Setting_shj
 
     public void Ending_Check()
     {
-        int num = Scene_num < 30 ? (Scene_num / 5) - 2 : Scene_num / 2;
+        int num = Scene_num < 30 ? (Scene_num / 5) - 2 : (Scene_num / 4) - 2;
 
         switch (num)
         {
@@ -178,10 +178,10 @@ public class InGame_UI_shj : UI_Setting_shj
             case 3:
                 Load_Story("ending3");
                 break;
-            case 15:
+            case 5:
                 Load_Story("hidden1");
                 break;
-            case 16:
+            case 6:
                 Load_Story("hidden2");
                 break;
         }
@@ -216,11 +216,12 @@ public class InGame_UI_shj : UI_Setting_shj
             Data_change(count,carrotCount,ancientStoneCount, 1);
         }
     }
+
     public override void HiddenOpenCheck()
     {
         endingPopUpBtn.SetActive(true);
         jukSunText.text = "X " + count;
-        int num = Scene_num < 30 ? (Scene_num / 5) - 2 : Scene_num / 2;
+        int num = Scene_num < 30 ? (Scene_num / 5) - 2 : (Scene_num / 4) - 2;
         if(GameManager_shj.Getinstance.Save_data.ending[num] == false)
         {
             GameObject some = Instantiate(SomeThingOpen, StoryEndImage);
@@ -237,9 +238,9 @@ public class InGame_UI_shj : UI_Setting_shj
                 case 3:
                     some.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = ending3_img[0];
                     break;
-                case 15:
+                case 5:
                     break;
-                case 16:
+                case 6:
                     break;
             }
 
