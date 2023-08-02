@@ -26,20 +26,15 @@ public class InGame_UI_shj : UI_Setting_shj
 
     public TextMeshProUGUI count_text;
 
-    public GameObject count_down_txt;
     public GameObject select_panel;
 
     public Slider playing_slider;
     public GameObject end_pos;
 
-    
-
     int count;
     int next_scene_cnt = 0;
-    bool game_start;
-    float countdown;
+    //bool game_start;
 
-    Player_shj playerScript;
 
     public int Count { get {  return count; } set { count = value; } }
     
@@ -87,7 +82,8 @@ public class InGame_UI_shj : UI_Setting_shj
         count_down_txt.SetActive(true);
         playerScript.enabled = false;
         player.GetComponent<Animator>().enabled = false;
-        game_start = false;
+        //game_start = false;
+        //gamestart = false;
         countdown = 3.4f;
 
         next_scene_cnt = Scene_num > 4 ? 6 : 1;
@@ -121,35 +117,13 @@ public class InGame_UI_shj : UI_Setting_shj
         count_text.text = count.ToString();
         hp_cnt.text = playerScript.hp.ToString();
 
-        if (!game_start) Count_down();
+        if (!gamestart) Count_down();
 
         playing_slider.value = playing_slider.value < 1.0f ? 
             player.transform.position.x / end_pos.transform.position.x : 1.0f;
     }
 
-    void Count_down()
-    {
-        if (countdown < 1.0f)
-        {
-            //Time.fixedDeltaTime = 0.02f; //밀림현상때문에 생성, 카운트다운 버벅임 원인의심
-            game_start = true;
-            count_down_txt.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "START!";
-            //count_down_txt.GetComponent<TextMeshProUGUI>().fontSize = 140;
-            count_down_txt.GetComponent<Animator>().enabled = true;
-
-            playerScript.enabled = true;
-            player.GetComponent<Animator>().enabled = true;
-            StartCoroutine(Component_delay_active(count_down_txt.GetComponent<Animator>(), false, 2.0f));
-            StartCoroutine(Delay_active(2.0f, count_down_txt));
-
-            //StartCoroutine(Delay_active(1.0f, count_down_txt));
-        }
-        else
-        {
-            countdown -= Time.deltaTime;
-            count_down_txt.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = countdown.ToString("F0");
-        }
-    }
+    
 
     public void Game_Stop() //게임 정지 버튼
     {

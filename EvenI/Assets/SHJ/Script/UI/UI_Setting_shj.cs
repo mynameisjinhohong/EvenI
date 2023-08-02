@@ -61,6 +61,10 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
     int heal;
     public bool respawn;
 
+    public GameObject count_down_txt;
+    protected float countdown;
+    protected Player_shj playerScript;
+
     #endregion
 
     #region 프로퍼티
@@ -77,6 +81,7 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
         Advertisement.Initialize(gameID, true);
 
         if(Scene_num > 1) respawn = false;
+        gamestart = false;
     }
 
 
@@ -368,6 +373,31 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
                 }
 
                 break;
+        }
+    }
+
+    protected void Count_down()
+    {
+        if (countdown < 1.0f)
+        {
+            //Time.fixedDeltaTime = 0.02f; //밀림현상때문에 생성, 카운트다운 버벅임 원인의심
+            //game_start = true;
+            gamestart = true;
+            count_down_txt.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "START!";
+            //count_down_txt.GetComponent<TextMeshProUGUI>().fontSize = 140;
+            count_down_txt.GetComponent<Animator>().enabled = true;
+
+            playerScript.enabled = true;
+            player.GetComponent<Animator>().enabled = true;
+            StartCoroutine(Component_delay_active(count_down_txt.GetComponent<Animator>(), false, 2.0f));
+            StartCoroutine(Delay_active(2.0f, count_down_txt));
+            
+            //StartCoroutine(Delay_active(1.0f, count_down_txt));
+        }
+        else
+        {
+            countdown -= Time.deltaTime;
+            count_down_txt.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = countdown.ToString("F0");
         }
     }
 }
