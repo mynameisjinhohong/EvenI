@@ -58,7 +58,15 @@ public class InGame_UI_shj : UI_Setting_shj
         carrotCount = GameManager_shj.Getinstance.Save_data.carrot;
         ancientStoneCount = GameManager_shj.Getinstance.Save_data.ancientRock;
         playerScript = player.GetComponent<Player_shj>();
-        playerScript.hp = GameManager_shj.Getinstance.Save_data.hp;
+        if(SceneManager.GetActiveScene().buildIndex > 29)
+        {
+            playerScript.hp = 1;
+        }
+        else
+        {
+            playerScript.hp = GameManager_shj.Getinstance.Save_data.hp;
+
+        }
     }
 
     public void Start()
