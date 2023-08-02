@@ -74,7 +74,6 @@ public class InGame_UI_shj : UI_Setting_shj
         for (int i = 0; i < tmpro_list.Length; i++)
             tmpro_list[i].color = new Color(1,1,1,1);
 
-
         init_set();
         Time.timeScale = 1.0f;
         //Time.fixedDeltaTime = 0.0f; //밀림현상때문에 생성, 카운트다운 버벅임 원인의심

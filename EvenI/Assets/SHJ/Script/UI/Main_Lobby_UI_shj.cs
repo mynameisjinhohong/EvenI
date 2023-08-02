@@ -44,11 +44,11 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
         if (GameManager_shj.Getinstance.Save_data.nickname.Length == 0 || GameManager_shj.Getinstance.Save_data.nickname == "")
             gameinfo.SetActive(true);
 
-        //if(GameManager_shj.Getinstance.Save_data.hp == GameManager_shj.Getinstance.Save_data.max_hp)
-        //{
-        //    panda_hos.onClick.SetPersistentListenerState(0, UnityEngine.Events.UnityEventCallState.Off);
-        //    panda_hos.onClick.AddListener(() => Active_Info("판다가 아프지 않습니다!"));
-        //}
+        if (GameManager_shj.Getinstance.Save_data.hp == GameManager_shj.Getinstance.Save_data.max_hp)
+        {
+            panda_hos.onClick.SetPersistentListenerState(0, UnityEngine.Events.UnityEventCallState.Off);
+            panda_hos.onClick.AddListener(() => Active_Info("판다가 아프지 않습니다!"));
+        }
 
         for (int i = 0, j = 1; i < playing_target.Length; i++)
         {
@@ -159,11 +159,12 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
         GameManager_shj.Getinstance.Save_data.nexthealtime = nexthealtime;
         GameManager_shj.Getinstance.Save_data.healcnt += 1;
 
-        //if(GameManager_shj.Getinstance.Save_data.hp + 3 < GameManager_shj.Getinstance.Save_data.max_hp)
+        if (GameManager_shj.Getinstance.Save_data.hp + 3 < GameManager_shj.Getinstance.Save_data.max_hp)
         {
             int sec = nexthealtime - Time_Check;
             GameManager_shj.Getinstance.Noti.Noti_Panda(sec);
         }
+
         charge_cnt_txt.text = "하트 무료 충전" + "\n" + "(" + GameManager_shj.Getinstance.Save_data.healcnt + "/5" + ")";
         Data_Save();
     }
