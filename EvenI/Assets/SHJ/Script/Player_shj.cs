@@ -157,6 +157,7 @@ public class Player_shj : MonoBehaviour
     public GameObject challengGameOverPanel;
     public GameObject hiddenGameOverPanel;
     public GameObject hiddenGameClearPanel;
+    public TImer_shj timer;
     public void Start()
     {
         nomalSpeed = speed;
@@ -468,6 +469,7 @@ public class Player_shj : MonoBehaviour
         }
         else if (SceneManager.GetActiveScene().name.Contains("Challenge"))
         {
+            challengGameOverPanel.transform.GetChild(0).GetComponent<Text>().text = "생존 시간 : " + timer.text.text + " 초";
             challengGameOverPanel.SetActive(true);
         }
         else
