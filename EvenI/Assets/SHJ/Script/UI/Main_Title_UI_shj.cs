@@ -14,7 +14,6 @@ public class Main_Title_UI_shj : UI_Setting_shj
         BackGround_Set();
     }
 
-
     public void Data_Check()
     {
         //if(GameManager_shj.Getinstance.Data_Manager.Data_Check())
@@ -23,9 +22,9 @@ public class Main_Title_UI_shj : UI_Setting_shj
         //}
         if (!GameManager_shj.Getinstance.Data_Manager.Data_Check())
         {
+            info.SetActive(true);
             GameManager_shj.Getinstance.Save_data = new Save_Data_shj();
             GameManager_shj.Getinstance.Data_Manager.Save_Data(GameManager_shj.Getinstance.Save_data); //새로운 데이터 생성
-            info.SetActive(true);
 
             while (!GameManager_shj.Getinstance.Data_Manager.Data_Check()) //데이터가 만들어질때까지 반복
             {

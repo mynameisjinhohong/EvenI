@@ -31,9 +31,9 @@ public class GameManager_shj : MonoBehaviour
             audio = GetComponent<AudioSource>();
 
             dataManager = GetComponent<DataManager_shj>();
-            notification = GetComponent<Notification_Manager_shj>();
+            //notification = GetComponent<Notification_Manager_shj>();
+
             save_Data = gameObject.AddComponent<Save_Data_shj>();
-            //dataManager.Load_Data(new Save_Data_shj());
         }
         else
         {
@@ -43,12 +43,12 @@ public class GameManager_shj : MonoBehaviour
 
     private void Start()
     {
-        //if (dataManager.Data_Check())
-        //{
-        //    dataManager.Load_Data();
-        //    Volume_Set("bgm", save_Data.bgm_vol);
-        //    Volume_Set("effect", save_Data.eff_vol);
-        //}
+        if (dataManager.Data_Check())
+        {
+            dataManager.Load_Data();
+            Volume_Set("bgm", save_Data.bgm_vol);
+            Volume_Set("effect", save_Data.eff_vol);
+        }
     }
 
     //public void Change_Next_Scene(bool next)

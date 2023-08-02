@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 using TMPro;
 using System;
+using Unity.Notifications.Android;
 
 public class Main_Lobby_UI_shj : UI_Setting_shj
 {
@@ -28,6 +29,9 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
     public Button panda_hos;
     public Slider BGM_value;
     public Slider Effect_value;
+
+    AndroidNotificationChannel notificationChannel;
+    AndroidNotification notification;
 
     public void Start()
     {
@@ -160,7 +164,6 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
             int sec = nexthealtime - Time_Check;
             GameManager_shj.Getinstance.Noti.Noti_Panda(sec);
         }
-
         charge_cnt_txt.text = "하트 무료 충전" + "\n" + "(" + GameManager_shj.Getinstance.Save_data.healcnt + "/5" + ")";
         Data_Save();
     }
