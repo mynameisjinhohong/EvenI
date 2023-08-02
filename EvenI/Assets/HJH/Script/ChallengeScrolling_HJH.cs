@@ -11,6 +11,9 @@ public class ChallengeScrolling_HJH : MonoBehaviour
     BoxCollider2D[] cols = new BoxCollider2D[2];
     public Vector3 firstPos;
     public Vector3 secondPos;
+    float time = 0;
+    public float speedGainTime;
+    public float speedGainAmount;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +27,13 @@ public class ChallengeScrolling_HJH : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        time += Time.deltaTime;
+        if(time > speedGainTime)
+        {
+            time = 0;
+            play.speed += speedGainAmount;
+            play.rolling_MoveSpeed += speedGainAmount;
+        }
         Vector3 playerPos = player.transform.position;
         firstPos = (Vector2)cols[0].transform.position + cols[0].offset + (cols[0].size / 2);
         secondPos = cols[1].offset + (cols[1].size / 2) + (Vector2)cols[1].transform.position;
