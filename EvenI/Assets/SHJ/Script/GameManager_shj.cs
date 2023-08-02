@@ -15,6 +15,7 @@ public class GameManager_shj : MonoBehaviour
 
     Save_Data_shj save_Data;
     DataManager_shj dataManager;
+    Notification_Manager_shj notification;
 
     public AudioMixer mixer;
 
@@ -30,6 +31,7 @@ public class GameManager_shj : MonoBehaviour
             audio = GetComponent<AudioSource>();
 
             dataManager = GetComponent<DataManager_shj>();
+            notification = GetComponent<Notification_Manager_shj>();
             save_Data = gameObject.AddComponent<Save_Data_shj>();
             //dataManager.Load_Data(new Save_Data_shj());
         }
@@ -41,11 +43,11 @@ public class GameManager_shj : MonoBehaviour
 
     private void Start()
     {
-        //if (Data_Manager.Data_Check())
+        //if (dataManager.Data_Check())
         //{
-        //    Data_Manager.Load_Data();
-        //    Volume_Set("BGM", save_Data.bgm_vol);
-        //    Volume_Set("Effect", save_Data.eff_vol);
+        //    dataManager.Load_Data();
+        //    Volume_Set("bgm", save_Data.bgm_vol);
+        //    Volume_Set("effect", save_Data.eff_vol);
         //}
     }
 
@@ -123,5 +125,5 @@ public class GameManager_shj : MonoBehaviour
     //public bool Set_vibration { set { vibration = !vibration; } }
     public Save_Data_shj Save_data { get { return save_Data; } set { save_Data = value; } }
     public DataManager_shj Data_Manager { get { return dataManager; } }
-
+    public Notification_Manager_shj Noti { get { return notification; } }
 }

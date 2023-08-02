@@ -466,6 +466,8 @@ MonoBehaviour:
   ending4_img: []
   hidden1_img: []
   hidden2_img: []
+  respawn: 0
+  count_down_txt: {fileID: 0}
   info: {fileID: 1247046300}
 --- !u!1 &745159893
 GameObject:
@@ -976,6 +978,7 @@ GameObject:
   - component: {fileID: 1830104633}
   - component: {fileID: 1830104634}
   - component: {fileID: 1830104635}
+  - component: {fileID: 1830104636}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1118,6 +1121,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a597f271e4b45a149b4df6b6f90b882b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1830104636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1830104631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e71595847ea94e46b05bfb40a4235d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1847252149
