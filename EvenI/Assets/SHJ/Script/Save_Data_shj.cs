@@ -9,7 +9,7 @@ public class Save_Data_shj : MonoBehaviour
 
     public string nickname; //판다이름
     public int juksun; //죽순개수
-    public int carrot; //당근개수
+    public float carrot; //당근개수
     public int ancientRock; //고대비석개수
     public int last_play_scene_num; //마지막 플레이한 씬 번호
     public int max_hp; //판다 최대hp
