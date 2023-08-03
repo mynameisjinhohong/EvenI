@@ -20,7 +20,7 @@ public class InGame_UI_shj : UI_Setting_shj
 
     public TextMeshProUGUI carrot_text;
     public Image carrot_heart;
-    public int carrotCount = 0;
+    public float carrotCount = 0;
 
     public TextMeshProUGUI ancientStone_text;
     public int ancientStoneCount = 0;
@@ -107,11 +107,11 @@ public class InGame_UI_shj : UI_Setting_shj
 
     private void Update()
     {
-        carrot_text.text = carrotCount.ToString() + "%";
-        carrot_heart.fillAmount = (float)carrotCount / 200;
-        if(carrotCount > 199)
+        carrot_text.text = carrotCount.ToString("F0") + "%";
+        carrot_heart.fillAmount = carrotCount / 100;
+        if(carrotCount > 99.5)
         {
-            carrotCount -= 200;
+            carrotCount -= 100;
             playerScript.hp++;
         }
         ancientStone_text.text = ancientStoneCount.ToString();
