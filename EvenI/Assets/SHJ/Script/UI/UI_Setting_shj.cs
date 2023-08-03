@@ -389,8 +389,8 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
 
             playerScript.enabled = true;
             player.GetComponent<Animator>().enabled = true;
-            StartCoroutine(Component_delay_active(count_down_txt.GetComponent<Animator>(), false, 2.0f));
-            StartCoroutine(Delay_active(2.0f, count_down_txt));
+            //StartCoroutine(Component_delay_active(count_down_txt.GetComponent<Animator>(), false, 2.0f));
+            //StartCoroutine(Delay_active(2.0f, count_down_txt));
             
             //StartCoroutine(Delay_active(1.0f, count_down_txt));
         }
@@ -398,6 +398,8 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
         {
             countdown -= Time.deltaTime;
             count_down_txt.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = countdown.ToString("F0");
+            count_down_txt.GetComponent<Animator>().enabled = false;
+
         }
     }
 }

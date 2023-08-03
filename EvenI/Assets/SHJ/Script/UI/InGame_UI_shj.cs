@@ -81,6 +81,7 @@ public class InGame_UI_shj : UI_Setting_shj
         respawn = false;
         count_down_txt.SetActive(true);
         playerScript.enabled = false;
+        count_down_txt.GetComponent<Animator>().Play("padeout", 0, 0f);
         player.GetComponent<Animator>().enabled = false;
         //game_start = false;
         //gamestart = false;
@@ -122,8 +123,6 @@ public class InGame_UI_shj : UI_Setting_shj
         playing_slider.value = playing_slider.value < 1.0f ?
             player.transform.position.x / end_pos.transform.position.x : 1.0f;
     }
-
-    
 
     public void Game_Stop() //게임 정지 버튼
     {
