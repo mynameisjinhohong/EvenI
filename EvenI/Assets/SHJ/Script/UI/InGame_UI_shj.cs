@@ -106,10 +106,10 @@ public class InGame_UI_shj : UI_Setting_shj
     private void Update()
     {
         carrot_text.text = carrotCount.ToString() + "%";
-        carrot_heart.fillAmount = (float)carrotCount / 100;
-        if(carrotCount > 99)
+        carrot_heart.fillAmount = (float)carrotCount / 200;
+        if(carrotCount > 199)
         {
-            carrotCount -= 100;
+            carrotCount -= 200;
             playerScript.hp++;
         }
         ancientStone_text.text = ancientStoneCount.ToString();
