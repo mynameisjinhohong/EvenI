@@ -206,10 +206,10 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
 
     public void Skip_btn()
     {
-        if (gamestart)
-            Next_Scene();
-        else if (Ending)
+        if (Ending)
             Return_Lobby();
+        else if (gamestart)
+            Next_Scene();
         else
         {
             story.SetActive(false);
@@ -302,12 +302,12 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
             btn_text.text = "다음";
             if (click_cnt == senario.Count / 3 - 1) //스토리 끝났을때
             {
-                if (gamestart) btn_text.text = "게임 시작!";
-                else
+                if(Ending)
                 {
                     btn_text.text = "돌아 가기";
                     HiddenOpenCheck();
                 }
+                else if (gamestart) btn_text.text = "게임 시작!";
             }
         }
         else
