@@ -15,6 +15,7 @@ public class InGame_UI_shj : UI_Setting_shj
     public Text jukSunText;
     public Transform StoryEndImage;
     public GameObject SomeThingOpen;
+    public Sprite[] hidden_img_list;
     #endregion
 
     public TextMeshProUGUI carrot_text;
@@ -226,7 +227,7 @@ public class InGame_UI_shj : UI_Setting_shj
         {
             GameObject some = Instantiate(SomeThingOpen, StoryEndImage);
             some.transform.SetSiblingIndex(1);
-            some.transform.GetChild(0).gameObject.GetComponent<Text>().text = "ENDING.N0 " + num + "가\n오픈되었습니다";
+            some.transform.GetChild(0).gameObject.GetComponent<Text>().text = "ENDING.N0 " + num + " 해금!";
             switch (num)
             {
                 case 1:
@@ -250,15 +251,16 @@ public class InGame_UI_shj : UI_Setting_shj
         {
             GameObject some = Instantiate(SomeThingOpen, StoryEndImage);
             some.transform.SetSiblingIndex(1);
-            some.transform.GetChild(0).gameObject.GetComponent<Text>().text = "히든스테이지(무릉도원)가\n오픈되었습니다";
-            //some.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = 
+            some.transform.GetChild(0).gameObject.GetComponent<Text>().text = "고대유적 Stage 오픈!";
+            some.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = hidden_img_list[0];
             GameManager_shj.Getinstance.Save_data.hidden_open[0] = true;
         }
         if(GameManager_shj.Getinstance.Save_data.juksun >= player.GetComponent<Player_shj>().juksunMax && GameManager_shj.Getinstance.Save_data.hidden_open[1] == false)
         {
             GameObject some = Instantiate(SomeThingOpen, StoryEndImage);
             some.transform.SetSiblingIndex(1);
-            some.transform.GetChild(0).gameObject.GetComponent<Text>().text = "히든스테이지(고대유적)가\n오픈되었습니다";
+            some.transform.GetChild(0).gameObject.GetComponent<Text>().text = "무릉도원 Stage 오픈!";
+            some.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = hidden_img_list[1];
             GameManager_shj.Getinstance.Save_data.hidden_open[1] = true;
         }
         GameManager_shj.Getinstance.Data_Save();

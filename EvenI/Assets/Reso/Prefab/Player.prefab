@@ -1006,8 +1006,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7.98, y: -19.6851}
-  m_SizeDelta: {x: 1246.8291, y: 417.0667}
+  m_AnchoredPosition: {x: 0, y: 70}
+  m_SizeDelta: {x: 1200, y: 450}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1727225089182712696
 MonoBehaviour:
@@ -6575,6 +6575,9 @@ MonoBehaviour:
   jukSunText: {fileID: 696516315387769436}
   StoryEndImage: {fileID: 7186527394601995008}
   SomeThingOpen: {fileID: 434499461943867116, guid: 06ae9b91aec4ad449ba8c5fd8394fffa, type: 3}
+  hidden_img_list:
+  - {fileID: 21300000, guid: 3208316e06c49a349b89b46f880aa770, type: 3}
+  - {fileID: 21300000, guid: c9bc8c97048e90c428380d0dacf09c78, type: 3}
   carrot_text: {fileID: 7318396415444869180}
   carrot_heart: {fileID: 1314260214350248466}
   carrotCount: 0
@@ -15487,7 +15490,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4843102589121520687
 RectTransform:
   m_ObjectHideFlags: 0
