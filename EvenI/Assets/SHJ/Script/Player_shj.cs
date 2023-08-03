@@ -68,6 +68,7 @@ public class Player_shj : MonoBehaviour
     [SerializeField]
     bool jumping = false; //점프중인지 아닌지 확인
     bool floorCheck = true; //점프 하고 잠깐동안 바닥 체크 안하게
+    bool start = false;
     public float jump_charge = 0.0f; //점프력 충전
     public GameObject charge_img;
     //public Image charge_img; //점프 게이지
@@ -184,7 +185,13 @@ public class Player_shj : MonoBehaviour
     }
     private void OnEnable()
     {
-        
+        if (!start) start = true;
+        else
+        {
+            invincible = true;
+            StartCoroutine(Invincible());
+            StartCoroutine(Blink());
+        }
     }
 
     private void Update()
@@ -246,7 +253,8 @@ public class Player_shj : MonoBehaviour
         {
             //GameOver();
             if (hp <= 2) GameOver();
-            else Respawn();
+            else
+                Respawn();
         }
         //RaycastHit2D hit = Physics2D.Raycast(rayPoint[0].position, Vector2.up, transform.localScale.x / 2, LayerMask.GetMask("ground"));
         RaycastHit2D[] hit = Physics2D.BoxCastAll(transform.position + new Vector3(0, boxCol.size.y * transform.localScale.y * 0.5f), new Vector2(boxCol.size.x * transform.localScale.x, 1f), 0, Vector2.up, 0.1f, LayerMask.GetMask("ground"));//위
@@ -851,6 +859,7 @@ public class Player_shj : MonoBehaviour
         if (hp - 2 > 0) Hp -= 2;
 
         if (ui.respawn) gameOverPanel.SetActive(false);
+
         rigid.velocity = Vector2.zero;
         ui.Start();
     }
