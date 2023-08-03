@@ -37,6 +37,7 @@ public class ChallengeScrolling_HJH : MonoBehaviour
         Vector3 playerPos = player.transform.position;
         firstPos = (Vector2)cols[0].transform.position + cols[0].offset + (cols[0].size / 2);
         secondPos = cols[1].offset + (cols[1].size / 2) + (Vector2)cols[1].transform.position;
+        //Debug.Log(secondPos.x - (cols[1].size.x / 2));
         if (idx == 1)
         {
             if (playerPos.x > secondPos.x - (cols[1].size.x/2))

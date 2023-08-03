@@ -101,11 +101,21 @@ public class Player_shj : MonoBehaviour
                 }
                 if (Hp < 1)
                 {
-                    if (!gameOverPanel.activeInHierarchy)
+                    if (SceneManager.GetActiveScene().name.Contains("Hidden"))
+                    {
+                        hiddenGameOverPanel.SetActive(true);
+                    }
+                    else if (SceneManager.GetActiveScene().name.Contains("Challenge"))
+                    {
+                        challengGameOverPanel.transform.GetChild(0).GetComponent<Text>().text = "생존 시간 : " + timer.text.text + " 초";
+                        challengGameOverPanel.SetActive(true);
+                    }
+                    else
                     {
                         gameOverPanel.SetActive(true);
-                        Time.timeScale = 0f;
+
                     }
+                    Time.timeScale = 0f;
                     soundManager.LifeZeroSoundPlay();
                 }
             }
