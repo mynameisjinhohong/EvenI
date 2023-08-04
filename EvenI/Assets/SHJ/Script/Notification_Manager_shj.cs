@@ -28,15 +28,13 @@ public class Notification_Manager_shj : MonoBehaviour
         AndroidNotificationCenter.SendNotification(notification, "channel");
     }
 
-    private void OnApplicationPause(bool pause)
-    {
-
-
-        if(pause)
-        {
-            int sec = GameManager_shj.Getinstance.Save_data.nexthealtime 
-                - int.Parse(DateTime.Now.ToString("HH")) * 3600 + int.Parse(DateTime.Now.ToString("mm")) * 60 + int.Parse(DateTime.Now.ToString("ss"));
-            Noti_Panda(sec);
-        }
-    }
+    //private void OnApplicationPause(bool pause) //종료시 작동
+    //{
+    //    if(pause)
+    //    {
+    //        int sec = GameManager_shj.Getinstance.Save_data.nexthealtime 
+    //            - int.Parse(DateTime.Now.ToString("HH")) * 3600 + int.Parse(DateTime.Now.ToString("mm")) * 60 + int.Parse(DateTime.Now.ToString("ss"));
+    //        Noti_Panda(sec);
+    //    }
+    //}
 }

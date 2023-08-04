@@ -19,6 +19,7 @@ public class EndingPoint_HJH : MonoBehaviour
     {
         transform.position = firstPos;
         Vector3 viewPos = cam.WorldToViewportPoint(transform.position);
+
         if (viewPos.x >= 0 && viewPos.x <= 1)
         {
             player.gameClear = true;

@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 using TMPro;
 using System;
-using Unity.Notifications.Android;
 
 public class Main_Lobby_UI_shj : UI_Setting_shj
 {
@@ -29,9 +28,6 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
     public Button panda_hos;
     public Slider BGM_value;
     public Slider Effect_value;
-
-    AndroidNotificationChannel notificationChannel;
-    AndroidNotification notification;
 
     public void Start()
     {

@@ -196,6 +196,7 @@ public class Player_shj : MonoBehaviour
 
     private void Update()
     {
+
         //Debug.Log(transform.localPosition);
         //이전 코드 주석으로 놔둠
         #region test
@@ -854,7 +855,11 @@ public class Player_shj : MonoBehaviour
         }
 
         transform.localPosition = hit.point + (Vector2)Vector3.up;
-        Camera.main.transform.position = new Vector3((transform.position + new Vector3(camera_distance, 0, 0)).x, 2, -10);//플레이어한테 맞춰서 카메라 배치
+
+        //if(GameObject.Find("EndingPoint").transform.position.x - cam.transform.position.x > 14) 카메라 버그로인한 주석
+        //    cam.transform.position = new Vector3((transform.position + new Vector3(camera_distance, 0, 0)).x, 2, -10);//플레이어한테 맞춰서 카메라 배치
+
+            //Camera.main.transform.position =  new Vector3(GameObject.Find("EndingPoint").transform.position.x - 13.9f,2,-10);
 
         if (hp - 2 > 0) Hp -= 2;
 
