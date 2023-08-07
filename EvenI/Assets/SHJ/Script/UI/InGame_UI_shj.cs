@@ -121,6 +121,7 @@ public class InGame_UI_shj : UI_Setting_shj
         {
             carrotCount -= 100;
             playerScript.hp++;
+            GetComponent<AudioSource>().Play();
         }
         ancientStone_text.text = ancientStoneCount.ToString();
         count_text.text = count.ToString();
