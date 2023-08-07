@@ -34,6 +34,7 @@ public class InGame_UI_shj : UI_Setting_shj
 
     int count;
     int next_scene_cnt = 0;
+    bool btn_down;
     //bool game_start;
 
 
@@ -67,6 +68,7 @@ public class InGame_UI_shj : UI_Setting_shj
 
     public void Start()
     {
+        btn_down = false;
         string scene_name = SceneManager.GetActiveScene().name;
         count_down_txt.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = scene_name.Substring(0, 3) + " STAGE";
 
@@ -94,16 +96,22 @@ public class InGame_UI_shj : UI_Setting_shj
             int num = Scene_num;
 
             select_panel.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(() => Set_cnt(next_scene_cnt));
-            select_panel.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(Change_Scene);
+            //select_panel.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(Change_Scene);
             select_panel.transform.GetChild(0).GetComponent<Image>().sprite = background_list[(num + next_scene_cnt) / 5 - 1];
 
             select_panel.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(() => Set_cnt(next_scene_cnt + 5));
-            select_panel.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(Change_Scene);
+            //select_panel.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(Change_Scene);
             select_panel.transform.GetChild(1).GetComponent<Image>().sprite = background_list[(num + next_scene_cnt + 5) / 5 - 1];
         }
     }
 
-    void Set_cnt(int value) { next_scene_cnt = value; }
+    void Set_cnt(int value)
+    {
+        //if (btn_down) return;
+        next_scene_cnt = value;
+        Change_Scene();
+        //btn_down = true;
+    }
 
     private void Update()
     {
@@ -200,6 +208,9 @@ public class InGame_UI_shj : UI_Setting_shj
 
     public void Change_Scene()
     {
+        if (btn_down) return;
+        btn_down = true;
+        Debug.Log(1);
         int stage_num = Scene_num / 5;
         GameManager_shj.Getinstance.Save_data.playing[stage_num] += stage_num != 0 ? 0.2f : 0.34f;
         if (GameManager_shj.Getinstance.Save_data.playing[stage_num] > 1.0f)

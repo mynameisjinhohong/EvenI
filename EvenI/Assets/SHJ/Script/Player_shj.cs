@@ -854,7 +854,6 @@ public class Player_shj : MonoBehaviour
             hit = Physics2D.Raycast(new Vector3(transform.localPosition.x + default_x, 5, 0), Vector3.down, 30.0f);
         }
 
-        transform.localPosition = hit.point + (Vector2)Vector3.up;
 
         //if(GameObject.Find("EndingPoint").transform.position.x - cam.transform.position.x > 14) 카메라 버그로인한 주석
         //    cam.transform.position = new Vector3((transform.position + new Vector3(camera_distance, 0, 0)).x, 2, -10);//플레이어한테 맞춰서 카메라 배치
@@ -865,7 +864,10 @@ public class Player_shj : MonoBehaviour
 
         if (ui.respawn) gameOverPanel.SetActive(false);
 
-        rigid.velocity = Vector2.zero;
+        nuckBackDuring = false;
+        StopCoroutine(nuckBackCoroutine);
         ui.Start();
+        rigid.velocity = Vector2.zero;
+        transform.localPosition = hit.point + (Vector2)Vector3.up * 1.5f;
     }
 }

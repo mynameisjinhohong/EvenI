@@ -78,12 +78,11 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
     protected void init_set()
     {
         if (GetComponent<AudioSource>() != null) audio = GetComponent<AudioSource>();
-        if(!Advertisement.isInitialized) Advertisement.Initialize(gameID, true);
+        if(!Advertisement.isInitialized) Advertisement.Initialize(gameID);
 
         if(Scene_num > 1) respawn = false;
         gamestart = false;
     }
-
 
     public void UI_On_Off(GameObject obj) //버튼의 첫번째 자식 켜고 끄기 음향 추가 해야함
     {
@@ -190,10 +189,10 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
         obj.SetActive(false);
     }
 
-    protected IEnumerator Story_Open(GameObject obj) //지연 삭제
+    protected IEnumerator Story_Open(GameObject obj) //지연
     {
         story_mask.SetActive(true);
-        yield return new WaitForSeconds(1.5f/2);
+        yield return new WaitForSeconds(1.5f / 2);
         obj.SetActive(true);
         yield return new WaitForSeconds(1.5f / 2);
         story_mask.SetActive(false);
@@ -338,18 +337,6 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
                 break;
             case ShowResult.Skipped:
             case ShowResult.Finished:
-
-                //if (respawn)
-                //{
-                //    player.GetComponent<Player_shj>().Respawn();
-                //    respawn = false;
-                //    player.GetComponent<Player_shj>().hp += 1;
-                //}
-                //if (player.GetComponent<Player_shj>().hp + 1 <= 50)
-                //{
-                //    player.GetComponent<Player_shj>().hp += 1;
-                    
-                //}
                 if(Scene_num == 1)
                 {
                     if (GameManager_shj.Getinstance.Save_data.hp + heal <= GameManager_shj.Getinstance.Save_data.max_hp)
@@ -360,14 +347,16 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
                 }
                 else
                 {
-                    if(player.GetComponent<Player_shj>().hp + heal <= GameManager_shj.Getinstance.Save_data.max_hp)
-                        player.GetComponent<Player_shj>().hp += heal;
-
                     if (respawn)
                     {
                         player.GetComponent<Player_shj>().Respawn();
                         player.GetComponent<Player_shj>().hp = 2;
                         respawn = false;
+                    }
+                    else
+                    {
+                        //if (player.GetComponent<Player_shj>().hp + heal <= GameManager_shj.Getinstance.Save_data.max_hp)
+                            player.GetComponent<Player_shj>().hp += heal;
                     }
                     if (hp_cnt != null) hp_cnt.text = (int.Parse(hp_cnt.text) + 1).ToString();
                 }
