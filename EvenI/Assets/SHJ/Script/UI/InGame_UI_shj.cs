@@ -270,14 +270,14 @@ public class InGame_UI_shj : UI_Setting_shj
                     some.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = ending4_img[0];
                     break;
                 case 5:
-                    some.transform.GetChild(0).gameObject.GetComponent<Text>().text = "°í´ëÀ¯Àû Ã§¸°Áö ¿ÀÇÂ!";
+                    some.transform.GetChild(0).gameObject.GetComponent<Text>().text = "¹«¸ªµµ¿ø Ã§¸°Áö ¿ÀÇÂ!";
                     some.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = hidden_img_list[0];
-                    GameManager_shj.Getinstance.Save_data.hidden_open[0] = true;
+                    GameManager_shj.Getinstance.Save_data.hidden_open[2] = true;
                     break;
                 case 6:
-                    some.transform.GetChild(0).gameObject.GetComponent<Text>().text = "¹«¸ªµµ¿ø Ã§¸°Áö ¿ÀÇÂ!";
+                    some.transform.GetChild(0).gameObject.GetComponent<Text>().text = "°í´ëÀ¯Àû Ã§¸°Áö ¿ÀÇÂ!";
                     some.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = hidden_img_list[1];
-                    GameManager_shj.Getinstance.Save_data.hidden_open[1] = true;
+                    GameManager_shj.Getinstance.Save_data.hidden_open[3] = true;
                     break;
             }
 
@@ -290,15 +290,19 @@ public class InGame_UI_shj : UI_Setting_shj
             GameObject some = Instantiate(SomeThingOpen, StoryEndImage);
             some.transform.SetSiblingIndex(1);
             some.transform.GetChild(0).gameObject.GetComponent<Text>().text = "°í´ëÀ¯Àû Stage ¿ÀÇÂ!";
-            some.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = hidden_img_list[0];
+            some.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = hidden_img_list[1];
+            GameManager_shj.Getinstance.Save_data.hidden_open[1] = true;
+
             //GameManager_shj.Getinstance.Save_data.hidden_open[0] = true;
         }
-        if(/*GameManager_shj.Getinstance.Save_data.juksun*/count >= player.GetComponent<Player_shj>().juksunMax && GameManager_shj.Getinstance.Save_data.hidden_open[1] == false)
+        if (/*GameManager_shj.Getinstance.Save_data.juksun*/count >= player.GetComponent<Player_shj>().juksunMax && GameManager_shj.Getinstance.Save_data.hidden_open[1] == false)
         {
             GameObject some = Instantiate(SomeThingOpen, StoryEndImage);
             some.transform.SetSiblingIndex(1);
             some.transform.GetChild(0).gameObject.GetComponent<Text>().text = "¹«¸ªµµ¿ø Stage ¿ÀÇÂ!";
-            some.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = hidden_img_list[1];
+            some.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = hidden_img_list[0];
+            GameManager_shj.Getinstance.Save_data.hidden_open[0] = true;
+
             //GameManager_shj.Getinstance.Save_data.hidden_open[1] = true;
         }
         GameManager_shj.Getinstance.Data_Save();
