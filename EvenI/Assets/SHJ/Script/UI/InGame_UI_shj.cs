@@ -253,8 +253,7 @@ public class InGame_UI_shj : UI_Setting_shj
             some.transform.SetSiblingIndex(1);
             some.transform.GetChild(0).gameObject.GetComponent<Text>().text = "ENDING.N0 " + num + " ÇØ±Ý!";
 
-            if (count < 1700)
-                num = 4;
+            if (count < 1700) num = 4;
 
             switch (num)
             {
