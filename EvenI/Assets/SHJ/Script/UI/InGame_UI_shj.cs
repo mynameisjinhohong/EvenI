@@ -175,6 +175,7 @@ public class InGame_UI_shj : UI_Setting_shj
     public void Ending_Check()
     {
         int num = Scene_num < 30 ? (Scene_num / 5) - 2 : (Scene_num / 4) - 2;
+        if (count < 1700) num = 4;
 
         switch (num)
         {
@@ -186,6 +187,9 @@ public class InGame_UI_shj : UI_Setting_shj
                 break;
             case 3:
                 Load_Story("ending3");
+                break;
+            case 4:
+                Load_Story("ending4");
                 break;
             case 5:
                 Load_Story("hidden1");
@@ -239,6 +243,10 @@ public class InGame_UI_shj : UI_Setting_shj
             GameObject some = Instantiate(SomeThingOpen, StoryEndImage);
             some.transform.SetSiblingIndex(1);
             some.transform.GetChild(0).gameObject.GetComponent<Text>().text = "ENDING.N0 " + num + " ÇØ±Ý!";
+
+            if (count < 1700)
+                num = 4;
+
             switch (num)
             {
                 case 1:
@@ -249,6 +257,9 @@ public class InGame_UI_shj : UI_Setting_shj
                     break;
                 case 3:
                     some.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = ending3_img[0];
+                    break;
+                case 4:
+                    some.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = ending4_img[0];
                     break;
                 case 5:
                     break;

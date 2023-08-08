@@ -189,14 +189,14 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
         obj.SetActive(false);
     }
 
-    protected IEnumerator Story_Open(GameObject obj) //지연
-    {
-        story_mask.SetActive(true);
-        yield return new WaitForSeconds(1.5f / 2);
-        obj.SetActive(true);
-        yield return new WaitForSeconds(1.5f / 2);
-        story_mask.SetActive(false);
-    }
+    //protected IEnumerator Story_Open(GameObject obj) //지연
+    //{
+    //    story_mask.SetActive(true);
+    //    yield return new WaitForSeconds(1.5f / 2);
+    //    obj.SetActive(true);
+    //    yield return new WaitForSeconds(1.5f / 2);
+    //    story_mask.SetActive(false);
+    //}
 
     public void Data_Save() //데이터 저장
     {
@@ -248,8 +248,8 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
                 scenario_img = hidden2_img;
                 break;
         }
-
-        StartCoroutine(Story_Open(story));
+        story_mask.SetActive(true);
+        //StartCoroutine(Story_Open(story));
         //if(main != null) main.SetActive(false);
         //story.SetActive(true);
         click_cnt = -1;
