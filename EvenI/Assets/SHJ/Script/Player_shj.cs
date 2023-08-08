@@ -782,6 +782,7 @@ public class Player_shj : MonoBehaviour
             if (rigid.velocity.x > speed)
             {
                 rigid.velocity = Vector2.right * speed;
+                nuckBackCoroutine = null;
                 nuckBackDuring = false;
                 break;
             }
