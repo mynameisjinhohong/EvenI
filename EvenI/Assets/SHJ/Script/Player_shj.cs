@@ -813,7 +813,21 @@ public class Player_shj : MonoBehaviour
         playerAnimator.SetTrigger("Roll"); //구르기 애니메이션 작동
         boxCol.offset = Vector2.zero;
         boxCol.size = new Vector2(1.7f, 1.7f);
-        yield return new WaitForSeconds(rolling_time); //일정시간동안 구르기진행
+        float currentTime = 0;
+        while (true)
+        {
+            if(ui.countdown < 1)
+            {
+                currentTime += Time.deltaTime;
+
+            }
+            if(currentTime > rolling_time)
+            {
+                break;
+            }
+            yield return null;
+        }
+        //yield return new WaitForSeconds(rolling_time); //일정시간동안 구르기진행
         boxCol.offset = colOffset;
         boxCol.size = colSize;
         player_State = Player_State.Run; //달리는 상태로 복귀

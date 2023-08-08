@@ -62,7 +62,7 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
     public bool respawn;
 
     public GameObject count_down_txt;
-    protected float countdown;
+    public float countdown;
     protected Player_shj playerScript;
 
     #endregion
