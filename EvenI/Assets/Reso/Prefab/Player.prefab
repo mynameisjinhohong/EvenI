@@ -2595,10 +2595,10 @@ MonoBehaviour:
       - m_Target: {fileID: 3992068704724015219}
         m_TargetAssemblyTypeName: InGame_UI_shj, Assembly-CSharp
         m_MethodName: Select_Check
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 3207654331861693212}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4406,10 +4406,10 @@ MonoBehaviour:
       - m_Target: {fileID: 3992068704724015219}
         m_TargetAssemblyTypeName: InGame_UI_shj, Assembly-CSharp
         m_MethodName: Select_Check
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 2162252391313086681}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6954,6 +6954,7 @@ MonoBehaviour:
   hidden2_img: []
   respawn: 0
   count_down_txt: {fileID: 6654637838319709955}
+  countdown: 0
   endingPopUpBtn: {fileID: 5117913602967613464}
   jukSunText: {fileID: 696516315387769436}
   StoryEndImage: {fileID: 7186527394601995008}

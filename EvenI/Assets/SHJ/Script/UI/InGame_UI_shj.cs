@@ -209,12 +209,12 @@ public class InGame_UI_shj : UI_Setting_shj
         Data_Save();
     }
 
-    public void Select_Check()
+    public void Select_Check(GameObject obj)
     {
         if (Select_chk)
         {
             select_panel.SetActive(true);
-
+            obj.SetActive(false);
         }
         else
             Change_Scene();
