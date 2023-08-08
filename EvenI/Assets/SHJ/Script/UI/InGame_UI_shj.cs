@@ -181,7 +181,7 @@ public class InGame_UI_shj : UI_Setting_shj
     public void Ending_Check()
     {
         int num = Scene_num < 30 ? (Scene_num / 5) - 2 : (Scene_num / 4) - 2;
-        if (count < 1700) num = 4;
+        if (count < 1700 && Scene_num < 30) num = 4;
 
         switch (num)
         {
@@ -224,22 +224,30 @@ public class InGame_UI_shj : UI_Setting_shj
     {
         if (btn_down) return;
         btn_down = true;
-        Debug.Log(1);
         int stage_num = Scene_num / 5;
-        GameManager_shj.Getinstance.Save_data.playing[stage_num] += stage_num != 0 ? 0.2f : 0.34f;
-        if (GameManager_shj.Getinstance.Save_data.playing[stage_num] > 1.0f)
-            GameManager_shj.Getinstance.Save_data.playing[stage_num] = 1.0f;
 
-        if (Select_chk)
+        if (stage_num < 6)
         {
-            Return_Scene(Scene_num + next_scene_cnt);
-            Data_change(count,carrotCount,ancientStoneCount, next_scene_cnt);
+            GameManager_shj.Getinstance.Save_data.playing[stage_num] += stage_num != 0 ? 0.2f : 0.34f;
+            if (GameManager_shj.Getinstance.Save_data.playing[stage_num] > 1.0f)
+                GameManager_shj.Getinstance.Save_data.playing[stage_num] = 1.0f;
+            if (Select_chk)
+            {
+                Return_Scene(Scene_num + next_scene_cnt);
+                Data_change(count, carrotCount, ancientStoneCount, next_scene_cnt);
+            }
+            else
+            {
+                Next_Scene();
+                Data_change(count, carrotCount, ancientStoneCount, 1);
+            }
         }
         else
         {
             Next_Scene();
-            Data_change(count,carrotCount,ancientStoneCount, 1);
+            Data_change(0, 0, 0, 1);
         }
+
     }
 
     public override void HiddenOpenCheck()
@@ -253,8 +261,8 @@ public class InGame_UI_shj : UI_Setting_shj
             some.transform.SetSiblingIndex(1);
             some.transform.GetChild(0).gameObject.GetComponent<Text>().text = "ENDING.N0 " + num + " ÇØ±Ý!";
 
-            if (count < 1700)
-                num = 4;
+            if (count < 1700 && Scene_num < 30) num = 4;
+            GameObject some2 = Instantiate(SomeThingOpen, StoryEndImage);
 
             switch (num)
             {
@@ -271,35 +279,43 @@ public class InGame_UI_shj : UI_Setting_shj
                     some.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = ending4_img[0];
                     break;
                 case 5:
-                    some.transform.GetChild(0).gameObject.GetComponent<Text>().text = "°í´ëÀ¯Àû Ã§¸°Áö ¿ÀÇÂ!";
-                    some.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = hidden_img_list[0];
-                    GameManager_shj.Getinstance.Save_data.hidden_open[0] = true;
+                    some.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = hidden1_img[0];
+                    some2.transform.SetSiblingIndex(1);
+                    some2.transform.GetChild(0).gameObject.GetComponent<Text>().text = "¹«¸ªµµ¿ø Ã§¸°Áö ¿ÀÇÂ!";
+                    some2.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = hidden_img_list[0];
+                    GameManager_shj.Getinstance.Save_data.hidden_open[2] = true;
                     break;
                 case 6:
-                    some.transform.GetChild(0).gameObject.GetComponent<Text>().text = "¹«¸ªµµ¿ø Ã§¸°Áö ¿ÀÇÂ!";
-                    some.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = hidden_img_list[1];
-                    GameManager_shj.Getinstance.Save_data.hidden_open[1] = true;
+                    some.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = hidden2_img[0];
+                    some2.transform.SetSiblingIndex(1);
+                    some2.transform.GetChild(0).gameObject.GetComponent<Text>().text = "°í´ëÀ¯Àû Ã§¸°Áö ¿ÀÇÂ!";
+                    some2.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = hidden_img_list[1];
+                    GameManager_shj.Getinstance.Save_data.hidden_open[3] = true;
                     break;
             }
 
             GameManager_shj.Getinstance.Save_data.ending[num] = true;
         }
-
+        Debug.Log(count);
         //ÇöÀç »çÁø ¹Ý´ë·Î³ª¿À°íÀÕÀ½ ¹«¸ª-°í´ë
-        if (/*GameManager_shj.Getinstance.Save_data.ancientRock*/ancientStoneCount >= player.GetComponent<Player_shj>().ancientMax && GameManager_shj.Getinstance.Save_data.hidden_open[0] == false)
+        if (/*GameManager_shj.Getinstance.Save_data.ancientRock*/ancientStoneCount >= player.GetComponent<Player_shj>().ancientMax && GameManager_shj.Getinstance.Save_data.hidden_open[1] == false)
         {
             GameObject some = Instantiate(SomeThingOpen, StoryEndImage);
             some.transform.SetSiblingIndex(1);
             some.transform.GetChild(0).gameObject.GetComponent<Text>().text = "°í´ëÀ¯Àû Stage ¿ÀÇÂ!";
-            some.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = hidden_img_list[0];
+            some.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = hidden_img_list[1];
+            GameManager_shj.Getinstance.Save_data.hidden_open[1] = true;
+
             //GameManager_shj.Getinstance.Save_data.hidden_open[0] = true;
         }
-        if(/*GameManager_shj.Getinstance.Save_data.juksun*/count >= player.GetComponent<Player_shj>().juksunMax && GameManager_shj.Getinstance.Save_data.hidden_open[1] == false)
+        if (/*GameManager_shj.Getinstance.Save_data.juksun*/count >= player.GetComponent<Player_shj>().juksunMax && GameManager_shj.Getinstance.Save_data.hidden_open[0] == false)
         {
             GameObject some = Instantiate(SomeThingOpen, StoryEndImage);
             some.transform.SetSiblingIndex(1);
             some.transform.GetChild(0).gameObject.GetComponent<Text>().text = "¹«¸ªµµ¿ø Stage ¿ÀÇÂ!";
-            some.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = hidden_img_list[1];
+            some.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = hidden_img_list[0];
+            GameManager_shj.Getinstance.Save_data.hidden_open[0] = true;
+
             //GameManager_shj.Getinstance.Save_data.hidden_open[1] = true;
         }
         GameManager_shj.Getinstance.Data_Save();

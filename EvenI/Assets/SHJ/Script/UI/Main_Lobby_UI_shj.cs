@@ -80,7 +80,7 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
 
         for (int i = 0; i < hidden_list.Length; i++)
         {
-            if(!GameManager_shj.Getinstance.Save_data.hidden_open[i % 2])
+            if(!GameManager_shj.Getinstance.Save_data.hidden_open[i /*% 2*/])
             {
                 hidden_list[i].GetComponentInChildren<Text>().text = "???";
                 hidden_list[i].transform.GetChild(0).GetChild(1).gameObject.SetActive(true);

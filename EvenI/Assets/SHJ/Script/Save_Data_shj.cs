@@ -34,7 +34,7 @@ public class Save_Data_shj : MonoBehaviour
         hp = 30;
         ending = new bool[7];
         playing = new float[6];
-        hidden_open = new bool[2];
+        hidden_open = new bool[4];
         bgm_vol = 0.5f;
         eff_vol = 0.5f;
         lastjoin = DateTime.Now.ToString("yyyy-MM-dd");
