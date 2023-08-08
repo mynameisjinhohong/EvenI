@@ -93,15 +93,21 @@ public class InGame_UI_shj : UI_Setting_shj
 
         if(Select_chk)
         {
+            string[] stage_title = { "ÁöÇÏµ¿±¼", "¾óÀ½µ¿±¼", "¿ë¾Ïµ¿±¼", "Á¤±Û", "¼³»ê" };
+
             int num = Scene_num;
-
-            select_panel.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(() => Set_cnt(next_scene_cnt));
+            int stage_num = num == 4 ? 2 : 3;
+            select_panel.transform.GetChild(0).GetChild(0).GetComponentInChildren<Button>().onClick.AddListener(() => Set_cnt(next_scene_cnt));
             //select_panel.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(Change_Scene);
-            select_panel.transform.GetChild(0).GetComponent<Image>().sprite = background_list[(num + next_scene_cnt) / 5 - 1];
+            select_panel.transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = background_list[(num + next_scene_cnt) / 5 - 1];
+            select_panel.transform.GetChild(0).GetChild(0).GetComponentInChildren<Text>().text = stage_title[(num + next_scene_cnt) / 5 - 1];
 
-            select_panel.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(() => Set_cnt(next_scene_cnt + 5));
+            select_panel.transform.GetChild(0).GetChild(1).GetComponentInChildren<Button>().onClick.AddListener(() => Set_cnt(next_scene_cnt + 5));
             //select_panel.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(Change_Scene);
-            select_panel.transform.GetChild(1).GetComponent<Image>().sprite = background_list[(num + next_scene_cnt + 5) / 5 - 1];
+            select_panel.transform.GetChild(0).GetChild(1).GetComponent<Image>().sprite = background_list[(num + next_scene_cnt + 5) / 5 - 1];
+            select_panel.transform.GetChild(0).GetChild(1).GetComponentInChildren<Text>().text = stage_title[(num + next_scene_cnt + 5) / 5 - 1];
+
+            select_panel.GetComponentInChildren<TextMeshProUGUI>().text = stage_num + " START";
         }
     }
 
@@ -206,7 +212,10 @@ public class InGame_UI_shj : UI_Setting_shj
     public void Select_Check()
     {
         if (Select_chk)
+        {
             select_panel.SetActive(true);
+
+        }
         else
             Change_Scene();
     }
@@ -238,7 +247,7 @@ public class InGame_UI_shj : UI_Setting_shj
         endingPopUpBtn.SetActive(true);
         jukSunText.text = "X " + count;
         int num = Scene_num < 30 ? (Scene_num / 5) - 2 : (Scene_num / 4) - 2;
-        if(GameManager_shj.Getinstance.Save_data.ending[num] == false)
+        if (GameManager_shj.Getinstance.Save_data.ending[num] == false)
         {
             GameObject some = Instantiate(SomeThingOpen, StoryEndImage);
             some.transform.SetSiblingIndex(1);
@@ -262,28 +271,36 @@ public class InGame_UI_shj : UI_Setting_shj
                     some.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = ending4_img[0];
                     break;
                 case 5:
+                    some.transform.GetChild(0).gameObject.GetComponent<Text>().text = "°í´ëÀ¯Àû Ã§¸°Áö ¿ÀÇÂ!";
+                    some.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = hidden_img_list[0];
+                    GameManager_shj.Getinstance.Save_data.hidden_open[0] = true;
                     break;
                 case 6:
+                    some.transform.GetChild(0).gameObject.GetComponent<Text>().text = "¹«¸ªµµ¿ø Ã§¸°Áö ¿ÀÇÂ!";
+                    some.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = hidden_img_list[1];
+                    GameManager_shj.Getinstance.Save_data.hidden_open[1] = true;
                     break;
             }
 
             GameManager_shj.Getinstance.Save_data.ending[num] = true;
         }
-        if (GameManager_shj.Getinstance.Save_data.ancientRock >= player.GetComponent<Player_shj>().ancientMax && GameManager_shj.Getinstance.Save_data.hidden_open[0] == false)
+
+        //ÇöÀç »çÁø ¹Ý´ë·Î³ª¿À°íÀÕÀ½ ¹«¸ª-°í´ë
+        if (/*GameManager_shj.Getinstance.Save_data.ancientRock*/ancientStoneCount >= player.GetComponent<Player_shj>().ancientMax && GameManager_shj.Getinstance.Save_data.hidden_open[0] == false)
         {
             GameObject some = Instantiate(SomeThingOpen, StoryEndImage);
             some.transform.SetSiblingIndex(1);
             some.transform.GetChild(0).gameObject.GetComponent<Text>().text = "°í´ëÀ¯Àû Stage ¿ÀÇÂ!";
             some.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = hidden_img_list[0];
-            GameManager_shj.Getinstance.Save_data.hidden_open[0] = true;
+            //GameManager_shj.Getinstance.Save_data.hidden_open[0] = true;
         }
-        if(GameManager_shj.Getinstance.Save_data.juksun >= player.GetComponent<Player_shj>().juksunMax && GameManager_shj.Getinstance.Save_data.hidden_open[1] == false)
+        if(/*GameManager_shj.Getinstance.Save_data.juksun*/count >= player.GetComponent<Player_shj>().juksunMax && GameManager_shj.Getinstance.Save_data.hidden_open[1] == false)
         {
             GameObject some = Instantiate(SomeThingOpen, StoryEndImage);
             some.transform.SetSiblingIndex(1);
             some.transform.GetChild(0).gameObject.GetComponent<Text>().text = "¹«¸ªµµ¿ø Stage ¿ÀÇÂ!";
             some.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = hidden_img_list[1];
-            GameManager_shj.Getinstance.Save_data.hidden_open[1] = true;
+            //GameManager_shj.Getinstance.Save_data.hidden_open[1] = true;
         }
         GameManager_shj.Getinstance.Data_Save();
     }
