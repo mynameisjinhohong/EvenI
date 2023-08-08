@@ -169,6 +169,7 @@ public class Player_shj : MonoBehaviour
     public GameObject hiddenGameOverPanel;
     public GameObject hiddenGameClearPanel;
     public TImer_shj timer;
+    Vector3 currentPos;
     public void Start()
     {
         nomalSpeed = speed;
@@ -182,6 +183,7 @@ public class Player_shj : MonoBehaviour
         player_State = Player_State.Run;
         default_size = transform.localScale.x;
         charge_img.SetActive(false);
+        currentPos = transform.position;
     }
     private void OnEnable()
     {
@@ -242,14 +244,15 @@ public class Player_shj : MonoBehaviour
         //    }
 
         //}
-        if(rigid.velocity.x == 0)
+        if(Mathf.Abs((currentPos -transform.position).x) < 0.01)
         {
             if(!stuckRespawn && !gameClear)
             {
                 stuckRespawn = true;
-                StartCoroutine(StuckCheck());
+                StartCoroutine(StuckCheck(currentPos));
             }
         }
+        currentPos = transform.position;
         if (transform.position.y < -6)
         {
             //GameOver();
@@ -818,13 +821,13 @@ public class Player_shj : MonoBehaviour
         rollStart = false;
         //playerAnimator.SetBool("Rolling", false);
     }
-    IEnumerator StuckCheck()
+    IEnumerator StuckCheck(Vector3 nowPos)
     {
         float current = 0;
         while(true)
         {
             current += Time.deltaTime;
-            if(rigid.velocity.x != 0)
+            if(Mathf.Abs((nowPos-currentPos).x)>0.01)
             {
                 stuckRespawn = false;
                 break;
@@ -865,7 +868,10 @@ public class Player_shj : MonoBehaviour
         if (ui.respawn) gameOverPanel.SetActive(false);
 
         nuckBackDuring = false;
-        StopCoroutine(nuckBackCoroutine);
+        if(nuckBackCoroutine != null)
+        {
+            StopCoroutine(nuckBackCoroutine);
+        }
         ui.Start();
         rigid.velocity = Vector2.zero;
         transform.localPosition = hit.point + (Vector2)Vector3.up * 1.5f;
