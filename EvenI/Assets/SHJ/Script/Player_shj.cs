@@ -258,7 +258,7 @@ public class Player_shj : MonoBehaviour
             //GameOver();
             if (hp <= 2) GameOver();
             else
-                Respawn();
+                Respawn(true);
         }
         //RaycastHit2D hit = Physics2D.Raycast(rayPoint[0].position, Vector2.up, transform.localScale.x / 2, LayerMask.GetMask("ground"));
         RaycastHit2D[] hit = Physics2D.BoxCastAll(transform.position + new Vector3(0, boxCol.size.y * transform.localScale.y * 0.5f), new Vector2(boxCol.size.x * transform.localScale.x, 1f), 0, Vector2.up, 0.1f, LayerMask.GetMask("ground"));//위
@@ -854,14 +854,14 @@ public class Player_shj : MonoBehaviour
             if(current > stuckCheckTime)
             {
                 stuckRespawn = false;
-                Respawn();
+                Respawn(false);
                 break;
             }
             yield return null;
         }
     }
 
-    public void Respawn()
+    public void Respawn(bool damage)
     {
         float default_x = 1.0f;
 
@@ -880,9 +880,8 @@ public class Player_shj : MonoBehaviour
         //if(GameObject.Find("EndingPoint").transform.position.x - cam.transform.position.x > 14) 카메라 버그로인한 주석
         //    cam.transform.position = new Vector3((transform.position + new Vector3(camera_distance, 0, 0)).x, 2, -10);//플레이어한테 맞춰서 카메라 배치
 
-            //Camera.main.transform.position =  new Vector3(GameObject.Find("EndingPoint").transform.position.x - 13.9f,2,-10);
-
-        if (hp - 2 > 0) Hp -= 2;
+        //Camera.main.transform.position =  new Vector3(GameObject.Find("EndingPoint").transform.position.x - 13.9f,2,-10);
+        if (hp - 2 > 0 && damage) Hp -= 2;
 
         if (ui.respawn) gameOverPanel.SetActive(false);
 
