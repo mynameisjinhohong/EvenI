@@ -349,8 +349,8 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
                 {
                     if (respawn)
                     {
-                        player.GetComponent<Player_shj>().Respawn();
                         player.GetComponent<Player_shj>().hp = 2;
+                        player.GetComponent<Player_shj>().Respawn(false);
                         respawn = false;
                     }
                     else
