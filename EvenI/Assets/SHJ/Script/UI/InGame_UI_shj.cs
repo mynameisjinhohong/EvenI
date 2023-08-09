@@ -213,8 +213,8 @@ public class InGame_UI_shj : UI_Setting_shj
     {
         if (Select_chk)
         {
-            select_panel.SetActive(true);
             obj.SetActive(false);
+            select_panel.SetActive(true);
         }
         else
             Change_Scene();
@@ -262,7 +262,6 @@ public class InGame_UI_shj : UI_Setting_shj
             some.transform.GetChild(0).gameObject.GetComponent<Text>().text = "ENDING.N0 " + num + " ÇØ±Ý!";
 
             if (count < 1700 && Scene_num < 30) num = 4;
-            GameObject some2 = Instantiate(SomeThingOpen, StoryEndImage);
 
             switch (num)
             {
@@ -280,16 +279,16 @@ public class InGame_UI_shj : UI_Setting_shj
                     break;
                 case 5:
                     some.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = hidden1_img[0];
-                    some2.transform.SetSiblingIndex(1);
-                    some2.transform.GetChild(0).gameObject.GetComponent<Text>().text = "¹«¸ªµµ¿ø Ã§¸°Áö ¿ÀÇÂ!";
-                    some2.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = hidden_img_list[0];
+                    some.transform.SetSiblingIndex(1);
+                    some.transform.GetChild(0).gameObject.GetComponent<Text>().text = "¹«¸ªµµ¿ø Ã§¸°Áö ¿ÀÇÂ!";
+                    some.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = hidden_img_list[0];
                     GameManager_shj.Getinstance.Save_data.hidden_open[2] = true;
                     break;
                 case 6:
                     some.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = hidden2_img[0];
-                    some2.transform.SetSiblingIndex(1);
-                    some2.transform.GetChild(0).gameObject.GetComponent<Text>().text = "°í´ëÀ¯Àû Ã§¸°Áö ¿ÀÇÂ!";
-                    some2.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = hidden_img_list[1];
+                    some.transform.SetSiblingIndex(1);
+                    some.transform.GetChild(0).gameObject.GetComponent<Text>().text = "°í´ëÀ¯Àû Ã§¸°Áö ¿ÀÇÂ!";
+                    some.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = hidden_img_list[1];
                     GameManager_shj.Getinstance.Save_data.hidden_open[3] = true;
                     break;
             }
