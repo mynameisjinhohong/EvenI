@@ -442,6 +442,10 @@ public class Player_shj : MonoBehaviour
         {
             StartCoroutine(IceFloorCheck());
         }
+        else if(state == Player_State.Run && speed != nomalSpeed && nuckBackCoroutine == null)
+        {
+            nuckBackCoroutine = StartCoroutine(NuckBackAddForce());
+        }
     }
     IEnumerator IceFloorCheck() //밑에 얼음 바닥이 있는지
     {
