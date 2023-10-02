@@ -8,7 +8,7 @@ using UnityEngine.Advertisements;
 using TMPro;
 using System;
 
-public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
+public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler,IUnityAdsLoadListener,IUnityAdsShowListener,IUnityAdsInitializationListener
 {
     #region 변수
 
@@ -76,9 +76,9 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
     public DateTime Nowtime { get { return DateTime.Now; } }
 
     protected void init_set()
-    {
+    { 
         if (GetComponent<AudioSource>() != null) audio = GetComponent<AudioSource>();
-        if(!Advertisement.isInitialized) Advertisement.Initialize(gameID);
+        if(!Advertisement.isInitialized && Advertisement.isSupported) Advertisement.Initialize(gameID,false,this);
 
         if(Scene_num > 1) respawn = false;
         gamestart = false;
@@ -321,49 +321,52 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
     public void ShowAds(int heal)
     {
         this.heal = heal;
-        if (Advertisement.IsReady())
-        {
-            ShowOptions options = new ShowOptions { resultCallback = ResultAds };
-            Advertisement.Show(adType, options);
-        }
+        Advertisement.Load(adType,this);
+        //if (!Advertisement.isShowing)
+        //{
+        //    //ShowOptions options = new ShowOptions();
+        //    Advertisement.Show(adType,this);
+        //    //Advertisement.Show(adType, options);
+
+        //}
         //ads.SetActive(false);
     }
 
-    void ResultAds(ShowResult result)
-    {
-        switch (result)
-        {
-            case ShowResult.Failed:
-                break;
-            case ShowResult.Skipped:
-            case ShowResult.Finished:
-                if(Scene_num == 1)
-                {
-                    if (GameManager_shj.Getinstance.Save_data.hp + heal <= GameManager_shj.Getinstance.Save_data.max_hp)
-                        GameManager_shj.Getinstance.Save_data.hp += heal;
-                    else
-                        GameManager_shj.Getinstance.Save_data.hp = GameManager_shj.Getinstance.Save_data.max_hp;
-                    Data_Save();
-                }
-                else
-                {
-                    if (respawn)
-                    {
-                        player.GetComponent<Player_shj>().hp = 2;
-                        player.GetComponent<Player_shj>().Respawn(false);
-                        respawn = false;
-                    }
-                    else
-                    {
-                        //if (player.GetComponent<Player_shj>().hp + heal <= GameManager_shj.Getinstance.Save_data.max_hp)
-                            player.GetComponent<Player_shj>().hp += heal;
-                    }
-                    if (hp_cnt != null) hp_cnt.text = (int.Parse(hp_cnt.text) + 1).ToString();
-                }
+    //void ResultAds(ShowResult result)
+    //{
+    //    switch (result)
+    //    {
+    //        case ShowResult.Failed:
+    //            break;
+    //        case ShowResult.Skipped:
+    //        case ShowResult.Finished:
+    //            if(Scene_num == 1)
+    //            {
+    //                if (GameManager_shj.Getinstance.Save_data.hp + heal <= GameManager_shj.Getinstance.Save_data.max_hp)
+    //                    GameManager_shj.Getinstance.Save_data.hp += heal;
+    //                else
+    //                    GameManager_shj.Getinstance.Save_data.hp = GameManager_shj.Getinstance.Save_data.max_hp;
+    //                Data_Save();
+    //            }
+    //            else
+    //            {
+    //                if (respawn)
+    //                {
+    //                    player.GetComponent<Player_shj>().hp = 2;
+    //                    player.GetComponent<Player_shj>().Respawn(false);
+    //                    respawn = false;
+    //                }
+    //                else
+    //                {
+    //                    //if (player.GetComponent<Player_shj>().hp + heal <= GameManager_shj.Getinstance.Save_data.max_hp)
+    //                        player.GetComponent<Player_shj>().hp += heal;
+    //                }
+    //                if (hp_cnt != null) hp_cnt.text = (int.Parse(hp_cnt.text) + 1).ToString();
+    //            }
 
-                break;
-        }
-    }
+    //            break;
+    //    }
+    //}
 
     protected void Count_down()
     {
@@ -391,4 +394,77 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler
 
         }
     }
+
+    #region 광고
+
+    public void OnUnityAdsAdLoaded(string placementId)
+    {
+        //Debug.Log("시청준비");
+        Advertisement.Show(adType, this);
+    }
+
+    public void OnUnityAdsFailedToLoad(string placementId, UnityAdsLoadError error, string message)
+    {
+        //Debug.Log("시청준비실패");
+
+    }
+
+    public void OnUnityAdsShowFailure(string placementId, UnityAdsShowError error, string message)
+    {
+        //Debug.Log("시청실패");
+
+    }
+
+    public void OnUnityAdsShowStart(string placementId)
+    {
+        //Debug.Log("시청시작");
+
+    }
+
+    public void OnUnityAdsShowClick(string placementId)
+    {
+        //Debug.Log("시청클릭");
+
+    }
+
+    public void OnUnityAdsShowComplete(string placementId, UnityAdsShowCompletionState showCompletionState)
+    {
+        //Debug.Log("시청완료");
+
+        if (Scene_num == 1)
+        {
+            if (GameManager_shj.Getinstance.Save_data.hp + heal <= GameManager_shj.Getinstance.Save_data.max_hp)
+                GameManager_shj.Getinstance.Save_data.hp += heal;
+            else
+                GameManager_shj.Getinstance.Save_data.hp = GameManager_shj.Getinstance.Save_data.max_hp;
+            Data_Save();
+        }
+        else
+        {
+            if (respawn)
+            {
+                player.GetComponent<Player_shj>().hp = 2;
+                player.GetComponent<Player_shj>().Respawn(false);
+                respawn = false;
+            }
+            else
+            {
+                //if (player.GetComponent<Player_shj>().hp + heal <= GameManager_shj.Getinstance.Save_data.max_hp)
+                player.GetComponent<Player_shj>().hp += heal;
+            }
+            if (hp_cnt != null) hp_cnt.text = (int.Parse(hp_cnt.text) + 1).ToString();
+        }
+    }
+
+
+    public void OnInitializationComplete()
+    {
+        //Debug.Log("광고준비");
+    }
+
+    public void OnInitializationFailed(UnityAdsInitializationError error, string message)
+    {
+        //Debug.Log("광고준비실패");
+    }
+    #endregion
 }
