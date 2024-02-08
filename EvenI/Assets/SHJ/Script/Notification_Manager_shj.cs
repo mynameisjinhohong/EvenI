@@ -4,10 +4,14 @@ using UnityEngine;
 using System;
 using Unity.Notifications.Android;
 
+//Mobile Notifications 패키지
+
 public class Notification_Manager_shj : MonoBehaviour
 {
     AndroidNotificationChannel notificationChannel;
     AndroidNotification notification;
+
+    public delegate void Noti(int sec);
 
     public void Noti_Panda(int sec)
     {
@@ -27,6 +31,7 @@ public class Notification_Manager_shj : MonoBehaviour
         );
         AndroidNotificationCenter.SendNotification(notification, "channel");
     }
+
 
     //private void OnApplicationPause(bool pause) //종료시 작동
     //{

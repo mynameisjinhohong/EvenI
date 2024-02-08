@@ -29,6 +29,9 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
     public Slider BGM_value;
     public Slider Effect_value;
 
+    delegate void Chain();
+    int sec;
+
     public void Start()
     {
         init_set();
@@ -40,10 +43,14 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
         if (GameManager_shj.Getinstance.Save_data.nickname.Length == 0 || GameManager_shj.Getinstance.Save_data.nickname == "")
             gameinfo.SetActive(true);
 
-        if (GameManager_shj.Getinstance.Save_data.hp == GameManager_shj.Getinstance.Save_data.max_hp)
+        if (GameManager_shj.Getinstance.Save_data.hp 
+            == GameManager_shj.Getinstance.Save_data.max_hp)
         {
-            panda_hos.onClick.SetPersistentListenerState(0, UnityEngine.Events.UnityEventCallState.Off);
-            panda_hos.onClick.AddListener(() => Active_Info("판다가 아프지 않습니다!"));
+            panda_hos.onClick.SetPersistentListenerState
+                (0, UnityEngine.Events.UnityEventCallState.Off);
+
+            panda_hos.onClick.AddListener
+                (() => Active_Info("판다가 아프지 않습니다!"));
         }
 
         for (int i = 0, j = 1; i < playing_target.Length; i++)
@@ -146,22 +153,28 @@ public class Main_Lobby_UI_shj : UI_Setting_shj
         info.SetActive(true);
         info.GetComponentInChildren<Text>().text = txt;
     }
+
     public int Time_Check { get { return int.Parse(DateTime.Now.ToString("HH")) * 3600 + int.Parse(DateTime.Now.ToString("mm")) * 60 + int.Parse(DateTime.Now.ToString("ss")); } }
+
     public void Active_Heal()
     {
         int nexthealtime = Time_Check + 300 < 86400 ? Time_Check + 300 : 86400;
         GameManager_shj.Getinstance.Save_data.nexthealtime = nexthealtime;
         GameManager_shj.Getinstance.Save_data.healcnt += 1;
 
-        if (GameManager_shj.Getinstance.Save_data.hp + 3 < GameManager_shj.Getinstance.Save_data.max_hp)
-        {
-            int sec = nexthealtime - Time_Check;
-            GameManager_shj.Getinstance.Noti.Noti_Panda(sec);
-        }
+         sec = nexthealtime - Time_Check;
 
-        charge_cnt_txt.text = "하트 무료 충전" + "\n" + "(" + GameManager_shj.Getinstance.Save_data.healcnt + "/5" + ")";
-        ShowAds(3);
+         Chain chain = Adsheal; //광고 시청
+        chain += Noti; //다음회복 알림 전송 
+        chain();
+
+        charge_cnt_txt.text = "하트 무료 충전" + "\n" + 
+            "(" + GameManager_shj.Getinstance.Save_data.healcnt + "/5" + ")";
     }
+
+    void Adsheal() { ShowAds(3); }
+
+    void Noti() { GameManager_shj.Getinstance.Noti.Noti_Panda(sec); } 
 
     public void Date_Check()
     {

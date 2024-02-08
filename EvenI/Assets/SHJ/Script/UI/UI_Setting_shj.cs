@@ -4,11 +4,29 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
-using UnityEngine.Advertisements;
+using UnityEngine.Advertisements; 
 using TMPro;
 using System;
 
-public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler,IUnityAdsLoadListener,IUnityAdsShowListener,IUnityAdsInitializationListener
+
+public class Story
+{
+    public string text;
+    public Sprite story_img;
+    public Vector2 pos;
+    
+    public Story(string txt, Sprite img, bool pos_chk = true)
+    {
+        text = txt;
+        story_img = img;
+
+        if (pos_chk) pos = new Vector2(0,-10);
+        else pos = new Vector2(0, 10);
+    }
+}
+
+
+public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler,IUnityAdsLoadListener,IUnityAdsShowListener,IUnityAdsInitializationListener 
 {
     #region 변수
 
@@ -34,6 +52,7 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler,IUnityAdsLoadL
     protected Sprite[] scenario_img; //시나리오 이미지 배열
 
     protected List<Dictionary<string, object>> senario; //CSV로 불러올 시나리오 내용
+    protected List<Story> stories;
     protected GameObject root_UI = null; //없어도 될듯 삭제예정
 
     public GameObject story_mask;
@@ -74,13 +93,16 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler,IUnityAdsLoadL
     #endregion
 
     public DateTime Nowtime { get { return DateTime.Now; } }
-
     protected void init_set()
     { 
         if (GetComponent<AudioSource>() != null) audio = GetComponent<AudioSource>();
-        if(!Advertisement.isInitialized && Advertisement.isSupported) Advertisement.Initialize(gameID,false,this);
 
-        if(Scene_num > 1) respawn = false;
+        if (!Advertisement.isInitialized && Advertisement.isSupported)
+        {
+            Advertisement.Initialize(gameID, false, this);
+        }
+
+        if (Scene_num > 1) respawn = false;
         gamestart = false;
     }
 
@@ -218,42 +240,86 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler,IUnityAdsLoadL
 
     public void Load_Story(string scenario_name) //--
     {
-        switch (scenario_name)
-        {
-            case "opening":
-                scenario_img = opening_img;
-                break;
 
-            case "ending1":
-                scenario_img = ending1_img;
-                break;
+        var img = this.GetType().GetField(scenario_name + "_img").GetValue(this); //이렇게 사용하면 변수명으로 값을 가져올수있음
+        scenario_img = (Sprite[])img;
+        //switch (scenario_name)
+        //{
+        //    case "opening":
+        //        scenario_img = opening_img;
+        //        break;
 
-            case "ending2":
-                scenario_img = ending2_img;
-                break;
+        //    case "ending1":
+        //        scenario_img = ending1_img;
+        //        break;
 
-            case "ending3":
-                scenario_img = ending3_img;
-                break;
+        //    case "ending2":
+        //        scenario_img = ending2_img;
+        //        break;
 
-            case "ending4":
-                scenario_img = ending4_img;
-                break;
+        //    case "ending3":
+        //        scenario_img = ending3_img;
+        //        break;
 
-            case "hidden1":
-                scenario_img = hidden1_img;
-                break;
+        //    case "ending4":
+        //        scenario_img = ending4_img;
+        //        break;
 
-            case "hidden2":
-                scenario_img = hidden2_img;
-                break;
-        }
+        //    case "hidden1":
+        //        scenario_img = hidden1_img;
+        //        break;
+
+        //    case "hidden2":
+        //        scenario_img = hidden2_img;
+        //        break;
+        //}
         story_mask.SetActive(true);
         //StartCoroutine(Story_Open(story));
         //if(main != null) main.SetActive(false);
         //story.SetActive(true);
         click_cnt = -1;
         senario = CSVReader.Read(/*"Scenario/" + scenario_name + "/" + */scenario_name + "_scenario");
+        Load_Story();
+        //next_text();
+    }
+
+    public void Load_Story()
+    {
+        stories = new List<Story>();
+        int i = 0,img_num = 0;
+        
+        while(senario.Count > i)
+        {
+
+            string text = "";
+
+            for (int j = 0; j < 3; j++,i++)
+            {
+                text += senario[i]["text"].ToString();
+
+                if (j != 2)
+                    text += '\n';
+            }
+            if (text.Contains("(닉네임)"))
+                text = text.Replace
+                    ("(닉네임)",
+                    GameManager_shj.Getinstance.Save_data.nickname);
+
+            bool pos_y =
+                senario[i-1]["pos_y"].ToString() == ""
+                ? false : true;
+
+            Sprite sty_bg = scenario_img[img_num];
+
+            if (senario[i - 1]["image_num"].ToString() != "")
+                img_num = 
+                int.Parse(senario[i - 1]["image_num"].ToString()) - 1;
+
+            Story sty = new Story(text, sty_bg, pos_y);
+
+            stories.Add(sty);
+        }
+
         next_text();
     }
 
@@ -264,6 +330,9 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler,IUnityAdsLoadL
         if (senario.Count / 3 > click_cnt)
         {
             if(audio != null) audio.Play();
+            story_text.text = stories[click_cnt].text;
+            story_bg.sprite = stories[click_cnt].story_img;
+            text_pos.anchoredPosition = stories[click_cnt].pos;
 
             //Debug.Log(scene_image_num[0]);
             //if (scene_image_num[scenario_cnt] == click_cnt)
@@ -274,30 +343,37 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler,IUnityAdsLoadL
             //else
             //    story_bg.sprite = scene_image_list[0];
 
-            for (int i = 0; i < 3; i++)
-            {
-                string text = senario[i + 3 * click_cnt]["text"].ToString();
+            //for (int i = 0; i < 3; i++)
+            //{
+            //    string text = senario[i + 3 * click_cnt]["text"].ToString();
 
-                //수정필요
-                if (i == 2 && senario[i + 3 * click_cnt]["image_num"].ToString() != "")
-                {
-                    story_bg.sprite = scenario_img[int.Parse(senario[i + 3 * click_cnt]["image_num"].ToString()) - 1];
-                }
+            //    //수정필요
+            //    if (i == 2 && senario[i + 3 * click_cnt]["image_num"].ToString() != "")
+            //    {
+            //        story_bg.sprite = scenario_img[int.Parse(senario[i + 3 * click_cnt]["image_num"].ToString()) - 1];
+            //    }
 
-                if (i == 2 && senario[i + 3 * click_cnt]["font_size"].ToString() != "")
-                    story_text.fontSize = int.Parse(senario[i + 3 * click_cnt]["font_size"].ToString());
-                else story_text.fontSize = 30;
 
-                if (i == 2 && senario[i + 3 * click_cnt]["pos_y"].ToString() != "")
-                    text_pos.anchoredPosition = new Vector2(0, -10);
-                else text_pos.anchoredPosition = new Vector2(0, 10);
 
-                //닉네임 부분을 변경
-                if (text.Contains("(닉네임)")) text = text.Replace("(닉네임)", GameManager_shj.Getinstance.Save_data.nickname);
+            //    if (i == 2 && senario[i + 3 * click_cnt]["font_size"].ToString() != "")
+            //        story_text.fontSize = int.Parse(senario[i + 3 * click_cnt]["font_size"].ToString());
+            //    else story_text.fontSize = 30;
 
-                if (i == 0) story_text.text = text;
-                else story_text.text += "\n" + text;
-            }
+
+
+            //    if (i == 2 && senario[i + 3 * click_cnt]["pos_y"].ToString() != "")
+            //        text_pos.anchoredPosition = new Vector2(0, -10);
+            //    else text_pos.anchoredPosition = new Vector2(0, 10);
+
+            //    //닉네임 부분을 변경
+            //    if (text.Contains("(닉네임)")) text = text.Replace("(닉네임)", GameManager_shj.Getinstance.Save_data.nickname);
+
+            //    if (i == 0) story_text.text = text;
+            //    else story_text.text += "\n" + text;
+            //}
+
+
+
             btn_text.text = "다음";
             if (click_cnt == senario.Count / 3 - 1) //스토리 끝났을때
             {
@@ -321,7 +397,9 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler,IUnityAdsLoadL
     public void ShowAds(int heal)
     {
         this.heal = heal;
-        Advertisement.Load(adType,this);
+
+        Advertisement.Load(adType, this);
+
         //if (!Advertisement.isShowing)
         //{
         //    //ShowOptions options = new ShowOptions();
@@ -467,4 +545,5 @@ public class UI_Setting_shj : MonoBehaviour, IPointerClickHandler,IUnityAdsLoadL
         //Debug.Log("광고준비실패");
     }
     #endregion
+
 }

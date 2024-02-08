@@ -13,7 +13,7 @@ public class GameManager_shj : MonoBehaviour
 
     Save_Data_shj save_Data;
     DataManager_shj dataManager;
-    Notification_Manager_shj notification;
+    Notification_Manager_shj notification; 
 
     public AudioMixer mixer;
 
@@ -29,7 +29,7 @@ public class GameManager_shj : MonoBehaviour
             audio = GetComponent<AudioSource>();
 
             dataManager = GetComponent<DataManager_shj>();
-            notification = GetComponent<Notification_Manager_shj>();
+            notification = GetComponent<Notification_Manager_shj>(); //임시 주석 처리
 
             save_Data = gameObject.AddComponent<Save_Data_shj>();
         }

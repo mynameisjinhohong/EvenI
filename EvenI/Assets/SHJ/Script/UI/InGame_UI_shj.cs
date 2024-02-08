@@ -50,7 +50,9 @@ public class InGame_UI_shj : UI_Setting_shj
         //        obj.transform.parent = Hp_list;
         //    }
         //}
-        Advertisement.Initialize(gameID, true);
+
+        Advertisement.Initialize(gameID, false, this);
+
         count = GameManager_shj.Getinstance.Save_data.juksun;
         carrotCount = GameManager_shj.Getinstance.Save_data.carrot;
         ancientStoneCount = GameManager_shj.Getinstance.Save_data.ancientRock;

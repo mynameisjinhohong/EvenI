@@ -44,6 +44,5 @@ public class Save_Data_shj : MonoBehaviour
         for (int i = 0; i < ending.Length; i++) ending[i] = false;
         for (int i = 0; i < hidden_open.Length; i++) hidden_open[i] = false;
         for (int i = 0; i < playing.Length; i++) playing[i] = 0.0f;
-
     }
 }
